@@ -32,7 +32,7 @@ import java.util.List;
  * 
  * @author Craig Walls
  */
-public interface LinkedInOperations {
+public interface LinkedInApi {
 	/**
 	 * Retrieves the user's LinkedIn profile ID.
 	 * 
