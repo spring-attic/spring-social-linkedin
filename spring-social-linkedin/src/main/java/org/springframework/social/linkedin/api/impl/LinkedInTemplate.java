@@ -13,10 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.social.linkedin;
+package org.springframework.social.linkedin.api.impl;
 
 import java.util.List;
 
+import org.springframework.social.linkedin.api.LinkedInApi;
+import org.springframework.social.linkedin.api.LinkedInConnections;
+import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.oauth1.ProtectedResourceClientFactory;
 import org.springframework.web.client.RestTemplate;
 
