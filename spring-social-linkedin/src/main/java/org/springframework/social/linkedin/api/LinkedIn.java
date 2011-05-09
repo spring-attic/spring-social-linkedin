@@ -33,7 +33,7 @@ import org.springframework.social.linkedin.api.impl.LinkedInTemplate;
  * 
  * @author Craig Walls
  */
-public interface LinkedInApi {
+public interface LinkedIn {
 	/**
 	 * Retrieves the user's LinkedIn profile ID.
 	 * 
