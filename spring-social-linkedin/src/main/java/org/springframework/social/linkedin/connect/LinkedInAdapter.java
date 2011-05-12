@@ -27,11 +27,11 @@ import org.springframework.web.client.HttpClientErrorException;
  * LinkedIn ApiAdapter implementation.
  * @author Keith Donald
  */
-public class LinkedInApiAdapter implements ApiAdapter<LinkedIn> {
+public class LinkedInAdapter implements ApiAdapter<LinkedIn> {
 
-	public boolean test(LinkedIn api) {
+	public boolean test(LinkedIn linkedin) {
 		try {
-			api.getUserProfile();
+			linkedin.getUserProfile();
 			return true;
 		} catch (HttpClientErrorException e) {
 			// TODO: Have api throw more specific exception and trigger off of that.
@@ -39,20 +39,20 @@ public class LinkedInApiAdapter implements ApiAdapter<LinkedIn> {
 		}
 	}
 
-	public void setConnectionValues(LinkedIn api, ConnectionValues values) {
-		LinkedInProfile profile = api.getUserProfile();
+	public void setConnectionValues(LinkedIn linkedin, ConnectionValues values) {
+		LinkedInProfile profile = linkedin.getUserProfile();
 		values.setProviderUserId(profile.getId());
 		values.setDisplayName(profile.getFirstName() + " " + profile.getLastName());
 		values.setProfileUrl(profile.getPublicProfileUrl());
 		values.setImageUrl(profile.getProfilePictureUrl());
 	}
 
-	public UserProfile fetchUserProfile(LinkedIn api) {
-		LinkedInProfile profile = api.getUserProfile();
+	public UserProfile fetchUserProfile(LinkedIn linkedin) {
+		LinkedInProfile profile = linkedin.getUserProfile();
 		return new UserProfileBuilder().setName(profile.getFirstName() + " " + profile.getLastName()).build();
 	}
 	
-	public void updateStatus(LinkedIn api, String message) {
+	public void updateStatus(LinkedIn linkedin, String message) {
 		// not supported yet
 	}
 	
