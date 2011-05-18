@@ -1,6 +1,6 @@
 Spring Social LinkedIn
 -----------------------------------------------------------
-Spring Social TripIt is an extension to Spring Social to enable connectivity with LinkedIn.
+Spring Social LinkedIn is an extension to Spring Social to enable connectivity with LinkedIn.
 
 To find out what has changed in this release, see 'changelog.txt'
 
