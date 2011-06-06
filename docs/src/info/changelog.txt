@@ -1,3 +1,5 @@
-Spring Social LinkedIn 1.0.0 Milestone 4 (May ??, 2011)
+Spring Social LinkedIn 1.0.0 Milestone 4 (June 6, 2011)
 =======================================================
-Extracted Spring Social LinkedIn module from core Spring Social project.
+ - Extracted Spring Social LinkedIn module from core Spring Social project.
+ - Renamed LinkedInApi to LinkedIn.
+ - Consume LinkedIn resources as JSON instead of XML.
