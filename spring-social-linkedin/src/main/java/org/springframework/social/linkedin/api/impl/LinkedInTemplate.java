@@ -57,7 +57,7 @@ public class LinkedInTemplate extends AbstractOAuth1ApiTemplate implements Linke
 	}
 
 	public LinkedInProfile getUserProfile() {
-		return getRestTemplate().getForObject("https://api.linkedin.com/v1/people/~:public?format=json", LinkedInProfile.class);
+		return getRestTemplate().getForObject(PROFILE_URL, LinkedInProfile.class);
 	}
 
 	public List<LinkedInProfile> getConnections() {
@@ -78,5 +78,7 @@ public class LinkedInTemplate extends AbstractOAuth1ApiTemplate implements Linke
 			}
 		}
 	}
+
+	static final String PROFILE_URL = "https://api.linkedin.com/v1/people/~:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url)?format=json";
 
 }

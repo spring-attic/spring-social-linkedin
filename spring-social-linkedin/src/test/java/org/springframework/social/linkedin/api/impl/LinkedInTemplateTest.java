@@ -49,7 +49,7 @@ public class LinkedInTemplateTest {
 
 	@Test
 	public void getUserProfile() {
-		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~:public?format=json")).andExpect(method(GET))
+		mockServer.expect(requestTo(LinkedInTemplate.PROFILE_URL)).andExpect(method(GET))
 				.andRespond(withResponse(new ClassPathResource("profile.json", getClass()), responseHeaders));
 		LinkedInProfile profile = linkedIn.getUserProfile();
 		assertEquals("z37f0n3A05", profile.getId());
@@ -64,14 +64,14 @@ public class LinkedInTemplateTest {
 
 	@Test
 	public void getProfileId() {
-		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~:public?format=json")).andExpect(method(GET))
+		mockServer.expect(requestTo(LinkedInTemplate.PROFILE_URL)).andExpect(method(GET))
 				.andRespond(withResponse(new ClassPathResource("profile.json", getClass()), responseHeaders));
 		assertEquals("z37f0n3A05", linkedIn.getProfileId());
 	}
 
 	@Test
 	public void getProfileUrl() {
-		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~:public?format=json")).andExpect(method(GET))
+		mockServer.expect(requestTo(LinkedInTemplate.PROFILE_URL)).andExpect(method(GET))
 				.andRespond(withResponse(new ClassPathResource("profile.json", getClass()), responseHeaders));
 		assertEquals("http://www.linkedin.com/in/habuma", linkedIn.getProfileUrl());
 	}

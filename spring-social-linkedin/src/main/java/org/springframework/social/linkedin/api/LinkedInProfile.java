@@ -19,7 +19,6 @@ import java.io.Serializable;
 
 /**
  * Model class containing a user's LinkedIn profile information.
- * 
  * @author Craig Walls
  */
 public class LinkedInProfile implements Serializable {
@@ -55,8 +54,6 @@ public class LinkedInProfile implements Serializable {
 
 	/**
 	 * The user's LinkedIn profile ID
-	 * 
-	 * @return The user's LinkedIn profile ID
 	 */
 	public String getId() {
 		return id;
@@ -64,8 +61,6 @@ public class LinkedInProfile implements Serializable {
 
 	/**
 	 * The user's first name
-	 * 
-	 * @return The user's first name
 	 */
 	public String getFirstName() {
 		return firstName;
@@ -73,8 +68,6 @@ public class LinkedInProfile implements Serializable {
 
 	/**
 	 * The user's last name
-	 * 
-	 * @return The user's last name
 	 */
 	public String getLastName() {
 		return lastName;
@@ -82,8 +75,6 @@ public class LinkedInProfile implements Serializable {
 
 	/**
 	 * The user's headline
-	 * 
-	 * @return The user's headline
 	 */
 	public String getHeadline() {
 		return headline;
@@ -91,29 +82,21 @@ public class LinkedInProfile implements Serializable {
 
 	/**
 	 * The user's industry
-	 * 
-	 * @return The user's industry
 	 */
 	public String getIndustry() {
 		return industry;
 	}
 
 	/**
-	 * A URL to the user's standard profile. The content shown at this profile
-	 * will depend upon what the requesting user is allowed to see.
-	 * 
-	 * @return the URL to the user's standard profile
+	 * A URL to the user's standard profile. The content shown at this profile will depend upon what the requesting user is allowed to see.
 	 */
 	public String getStandardProfileUrl() {
 		return standardProfileUrl;
 	}
 
 	/**
-	 * A URL to the user's public profile. The content shown at this profile is
-	 * intended for public display and is determined by the user's privacy
-	 * settings.
-	 * 
-	 * @return the URL of the user's public profile
+	 * A URL to the user's public profile. The content shown at this profile is intended for public display and is determined by the user's privacy settings.
+	 * May be null if the user's profile isn't public.
 	 */
 	public String getPublicProfileUrl() {
 		return publicProfileUrl;
