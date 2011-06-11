@@ -17,6 +17,7 @@ package org.springframework.social.linkedin.api;
 
 import java.util.List;
 
+import org.springframework.social.ApiBinding;
 import org.springframework.social.linkedin.api.impl.LinkedInTemplate;
 
 /**
@@ -33,7 +34,7 @@ import org.springframework.social.linkedin.api.impl.LinkedInTemplate;
  * 
  * @author Craig Walls
  */
-public interface LinkedIn {
+public interface LinkedIn extends ApiBinding {
 	/**
 	 * Retrieves the user's LinkedIn profile ID.
 	 * 
