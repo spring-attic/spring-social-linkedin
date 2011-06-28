@@ -24,13 +24,17 @@ LinkedIn linkedin = new LinkedInTemplate(consumerKey, consumerSecret, accessToke
 	</para>				
 	
 	<programlisting language="java"><![CDATA[
-Connection<LinkedIn> connection = connectionRepository.findPrimaryConnectionToApi(LinkedIn.class);
-LinkedIn linkedin = connection.getApi();]]>
+Connection<LinkedIn> connection = connectionRepository.findPrimaryConnection(LinkedIn.class);
+if (connection != null) {
+    LinkedIn linkedin = connection.getApi();
+
+    // ... use LinkedIn API binding
+}]]>
 	</programlisting>
 	
 	<para>
-		Here, <interfacename>ConnectionRepository</interfacename> is being asked for the primary connections that the current user has with LinkedIn.
-		From that connection, it retrieves a <interfacename>LinkedIn</interfacename> instance that is configured with the connection details received when the connection was first established.
+		Here, <interfacename>ConnectionRepository</interfacename> is being asked for the primary connection that the current user has with LinkedIn.
+		If a connection to LinkedIn is found, it retrieves a <interfacename>LinkedIn</interfacename> instance that is configured with the connection details received when the connection was first established.
 	</para>
 	
 	<para>
