@@ -62,4 +62,14 @@ public interface LinkedIn extends ApiBinding {
 	 * @return the user's connections
 	 */
 	List<LinkedInProfile> getConnections();
+	
+	List<LinkedInNetworkUpdate> getNetworkUpdates();
+	
+	List<LinkedInNetworkUpdate> getNetworkUpdates(int start, int count);
+	
+	public String getNetworkUpdatesJson();
+	
+	public String getJson(String url);
+	
+	public String getNetworkUpdatesJson(int start, int count);
 }

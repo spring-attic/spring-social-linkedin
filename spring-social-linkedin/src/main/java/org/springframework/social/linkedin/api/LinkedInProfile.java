@@ -41,6 +41,8 @@ public class LinkedInProfile implements Serializable {
 	
 	private final String profilePictureUrl;
 	
+	private String summary;
+	
 	public LinkedInProfile(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, String standardProfileUrl, String profilePictureUrl) {
 		this.id = id;
 		this.firstName = firstName;
@@ -107,5 +109,12 @@ public class LinkedInProfile implements Serializable {
 	 */
 	public String getProfilePictureUrl() {
 		return profilePictureUrl;
+	}
+	
+	/**
+	 * The user's summary.
+	 */
+	public String getSummary() {
+		return summary;
 	}
 }

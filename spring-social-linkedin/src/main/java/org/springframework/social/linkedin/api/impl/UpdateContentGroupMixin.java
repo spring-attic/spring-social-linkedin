@@ -15,16 +15,27 @@
  */
 package org.springframework.social.linkedin.api.impl;
 
+import java.io.IOException;
+import java.util.List;
+
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.JsonParser;
+import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.DeserializationContext;
+import org.codehaus.jackson.map.JsonDeserializer;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.codehaus.jackson.type.TypeReference;
+import org.springframework.social.linkedin.api.MemberGroup;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInProfileMixin {
+public class UpdateContentGroupMixin {
 
 	@JsonCreator
-	public LinkedInProfileMixin(
+	public UpdateContentGroupMixin (
 			@JsonProperty("id") String id, 
 			@JsonProperty("firstName") String firstName, 
 			@JsonProperty("lastName") String lastName, 
@@ -34,7 +45,24 @@ public class LinkedInProfileMixin {
 			@JsonProperty("siteStandardProfileRequest") @JsonDeserialize(using=RequestUrlDeserializer.class) String standardProfileUrl, 
 			@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
-	@JsonProperty("summary")
-	String summary;
+	@JsonProperty("memberGroups")
+	@JsonDeserialize(using=MemberGroupsListDeserializer.class)
+	List<MemberGroup> memberGroups;
 	
+	private static class MemberGroupsListDeserializer extends JsonDeserializer<List<MemberGroup>> {
+		@SuppressWarnings("unchecked")
+		@Override
+		public List<MemberGroup> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.setDeserializationConfig(ctxt.getConfig());
+			jp.setCodec(mapper);
+			if(jp.hasCurrentToken()) {
+				JsonNode dataNode = jp.readValueAsTree().get("values");
+				return (List<MemberGroup>) mapper.readValue(dataNode, new TypeReference<List<MemberGroup>>() {});
+			}
+			
+			return null;
+		}
+	}
+
 }

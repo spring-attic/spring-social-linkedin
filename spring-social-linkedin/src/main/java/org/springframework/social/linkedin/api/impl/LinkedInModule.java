@@ -17,8 +17,21 @@ package org.springframework.social.linkedin.api.impl;
 
 import org.codehaus.jackson.Version;
 import org.codehaus.jackson.map.module.SimpleModule;
+import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.LinkedInConnections;
+import org.springframework.social.linkedin.api.LinkedInNetworkUpdate;
+import org.springframework.social.linkedin.api.LinkedInNetworkUpdates;
 import org.springframework.social.linkedin.api.LinkedInProfile;
+import org.springframework.social.linkedin.api.MemberGroup;
+import org.springframework.social.linkedin.api.PersonActivity;
+import org.springframework.social.linkedin.api.Recommendation;
+import org.springframework.social.linkedin.api.UpdateContent;
+import org.springframework.social.linkedin.api.UpdateContentConnection;
+import org.springframework.social.linkedin.api.UpdateContentFollow;
+import org.springframework.social.linkedin.api.UpdateContentGroup;
+import org.springframework.social.linkedin.api.UpdateContentPersonActivity;
+import org.springframework.social.linkedin.api.UpdateContentRecommendation;
+import org.springframework.social.linkedin.api.UpdateContentStatus;
 
 /**
  * Jackson module for registering mixin annotations against LinkedIn model classes.
@@ -33,6 +46,22 @@ class LinkedInModule extends SimpleModule {
 	public void setupModule(SetupContext context) {
 		context.setMixInAnnotations(LinkedInConnections.class, LinkedInConnectionsMixin.class);
 		context.setMixInAnnotations(LinkedInProfile.class, LinkedInProfileMixin.class);
+		context.setMixInAnnotations(MemberGroup.class, MemberGroupMixin.class);
+		context.setMixInAnnotations(Recommendation.class, RecommendationMixin.class);
+		context.setMixInAnnotations(PersonActivity.class, PersonActivityMixin.class);
+		context.setMixInAnnotations(Company.class, CompanyMixin.class);
+		
+		context.setMixInAnnotations(LinkedInNetworkUpdate.class, LinkedInNetworkUpdateMixin.class);
+		context.setMixInAnnotations(LinkedInNetworkUpdates.class, LinkedInNetworkUpdatesMixin.class);
+		
+		context.setMixInAnnotations(UpdateContent.class, UpdateContentMixin.class);
+		context.setMixInAnnotations(UpdateContentConnection.class, UpdateContentConnectionMixin.class);
+		context.setMixInAnnotations(UpdateContentStatus.class, UpdateContentStatusMixin.class);
+		context.setMixInAnnotations(UpdateContentGroup.class, UpdateContentGroupMixin.class);
+		context.setMixInAnnotations(UpdateContentRecommendation.class, UpdateContentRecommendationMixin.class);
+		context.setMixInAnnotations(UpdateContentPersonActivity.class, UpdateContentPersonActivityMixin.class);
+		context.setMixInAnnotations(UpdateContentFollow.class, UpdateContentFollowMixin.class);
+		
 	}
 
 }

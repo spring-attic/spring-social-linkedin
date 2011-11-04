@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2010 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,26 +15,17 @@
  */
 package org.springframework.social.linkedin.api.impl;
 
-import org.codehaus.jackson.annotate.JsonCreator;
+import java.util.List;
+
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.springframework.social.linkedin.api.LinkedInNetworkUpdate;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInProfileMixin {
+public class LinkedInNetworkUpdatesMixin {
 
-	@JsonCreator
-	public LinkedInProfileMixin(
-			@JsonProperty("id") String id, 
-			@JsonProperty("firstName") String firstName, 
-			@JsonProperty("lastName") String lastName, 
-			@JsonProperty("headline") String headline, 
-			@JsonProperty("industry") String industry, 
-			@JsonProperty("publicProfileUrl") String publicProfileUrl, 
-			@JsonProperty("siteStandardProfileRequest") @JsonDeserialize(using=RequestUrlDeserializer.class) String standardProfileUrl, 
-			@JsonProperty("pictureUrl") String profilePictureUrl) {}
-	
-	@JsonProperty("summary")
-	String summary;
-	
+	public LinkedInNetworkUpdatesMixin(
+			@JsonProperty("values") @JsonDeserialize(using = LinkedInNetworkUpdateListDeserializer.class) List<LinkedInNetworkUpdate> updates) {}
+
 }

@@ -21,10 +21,10 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInProfileMixin {
+public class UpdateContentFollowMixin {
 
 	@JsonCreator
-	public LinkedInProfileMixin(
+	public UpdateContentFollowMixin(
 			@JsonProperty("id") String id, 
 			@JsonProperty("firstName") String firstName, 
 			@JsonProperty("lastName") String lastName, 

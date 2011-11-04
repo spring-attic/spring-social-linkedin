@@ -21,10 +21,10 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInProfileMixin {
+public class UpdateContentStatusMixin {
 
 	@JsonCreator
-	public LinkedInProfileMixin(
+	public UpdateContentStatusMixin (
 			@JsonProperty("id") String id, 
 			@JsonProperty("firstName") String firstName, 
 			@JsonProperty("lastName") String lastName, 
@@ -34,7 +34,7 @@ public class LinkedInProfileMixin {
 			@JsonProperty("siteStandardProfileRequest") @JsonDeserialize(using=RequestUrlDeserializer.class) String standardProfileUrl, 
 			@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
-	@JsonProperty("summary")
-	String summary;
-	
+	@JsonProperty("currentStatus")
+	String currentStatus;
+
 }

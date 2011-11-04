@@ -15,16 +15,27 @@
  */
 package org.springframework.social.linkedin.api.impl;
 
+import java.io.IOException;
+import java.util.List;
+
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.JsonParser;
+import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.DeserializationContext;
+import org.codehaus.jackson.map.JsonDeserializer;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.codehaus.jackson.type.TypeReference;
+import org.springframework.social.linkedin.api.PersonActivity;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInProfileMixin {
+public class UpdateContentPersonActivityMixin {
 
 	@JsonCreator
-	public LinkedInProfileMixin(
+	public UpdateContentPersonActivityMixin (
 			@JsonProperty("id") String id, 
 			@JsonProperty("firstName") String firstName, 
 			@JsonProperty("lastName") String lastName, 
@@ -34,7 +45,24 @@ public class LinkedInProfileMixin {
 			@JsonProperty("siteStandardProfileRequest") @JsonDeserialize(using=RequestUrlDeserializer.class) String standardProfileUrl, 
 			@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
-	@JsonProperty("summary")
-	String summary;
+	@JsonProperty("personActivities")
+	@JsonDeserialize(using=PersonActivitiesListDeserializer.class)
+	List<PersonActivity> personActivities;
 	
+	private static class PersonActivitiesListDeserializer extends JsonDeserializer<List<PersonActivity>> {
+		@SuppressWarnings("unchecked")
+		@Override
+		public List<PersonActivity> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.setDeserializationConfig(ctxt.getConfig());
+			jp.setCodec(mapper);
+			if(jp.hasCurrentToken()) {
+				JsonNode dataNode = jp.readValueAsTree().get("values");
+				return (List<PersonActivity>) mapper.readValue(dataNode, new TypeReference<List<PersonActivity>>() {});
+			}
+			
+			return null;
+		}
+	}
+
 }

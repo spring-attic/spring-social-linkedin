@@ -15,16 +15,27 @@
  */
 package org.springframework.social.linkedin.api.impl;
 
+import java.io.IOException;
+import java.util.List;
+
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.JsonParser;
+import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.DeserializationContext;
+import org.codehaus.jackson.map.JsonDeserializer;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.codehaus.jackson.type.TypeReference;
+import org.springframework.social.linkedin.api.LinkedInProfile;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInProfileMixin {
+public class UpdateContentConnectionMixin {
 
 	@JsonCreator
-	public LinkedInProfileMixin(
+	public UpdateContentConnectionMixin (
 			@JsonProperty("id") String id, 
 			@JsonProperty("firstName") String firstName, 
 			@JsonProperty("lastName") String lastName, 
@@ -37,4 +48,24 @@ public class LinkedInProfileMixin {
 	@JsonProperty("summary")
 	String summary;
 	
+	@JsonProperty("connections")
+	@JsonDeserialize(using=LinkedInConnectionsListDeserializer.class)
+	List<LinkedInProfile> connections;
+	
+	private static class LinkedInConnectionsListDeserializer extends JsonDeserializer<List<LinkedInProfile>> {
+		@SuppressWarnings("unchecked")
+		@Override
+		public List<LinkedInProfile> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.setDeserializationConfig(ctxt.getConfig());
+			jp.setCodec(mapper);
+			if(jp.hasCurrentToken()) {
+				JsonNode dataNode = jp.readValueAsTree().get("values");
+				return (List<LinkedInProfile>) mapper.readValue(dataNode, new TypeReference<List<LinkedInProfile>>() {});
+			}
+			
+			return null;
+		}
+	}
+
 }

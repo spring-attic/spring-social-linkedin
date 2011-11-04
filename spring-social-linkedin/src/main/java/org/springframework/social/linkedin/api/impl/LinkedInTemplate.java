@@ -22,6 +22,8 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.social.linkedin.api.LinkedInConnections;
+import org.springframework.social.linkedin.api.LinkedInNetworkUpdate;
+import org.springframework.social.linkedin.api.LinkedInNetworkUpdates;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.oauth1.AbstractOAuth1ApiBinding;
 
@@ -59,9 +61,33 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 	public LinkedInProfile getUserProfile() {
 		return getRestTemplate().getForObject(PROFILE_URL, LinkedInProfile.class);
 	}
+	
+	public List<LinkedInNetworkUpdate> getNetworkUpdates() {
+		return getNetworkUpdates(0,100);
+	}
+	
+	public List<LinkedInNetworkUpdate> getNetworkUpdates(int start, int count) {
+		return getNetworkUpdates(start, count, LinkedInNetworkUpdates.class).getUpdates();
+	}
+	
+	public <T> T  getNetworkUpdates(int start, int count, Class<T> responseType) {
+		return getRestTemplate().getForObject(UPDATES_URL, responseType, count, start);
+	}
+	
+	public String getNetworkUpdatesJson() {
+		return getNetworkUpdates(0, 100, String.class);
+	}
+	
+	public String getNetworkUpdatesJson(int start, int count) {
+		return getNetworkUpdates(start, count, String.class);
+	}
+	
+	public String getJson(String url) {
+		return getRestTemplate().getForObject(url, String.class);
+	}
 
 	public List<LinkedInProfile> getConnections() {
-		LinkedInConnections connections = getRestTemplate().getForObject("https://api.linkedin.com/v1/people/~/connections?format=json", LinkedInConnections.class);
+		LinkedInConnections connections = getRestTemplate().getForObject(CONNECTIONS_URL, LinkedInConnections.class);
 		return connections.getConnections();
 	}
 
@@ -79,6 +105,9 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 		}
 	}
 
-	static final String PROFILE_URL = "https://api.linkedin.com/v1/people/~:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url)?format=json";
+	static final String PROFILE_URL = "https://api.linkedin.com/v1/people/~:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary)?format=json";
 
+	static final String UPDATES_URL = "https://api.linkedin.com/v1/people/~/network/updates?format=json&count={count}&start={start}";
+	
+	static final String CONNECTIONS_URL = "https://api.linkedin.com/v1/people/~/connections?format=json";
 }
