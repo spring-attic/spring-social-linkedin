@@ -15,17 +15,21 @@
  */
 package org.springframework.social.linkedin.api.impl;
 
-import java.util.List;
+import java.io.IOException;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonDeserialize;
-import org.springframework.social.linkedin.api.LinkedInNetworkUpdate;
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.JsonParser;
+import org.codehaus.jackson.JsonProcessingException;
+import org.codehaus.jackson.map.DeserializationContext;
+import org.codehaus.jackson.map.JsonDeserializer;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInNetworkUpdatesMixin {
 
-	public LinkedInNetworkUpdatesMixin(
-			@JsonProperty("values") @JsonDeserialize(contentUsing = LinkedInNetworkUpdateListDeserializer.class) List<LinkedInNetworkUpdate> updates) {}
-
+public class CodeDeserializer extends JsonDeserializer<String> {
+	private static final String VALUE = "code";
+	
+	@Override
+	public String deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+		JsonNode node = jp.readValueAsTree();
+		return node.get(VALUE).getTextValue();
+	}
 }

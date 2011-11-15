@@ -16,9 +16,7 @@
 package org.springframework.social.linkedin.api.impl;
 
 import java.io.IOException;
-import java.util.List;
 
-import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.annotate.JsonCreator;
@@ -29,13 +27,15 @@ import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.type.TypeReference;
-import org.springframework.social.linkedin.api.Recommendation;
+import org.springframework.social.linkedin.api.Company;
+import org.springframework.social.linkedin.api.CompanyJobUpdate;
+import org.springframework.social.linkedin.api.Share;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UpdateContentRecommendationMixin {
+public class UpdateContentCompanyMixin {
 
 	@JsonCreator
-	public UpdateContentRecommendationMixin (
+	public UpdateContentCompanyMixin (
 			@JsonProperty("id") String id, 
 			@JsonProperty("firstName") String firstName, 
 			@JsonProperty("lastName") String lastName, 
@@ -45,28 +45,26 @@ public class UpdateContentRecommendationMixin {
 			@JsonProperty("siteStandardProfileRequest") @JsonDeserialize(using=RequestUrlDeserializer.class) String standardProfileUrl, 
 			@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
-	@JsonProperty("recommendationsReceived")
-	@JsonDeserialize(using=RecommendationsListDeserializer.class)
-	List<Recommendation> recommendationsReceived;
+	@JsonProperty("company")
+	Company company;
 	
-	@JsonProperty("recommendationsGiven")
-	@JsonDeserialize(using=RecommendationsListDeserializer.class)
-	List<Recommendation> recommendationsGiven;
+	@JsonProperty("companyStatusUpdate")
+	@JsonDeserialize(using = CompanyStatusUpdateDeserializer.class)
+	Share companyStatusUpdate;
 	
-	private static class RecommendationsListDeserializer extends JsonDeserializer<List<Recommendation>> {
-		@SuppressWarnings("unchecked")
+	@JsonProperty("companyJobUpdate")
+	CompanyJobUpdate companyJobUpdate;
+	
+	public static final class CompanyStatusUpdateDeserializer extends JsonDeserializer<Share> {
 		@Override
-		public List<Recommendation> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+		public Share deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
 			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				return (List<Recommendation>) mapper.readValue(dataNode, new TypeReference<List<Recommendation>>() {});
-			}
 			
-			return null;
+			return mapper.readValue(jp.readValueAsTree().get("share"), new TypeReference<Share>() {});
 		}
+		
 	}
 
 }

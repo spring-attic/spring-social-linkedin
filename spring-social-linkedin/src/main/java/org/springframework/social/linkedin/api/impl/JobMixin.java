@@ -26,25 +26,27 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
-import org.springframework.social.linkedin.api.LinkedInProfile;
-import org.springframework.social.linkedin.api.Recommendation.RecommendationType;
+import org.springframework.social.linkedin.api.Company;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RecommendationMixin {
-
+public class JobMixin {
 	@JsonCreator
-	public RecommendationMixin(
-			@JsonProperty("id") String id, 
-			@JsonProperty("recommendationSnippet") String recommendationSnippet, 
-			@JsonProperty("recommendationType") @JsonDeserialize(using=RecommendationTypeDeserializer.class) RecommendationType recommendationType,
-			@JsonProperty("recommender") LinkedInProfile recommender,
-			@JsonProperty("recommendee") LinkedInProfile recommendee) {}
+	public JobMixin(
+			@JsonProperty("company") Company company, 
+			@JsonProperty("description") String description,
+			@JsonProperty("id") String id,
+			@JsonProperty("locationDescription") String locationDescription,
+			@JsonProperty("position") @JsonDeserialize(using=PositionDeserializer.class) String position,
+			@JsonProperty("siteJobRequest") @JsonDeserialize(using=RequestUrlDeserializer.class) String url) {}
 	
-	private static class RecommendationTypeDeserializer extends JsonDeserializer<RecommendationType> {
+	public static class PositionDeserializer extends JsonDeserializer<String> {
+		private static final String VALUE = "title";
+		
 		@Override
-		public RecommendationType deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+		public String deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			JsonNode node = jp.readValueAsTree();
-			return RecommendationType.valueOf(node.get("code").getTextValue().replace('-', '_').toUpperCase());
+			return node.get(VALUE).getTextValue();
 		}
 	}
+	
 }

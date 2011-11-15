@@ -15,21 +15,21 @@
  */
 package org.springframework.social.linkedin.api;
 
-public class UpdateContentStatus extends UpdateContent {
+import java.io.Serializable;
+import java.util.List;
 
+
+public class Comments implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	
-	private String currentStatus;
+	private List<Comment> comments;
 	
-	public UpdateContentStatus(String id, String firstName, String lastName,
-			String headline, String industry, String publicProfileUrl,
-			String standardProfileUrl, String profilePictureUrl) {
-		super(id, firstName, lastName, headline, industry, publicProfileUrl,
-				standardProfileUrl, profilePictureUrl);
+	public Comments(List<Comment> comments) {
+		this.comments = comments;
 	}
 	
-	public String getCurrentStatus() {
-		return currentStatus;
+	public List<Comment> getComments() {
+		return comments;
 	}
-
 }

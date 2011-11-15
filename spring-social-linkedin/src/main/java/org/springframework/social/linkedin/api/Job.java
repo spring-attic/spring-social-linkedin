@@ -17,21 +17,46 @@ package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
 
-public class Company implements Serializable {
+public class Job implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	private final Company company;
+	private final String description;
 	private final String id;
-	private final String name;
+	private final String locationDescription;
+	private final String position;
+	private final String url;
 	
-	public Company(String id, String name) {
+	public Job(Company company, String description, String id, String locationDescription, String position, String url) {
+		this.company = company;
+		this.description = description;
 		this.id = id;
-		this.name = name;
+		this.locationDescription = locationDescription;
+		this.position = position;
+		this.url = url;
 	}
-	
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
 	public String getId() {
 		return id;
 	}
-	public String getName() {
-		return name;
+
+	public String getLocationDescription() {
+		return locationDescription;
+	}
+
+	public String getPosition() {
+		return position;
+	}
+
+	public String getUrl() {
+		return url;
 	}
 }

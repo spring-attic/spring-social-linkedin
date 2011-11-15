@@ -15,21 +15,33 @@
  */
 package org.springframework.social.linkedin.api;
 
-public class UpdateContentStatus extends UpdateContent {
+public class UpdateContentCompany extends UpdateContent {
 
 	private static final long serialVersionUID = 1L;
 	
-	private String currentStatus;
+	private Share companyStatusUpdate;
 	
-	public UpdateContentStatus(String id, String firstName, String lastName,
+	private CompanyJobUpdate companyJobUpdate;
+	
+	private Company company;
+	
+	public UpdateContentCompany(String id, String firstName, String lastName,
 			String headline, String industry, String publicProfileUrl,
 			String standardProfileUrl, String profilePictureUrl) {
 		super(id, firstName, lastName, headline, industry, publicProfileUrl,
 				standardProfileUrl, profilePictureUrl);
 	}
 	
-	public String getCurrentStatus() {
-		return currentStatus;
+	public Share getCompanyStatusUpdate() {
+		return companyStatusUpdate;
+	}
+	
+	public Company getCompany() {
+		return company;
+	}
+	
+	public CompanyJobUpdate getCompanyJobUpdate() {
+		return companyJobUpdate;
 	}
 
 }

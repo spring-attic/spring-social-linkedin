@@ -15,21 +15,25 @@
  */
 package org.springframework.social.linkedin.api;
 
-public class UpdateContentStatus extends UpdateContent {
+import java.util.Date;
+import java.util.List;
 
+
+public class UpdateAction extends LinkedInNetworkUpdate {
 	private static final long serialVersionUID = 1L;
 	
-	private String currentStatus;
+	private String action;
+	private List<Comment> updateComments;
 	
-	public UpdateContentStatus(String id, String firstName, String lastName,
-			String headline, String industry, String publicProfileUrl,
-			String standardProfileUrl, String profilePictureUrl) {
-		super(id, firstName, lastName, headline, industry, publicProfileUrl,
-				standardProfileUrl, profilePictureUrl);
-	}
-	
-	public String getCurrentStatus() {
-		return currentStatus;
+	public UpdateAction(Date timestamp, String updateKey, UpdateType updateType) {
+		super(timestamp, updateKey, updateType);
 	}
 
+	public String getAction() {
+		return action;
+	}
+
+	public List<Comment> getUpdateComments() {
+		return updateComments;
+	}
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2011 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,15 +17,16 @@ package org.springframework.social.linkedin.api.impl;
 
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonDeserialize;
-import org.springframework.social.linkedin.api.LinkedInNetworkUpdate;
+import org.springframework.social.linkedin.api.Comment;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInNetworkUpdatesMixin {
+public class CommentsMixin {
 
-	public LinkedInNetworkUpdatesMixin(
-			@JsonProperty("values") @JsonDeserialize(contentUsing = LinkedInNetworkUpdateListDeserializer.class) List<LinkedInNetworkUpdate> updates) {}
-
+	@JsonCreator
+	public CommentsMixin(
+			@JsonProperty("values") List<Comment> comments) {}
+	
 }

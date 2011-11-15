@@ -15,21 +15,24 @@
  */
 package org.springframework.social.linkedin.api;
 
-public class UpdateContentStatus extends UpdateContent {
+import java.io.Serializable;
 
+public class CompanyJobUpdate implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private String currentStatus;
+	private String action;
+	private Job job;
 	
-	public UpdateContentStatus(String id, String firstName, String lastName,
-			String headline, String industry, String publicProfileUrl,
-			String standardProfileUrl, String profilePictureUrl) {
-		super(id, firstName, lastName, headline, industry, publicProfileUrl,
-				standardProfileUrl, profilePictureUrl);
-	}
-	
-	public String getCurrentStatus() {
-		return currentStatus;
+	public CompanyJobUpdate(String action, Job job) {
+		this.action = action;
+		this.job = job;
 	}
 
+	public String getAction() {
+		return action;
+	}
+
+	public Job getJob() {
+		return job;
+	}
 }

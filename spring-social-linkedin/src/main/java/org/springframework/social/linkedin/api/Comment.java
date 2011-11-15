@@ -16,22 +16,42 @@
 package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
+import java.util.Date;
 
-public class Company implements Serializable {
+public class Comment implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	private final String comment;
 	private final String id;
-	private final String name;
+	private final LinkedInProfile person;
+	private final int sequenceNumber;
+	private final Date timestamp;
 	
-	public Company(String id, String name) {
+	public Comment(String comment, String id, LinkedInProfile person, int sequenceNumber, Date timestamp) {
+		this.comment = comment;
 		this.id = id;
-		this.name = name;
+		this.person = person;
+		this.sequenceNumber = sequenceNumber;
+		this.timestamp = timestamp;
 	}
-	
+
+	public String getComment() {
+		return comment;
+	}
+
 	public String getId() {
 		return id;
 	}
-	public String getName() {
-		return name;
+
+	public LinkedInProfile getPerson() {
+		return person;
+	}
+
+	public int getSequenceNumber() {
+		return sequenceNumber;
+	}
+
+	public Date getTimestamp() {
+		return timestamp;
 	}
 }

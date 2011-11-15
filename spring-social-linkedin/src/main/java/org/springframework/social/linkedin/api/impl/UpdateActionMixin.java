@@ -16,7 +16,6 @@
 package org.springframework.social.linkedin.api.impl;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,14 +30,19 @@ import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.type.TypeReference;
+import org.springframework.social.linkedin.api.Comment;
 import org.springframework.social.linkedin.api.LinkedInProfile;
+import org.springframework.social.linkedin.api.UpdateContent;
+import org.springframework.social.linkedin.api.UpdateContentCompany;
+import org.springframework.social.linkedin.api.UpdateContentShare;
 import org.springframework.social.linkedin.api.UpdateType;
+import org.springframework.social.linkedin.api.impl.LinkedInNetworkUpdateMixin.LikesListDeserializer;
+import org.springframework.social.linkedin.api.impl.LinkedInNetworkUpdateMixin.UpdateTypeDeserializer;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInNetworkUpdateMixin {
-
+public class UpdateActionMixin {
 	@JsonCreator
-	public LinkedInNetworkUpdateMixin(
+	public UpdateActionMixin(
 			@JsonProperty("timestamp") Date timestamp, 
 			@JsonProperty("updateKey") String updateKey, 
 			@JsonProperty("updateType") @JsonDeserialize(using = UpdateTypeDeserializer.class) UpdateType updateType) {}
@@ -59,61 +63,37 @@ public class LinkedInNetworkUpdateMixin {
 	@JsonDeserialize(using = LikesListDeserializer.class)
 	List<LinkedInProfile> likes;
 	
+	@JsonProperty("updateComments")
+	@JsonDeserialize(using = CommentsListDeserializer.class )
+	List<Comment> updateComments;
 	
-	@JsonProperty("updatedFields")
-	@JsonDeserialize(using = UpdatedFieldsListDeserializer.class)
-	List<String> updatedFields;
+	@JsonProperty("updateContent")
+	@JsonDeserialize(using = UpdateContentDeserializer.class)
+	UpdateContent updateContent;
 	
-	public static class UpdateTypeDeserializer extends JsonDeserializer<UpdateType> {
+	private static class CommentsListDeserializer extends StandardListDeserializer<Comment> {}
+	
+	private static class UpdateContentDeserializer extends JsonDeserializer<UpdateContent> {
 		@Override
-		public UpdateType deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			try {
-				return UpdateType.valueOf(jp.getText().toUpperCase());
-			}
-			catch (IllegalArgumentException e) {
-				return UpdateType.UNKNOWN;
-			}
-		}
-	}
-	
-	public static class LikesListDeserializer extends JsonDeserializer<List<LinkedInProfile>> {
-		@Override
-		public List<LinkedInProfile> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+		public UpdateContent deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
 			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				List<LinkedInProfile> likes = new ArrayList<LinkedInProfile>();
-				// Have to iterate through list due to person sub object.
-				for (JsonNode like : dataNode) {
-					LinkedInProfile profile = mapper.readValue(like.get("person"), new TypeReference<LinkedInProfile>() {});
-					likes.add(profile);
-				}
-				return likes;
-			}
 			
+			JsonNode content = jp.readValueAsTree();
+			JsonNode person = content.get("person");
+			JsonNode company = content.get("company");
+			// person for a SHAR update
+			if (person != null) {
+				return mapper.readValue(person, new TypeReference<UpdateContentShare>() {});
+			}
+			// company and companyStatusUpdate for CMPY update
+			else if (company != null) {
+				return mapper.readValue(content, new TypeReference<UpdateContentCompany>() {});
+			}
 			return null;
 		}
+		
 	}
 	
-	public static class UpdatedFieldsListDeserializer extends JsonDeserializer<List<String>> {
-		@Override
-		public List<String> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				List<String> values = new ArrayList<String>();
-				for (JsonNode value : dataNode) {
-					values.add(value.get("name").getTextValue());
-				}
-				
-				return values;
-			}
-			
-			return null;
-		}
-	}
 }
