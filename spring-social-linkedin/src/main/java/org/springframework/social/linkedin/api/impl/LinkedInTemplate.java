@@ -18,7 +18,6 @@ package org.springframework.social.linkedin.api.impl;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -152,7 +151,7 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 		Map<String,String> activity = new HashMap<String, String>();
 		activity.put("contentType", "linkedin-html");
 		activity.put("body", update);
-		getRestTemplate().put("ACTIVITY_URL", activity);
+		getRestTemplate().put(ACTIVITY_URL, activity);
 	}
 	
 	public CurrentShare getCurrentShare() {
@@ -223,18 +222,8 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 	 * API appears to ignore Content-Type header
 	 */
 	private void registerJsonFormatInterceptor() {
-		ClientHttpRequestInterceptor[] interceptors = getRestTemplate().getInterceptors();
-		ClientHttpRequestInterceptor[] retInterceptors;
-		
-		if (interceptors != null && interceptors.length > 0) {
-			retInterceptors = Arrays.copyOf(interceptors, interceptors.length+1);
-		}
-		else {
-			retInterceptors = new ClientHttpRequestInterceptor[1];
-		}
-		retInterceptors[retInterceptors.length-1] = new JsonFormatInterceptor();
-		
-		getRestTemplate().setInterceptors(retInterceptors);
+		List<ClientHttpRequestInterceptor> interceptors = getRestTemplate().getInterceptors();
+		interceptors.add(new JsonFormatInterceptor());
 	}
 	
 	/*
@@ -294,7 +283,7 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 		}
 	}
 	
-	static final String BASE_URL = "http://api.linkedin.com/v1/people/";
+	static final String BASE_URL = "https://api.linkedin.com/v1/people/";
 
 	static final String PROFILE_URL = BASE_URL + "~:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary)?format=json";
 
