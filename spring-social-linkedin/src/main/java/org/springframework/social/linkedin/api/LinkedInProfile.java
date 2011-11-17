@@ -35,7 +35,7 @@ public class LinkedInProfile implements Serializable {
 	
 	private final String industry;
 	
-	private final String standardProfileUrl;
+	private final UrlResource siteStandardProfileRequest;
 	
 	private final String publicProfileUrl;
 	
@@ -43,14 +43,14 @@ public class LinkedInProfile implements Serializable {
 	
 	private String summary;
 	
-	public LinkedInProfile(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, String standardProfileUrl, String profilePictureUrl) {
+	public LinkedInProfile(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, UrlResource siteStandardProfileRequest, String profilePictureUrl) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.headline = headline;
 		this.industry = industry;
 		this.publicProfileUrl = publicProfileUrl;
-		this.standardProfileUrl = standardProfileUrl;
+		this.siteStandardProfileRequest = siteStandardProfileRequest;
 		this.profilePictureUrl = profilePictureUrl;
 	}
 
@@ -92,8 +92,8 @@ public class LinkedInProfile implements Serializable {
 	/**
 	 * A URL to the user's standard profile. The content shown at this profile will depend upon what the requesting user is allowed to see.
 	 */
-	public String getStandardProfileUrl() {
-		return standardProfileUrl;
+	public UrlResource getSiteStandardProfileRequest() {
+		return siteStandardProfileRequest;
 	}
 
 	/**

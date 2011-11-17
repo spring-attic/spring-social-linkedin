@@ -18,6 +18,7 @@ package org.springframework.social.linkedin.api.impl;
 import java.io.IOException;
 import java.util.List;
 
+import org.codehaus.jackson.JsonParser.Feature;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.SerializationConfig;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -87,6 +88,7 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 				ObjectMapper objectMapper = new ObjectMapper();				
 				objectMapper.registerModule(new LinkedInModule());
 				objectMapper.configure(SerializationConfig.Feature.WRITE_ENUMS_USING_TO_STRING, true);
+				objectMapper.configure(Feature.ALLOW_NUMERIC_LEADING_ZEROS, true);
 				objectMapper.getSerializationConfig().setSerializationInclusion(JsonSerialize.Inclusion.NON_NULL);
 				jsonConverter.setObjectMapper(objectMapper);
 			}

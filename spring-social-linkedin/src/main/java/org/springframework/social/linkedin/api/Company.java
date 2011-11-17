@@ -22,6 +22,9 @@ public class Company implements Serializable {
 	
 	private final String id;
 	private final String name;
+	private String industry;
+	private String size;
+	private String type;
 	
 	public Company(String id, String name) {
 		this.id = id;
@@ -33,5 +36,17 @@ public class Company implements Serializable {
 	}
 	public String getName() {
 		return name;
+	}
+	
+	public String getIndustry() {
+		return industry;
+	}
+	
+	public String getSize() {
+		return size;
+	}
+	
+	public String getType() {
+		return type;
 	}
 }

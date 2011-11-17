@@ -18,23 +18,13 @@ package org.springframework.social.linkedin.api.impl.json;
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UpdateContentFollowMixin {
+public class UrlResourceMixin {
 
 	@JsonCreator
-	public UpdateContentFollowMixin(
-			@JsonProperty("id") String id, 
-			@JsonProperty("firstName") String firstName, 
-			@JsonProperty("lastName") String lastName, 
-			@JsonProperty("headline") String headline, 
-			@JsonProperty("industry") String industry, 
-			@JsonProperty("publicProfileUrl") String publicProfileUrl, 
-			@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
-			@JsonProperty("pictureUrl") String profilePictureUrl) {}
-	
-	@JsonProperty("summary")
-	String summary;
+	public UrlResourceMixin(
+			@JsonProperty("name") String name, 
+			@JsonProperty("url") String url) {}
 	
 }

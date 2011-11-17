@@ -18,7 +18,7 @@ package org.springframework.social.linkedin.api.impl.json;
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LinkedInProfileMixin {
@@ -31,7 +31,7 @@ public class LinkedInProfileMixin {
 			@JsonProperty("headline") String headline, 
 			@JsonProperty("industry") String industry, 
 			@JsonProperty("publicProfileUrl") String publicProfileUrl, 
-			@JsonProperty("siteStandardProfileRequest") @JsonDeserialize(using=RequestUrlDeserializer.class) String standardProfileUrl, 
+			@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
 			@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
 	@JsonProperty("summary")

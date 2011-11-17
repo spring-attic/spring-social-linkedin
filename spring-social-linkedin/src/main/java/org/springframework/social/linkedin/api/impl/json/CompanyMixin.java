@@ -27,4 +27,9 @@ public class CompanyMixin {
 			@JsonProperty("id") String id, 
 			@JsonProperty("name") String name) {}
 	
+
+	@JsonProperty("industry") String industry;
+	@JsonProperty("size") String size;
+	@JsonProperty("type") String type;
+	
 }

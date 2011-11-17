@@ -22,14 +22,16 @@ public class Recommendation implements Serializable {
 	
 	private final String id;
 	private final String recommendationSnippet;
+	private final String recommendationText;
 	private final RecommendationType recommendationType;
 	private final LinkedInProfile recommender;
 	private final LinkedInProfile recommendee;
 	
-	public Recommendation(String id, String recommendationSnippet, 
+	public Recommendation(String id, String recommendationSnippet, String recommendationText,
 			RecommendationType recommendationType, LinkedInProfile recommender, LinkedInProfile recommendee) {
 		this.id = id;
 		this.recommendationSnippet = recommendationSnippet;
+		this.recommendationText = recommendationText;
 		this.recommendationType = recommendationType;
 		this.recommender = recommender;
 		this.recommendee = recommendee;
@@ -41,6 +43,10 @@ public class Recommendation implements Serializable {
 	
 	public String getRecommendationSnippet() {
 		return recommendationSnippet;
+	}
+	
+	public String getRecommendationText() {
+		return recommendationText;
 	}
 	
 	public RecommendationType getRecommendationType() {

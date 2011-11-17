@@ -71,7 +71,20 @@ public class UpdateActionMixin {
 	@JsonDeserialize(using = UpdateContentDeserializer.class)
 	UpdateContent updateContent;
 	
-	private static class CommentsListDeserializer extends StandardListDeserializer<Comment> {}
+	private static class CommentsListDeserializer extends JsonDeserializer<List<Comment>>  {
+		public List<Comment> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.setDeserializationConfig(ctxt.getConfig());
+			jp.setCodec(mapper);
+			if(jp.hasCurrentToken()) {
+				JsonNode dataNode = jp.readValueAsTree().get("values");
+				if (dataNode != null) {
+					return mapper.readValue(dataNode, new TypeReference<List<Comment>>() {} );
+				}
+			}
+			return null;
+		}
+	}
 	
 	private static class UpdateContentDeserializer extends JsonDeserializer<UpdateContent> {
 		@Override

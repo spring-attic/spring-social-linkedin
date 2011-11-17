@@ -21,4 +21,41 @@ public interface ProfileOperations {
 	 * @return the user's profile data.
 	 */
 	LinkedInProfile getUserProfile();
+	
+	/**
+	 * Retrieves a profile by id.
+	 * 
+	 * @return the user's profile data.
+	 */
+	LinkedInProfile getProfileById(String id);
+	
+	/**
+	 * Retrieves a profile by public url.
+	 * 
+	 * @return the user's profile data.
+	 */
+	LinkedInProfile getProfileByPublicUrl(String url);
+	
+	
+	/**
+	 * Retrieves the current user's full profile details.
+	 * 
+	 * @return the user's profile data.
+	 */
+	LinkedInProfileFull getUserProfileFull();
+	
+	/**
+	 * Retrieves a full profile by id.
+	 * 
+	 * @return the user's profile data.
+	 */
+	LinkedInProfileFull getProfileFullById(String id);
+	
+	
+	/**
+	 * Retrieves a full profile by public url.
+	 * 
+	 * @return the user's profile data.
+	 */
+	LinkedInProfileFull getProfileFullByPublicUrl(String url);
 }

@@ -44,7 +44,7 @@ public class AbstractLinkedInApiTest {
 	protected void assertGroup(MemberGroup group, String id, String name, String url) {
 		assertEquals(id, group.getId());
 		assertEquals(name, group.getName());
-		assertEquals(url, group.getUrl());
+		assertEquals(url, group.getSiteGroupRequest().getUrl());
 	}
 	
 	protected void assertShare(CurrentShare share, String id, String visibility, String serviceProvider, String accountHandle, String accountId, String shareId, String comment) {

@@ -36,6 +36,7 @@ public class RecommendationMixin {
 	public RecommendationMixin(
 			@JsonProperty("id") String id, 
 			@JsonProperty("recommendationSnippet") String recommendationSnippet, 
+			@JsonProperty("recommendationText") String recommendationText, 
 			@JsonProperty("recommendationType") @JsonDeserialize(using=RecommendationTypeDeserializer.class) RecommendationType recommendationType,
 			@JsonProperty("recommender") LinkedInProfile recommender,
 			@JsonProperty("recommendee") LinkedInProfile recommendee) {}

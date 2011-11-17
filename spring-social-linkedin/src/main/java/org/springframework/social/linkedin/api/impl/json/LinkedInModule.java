@@ -22,16 +22,25 @@ import org.springframework.social.linkedin.api.Comments;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.CompanyJobUpdate;
 import org.springframework.social.linkedin.api.CurrentShare;
+import org.springframework.social.linkedin.api.Education;
+import org.springframework.social.linkedin.api.ImAccount;
 import org.springframework.social.linkedin.api.Job;
 import org.springframework.social.linkedin.api.Likes;
 import org.springframework.social.linkedin.api.LinkedInConnections;
+import org.springframework.social.linkedin.api.LinkedInDate;
 import org.springframework.social.linkedin.api.LinkedInNetworkUpdate;
 import org.springframework.social.linkedin.api.LinkedInNetworkUpdates;
 import org.springframework.social.linkedin.api.LinkedInProfile;
+import org.springframework.social.linkedin.api.LinkedInProfileFull;
+import org.springframework.social.linkedin.api.Location;
 import org.springframework.social.linkedin.api.MemberGroup;
 import org.springframework.social.linkedin.api.PersonActivity;
+import org.springframework.social.linkedin.api.PhoneNumber;
+import org.springframework.social.linkedin.api.Position;
 import org.springframework.social.linkedin.api.Recommendation;
+import org.springframework.social.linkedin.api.Relation;
 import org.springframework.social.linkedin.api.Share;
+import org.springframework.social.linkedin.api.TwitterAccount;
 import org.springframework.social.linkedin.api.UpdateAction;
 import org.springframework.social.linkedin.api.UpdateContent;
 import org.springframework.social.linkedin.api.UpdateContentCompany;
@@ -43,6 +52,7 @@ import org.springframework.social.linkedin.api.UpdateContentRecommendation;
 import org.springframework.social.linkedin.api.UpdateContentShare;
 import org.springframework.social.linkedin.api.UpdateContentStatus;
 import org.springframework.social.linkedin.api.UpdateContentViral;
+import org.springframework.social.linkedin.api.UrlResource;
 
 /**
  * Jackson module for registering mixin annotations against LinkedIn model classes.
@@ -57,6 +67,7 @@ public class LinkedInModule extends SimpleModule {
 	public void setupModule(SetupContext context) {
 		context.setMixInAnnotations(LinkedInConnections.class, LinkedInConnectionsMixin.class);
 		context.setMixInAnnotations(LinkedInProfile.class, LinkedInProfileMixin.class);
+		context.setMixInAnnotations(LinkedInProfileFull.class, LinkedInProfileFullMixin.class);
 		context.setMixInAnnotations(MemberGroup.class, MemberGroupMixin.class);
 		context.setMixInAnnotations(Recommendation.class, RecommendationMixin.class);
 		context.setMixInAnnotations(PersonActivity.class, PersonActivityMixin.class);
@@ -71,6 +82,15 @@ public class LinkedInModule extends SimpleModule {
 		context.setMixInAnnotations(Comment.class, CommentMixin.class);
 		context.setMixInAnnotations(Comments.class, CommentsMixin.class);
 		context.setMixInAnnotations(Likes.class, LikesMixin.class);
+		context.setMixInAnnotations(Position.class, PositionMixin.class);
+		context.setMixInAnnotations(ImAccount.class, ImAccountMixin.class);
+		context.setMixInAnnotations(TwitterAccount.class, TwitterAccountMixin.class);
+		context.setMixInAnnotations(UrlResource.class, UrlResourceMixin.class);
+		context.setMixInAnnotations(PhoneNumber.class, PhoneNumberMixin.class);
+		context.setMixInAnnotations(Education.class, EducationMixin.class);
+		context.setMixInAnnotations(Location.class, LocationMixin.class);
+		context.setMixInAnnotations(LinkedInDate.class, LinkedInDateMixin.class);
+		context.setMixInAnnotations(Relation.class, RelationMixin.class);
 		
 		context.setMixInAnnotations(LinkedInNetworkUpdate.class, LinkedInNetworkUpdateMixin.class);
 		context.setMixInAnnotations(LinkedInNetworkUpdates.class, LinkedInNetworkUpdatesMixin.class);

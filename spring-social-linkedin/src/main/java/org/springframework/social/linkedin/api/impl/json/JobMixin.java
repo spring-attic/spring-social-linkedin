@@ -27,6 +27,7 @@ import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.springframework.social.linkedin.api.Company;
+import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class JobMixin {
@@ -37,7 +38,7 @@ public class JobMixin {
 			@JsonProperty("id") String id,
 			@JsonProperty("locationDescription") String locationDescription,
 			@JsonProperty("position") @JsonDeserialize(using=PositionDeserializer.class) String position,
-			@JsonProperty("siteJobRequest") @JsonDeserialize(using=RequestUrlDeserializer.class) String url) {}
+			@JsonProperty("siteJobRequest") UrlResource siteJobRequest) {}
 	
 	public static class PositionDeserializer extends JsonDeserializer<String> {
 		private static final String VALUE = "title";

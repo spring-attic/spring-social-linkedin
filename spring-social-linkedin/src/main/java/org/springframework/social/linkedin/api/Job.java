@@ -25,15 +25,15 @@ public class Job implements Serializable{
 	private final String id;
 	private final String locationDescription;
 	private final String position;
-	private final String url;
+	private final UrlResource siteJobRequest;
 	
-	public Job(Company company, String description, String id, String locationDescription, String position, String url) {
+	public Job(Company company, String description, String id, String locationDescription, String position, UrlResource siteJobRequest) {
 		this.company = company;
 		this.description = description;
 		this.id = id;
 		this.locationDescription = locationDescription;
 		this.position = position;
-		this.url = url;
+		this.siteJobRequest = siteJobRequest;
 	}
 
 	public Company getCompany() {
@@ -56,7 +56,7 @@ public class Job implements Serializable{
 		return position;
 	}
 
-	public String getUrl() {
-		return url;
+	public UrlResource getSiteJobRequest() {
+		return siteJobRequest;
 	}
 }

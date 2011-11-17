@@ -30,6 +30,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.MemberGroup;
+import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UpdateContentGroupMixin {
@@ -42,7 +43,7 @@ public class UpdateContentGroupMixin {
 			@JsonProperty("headline") String headline, 
 			@JsonProperty("industry") String industry, 
 			@JsonProperty("publicProfileUrl") String publicProfileUrl, 
-			@JsonProperty("siteStandardProfileRequest") @JsonDeserialize(using=RequestUrlDeserializer.class) String standardProfileUrl, 
+			@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
 			@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
 	@JsonProperty("memberGroups")

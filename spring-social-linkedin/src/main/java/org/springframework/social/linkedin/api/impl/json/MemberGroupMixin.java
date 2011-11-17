@@ -18,7 +18,7 @@ package org.springframework.social.linkedin.api.impl.json;
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MemberGroupMixin {
@@ -27,5 +27,5 @@ public class MemberGroupMixin {
 	public MemberGroupMixin(
 			@JsonProperty("id") String id, 
 			@JsonProperty("name") String name, 
-			@JsonProperty("siteGroupRequest") @JsonDeserialize(using=RequestUrlDeserializer.class) String url) {}
+			@JsonProperty("siteGroupRequest") UrlResource siteGroupRequest) {}
 }

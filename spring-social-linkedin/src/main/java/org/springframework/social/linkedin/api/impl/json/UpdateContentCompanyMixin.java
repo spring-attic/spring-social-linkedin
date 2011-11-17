@@ -30,6 +30,7 @@ import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.CompanyJobUpdate;
 import org.springframework.social.linkedin.api.Share;
+import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UpdateContentCompanyMixin {
@@ -42,7 +43,7 @@ public class UpdateContentCompanyMixin {
 			@JsonProperty("headline") String headline, 
 			@JsonProperty("industry") String industry, 
 			@JsonProperty("publicProfileUrl") String publicProfileUrl, 
-			@JsonProperty("siteStandardProfileRequest") @JsonDeserialize(using=RequestUrlDeserializer.class) String standardProfileUrl, 
+			@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
 			@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
 	@JsonProperty("company")

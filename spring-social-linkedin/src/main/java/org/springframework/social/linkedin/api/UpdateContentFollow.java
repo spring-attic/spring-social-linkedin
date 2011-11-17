@@ -25,9 +25,9 @@ public class UpdateContentFollow extends UpdateContent {
 	
 	public UpdateContentFollow(String id, String firstName, String lastName,
 			String headline, String industry, String publicProfileUrl,
-			String standardProfileUrl, String profilePictureUrl) {
+			UrlResource siteStandardProfileRequest, String profilePictureUrl) {
 		super(id, firstName, lastName, headline, industry, publicProfileUrl,
-				standardProfileUrl, profilePictureUrl);
+				siteStandardProfileRequest, profilePictureUrl);
 	}
 	
 	public String getAction() {

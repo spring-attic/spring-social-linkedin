@@ -30,6 +30,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.Recommendation;
+import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UpdateContentRecommendationMixin {
@@ -42,7 +43,7 @@ public class UpdateContentRecommendationMixin {
 			@JsonProperty("headline") String headline, 
 			@JsonProperty("industry") String industry, 
 			@JsonProperty("publicProfileUrl") String publicProfileUrl, 
-			@JsonProperty("siteStandardProfileRequest") @JsonDeserialize(using=RequestUrlDeserializer.class) String standardProfileUrl, 
+			@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
 			@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
 	@JsonProperty("recommendationsReceived")
@@ -53,18 +54,17 @@ public class UpdateContentRecommendationMixin {
 	@JsonDeserialize(using=RecommendationsListDeserializer.class)
 	List<Recommendation> recommendationsGiven;
 	
-	private static class RecommendationsListDeserializer extends JsonDeserializer<List<Recommendation>> {
-		@SuppressWarnings("unchecked")
-		@Override
+	public static class RecommendationsListDeserializer extends JsonDeserializer<List<Recommendation>>  {
 		public List<Recommendation> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
 			jp.setCodec(mapper);
 			if(jp.hasCurrentToken()) {
 				JsonNode dataNode = jp.readValueAsTree().get("values");
-				return (List<Recommendation>) mapper.readValue(dataNode, new TypeReference<List<Recommendation>>() {});
+				if (dataNode != null) {
+					return mapper.readValue(dataNode, new TypeReference<List<Recommendation>>() {} );
+				}
 			}
-			
 			return null;
 		}
 	}

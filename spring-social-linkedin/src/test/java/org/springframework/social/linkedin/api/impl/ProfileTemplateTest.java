@@ -24,6 +24,8 @@ import static org.springframework.social.test.client.ResponseCreators.withRespon
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.social.linkedin.api.LinkedInProfile;
+import org.springframework.social.linkedin.api.LinkedInProfileFull;
+import org.springframework.social.linkedin.api.Recommendation.RecommendationType;
 
 /**
  * @author Craig Walls
@@ -32,7 +34,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 
 	@Test
 	public void getUserProfile() {
-		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL)).andExpect(method(GET))
+		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL.replaceFirst("\\{id\\}", "~"))).andExpect(method(GET))
 				.andRespond(withResponse(new ClassPathResource("testdata/profile.json", getClass()), responseHeaders));
 		LinkedInProfile profile = linkedIn.profileOperations().getUserProfile();
 		assertEquals("z37f0n3A05", profile.getId());
@@ -41,20 +43,74 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("Walls", profile.getLastName());
 		assertEquals("Computer Software", profile.getIndustry());
 		assertEquals("http://www.linkedin.com/in/habuma", profile.getPublicProfileUrl());
-		assertEquals("http://www.linkedin.com/standardProfileUrl", profile.getStandardProfileUrl());
+		assertEquals("http://www.linkedin.com/standardProfileUrl", profile.getSiteStandardProfileRequest().getUrl());
 		assertEquals("http://media.linkedin.com/pictureUrl", profile.getProfilePictureUrl());
+	}
+	
+	@Test 
+	public void getUserProfileFull() {
+		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL_FULL.replaceFirst("\\{id\\}", "~"))).andExpect(method(GET))
+		.andRespond(withResponse(new ClassPathResource("testdata/profile_full.json", getClass()), responseHeaders));
+		
+		LinkedInProfileFull profile = linkedIn.profileOperations().getUserProfileFull();
+		
+		assertProfile(profile, "UB2kruYmAL", "Software Architect", "Robert", "Drysdale", "Telecommunications", null);
+		
+		assertEquals("Canoeing Ireland", profile.getAssociations());
+		assertEquals(1900, profile.getDateOfBirth().getYear());
+		assertEquals(1, profile.getDateOfBirth().getMonth());
+		assertEquals(1, profile.getDateOfBirth().getDay());
+		assertEquals(3, profile.getEducations().size());
+		assertEquals("MSc Innovation & Technology Management", profile.getEducations().get(0).getDegree());
+		assertEquals("University College Dublin", profile.getEducations().get(0).getSchoolName());
+		assertEquals(2009, profile.getEducations().get(0).getEndDate().getYear());
+		assertEquals(2007, profile.getEducations().get(0).getStartDate().getYear());
+		assertEquals("None", profile.getHonors());
+		assertEquals(1, profile.getImAccounts().size());
+		assertEquals("robbiedrysdale", profile.getImAccounts().get(0).getImAccountName());
+		assertEquals("skype", profile.getImAccounts().get(0).getImAccountType());
+		assertEquals("Telecommunications", profile.getIndustry());
+		assertEquals("ie", profile.getLocation().getCountry());
+		assertEquals("Ireland", profile.getLocation().getName());
+		assertEquals(189, profile.getNumConnections());
+		assertEquals("Dublin, Ireland", profile.getMainAddress());
+		assertEquals(1, profile.getMemberUrlResources().size());
+		assertEquals("Company Website", profile.getMemberUrlResources().get(0).getName());
+		assertEquals("http://www.robatron.com", profile.getMemberUrlResources().get(0).getUrl());
+		assertEquals(2, profile.getNumRecommenders());
+		assertEquals("+353 87 9580000", profile.getPhoneNumbers().get(0).getPhoneNumber());
+		assertEquals("mobile", profile.getPhoneNumbers().get(0).getPhoneType());
+		assertEquals(8, profile.getPositions().size());
+		assertEquals("133861560", profile.getPositions().get(0).getId());
+		assertEquals(true, profile.getPositions().get(0).getIsCurrent());
+		assertEquals(2010, profile.getPositions().get(0).getStartDate().getYear());
+		assertEquals(6, profile.getPositions().get(0).getStartDate().getMonth());
+		assertEquals(0, profile.getPositions().get(0).getStartDate().getDay());
+		assertEquals("CBW at robatron, a Media Streaming startup.  Ongoing Technology research into potential new products.", profile.getPositions().get(0).getSummary());
+		assertEquals("CBW", profile.getPositions().get(0).getTitle());
+		assertEquals("Computer Software", profile.getPositions().get(0).getCompany().getIndustry());
+		assertEquals("robatron", profile.getPositions().get(0).getCompany().getName());
+		assertEquals(2, profile.getRecommendationsReceived().size());
+		assertEquals("Great guy to work with, open, friendly and approachable as well as very knowledgeable on a wide range of areas outside the immediate remit of standard java development. In all an asset to any team, would be happy to work with him again.", profile.getRecommendationsReceived().get(0).getRecommendationText());
+		assertEquals(RecommendationType.COLLEAGUE, profile.getRecommendationsReceived().get(0).getRecommendationType());
+		assertEquals("Damien", profile.getRecommendationsReceived().get(0).getRecommender().getFirstName());
+		assertEquals(3, profile.getSkills().size());
+		assertEquals("Java", profile.getSkills().get(0));
+		assertEquals(206,profile.getSpecialties().length());
+		assertEquals(462,profile.getSummary().length());
+		assertEquals("robdrysdale",profile.getTwitterAccounts().get(0).getProviderAccountName());
 	}
 
 	@Test
 	public void getProfileId() {
-		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL)).andExpect(method(GET))
+		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL.replaceFirst("\\{id\\}", "~"))).andExpect(method(GET))
 				.andRespond(withResponse(new ClassPathResource("testdata/profile.json", getClass()), responseHeaders));
 		assertEquals("z37f0n3A05", linkedIn.profileOperations().getProfileId());
 	}
 
 	@Test
 	public void getProfileUrl() {
-		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL)).andExpect(method(GET))
+		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL.replaceFirst("\\{id\\}", "~"))).andExpect(method(GET))
 				.andRespond(withResponse(new ClassPathResource("testdata/profile.json", getClass()), responseHeaders));
 		assertEquals("http://www.linkedin.com/in/habuma", linkedIn.profileOperations().getProfileUrl());
 	}

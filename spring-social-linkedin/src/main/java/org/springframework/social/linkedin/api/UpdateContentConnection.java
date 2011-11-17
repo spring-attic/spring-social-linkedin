@@ -26,10 +26,10 @@ public class UpdateContentConnection extends UpdateContent {
 	
 	public UpdateContentConnection(String id, String firstName,
 			String lastName, String headline, String industry,
-			String publicProfileUrl, String standardProfileUrl,
+			String publicProfileUrl, UrlResource siteStandardProfileRequest,
 			String profilePictureUrl) {
 		super(id, firstName, lastName, headline, industry, publicProfileUrl,
-				standardProfileUrl, profilePictureUrl);
+				siteStandardProfileRequest, profilePictureUrl);
 	}
 	
 	public List<LinkedInProfile> getConnections() {

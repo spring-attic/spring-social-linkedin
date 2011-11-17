@@ -22,12 +22,12 @@ public class MemberGroup implements Serializable {
 	
 	private final String id;
 	private final String name;
-	private final String url;
+	private final UrlResource siteGroupRequest;
 	
-	public MemberGroup(String id, String name, String url) {
+	public MemberGroup(String id, String name, UrlResource siteGroupRequest) {
 		this.id = id;
 		this.name = name;
-		this.url = url;
+		this.siteGroupRequest = siteGroupRequest;
 	}
 	
 	public String getId() {
@@ -38,7 +38,7 @@ public class MemberGroup implements Serializable {
 		return name;
 	}
 	
-	public String getUrl() {
-		return url;
+	public UrlResource getSiteGroupRequest() {
+		return siteGroupRequest;
 	}
 }
