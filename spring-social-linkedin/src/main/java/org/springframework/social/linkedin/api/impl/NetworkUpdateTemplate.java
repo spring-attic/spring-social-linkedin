@@ -3,13 +3,10 @@ package org.springframework.social.linkedin.api.impl;
 import static org.springframework.social.linkedin.api.impl.LinkedInTemplate.BASE_URL;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.springframework.social.linkedin.api.Comment;
 import org.springframework.social.linkedin.api.Comments;
@@ -25,7 +22,7 @@ import org.springframework.social.linkedin.api.UpdateContentShare;
 import org.springframework.social.linkedin.api.UpdateTypeInput;
 import org.springframework.web.client.RestTemplate;
 
-public class NetworkUpdateTemplate implements NetworkUpdateOperations {
+public class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUpdateOperations {
 	
 	static {
 		/*
@@ -134,7 +131,7 @@ public class NetworkUpdateTemplate implements NetworkUpdateOperations {
 	 * 
 	 * Also don't want to escape & or = chars
 	 */
-	public static URI expand(String url, NetworkUpdateParameters parameters) {
+	private URI expand(String url, NetworkUpdateParameters parameters) {
 		String type = null;
 		if (parameters.getUpdateAll()) {
 			type = UPDATE_TYPE_ALL_STRING;
@@ -158,28 +155,7 @@ public class NetworkUpdateTemplate implements NetworkUpdateOperations {
 				parameters.getShowHidden() ? "true" : null
 		};
 		
-		Matcher matcher = NAMES_PATTERN.matcher(url);
-		StringBuffer buffer = new StringBuffer();
-		int i = 0;
-		while (matcher.find()) {
-			Object uriVariable = variables[i++];
-			String replacement = Matcher.quoteReplacement(uriVariable != null ? uriVariable.toString() : "");
-			String key = matcher.group();
-			if (key.charAt(1) == '&' && replacement != null && replacement.length() > 0) {
-				key = key.substring(1, key.length()-1);
-				matcher.appendReplacement(buffer, key + '=' + replacement);
-			}
-			else {
-				matcher.appendReplacement(buffer, replacement);
-			}
-		}
-		matcher.appendTail(buffer);
-		try {
-			return new URI(buffer.toString());
-		}
-		catch (URISyntaxException ex) {
-			throw new IllegalArgumentException("Could not create URI from [" + buffer + "]: " + ex, ex);
-		}
+		return expand(url, variables, false);
 	}
 	
 	static final String UPDATES_URL = BASE_URL + "{id}/network/updates?format=json{&count}{&start}{&scope}{type}{&before}{&after}{&show-hidden-members}";
@@ -201,9 +177,6 @@ public class NetworkUpdateTemplate implements NetworkUpdateOperations {
 	public static final int DEFAULT_COUNT = 10;
 	
 	private static final String UPDATE_TYPE_ALL_STRING;
-	
-	/** Captures URI template variable names. */
-	private static final Pattern NAMES_PATTERN = Pattern.compile("\\{([^/]+?)\\}");
 	
 	private final RestTemplate restTemplate;
 	

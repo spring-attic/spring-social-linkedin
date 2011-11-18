@@ -58,4 +58,6 @@ public interface ProfileOperations {
 	 * @return the user's profile data.
 	 */
 	LinkedInProfileFull getProfileFullByPublicUrl(String url);
+	
+	SearchResult search(SearchParameters parameters) ;
 }

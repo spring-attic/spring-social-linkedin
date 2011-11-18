@@ -26,6 +26,8 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.social.linkedin.api.Recommendation.RecommendationType;
+import org.springframework.social.linkedin.api.SearchParameters;
+import org.springframework.social.linkedin.api.SearchResult;
 
 /**
  * @author Craig Walls
@@ -113,5 +115,26 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL.replaceFirst("\\{id\\}", "~"))).andExpect(method(GET))
 				.andRespond(withResponse(new ClassPathResource("testdata/profile.json", getClass()), responseHeaders));
 		assertEquals("http://www.linkedin.com/in/habuma", linkedIn.profileOperations().getProfileUrl());
+	}
+	
+	@Test 
+	public void search() {
+		mockServer.expect(requestTo(
+				"https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary))?&keywords=Java%20J2EE&&country-code=ie&start=0&count=10"
+				)).andExpect(method(GET))
+		.andRespond(withResponse(new ClassPathResource("testdata/search.json", getClass()), responseHeaders));
+		
+		SearchParameters parameters = new SearchParameters();
+		parameters.setCountryCode("ie");
+		parameters.setKeywords("Java J2EE");
+		SearchResult result = linkedIn.profileOperations().search(parameters);
+		assertEquals(0, result.getStart());
+		assertEquals(10, result.getCount());
+		assertEquals(110, result.getTotal());
+		assertEquals(10, result.getPeople().size());
+		
+		assertProfile(result.getPeople().get(0), 
+				"YeagNX-lsX", "IT Consultant at Harvey Nash PLC", "Michelle", "Daly", "Staffing and Recruiting", null);
+		
 	}
 }

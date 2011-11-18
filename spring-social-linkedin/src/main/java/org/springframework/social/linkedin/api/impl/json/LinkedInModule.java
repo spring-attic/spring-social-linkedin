@@ -34,11 +34,14 @@ import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.social.linkedin.api.Location;
 import org.springframework.social.linkedin.api.MemberGroup;
+import org.springframework.social.linkedin.api.NetworkStatistics;
 import org.springframework.social.linkedin.api.PersonActivity;
 import org.springframework.social.linkedin.api.PhoneNumber;
 import org.springframework.social.linkedin.api.Position;
 import org.springframework.social.linkedin.api.Recommendation;
 import org.springframework.social.linkedin.api.Relation;
+import org.springframework.social.linkedin.api.SearchResult;
+import org.springframework.social.linkedin.api.SearchResultWrapper;
 import org.springframework.social.linkedin.api.Share;
 import org.springframework.social.linkedin.api.TwitterAccount;
 import org.springframework.social.linkedin.api.UpdateAction;
@@ -91,6 +94,9 @@ public class LinkedInModule extends SimpleModule {
 		context.setMixInAnnotations(Location.class, LocationMixin.class);
 		context.setMixInAnnotations(LinkedInDate.class, LinkedInDateMixin.class);
 		context.setMixInAnnotations(Relation.class, RelationMixin.class);
+		context.setMixInAnnotations(NetworkStatistics.class, NetworkStatisticsMixin.class);
+		context.setMixInAnnotations(SearchResult.class, SearchResultMixin.class);
+		context.setMixInAnnotations(SearchResultWrapper.class, SearchResultWrapperMixin.class);
 		
 		context.setMixInAnnotations(LinkedInNetworkUpdate.class, LinkedInNetworkUpdateMixin.class);
 		context.setMixInAnnotations(LinkedInNetworkUpdates.class, LinkedInNetworkUpdatesMixin.class);

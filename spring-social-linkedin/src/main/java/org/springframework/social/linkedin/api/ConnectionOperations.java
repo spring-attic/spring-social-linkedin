@@ -9,4 +9,6 @@ public interface ConnectionOperations {
 	 * @return the user's connections
 	 */
 	List<LinkedInProfile> getConnections();
+	
+	NetworkStatistics getNetworkStatistics();
 }

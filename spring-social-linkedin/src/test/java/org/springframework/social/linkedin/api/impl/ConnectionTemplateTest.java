@@ -11,6 +11,7 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.social.linkedin.api.LinkedInProfile;
+import org.springframework.social.linkedin.api.NetworkStatistics;
 
 public class ConnectionTemplateTest extends AbstractLinkedInApiTest {
 	@Test
@@ -31,5 +32,16 @@ public class ConnectionTemplateTest extends AbstractLinkedInApiTest {
 		assertProfile(connections.get(3), "gKEMq4CMdl", "Head of Groovy Development at SpringSource", "Guillaume",
 				"Laforge", "Information Technology and Services",
 				"http://www.linkedin.com/profile?viewProfile=&key=822306&authToken=YmIW&authType=name&trk=api*a121026*s129482*");
+	}
+	
+	@Test
+	public void getStatistics() {
+		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/network-stats?format=json")).andExpect(method(GET))
+				.andRespond(withResponse(new ClassPathResource("testdata/statistics.json", getClass()), responseHeaders));
+		
+		NetworkStatistics stats = linkedIn.connectionOperations().getNetworkStatistics();
+		
+		assertEquals(189, stats.getFirstDegreeCount());
+		assertEquals(50803, stats.getSecondDegreeCount());
 	}
 }

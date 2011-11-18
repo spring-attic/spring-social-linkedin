@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.social.linkedin.api.ConnectionOperations;
 import org.springframework.social.linkedin.api.LinkedInConnections;
 import org.springframework.social.linkedin.api.LinkedInProfile;
+import org.springframework.social.linkedin.api.NetworkStatistics;
 import org.springframework.web.client.RestTemplate;
 
 public class ConnectionTemplate implements ConnectionOperations {
@@ -21,5 +22,11 @@ public class ConnectionTemplate implements ConnectionOperations {
 		return connections.getConnections();
 	}
 	
+	public NetworkStatistics getNetworkStatistics(){
+		return restTemplate.getForObject(STATISTICS_URL,  NetworkStatistics.class);
+	}
+	
 	static final String CONNECTIONS_URL = BASE_URL + "~/connections?format=json";
+	
+	static final String STATISTICS_URL = BASE_URL + "~/network/network-stats?format=json";
 }
