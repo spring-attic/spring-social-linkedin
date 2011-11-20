@@ -4,13 +4,14 @@ import static org.springframework.social.linkedin.api.impl.LinkedInTemplate.BASE
 
 import java.net.URI;
 
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.social.linkedin.api.ProfileField;
 import org.springframework.social.linkedin.api.ProfileOperations;
 import org.springframework.social.linkedin.api.SearchParameters;
-import org.springframework.social.linkedin.api.SearchResult;
-import org.springframework.social.linkedin.api.SearchResultWrapper;
+import org.springframework.social.linkedin.api.SearchResultPeople;
 import org.springframework.web.client.RestTemplate;
 
 public class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
@@ -36,10 +37,13 @@ public class ProfileTemplate extends AbstractTemplate implements ProfileOperatio
 		
 		PROFILE_URL_FULL = b.toString();
 	}
-	private RestTemplate restTemplate;
 	
-	public ProfileTemplate(RestTemplate restTemplate) {
+	private RestTemplate restTemplate;
+	private ObjectMapper objectMapper;
+	
+	public ProfileTemplate(RestTemplate restTemplate, ObjectMapper objectMapper) {
 		this.restTemplate = restTemplate;
+		this.objectMapper = objectMapper;
 	}
 	public String getProfileId() {
 		return getUserProfile().getId();
@@ -73,13 +77,15 @@ public class ProfileTemplate extends AbstractTemplate implements ProfileOperatio
 		return restTemplate.getForObject(PROFILE_URL_FULL, LinkedInProfileFull.class, "url=" + url);
 	}
 	
-	public SearchResult search(SearchParameters parameters) {
-		SearchResultWrapper wrapper =  restTemplate.getForObject(expand(PEOPLE_SEARCH_URL, parameters), SearchResultWrapper.class);
-		
-		if (wrapper != null) {
-			return wrapper.getResult();
+	public SearchResultPeople search(SearchParameters parameters) {
+		JsonNode node =  restTemplate.getForObject(expand(PEOPLE_SEARCH_URL, parameters), JsonNode.class);
+		try {
+			return objectMapper.readValue(node.path("people"), SearchResultPeople.class);
 		}
-		return null;
+		catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
 	}
 	
 	private URI expand(String url, SearchParameters parameters) {

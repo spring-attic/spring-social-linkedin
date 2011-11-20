@@ -35,7 +35,7 @@ public abstract class AbstractTemplate {
 		}
 	}
 	
-	public String encode(String param) {
+	private String encode(String param) {
 		byte[] source = param.getBytes();
 		ByteArrayOutputStream bos = new ByteArrayOutputStream(source.length);
         for (int i = 0; i < source.length; i++) {
@@ -59,7 +59,7 @@ public abstract class AbstractTemplate {
         return bos.toString();
 	}
 	
-	 public boolean isAllowed(int c) {
+	private boolean isAllowed(int c) {
          if ('=' == c || '+' == c || '&' == c) {
              return false;
          }
@@ -68,23 +68,23 @@ public abstract class AbstractTemplate {
          }
      }
 	 
-	 protected boolean isPchar(int c) {
+	private boolean isPchar(int c) {
          return isUnreserved(c) || isSubDelimiter(c) || ':' == c || '@' == c;
      }
 	 
-	 protected boolean isUnreserved(int c) {
+	private boolean isUnreserved(int c) {
          return isAlpha(c) || isDigit(c) || '-' == c || '.' == c || '_' == c || '~' == c;
      }
 	 
-	 protected boolean isAlpha(int c) {
+	private boolean isAlpha(int c) {
          return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';
      }
 
-     protected boolean isDigit(int c) {
+	private boolean isDigit(int c) {
          return c >= '0' && c <= '9';
      }
      
-     protected boolean isSubDelimiter(int c) {
+	private boolean isSubDelimiter(int c) {
          return '!' == c || '$' == c || '&' == c || '\'' == c || '(' == c || ')' == c || '*' == c || '+' == c ||
                  ',' == c || ';' == c || '=' == c;
      }

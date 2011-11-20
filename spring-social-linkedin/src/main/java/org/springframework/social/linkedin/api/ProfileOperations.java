@@ -59,5 +59,10 @@ public interface ProfileOperations {
 	 */
 	LinkedInProfileFull getProfileFullByPublicUrl(String url);
 	
-	SearchResult search(SearchParameters parameters) ;
+	/**
+	 * Searches for Profiles based on provided parameters
+	 * 
+	 * @return search result.
+	 */
+	SearchResultPeople search(SearchParameters parameters) ;
 }

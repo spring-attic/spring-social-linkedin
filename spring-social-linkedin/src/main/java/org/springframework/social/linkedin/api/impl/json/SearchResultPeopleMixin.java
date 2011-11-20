@@ -8,11 +8,12 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SearchResultMixin {
+public class SearchResultPeopleMixin {
 	
 	@JsonCreator
-	public SearchResultMixin(@JsonProperty("_count") int count, 
+	public SearchResultPeopleMixin(@JsonProperty("_count") int count, 
 			@JsonProperty("_start") int start, 
-			@JsonProperty("_total") int total, 
-			@JsonProperty("values") List<LinkedInProfile> people) {}
+			@JsonProperty("_total") int total) {}
+	
+	@JsonProperty("values") List<LinkedInProfile> people;
 }

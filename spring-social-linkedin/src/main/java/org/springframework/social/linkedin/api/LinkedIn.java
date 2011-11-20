@@ -50,6 +50,10 @@ public interface LinkedIn extends ApiBinding {
 	 */
 	ProfileOperations profileOperations();
 	
+	/**
+	 * API for retrieving and performing operations on companies
+	 */
+	CompanyOperations companyOperations();
 	
 	/**
 	 * Retrieves json data from provided url

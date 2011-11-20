@@ -1,0 +1,474 @@
+{"companies": {
+  "_count": 10,
+  "_start": 0,
+  "_total": 88,
+  "values": [
+    {
+      "blogRssUrl": "",
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "Rain Concert Technologies (P) Ltd, is a leading provider of Web-Mobile-Electronics convergent solutions and has capabilities that span across various domains, applications and technologies. Very strong Web-Mobile convergent solutions are at its best with Rain Concert.\r\nOur spectrum of  solutions range from  High End Web Application Development, Rich Internet Applications, iphone/ipad Applications, e-Governance solutions, Social Networking Applications, Online Learning Management Systems, Web Casting Applications, Web Based CRM & ERP Solutions, Collaborative Video Sharing Platforms, e-Commerce Applications, Online Auction & e-Commerce Portals,  to development of Games for Web & Mobile, Enterprise domain solutions. \r\nThe company has a Regional Office in Delhi and has set up offices in Saudi, Dubai and soon to launch its office in Bahrain and has strategic partners in USA, Bahrain and UAE. Aarthika Technologies, the subsidiary of Rain Concert has a strong presence in the online sales platform and continues to maintain its position as a Top Rated Company. \r\n\r\n\r\nTechnology Expertise\r\n\r\nRich Internet Applications\r\n\r\nInteractive 3D\r\nAs3, Flash, Flex\r\nAdobe AIR, Paper Vision 3D\r\nFlash Media Server\r\nWowsa Server\r\n\r\nMobile \r\n\r\nIphone, ipad,\r\nAndroid, BlackBerry, J2Me, Symbian\r\n\r\nWeb \r\n\r\nPHP, Ruby on Rail, Perl, .Net,\r\nJ2EE, Hibernete, Spring\r\nMySQl, MSSQL, Oracle\r\n\r\nElectronics\r\n\r\nUtility Electronics\r\nHigh-end Security Products\r\nConvergent Applications",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["aarthikaindia.com"]
+      },
+      "employeeCountRange": {
+        "code": "D",
+        "name": "51-200"
+      },
+      "foundedYear": 2006,
+      "id": 202421,
+      "industry": "Information Technology and Services",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "Trivandrum",
+            "postalCode": "695010",
+            "street1": "Thejaswini"
+          },
+          "contactInfo": {}
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/1/000/081/30b/0d9d423.png",
+      "name": "Rain Concert Technologies (P) Ltd. / Aarthika Technologies",
+      "numFollowers": 166,
+      "specialties": {
+        "_total": 7,
+        "values": [
+          "Web Application Development",
+          "Mobile Technology Solutions",
+          "E-Governance Applications",
+          "Rich Internet - Desktop Applications",
+          "Multiplayer Games and Serious e-Games",
+          "Software Development & Consulting",
+          "E-Learning & Multimedia"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "",
+      "universalName": "rain-concert-technologies-p-ltd.-aarthika-technologies",
+      "websiteUrl": "www.rainconcert.in"
+    },
+    {
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "EcommIT Labs provides custom software application development services to its clients from its offshore center in India. Clients who need design, development and implementation expertise in an outsourced offshore model can rely on our experience in executing turn-key as well as module based projects. \r\nWe believe our unique approach to offshore outsourcing combines significant cost benefits with lower risks and higher levels of customer service.We have been an exponent of the open source software and can help clients with leveraging the existing open source software with out diluting the security and support aspects. We have also enabled our clients to use the convenience of the rich client technologies like Ajax, Web 2.0\r\n\r\nOur Major Technologies:\r\n# J2EE, Spring Web framework, Hibernate\r\n# Python & Django\r\n# PHP & CakePHP\r\n# OpenERP, Joomla\r\n\r\nOur Major Domains\r\n# E-commerce\r\n# ERP\r\n# Health Care\r\n# Education \r\n# Mobile & SMS\r\n\r\nOur Major Services:\r\n# Software Application Development \r\n# Software Staff Augmentation Services\r\n# Flexible Software Teams Engagement Model\r\n# Dedicated Software Development Teams Engagement Model\r\n# Build-Operate-Transfer ( BOT ) model\r\n# Software Testing Services",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["ecommit.com"]
+      },
+      "employeeCountRange": {
+        "code": "C",
+        "name": "11-50"
+      },
+      "foundedYear": 1999,
+      "id": 97353,
+      "industry": "Computer Software",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "Kochi",
+            "postalCode": "682030",
+            "street1": "3rd Floor, Thapasya Bldg."
+          },
+          "contactInfo": {"phone1": "+91 484 3058066"}
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/04a/14b/1074855.png",
+      "name": "EcommIT Labs Pvt Ltd",
+      "numFollowers": 33,
+      "specialties": {
+        "_total": 7,
+        "values": [
+          "Web Application Development",
+          "Spring Framework",
+          "Hibernate",
+          "Django",
+          "OpenERP",
+          "Joomla",
+          "CakePHP"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "universalName": "ecommit-labs-pvt-ltd",
+      "websiteUrl": "http://www.ecommit.com"
+    },
+    {
+      "blogRssUrl": "",
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "Tricon Infotech, one of the most trusted names in Offshore Software Development, provides software development & support services across the globe in different business models, which includes Fixed Price Turnkey Projects, Time & Material Projects, Offshore Maintenance & Offshore Development Center. Tricon has extensive experience in the technology across a wide range of disciplines, solutions, platforms and languages. Tricon's expertise extends to vertical markets such as:\r\n\r\n    * Social Networking\r\n    * Travel\r\n    * Education\r\n    * Healthcare\r\n    * Manufacturing\r\n    * Retail Management\r\n    * Insurance & Finance\r\n    * Media/Entertainment\r\n\r\nTricon's professionals have extensive experience in the following Technologies:\r\n\r\nLanguages/Technologies: Java, J2EE, EJB, Servlets, JSP, PHP, VB.NET, ASP.Net, C#, XML, XSLT, PL/SQL\r\n\r\nFrameworks: Spring, Struts, JSF, jQuery, .Net framework, Liferay, Drupal, Redhat WAF, DotNetNuke\r\n\r\nRich Internet Application Frameworks: FLEX, Openlaszlo\r\n\r\nORM Technology: Hibernate\r\n\r\nRequirement Phase Tools: Axure, ErWin\r\n\r\nDevelopment Phase Tools: Eclipse, Netbeans, Oracle JDeveloper, Codestriker, Microsoft Visual Studio, Dreamweaver, Adobe Photoshop\r\n\r\nConfiguration Management Tools: SVN (SubVersion), CVS, VSS, Ant, Maven, Continuum\r\n\r\nTesting Phase Tools: Selenium, Jprofiler, JUnit\r\n\r\nProject Management Tools: MS Project, Redmine, Bugzilla\r\n\r\nHosting support and monitoring: Amazon cloud, Nagios\r\n\r\nOperating Systems: Windows 7/VISTA/XP/2003/2000/NT, Redhat Linux Enterprise Edition, CentOS, MAC\r\n\r\nDatabases: Oracle, SQL Server, PostgreSQL, MySQL, MS Access\r\n\r\nWeb/Application Servers: Apache Tomcat, Glassfish, BEA WebLogic, JBoss, I I S\r\n\r\nOthers: Openmeetings, Lucene, Solr, Hibernate-Search, SEO",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["triconinfotech.com"]
+      },
+      "employeeCountRange": {
+        "code": "D",
+        "name": "51-200"
+      },
+      "foundedYear": 1997,
+      "id": 765368,
+      "industry": "Computer Software",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "Bangalore",
+            "postalCode": "560095",
+            "street1": "#5 AVS COmpound, 4th Block"
+          },
+          "contactInfo": {}
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/046/24d/00055d9.png",
+      "name": "Tricon Infotech Pvt. Ltd",
+      "numFollowers": 559,
+      "specialties": {
+        "_total": 1,
+        "values": ["Software Services"]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "",
+      "universalName": "tricon-infotech-pvt.-ltd",
+      "websiteUrl": "www.triconinfotech.com"
+    },
+    {
+      "blogRssUrl": "",
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "About Horizon Technology Partners\r\n\r\nFor over fifteen years, the team at Horizon has built a reputation and solid record of excellence. Horizon Technology Partners currently enjoys the position of Preferred Vendor for many predominant companies. We count among our firm's greatest assets, our professional/personal relationships with the senior management of these companies, many of which go back to our very beginning; and we remain committed to the professional standards, quality, attentiveness, thoroughness, and just plain bottom-line value that we believe has contributed to our reputation and these long-term relationships.     \r\n \r\nService Offerings:\r\n- Strategic IT Consulting   \r\n- Staff Augmentation \r\n- Placement Services   \r\n- eCommerce / Intranet Solutions   \r\n- Software / Application Development \r\n- Business Analysis and BPR \r\n- Application Architecture  \r\n- Project Management and PMO \r\n- Systems / Network Integration \r\n \r\n\r\nTechnical Expertise: \r\n- Software Development Process (Six Sigma / CMMI / RUP / UML / AGILE / SCRUM / TDD) \r\n- C#.NET, ASP.Net, Rich Internet Application/RIA, Ajax, Adobe Flex, ActiveX, COM/DCOM, MTS \r\n- J2EE, WebSphere, WebLogic, Struts, Tiles, WebServices, SOAP, XML, C/C++, Ruby on Rails\r\n- LAMP\r\n- Web 2.0: Java (JSP/Spring/Hibernate), .Net 2.0, Ruby on Rails; ASP.net, JSP, PHP, AJAX, JQuery, Prototype, Adobe Flash /Flex/Air, CCS 2, XHTML\r\n- Systems Engineering (Unix, NT, Mid-Range & Legacy / Mainframe)    \r\n- Database Administration (Oracle, Sybase, SQL Server, DB2, DB2 Connect EE)  \r\n- Business Intelligence / Data Mining / Data Warehousing (Business Objects, Informatica, Cognos)  \r\n- Service Oriented Architecture (SOA) \r\n- Model Driven Architecture (MDA) \r\n- ITIL Standards setting and mentoring along with Change Management \r\n- ERP (SAP, PeopleSoft, Oracle Financials) \r\n- WebMethods, Tibco, MQ Series, SeeBeyond, BPEL, Collaxa  \r\n- Network Engineering (Cisco, Extreme, & best of breed) \r\n \r\nPlease visit us at:  www.htpartners.com",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["htpartners.com"]
+      },
+      "employeeCountRange": {
+        "code": "C",
+        "name": "11-50"
+      },
+      "foundedYear": 1992,
+      "id": 101995,
+      "industry": "Information Technology and Services",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "Palatine",
+            "postalCode": "60067",
+            "street1": "1316 W. Northwest Hwy."
+          },
+          "contactInfo": {"phone1": "847-202-3242"}
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/1/000/039/2b1/310df7d.png",
+      "name": "Horizon Technology Partners",
+      "numFollowers": 42,
+      "specialties": {
+        "_total": 3,
+        "values": [
+          "Strategic IT Consulting",
+          "IT Staff Augmentation",
+          "IT Placement Services"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "",
+      "universalName": "horizon-technology-partners",
+      "websiteUrl": "www.htpartners.com"
+    },
+    {
+      "blogRssUrl": "",
+      "companyType": {
+        "code": "S",
+        "name": "Partnership"
+      },
+      "description": "*Fastest 30 growing company award from NKY Chamber in 2009 and 2010\r\n*Fastest 55 growing company award from Business Courier in 2010\r\n\r\nh3 Technologies, LLC (a Florence, Kentucky based and international company) is an information technologies (IT) staffing and software development company. h3 has off shore branch in Greater Noida, Uttar Pradesh, India. We have expertise in Oracle Apps and java related all technologies but we can help for SAP, .Net, PHP  and other technologies as well. We provide online, visual and live training for core java, advanced java (spring, hibernate, web services and SOA), manual and automated testing, business analyst and android programming but we can arrange training for .net and php as well.\r\n\r\nWe have been very successful locating hard-to-find skill sets, and have become a reliable and trusted source for the companies with whom we work. \r\n\r\nOur clients rely on us for the following essential services: \r\n\r\n\u2022\tContract Staffing\r\n\u2022\tContract-to-Permanent Staffing\r\n\u2022\tPermanent Staffing\r\n\u2022\tSoftware and web site development\r\n\u2022\tSoftware and web site and database support\r\n\u2022\tVisual and live training for core java, advanced java (spring, hibernate, web services and SOA), manual and automated testing, business analyst and android programming",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["h3-technologies.com"]
+      },
+      "employeeCountRange": {
+        "code": "C",
+        "name": "11-50"
+      },
+      "id": 485892,
+      "industry": "Information Technology and Services",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "Florence",
+            "postalCode": "41042",
+            "street1": "71 Cavalier Blvd.,"
+          },
+          "contactInfo": {
+            "fax": "603-954-3098",
+            "phone1": "513-898-9780"
+          }
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/030/31a/24457fa.png",
+      "name": "h3 Technologies, LLC",
+      "numFollowers": 28,
+      "specialties": {
+        "_total": 4,
+        "values": [
+          "IT Staffing, software development, training and outsourcing.",
+          "Visual and live training for java, testing, BA, android.",
+          "Specialized in java, j2ee, spring, hibernate, webservices,middleware, SOA.",
+          "Oracle apps, oracle fusion, peoplesoft, hyperion and seibel,"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "",
+      "universalName": "h3-technologies-llc",
+      "websiteUrl": "http://www.h3-technologies.com"
+    },
+    {
+      "blogRssUrl": "",
+      "companyType": {
+        "code": "S",
+        "name": "Partnership"
+      },
+      "description": "Rize Technology Corporation is a leading Software, Web and Mobile application development company that specializes in the development of enterprise e-commerce, B2B, Social networking, Portal, e-procurement, e-recruitment, e-Learning Management system, products and Custom software development applications from its primary offshore development and onsite centers in India, US, Canada and Italy. \r\n\r\nWe have proven expertise and experience in the development of projects based on RIA, Opensource and Microsoft technologies.\r\n\r\n~ Web: PHP, MySQL, AJAX, XML, JAVA, JQuery, J2EE, J2ME\r\n~ RIA: Ruby on Rails (RoR), Flex, GO, Groovy & Grails\r\n~ CMS: Joomla, Drupal, Magento, Wordpress, OScommerce\r\n~ Frameworks: Zend, CodeIgnitor, CakePHP, Apache Hadoop, Spring \r\n~ Microsoft: ASP.Net, VB.Net, C#, MS SQL, Silverlight, SharePoint, Web services\r\n~ Virtualization: VMWare, Microsoft\r\n~ Mobile Apps: iPhone, iPad, iPod, Android, Blackberry, Symbian\r\n~ Social Apps: Facebook, Twitter, Linkedin, Google \r\n\r\nRize Corp specializes in the development of new and innovative mobile concepts and applications that will address your business needs.\r\n\r\n\u2022 Mobile application development\r\n\u2022 Mobile web site development\r\n\u2022 Mobile product development\r\n\u2022 Mobile Apps marketing\r\n\r\nPlatforms: \r\n\u2022 Android\r\n\u2022 Iphone\r\n\u2022 Blackberry\r\n\u2022 Symbian\r\n\u2022 Windows \r\n\r\nVisit us at www.rizecorp.com",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["rizecorp.com"]
+      },
+      "employeeCountRange": {
+        "code": "C",
+        "name": "11-50"
+      },
+      "id": 926181,
+      "industry": "Information Technology and Services",
+      "locations": {"_total": 0},
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/055/055/1770e5e.png",
+      "name": "Rize Technology Corporation Inc",
+      "numFollowers": 50,
+      "specialties": {
+        "_total": 8,
+        "values": [
+          "Web application development",
+          "Custom software development",
+          "Mobile Apps development",
+          "PHP development",
+          "ASP.Net application development",
+          "Joomla development",
+          "Drupal development",
+          "Magento development"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "",
+      "universalName": "rize-technology-corporation-inc",
+      "websiteUrl": "www.rizecorp.com"
+    },
+    {
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "Stragure is an Enterprise Application Development company based out of Bangalore, India. It is a software company specializing in building Business Process Workflows, Management Information Systems, Supply Chain Management Solutions and integrated Datawarehousing and Data Mining solutions for various industry segments. Stragure specializes in building Domain Driven Architectures with some the best RAD J2EE frameworks existing in the world today.",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["stragure.com"]
+      },
+      "employeeCountRange": {
+        "code": "C",
+        "name": "11-50"
+      },
+      "foundedYear": 2007,
+      "id": 985818,
+      "industry": "Information Technology and Services",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "Bangalore",
+            "postalCode": "560037",
+            "street1": "11, Seven Hills Garden, Ramaswamypalya Main Road"
+          },
+          "contactInfo": {"phone1": "+91 (80) 4084 9494"}
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/05a/37e/2a14cf5.png",
+      "name": "Stragure Software Technologies Private Limited",
+      "numFollowers": 87,
+      "specialties": {
+        "_total": 5,
+        "values": [
+          "RIA",
+          "Web Development",
+          "Spring",
+          "Business Intelligence",
+          "Analytics"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "universalName": "stragure-software-technologies-private-limited",
+      "websiteUrl": "http://www.stragure.com/"
+    },
+    {
+      "blogRssUrl": "",
+      "companyType": {
+        "code": "S",
+        "name": "Partnership"
+      },
+      "description": "Les mŽtiers de BK Consulting : \r\n- Salle de marchŽ (Front/Middle/Back Office) \r\n- Asset Management \r\n- Administration de fonds \r\n- R&D (pricers) \r\n\r\nNous sommes prŽsents sur Paris et l'international (Luxembourg, Bruxelles...) et intervenons notamment auprs de BNP Paribas, SociŽtŽ GŽnŽrale, CaLyon, Natixis, CDC, Banque de France\u2026 \r\n\r\nAu niveau technologie, nous sommes fortement sollicitŽs sur : \r\n- Java et les architectures J2EE (JSP, Servlet, EJB, JMS, JDBC\u2026) AWT, Swing, SWT sur serveurs d\u2019applications Weblo, Websphere et/ou frameworks : Struts, Hibernate, Spring\u2026 \r\n- C++ (sous Unix et/ou Windows) sur les librairies MFC, STL, COM/DCOM\u2026 \r\n- .NET (VB.NET, C#...), Winforms et/ou Webforms \r\n- Sybase (Transact SQL) et/ou Oracle (PL/SQL) et/ou SQL Server (Transact SQL) : Ma”trise du requtage SQL, des procŽdures stockŽes, des triggers, vues... \r\n- L4G : Developper2000 et/ou Delphi et/ou 4D et/ou VB et/ou PB \r\n\r\nPar ailleurs, il est vrai que nous attachons une certaine importance ˆ la connaissance d\u2019UML et des Design Patterns. \r\n\r\nNous travaillons Žgalement en administration systme notamment sous : \r\n- Unix (Solaris, AIX, HP-UX\u2026), ma”trise des scripts shell\u2026 \r\n\r\nNous sommes Žgalement sollicitŽs sur de la MOA : \r\n- Expression des besoins \r\n- RŽdaction du cahier des charges \r\n- RŽdaction des spŽcifications fonctionnelles \r\n- Mise en Ïuvre de la recette, homologation, testing \r\n- ParamŽtrage et/ou extension de progiciel financier (Summit, Infinity, Diagram, Reuters, Kondor+, Sophis, Panorama\u2026)",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["bk-consulting.com"]
+      },
+      "employeeCountRange": {
+        "code": "E",
+        "name": "201-500"
+      },
+      "foundedYear": 2001,
+      "id": 907318,
+      "industry": "Financial Services",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "Paris La DŽfense",
+            "postalCode": "92979",
+            "street1": "22, place des Vosges"
+          },
+          "contactInfo": {
+            "fax": "",
+            "phone1": ""
+          }
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/10b/357/01356b5.png",
+      "name": "BK CONSULTING",
+      "numFollowers": 64,
+      "specialties": {
+        "_total": 1,
+        "values": ["Cabinet de conseil spŽcialisŽ en finance de marchŽ."]
+      },
+      "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/10b/357/088ecb0.png",
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "",
+      "universalName": "bk-consulting",
+      "websiteUrl": "http://www.bk-consulting.com/"
+    },
+    {
+      "companyType": {
+        "code": "S",
+        "name": "Partnership"
+      },
+      "description": "IZTIM Software provides custom software engineering and website development services. We can help you with your data processing and process automation needs. \r\n\r\nIZTIM is a young, dynamic Software Engineering organisation focusing on Object Oriented technologies, specialising in the provision of the highest quality Java, J2EE and ASP.Net development services. \r\n\r\nIZTIM Software got its start in 2005. In 2005, he incorporated and started doing projects for the companies in textile and automotive sector. Since then, the company has also partnered with other companies on projects and has developed close relationships with companies that have a high-level of expertise in other technologies, which allows us to conquer just about anything we are asked to do by our customers\r\n\r\nTechnologies:\r\nMicrosoft.NET Windows Forms, ASP.NET, MVC Framework\r\nJ2EE - EJB, Struts, Spring, Hibernate\r\nLAMP - Linux, Apache, MySQL, PHP\r\nWEB - HTML, XHTML, XML, XSLT, CSS, JavaScript, Flash (Actionscript), Ajax\r\n\r\nOur Products\r\n- Textile Applications\r\nInventory Management \u2013 Order Management System \u2013 Planning \u2013 Production \u2013 Reporting Tools\r\n\r\n- Community Server Solutions\r\nUtilizing the software development kit (SDK) of Community Server with CS 2008.5 allowed for a lot of flexibility to code and sufficient customization for designing. \r\n\r\nhttp://telligent.com/customers/lifestyle/cyclingtr/\r\n\r\n- Logistics Solutions\r\nSupply Chain Management System - Inventory Management\r\n\r\n-  Personnel / Time Attendance Systems\r\nA modern software for evaluating records of worker activities which have been stored by polimek card reader devices for reporting who, how many days and how many hours worked, without neither mistake nor forget. \r\n\r\n-  Web Reports\r\n\r\n- SEO\r\n\r\n- Flash Games\r\n\r\n-  Web Pages & Portals:\r\nwww.cyclingtr.com, \r\nwww.basimdunyamiz.com,\r\nwww.klogisticts.com.tr,  \r\nwww.artdtm.com",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["iztim.com"]
+      },
+      "employeeCountRange": {
+        "code": "C",
+        "name": "11-50"
+      },
+      "id": 232346,
+      "industry": "Computer Software",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "Izmir",
+            "postalCode": "35000",
+            "street1": "Mansuroglu mah. 273/1 sok."
+          },
+          "contactInfo": {
+            "fax": "902323476340",
+            "phone1": "902323476340"
+          }
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/01d/27d/27e5ded.png",
+      "name": "iztim",
+      "numFollowers": 3,
+      "specialties": {
+        "_total": 7,
+        "values": [
+          "Community Server",
+          "ASP.NET",
+          "MVC",
+          "J2EE",
+          "Struts",
+          "Java",
+          "Ajax"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "universalName": "iztim",
+      "websiteUrl": "www.iztim.com"
+    },
+    {
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "Goldstein Technologies is an technology firm, selling products and services for a fast paced world.\r\nSpecialties:\r\n    * Mobile Applications including Blackberry and Android development\r\n    * Facebook Applications and Integration\r\n    * Enterprise grade Java based systems including core J2EE applications using EJB's, Struts, Servlets and JSPs.\r\n    * Java client server applications using RMI and CORBA communications framework.\r\n    * JAVA Swing based GUI applications and Applets.\r\n    * Spring and Hibernate frameworks\r\n    * Web Service technologies to bring SOA into reality.\r\n    * Lightweight high performance implementations using Python, Ruby, PHP, MySQL and Apache\r\n    * Linux server expertise including Ubuntu, Redhat, Debian and SuSe distributions\r\n\r\n\r\nNew-->We have recently launched the Android App called SkyDroid Golf\r\n\r\nSkyDroid is a golf GPS app for Android phones. You can buy it for $.99 on the Android Market\r\n\r\nContact us now to discuss your requirements, ideas, questions and to find out how we can help.",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["goldsteintech.com"]
+      },
+      "employeeCountRange": {
+        "code": "A",
+        "name": "myself only"
+      },
+      "id": 908759,
+      "industry": "Information Technology and Services",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {"postalCode": "06107"},
+          "contactInfo": {}
+        }]
+      },
+      "name": "Goldstein Technologies LLC",
+      "numFollowers": 5,
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "universalName": "goldstein-technologies-llc",
+      "websiteUrl": "http://www.goldsteintech.com"
+    }
+  ]
+}}

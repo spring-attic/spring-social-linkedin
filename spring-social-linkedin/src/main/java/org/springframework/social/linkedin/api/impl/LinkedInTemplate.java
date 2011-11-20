@@ -28,6 +28,7 @@ import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
+import org.springframework.social.linkedin.api.CompanyOperations;
 import org.springframework.social.linkedin.api.ConnectionOperations;
 import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.social.linkedin.api.NetworkUpdateOperations;
@@ -73,6 +74,10 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 		return profileOperations;
 	}
 	
+	public CompanyOperations companyOperations() {
+		return companyOperations;
+	}
+	
 	public String getJson(String url) {
 		return getRestTemplate().getForObject(url, String.class);
 	}
@@ -85,7 +90,7 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 		for (HttpMessageConverter<?> converter : converters) {
 			if(converter instanceof MappingJacksonHttpMessageConverter) {
 				MappingJacksonHttpMessageConverter jsonConverter = (MappingJacksonHttpMessageConverter) converter;
-				ObjectMapper objectMapper = new ObjectMapper();				
+				objectMapper = new ObjectMapper();				
 				objectMapper.registerModule(new LinkedInModule());
 				objectMapper.configure(SerializationConfig.Feature.WRITE_ENUMS_USING_TO_STRING, true);
 				objectMapper.configure(Feature.ALLOW_NUMERIC_LEADING_ZEROS, true);
@@ -110,7 +115,8 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 	private void initSubApis() {
 		connectionOperations = new ConnectionTemplate(getRestTemplate());
 		networkUpdateOperations = new NetworkUpdateTemplate(getRestTemplate());
-		profileOperations = new ProfileTemplate(getRestTemplate());
+		profileOperations = new ProfileTemplate(getRestTemplate(), objectMapper);
+		companyOperations = new CompanyTemplate(getRestTemplate(), objectMapper);
 	}
 	
 	private NetworkUpdateOperations networkUpdateOperations;
@@ -118,6 +124,10 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 	private ProfileOperations profileOperations;
 	
 	private ConnectionOperations connectionOperations;
+	
+	private CompanyOperations companyOperations;
+	
+	private ObjectMapper objectMapper;
 	
 	static final String BASE_URL = "https://api.linkedin.com/v1/people/";
 	

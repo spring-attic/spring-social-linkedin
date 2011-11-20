@@ -27,7 +27,7 @@ import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.social.linkedin.api.Recommendation.RecommendationType;
 import org.springframework.social.linkedin.api.SearchParameters;
-import org.springframework.social.linkedin.api.SearchResult;
+import org.springframework.social.linkedin.api.SearchResultPeople;
 
 /**
  * @author Craig Walls
@@ -127,7 +127,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		SearchParameters parameters = new SearchParameters();
 		parameters.setCountryCode("ie");
 		parameters.setKeywords("Java J2EE");
-		SearchResult result = linkedIn.profileOperations().search(parameters);
+		SearchResultPeople result = linkedIn.profileOperations().search(parameters);
 		assertEquals(0, result.getStart());
 		assertEquals(10, result.getCount());
 		assertEquals(110, result.getTotal());
