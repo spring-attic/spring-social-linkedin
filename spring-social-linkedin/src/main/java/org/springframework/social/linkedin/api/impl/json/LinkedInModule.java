@@ -17,6 +17,7 @@ package org.springframework.social.linkedin.api.impl.json;
 
 import org.codehaus.jackson.Version;
 import org.codehaus.jackson.map.module.SimpleModule;
+import org.springframework.social.linkedin.api.ApiStandardProfileRequest;
 import org.springframework.social.linkedin.api.CodeAndName;
 import org.springframework.social.linkedin.api.Comment;
 import org.springframework.social.linkedin.api.Comments;
@@ -111,6 +112,7 @@ public class LinkedInModule extends SimpleModule {
 		context.setMixInAnnotations(Product.class, ProductMixin.class);
 		context.setMixInAnnotations(ProductRecommendation.class, ProductRecommendationMixin.class);
 		context.setMixInAnnotations(ProductResult.class, ProductResultMixin.class);
+		context.setMixInAnnotations(ApiStandardProfileRequest.class, ApiStandardProfileRequestMixin.class);
 		
 		context.setMixInAnnotations(LinkedInNetworkUpdate.class, LinkedInNetworkUpdateMixin.class);
 		context.setMixInAnnotations(LinkedInNetworkUpdates.class, LinkedInNetworkUpdatesMixin.class);

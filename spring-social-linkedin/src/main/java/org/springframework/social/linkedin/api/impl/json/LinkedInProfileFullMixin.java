@@ -30,6 +30,7 @@ import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.type.TypeReference;
+import org.springframework.social.linkedin.api.ApiStandardProfileRequest;
 import org.springframework.social.linkedin.api.CurrentShare;
 import org.springframework.social.linkedin.api.Education;
 import org.springframework.social.linkedin.api.ImAccount;
@@ -41,6 +42,7 @@ import org.springframework.social.linkedin.api.Recommendation;
 import org.springframework.social.linkedin.api.Relation;
 import org.springframework.social.linkedin.api.TwitterAccount;
 import org.springframework.social.linkedin.api.UrlResource;
+import org.springframework.social.linkedin.api.impl.json.LinkedInProfileMixin.ApiStandardProfileRequestDeserializer;
 import org.springframework.social.linkedin.api.impl.json.UpdateContentRecommendationMixin.RecommendationsListDeserializer;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -131,6 +133,10 @@ public class LinkedInProfileFullMixin {
 	
 	@JsonProperty
 	Relation relationToViewer;
+	
+	@JsonProperty("apiStandardProfileRequest")
+	@JsonDeserialize(using=ApiStandardProfileRequestDeserializer.class) 
+	ApiStandardProfileRequest apiStandardProfileRequest;
 	
 	public static final class PositionListDeserializer extends JsonDeserializer<List<Position>>  {
 		public List<Position> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {

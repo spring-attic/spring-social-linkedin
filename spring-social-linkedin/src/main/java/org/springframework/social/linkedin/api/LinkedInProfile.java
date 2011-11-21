@@ -43,6 +43,8 @@ public class LinkedInProfile implements Serializable {
 	
 	private String summary;
 	
+	private ApiStandardProfileRequest apiStandardProfileRequest;
+	
 	public LinkedInProfile(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, UrlResource siteStandardProfileRequest, String profilePictureUrl) {
 		this.id = id;
 		this.firstName = firstName;
@@ -116,5 +118,12 @@ public class LinkedInProfile implements Serializable {
 	 */
 	public String getSummary() {
 		return summary;
+	}
+	
+	/**
+	 * @return auth information required for connecting to user
+	 */
+	public ApiStandardProfileRequest getApiStandardProfileRequest() {
+		return apiStandardProfileRequest;
 	}
 }

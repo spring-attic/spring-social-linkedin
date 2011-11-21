@@ -56,6 +56,11 @@ public interface LinkedIn extends ApiBinding {
 	CompanyOperations companyOperations();
 	
 	/**
+	 * API for sending messages and connection requests
+	 */
+	public CommunicationOperations communicationOperations();
+	
+	/**
 	 * Retrieves json data from provided url
 	 * url must be valid linked in url.
 	 * Useful for debugging
