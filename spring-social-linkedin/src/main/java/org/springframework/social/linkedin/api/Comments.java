@@ -18,7 +18,12 @@ package org.springframework.social.linkedin.api;
 import java.io.Serializable;
 import java.util.List;
 
-
+/**
+ * Structure which contains list of comments inside
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class Comments implements Serializable {
 	
 	private static final long serialVersionUID = 1L;

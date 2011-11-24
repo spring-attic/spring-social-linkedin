@@ -31,6 +31,7 @@ import org.springframework.http.converter.json.MappingJacksonHttpMessageConverte
 import org.springframework.social.linkedin.api.CommunicationOperations;
 import org.springframework.social.linkedin.api.CompanyOperations;
 import org.springframework.social.linkedin.api.ConnectionOperations;
+import org.springframework.social.linkedin.api.JobOperations;
 import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.social.linkedin.api.NetworkUpdateOperations;
 import org.springframework.social.linkedin.api.ProfileOperations;
@@ -83,6 +84,10 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 		return communicationOperations;
 	}
 	
+	public JobOperations jobOperations() {
+		return jobOperations;
+	}
+	
 	public String getJson(String url) {
 		return getRestTemplate().getForObject(url, String.class);
 	}
@@ -123,6 +128,7 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 		profileOperations = new ProfileTemplate(getRestTemplate(), objectMapper);
 		companyOperations = new CompanyTemplate(getRestTemplate(), objectMapper);
 		communicationOperations = new CommunicationTemplate(getRestTemplate());
+		jobOperations = new JobTemplate(getRestTemplate(), objectMapper);
 	}
 	
 	private NetworkUpdateOperations networkUpdateOperations;
@@ -134,6 +140,8 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 	private CompanyOperations companyOperations;
 	
 	private CommunicationOperations communicationOperations;
+	
+	private JobOperations jobOperations;
 	
 	private ObjectMapper objectMapper;
 	

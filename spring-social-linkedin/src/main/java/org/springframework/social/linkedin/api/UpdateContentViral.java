@@ -15,6 +15,12 @@
  */
 package org.springframework.social.linkedin.api;
 
+/**
+ * A viral update such as liking something
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class UpdateContentViral extends UpdateContent {
 
 	private static final long serialVersionUID = 1L;

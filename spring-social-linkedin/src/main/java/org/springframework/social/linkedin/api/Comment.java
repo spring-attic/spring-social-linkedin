@@ -18,6 +18,12 @@ package org.springframework.social.linkedin.api;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Comment on an object such as a post or update
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class Comment implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

@@ -18,7 +18,12 @@ package org.springframework.social.linkedin.api;
 import java.util.Date;
 import java.util.List;
 
-
+/**
+ * Update Action
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class UpdateAction extends LinkedInNetworkUpdate {
 	private static final long serialVersionUID = 1L;
 	

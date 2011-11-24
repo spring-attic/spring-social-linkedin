@@ -2,6 +2,12 @@ package org.springframework.social.linkedin.api;
 
 import java.util.List;
 
+/**
+ * Search Result for querying companies
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class SearchResultCompany extends SearchResult {
 	private static final long serialVersionUID = 1L;
 	

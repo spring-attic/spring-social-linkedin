@@ -12,6 +12,11 @@ import org.springframework.social.linkedin.api.ProductResult;
 import org.springframework.social.linkedin.api.SearchResultCompany;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * Class that implements Company API for searching for and getting Companies
+ * @author Robert Drysdale
+ *
+ */
 public class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
 	private final RestTemplate restTemplate;
 	private final ObjectMapper objectMapper;

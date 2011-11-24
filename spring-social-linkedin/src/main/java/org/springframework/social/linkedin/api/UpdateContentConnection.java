@@ -17,8 +17,12 @@ package org.springframework.social.linkedin.api;
 
 import java.util.List;
 
-
-
+/**
+ * A connection update
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class UpdateContentConnection extends UpdateContent {
 	private static final long serialVersionUID = 1L;
 	

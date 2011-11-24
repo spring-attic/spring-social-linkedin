@@ -17,6 +17,12 @@ package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
 
+/**
+ * Person activity
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class PersonActivity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

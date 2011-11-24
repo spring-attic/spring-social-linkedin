@@ -6,6 +6,12 @@ import java.net.URISyntaxException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Base Template extended by various specific API Templates
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public abstract class AbstractTemplate {
 	/** Captures URI template variable names. */
 	private static final Pattern NAMES_PATTERN = Pattern.compile("\\{([^/]+?)\\}");

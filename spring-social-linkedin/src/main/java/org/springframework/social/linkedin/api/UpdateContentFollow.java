@@ -14,7 +14,12 @@
  * limitations under the License.
  */
 package org.springframework.social.linkedin.api;
-
+/**
+ * A follow update
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class UpdateContentFollow extends UpdateContent {
 
 	private static final long serialVersionUID = 1L;

@@ -17,6 +17,12 @@ package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
 
+/**
+ * Recommendation
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class Recommendation implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

@@ -1,5 +1,11 @@
 package org.springframework.social.linkedin.api;
 
+/**
+ * LinkedIn Date which just contains year, month and day
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class LinkedInDate {
 	private final int year;
 	private final int month;

@@ -1,0 +1,63 @@
+{
+  "active": true,
+  "company": {
+    "id": 139355,
+    "name": "Allen Recruitment Consulting"
+  },
+  "customerJobCode": "5404",
+  "description": "<p>Our Client has an excellent opportunity for a number Java GWT Developers. You will be based out of Dublin City Centre office. Overseas candidates are welcome to apply, but ideally you should be currently eligible to work in the EU / Ireland <\/p><p><strong>Ê<\/strong> <\/p><p><strong>Responsibilities:<\/strong> <\/p><ul><li>Ownership of the design and the implementation (estimation, breakdown of tasks) for complex business functional specifications through the full software development lifecycle. <\/li><li>Complete ownership of maintenance and support issues as they come up during the project lifecycle \u2013 pre and post go-live. Provide technical assistance to other teams \u2013 support, QA, business analysis. <\/li><li>Evaluate, apply &amp; lead adoption of new technologies and tools within the Engineering teams and across the organisation to provide productivity, efficiency and scalability benefits. <\/li><li>Collaborate and share technical and business knowledge to all members of the Engineering and wider organisation. <\/li><\/ul><p>Ê <\/p><p><strong>Requirements<\/strong> <\/p><ul><li>Proven experience developing &amp; designing scalable &amp; high performance GWT frontends / UI for web applications. <\/li><li>3rd level degree in IT/Computer science or related course <\/li><li>Experience in JAVA / J2EE developing multi-tier enterprise object-oriented applications. <\/li><li>Ability to work with remote team in a distributed development model. <\/li><li>Proven Experience in software development using agile methods to deliver scalable &amp; secure Web 2.0 applications. <\/li><\/ul><p><strong>Ê<\/strong> <\/p><p><strong>Technical Environment: <\/strong><\/p><ul><li>J2EE - Application Servers: BEA Weblogic, IBM Websphere, JBoss / Tomcat <\/li><li>Web Presentation Frameworks. Google Web Toolkit (GWT) and GXT. <\/li><li>DOJO, EXT-JS, Yahoo Widgets. <\/li><li>AJAX frameworks (Expertise in Javscript, CSS, JSP,Ê JSON, JQuery) <\/li><li>Spring framework, IOC, Spring JDBC, Spring MVC, ORM <\/li><li>Web implementation standards: WS-I standards (interoperability), Java API for XML-based RPC (JAX-RPC), JAX WS, REST, SOAP, WSDL, and UDDI. Ê <\/li><li>J2EE design patterns, GoF, GRASP and other design patterns. <\/li><li>MVC, MVP, UI patterns, caching patterns, concurrency patterns, validation patterns, Internationalization, Client Memory Management techniques, lazy loading techniques and profiling methods. <\/li><li>TDD. Unit testing using JUNIT, TestNG, Cactus or mock objects <\/li><li>SVN, branching, code management <\/li><li>Build Tools (Ant, Maven) <\/li><li>JVM memory management, <\/li><li>Profiling tools: JProbe, JProfiler, HP JMeter <\/li><\/ul><p>Ê <\/p><p>For more information please contact David Shanahan on +353 1 6694040 or david at allenrec.com<\/p>",
+  "descriptionSnippet": "Our Client has an excellent opportunity for a number Java GWT Developers. You will be based out of Dublin City Centre office. Overseas candidates are welcome to apply, but ideally you should be currently eligible to work in the EU / Ireland Ê Responsibilities: Ownership of the design and the implementation (estimation, breakdown of tasks) for complex business functional specifications through the ",
+  "expirationDate": {
+    "day": 6,
+    "month": 2,
+    "year": 2012
+  },
+  "expirationTimestamp": 1328549338000,
+  "id": 2160963,
+  "jobPoster": {
+    "firstName": "Louise",
+    "headline": "Director, Allen Recruitment Consulting - Recruitment",
+    "id": "U1Gll9nr47",
+    "lastName": "Allen (Louise@AllenRec.com)"
+  },
+  "locationDescription": "Dublin",
+  "position": {
+    "experienceLevel": {
+      "code": "4",
+      "name": "Mid-Senior level"
+    },
+    "industries": {
+      "_total": 1,
+      "values": [{
+        "code": "4",
+        "id": 4,
+        "name": "Computer Software"
+      }]
+    },
+    "jobFunctions": {
+      "_total": 1,
+      "values": [{
+        "code": "it",
+        "name": "Information Technology"
+      }]
+    },
+    "jobType": {
+      "code": "F",
+      "name": "Full-time"
+    },
+    "location": {
+      "country": {"code": "ie"},
+      "name": "Ireland"
+    },
+    "title": "Java Developer - GWT (Perm or Contract) \u2013 Dublin, Ireland"
+  },
+  "postingDate": {
+    "day": 8,
+    "month": 11,
+    "year": 2011
+  },
+  "postingTimestamp": 1320773338000,
+  "salary": "60 - 70K or 350-400/day (EURO)",
+  "siteJobUrl": "http://www.linkedin.com/jobs?viewJob=&jobId=2160963&trk=api*a151944*s160233*",
+  "skillsAndExperience": "<li>Proven experience developing &amp; designing scalable &amp; high performance GWT frontends / UI for web applications. <\/li><li>3rd level degree in IT/Computer science or related course <\/li><li>Experience in JAVA / J2EE developing multi-tier enterprise object-oriented applications. <\/li><li>Ability to work with remote team in a distributed development model. <\/li><li>Proven Experience in software development using agile methods to deliver scalable &amp; secure Web 2.0 applications<\/li>"
+}

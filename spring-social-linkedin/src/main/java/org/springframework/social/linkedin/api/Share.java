@@ -18,6 +18,12 @@ package org.springframework.social.linkedin.api;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Share
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class Share implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

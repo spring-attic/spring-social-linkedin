@@ -15,18 +15,15 @@
  */
 package org.springframework.social.linkedin.api.impl.json;
 
-import java.io.IOException;
+import java.util.Date;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.DeserializationContext;
-import org.codehaus.jackson.map.JsonDeserializer;
-import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.springframework.social.linkedin.api.Company;
+import org.springframework.social.linkedin.api.JobPosition;
+import org.springframework.social.linkedin.api.LinkedInDate;
+import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -35,19 +32,21 @@ public class JobMixin {
 	public JobMixin(
 			@JsonProperty("company") Company company, 
 			@JsonProperty("description") String description,
-			@JsonProperty("id") String id,
+			@JsonProperty("id") int id,
 			@JsonProperty("locationDescription") String locationDescription,
-			@JsonProperty("position") @JsonDeserialize(using=PositionDeserializer.class) String position,
 			@JsonProperty("siteJobRequest") UrlResource siteJobRequest) {}
 	
-	public static class PositionDeserializer extends JsonDeserializer<String> {
-		private static final String VALUE = "title";
-		
-		@Override
-		public String deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			JsonNode node = jp.readValueAsTree();
-			return node.get(VALUE).getTextValue();
-		}
-	}
+	@JsonProperty boolean active;
+	@JsonProperty String customerJobCode;
+	@JsonProperty String descriptionSnippet;
+	@JsonProperty LinkedInDate expirationDate;
+	@JsonProperty Date expirationTimestamp;
+	@JsonProperty LinkedInProfile jobPoster;
+	@JsonProperty JobPosition position;
+	@JsonProperty LinkedInDate postingDate;
+	@JsonProperty Date postingTimestamp;
+	@JsonProperty String salary;
+	@JsonProperty String siteJobUrl;
+	@JsonProperty String skillsAndExperience;
 	
 }

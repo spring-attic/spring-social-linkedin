@@ -22,6 +22,13 @@ import org.springframework.social.linkedin.api.UpdateContentShare;
 import org.springframework.social.linkedin.api.UpdateTypeInput;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * Class that impelements API for retrieving Network Updates and
+ * performing various actions on them
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUpdateOperations {
 	
 	static {

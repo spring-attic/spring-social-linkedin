@@ -8,14 +8,15 @@ import org.junit.Before;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.social.linkedin.api.CurrentShare;
+import org.springframework.social.linkedin.api.LinkedInDate;
 import org.springframework.social.linkedin.api.LinkedInNetworkUpdate;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.MemberGroup;
 import org.springframework.social.linkedin.api.PersonActivity;
 import org.springframework.social.linkedin.api.Recommendation;
+import org.springframework.social.linkedin.api.Recommendation.RecommendationType;
 import org.springframework.social.linkedin.api.UpdateContent;
 import org.springframework.social.linkedin.api.UpdateType;
-import org.springframework.social.linkedin.api.Recommendation.RecommendationType;
 import org.springframework.social.test.client.MockRestServiceServer;
 
 public class AbstractLinkedInApiTest {
@@ -62,6 +63,12 @@ public class AbstractLinkedInApiTest {
 		assertEquals(updateClass, update.getUpdateContent().getClass());
 		assertEquals(date, update.getTimestamp());
 		assertEquals(updateKey, update.getUpdateKey());
+	}
+	
+	protected void assertLinkedInDate(LinkedInDate date, int year, int month, int day) {
+		assertEquals(year, date.getYear());
+		assertEquals(month, date.getMonth());
+		assertEquals(day, date.getDay());
 	}
 
 	protected void assertProfile(LinkedInProfile connection, String id, String headline, String firstName,

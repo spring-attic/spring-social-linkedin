@@ -2,6 +2,12 @@ package org.springframework.social.linkedin.api;
 
 import java.util.List;
 
+/**
+ * Search result for querying profiles
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class SearchResultPeople extends SearchResult {
 	private static final long serialVersionUID = 1L;
 

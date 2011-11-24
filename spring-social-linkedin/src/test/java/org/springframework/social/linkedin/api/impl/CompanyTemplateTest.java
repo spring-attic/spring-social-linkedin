@@ -23,7 +23,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 		.andRespond(withResponse(new ClassPathResource("testdata/company.json", getClass()), responseHeaders));
 		Company company = linkedIn.companyOperations().getCompany(1337);
 		
-		assertEquals("1337", company.getId());
+		assertEquals(1337, company.getId());
 		assertEquals("http://feeds.feedburner.com/LinkedInBlog", company.getBlogRssUrl());
 		assertEquals("C", company.getCompanyType().getCode());
 		assertEquals("Public Company", company.getCompanyType().getName());
@@ -75,7 +75,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("D", company.getEmployeeCountRange().getCode());
 		assertEquals("51-200", company.getEmployeeCountRange().getName());
 		assertEquals(2006, company.getFoundedYear());
-		assertEquals("202421", company.getId());
+		assertEquals(202421, company.getId());
 		assertEquals("Information Technology and Services", company.getIndustry());
 		assertEquals(1, company.getLocations().size());
 		assertEquals("Trivandrum", company.getLocations().get(0).getAddress().getCity());

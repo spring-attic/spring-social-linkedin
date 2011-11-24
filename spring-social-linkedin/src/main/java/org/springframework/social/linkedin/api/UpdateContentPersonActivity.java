@@ -16,7 +16,12 @@
 package org.springframework.social.linkedin.api;
 
 import java.util.List;
-
+/**
+ * A person activity update
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class UpdateContentPersonActivity extends UpdateContent {
 
 	private static final long serialVersionUID = 1L;

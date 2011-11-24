@@ -14,6 +14,12 @@ import org.springframework.social.linkedin.api.SearchParameters;
 import org.springframework.social.linkedin.api.SearchResultPeople;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * Class that implements operations for Profile API
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 	static {
 		StringBuffer b = new StringBuffer();

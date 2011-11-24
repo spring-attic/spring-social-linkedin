@@ -1,5 +1,11 @@
 package org.springframework.social.linkedin.api;
 
+/**
+ * Profile search parameters
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class SearchParameters {
 	private String keywords;
 	private String firstName;

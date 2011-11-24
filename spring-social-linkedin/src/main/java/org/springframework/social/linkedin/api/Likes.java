@@ -18,7 +18,12 @@ package org.springframework.social.linkedin.api;
 import java.io.Serializable;
 import java.util.List;
 
-
+/**
+ * List of likes
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class Likes implements Serializable {
 	
 	private static final long serialVersionUID = 1L;

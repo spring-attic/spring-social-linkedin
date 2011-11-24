@@ -15,6 +15,12 @@
  */
 package org.springframework.social.linkedin.api;
 
+/**
+ * Update Type
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public enum UpdateType {
 	ANSW,
 	APPM,

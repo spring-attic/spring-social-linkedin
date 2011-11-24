@@ -15,6 +15,11 @@
  */
 package org.springframework.social.linkedin.api;
 
+/**
+ * A status update
+ * @author Robert Drysdale
+ *
+ */
 public class UpdateContentStatus extends UpdateContent {
 
 	private static final long serialVersionUID = 1L;

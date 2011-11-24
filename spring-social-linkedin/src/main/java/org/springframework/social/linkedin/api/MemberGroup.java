@@ -17,6 +17,12 @@ package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
 
+/**
+ * Member Group 
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class MemberGroup implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

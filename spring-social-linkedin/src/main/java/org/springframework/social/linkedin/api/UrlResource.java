@@ -2,6 +2,12 @@ package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
 
+/**
+ * Url Resource
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class UrlResource implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

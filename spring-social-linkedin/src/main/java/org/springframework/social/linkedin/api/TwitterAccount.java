@@ -2,6 +2,12 @@ package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
 
+/**
+ * Twitter account
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class TwitterAccount implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

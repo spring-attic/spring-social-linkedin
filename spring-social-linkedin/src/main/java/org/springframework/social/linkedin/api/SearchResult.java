@@ -2,6 +2,12 @@ package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
 
+/**
+ * Abstract class for Search and certain other types of query list results
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public abstract class SearchResult implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

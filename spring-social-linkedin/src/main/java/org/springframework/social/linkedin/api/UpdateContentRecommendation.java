@@ -16,7 +16,12 @@
 package org.springframework.social.linkedin.api;
 
 import java.util.List;
-
+/**
+ * A recommendation update
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class UpdateContentRecommendation extends UpdateContent {
 
 	private static final long serialVersionUID = 1L;

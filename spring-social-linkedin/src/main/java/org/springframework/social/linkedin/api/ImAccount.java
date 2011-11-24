@@ -2,6 +2,12 @@ package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
 
+/**
+ * IM (Instance Message) Account Details for  Profile on LinkedIn
+ *  
+ * @author Robert Drysdale
+ *
+ */
 public class ImAccount implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

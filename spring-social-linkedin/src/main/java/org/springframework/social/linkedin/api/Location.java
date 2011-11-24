@@ -2,6 +2,12 @@ package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
 
+/**
+ * Location
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class Location implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

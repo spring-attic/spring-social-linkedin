@@ -1,5 +1,11 @@
 package org.springframework.social.linkedin.api;
 
+/**
+ * Profile Field
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public enum ProfileField {
 	ID,
 	FIRST_NAME,

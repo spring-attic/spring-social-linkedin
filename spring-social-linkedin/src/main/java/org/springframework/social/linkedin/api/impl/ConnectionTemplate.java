@@ -10,6 +10,12 @@ import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.NetworkStatistics;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * Class that implements Connection API
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class ConnectionTemplate implements ConnectionOperations {
 	private final RestTemplate restTemplate;
 	

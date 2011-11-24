@@ -15,7 +15,12 @@
  */
 package org.springframework.social.linkedin.api;
 
-
+/**
+ * Base class of Updated Content
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class UpdateContent extends LinkedInProfile {
 
 	private static final long serialVersionUID = 1L;

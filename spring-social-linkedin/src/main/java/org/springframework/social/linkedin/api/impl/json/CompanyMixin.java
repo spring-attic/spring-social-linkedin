@@ -37,7 +37,7 @@ public class CompanyMixin {
 
 	@JsonCreator
 	public CompanyMixin(
-			@JsonProperty("id") String id, 
+			@JsonProperty("id") int id, 
 			@JsonProperty("name") String name) {}
 	
 

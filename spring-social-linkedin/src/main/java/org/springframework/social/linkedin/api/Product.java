@@ -4,6 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Product
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

@@ -13,6 +13,12 @@ import org.springframework.social.linkedin.api.ApiStandardProfileRequest;
 import org.springframework.social.linkedin.api.CommunicationOperations;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * Class that implements communication API for sending messages and invitations
+ *  
+ * @author Robert Drysdale
+ *
+ */
 public class CommunicationTemplate implements CommunicationOperations {
 	private final RestTemplate restTemplate;
 	

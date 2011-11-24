@@ -2,6 +2,12 @@ package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
 
+/**
+ * Education Details for a Profile on LinkedIn
+ * 
+ * @author Robert Drysdale
+ *
+ */
 public class Education implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

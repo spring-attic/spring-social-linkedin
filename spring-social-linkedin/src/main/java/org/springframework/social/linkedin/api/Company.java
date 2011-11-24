@@ -21,7 +21,7 @@ import java.util.List;
 public class Company implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private final String id;
+	private final int id;
 	private final String name;
 	private String industry;
 	private String size;
@@ -45,12 +45,12 @@ public class Company implements Serializable {
 	private String websiteUrl;
 	
 	
-	public Company(String id, String name) {
+	public Company(int id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 	public String getName() {
