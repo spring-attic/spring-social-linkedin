@@ -45,7 +45,7 @@ public class LinkedInProfileMixin {
 		@Override
 		public String deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			JsonNode tree = jp.readValueAsTree();
-			return tree.get("url").getValueAsText();
+			return tree.get("url").asText();
 		}
 	}
 }
