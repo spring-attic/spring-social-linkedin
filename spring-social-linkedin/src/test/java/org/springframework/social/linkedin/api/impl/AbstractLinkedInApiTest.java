@@ -33,7 +33,7 @@ public class AbstractLinkedInApiTest {
 	}
 	
 	protected void assertPersonActivity(PersonActivity activity, Integer id, String body) {
-		assertEquals((Integer)id, (Integer)activity.getAppId());
+		assertEquals((int)id, activity.getAppId());
 		assertEquals(body, activity.getBody());
 	}
 	
