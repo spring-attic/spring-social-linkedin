@@ -31,7 +31,7 @@ public class LinkedInAdapter implements ApiAdapter<LinkedIn> {
 
 	public boolean test(LinkedIn linkedin) {
 		try {
-			linkedin.getUserProfile();
+			linkedin.profileOperations().getUserProfile();
 			return true;
 		} catch (HttpClientErrorException e) {
 			// TODO: Have api throw more specific exception and trigger off of that.
@@ -40,7 +40,7 @@ public class LinkedInAdapter implements ApiAdapter<LinkedIn> {
 	}
 
 	public void setConnectionValues(LinkedIn linkedin, ConnectionValues values) {
-		LinkedInProfile profile = linkedin.getUserProfile();
+		LinkedInProfile profile = linkedin.profileOperations().getUserProfile();
 		values.setProviderUserId(profile.getId());
 		values.setDisplayName(profile.getFirstName() + " " + profile.getLastName());
 		values.setProfileUrl(profile.getPublicProfileUrl());
@@ -48,7 +48,7 @@ public class LinkedInAdapter implements ApiAdapter<LinkedIn> {
 	}
 
 	public UserProfile fetchUserProfile(LinkedIn linkedin) {
-		LinkedInProfile profile = linkedin.getUserProfile();
+		LinkedInProfile profile = linkedin.profileOperations().getUserProfile();
 		return new UserProfileBuilder().setName(profile.getFirstName() + " " + profile.getLastName()).build();
 	}
 	

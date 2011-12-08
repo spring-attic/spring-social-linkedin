@@ -15,8 +15,6 @@
  */
 package org.springframework.social.linkedin.api;
 
-import java.util.List;
-
 import org.springframework.social.ApiBinding;
 import org.springframework.social.linkedin.api.impl.LinkedInTemplate;
 
@@ -33,33 +31,48 @@ import org.springframework.social.linkedin.api.impl.LinkedInTemplate;
  * </p>
  * 
  * @author Craig Walls
+ * @author Robert Drysdale
  */
 public interface LinkedIn extends ApiBinding {
-	/**
-	 * Retrieves the user's LinkedIn profile ID.
-	 * 
-	 * @return the user's LinkedIn profile ID.
-	 */
-	String getProfileId();
 
 	/**
-	 * Retrieves a URL to the user's public profile page.
-	 * 
-	 * @return a URL to the user's public profile page.
+	 * API for retrieving connections
 	 */
-	String getProfileUrl();
-
+	ConnectionOperations connectionOperations();
+	
 	/**
-	 * Retrieves the current user's profile details.
-	 * 
-	 * @return the user's profile data.
+	 * API for retrieving and performing operations on network updates
 	 */
-	LinkedInProfile getUserProfile();
-
+	NetworkUpdateOperations networkUpdateOperations();
+	
 	/**
-	 * Retrieves the 1st-degree connections from the current user's network.
-	 * 
-	 * @return the user's connections
+	 * API for retrieving and performing operations on profiles
 	 */
-	List<LinkedInProfile> getConnections();
+	ProfileOperations profileOperations();
+	
+	/**
+	 * API for retrieving and performing operations on companies
+	 */
+	CompanyOperations companyOperations();
+	
+	/**
+	 * API for sending messages and connection requests
+	 */
+	public CommunicationOperations communicationOperations();
+	
+	/**
+	 * API for searching, retrieving and bookmarking jobs
+	 */
+	public JobOperations jobOperations();
+	
+	/**
+	 * Retrieves json data from provided url
+	 * url must be valid linked in url.
+	 * Useful for debugging
+	 * 
+	 * @param url
+	 * @return JSON String data
+	 */
+	public String getJson(String url);
+	
 }

@@ -1,0 +1,108 @@
+{
+  "blogRssUrl": "http://feeds.feedburner.com/LinkedInBlog",
+  "companyType": {
+    "code": "C",
+    "name": "Public Company"
+  },
+  "description": "LinkedIn takes your professional network online, giving you access to people, jobs and opportunities like never before. Built upon trusted connections and relationships, LinkedIn has established the world\u2019s largest and most powerful professional network. Currently, more than 135 million professionals are on LinkedIn, including executives from all five hundred of the Fortune 500 companies, as well as a wide range of household names in technology, financial services, media, consumer packaged goods, entertainment, and numerous other industries. The company is publicly held and has a diversified business model with revenues coming from user subscriptions, advertising sales and hiring solutions.",
+  "emailDomains": {
+    "_total": 1,
+    "values": ["linkedin.com"]
+  },
+  "employeeCountRange": {
+    "code": "G",
+    "name": "1001-5000"
+  },
+  "foundedYear": 2003,
+  "id": 1337,
+  "industry": "Internet",
+  "locations": {
+    "_total": 5,
+    "values": [
+      {
+        "address": {
+          "city": "Mountain View",
+          "postalCode": "94043",
+          "street1": "2029 Stierlin Court"
+        },
+        "contactInfo": {
+          "fax": "",
+          "phone1": ""
+        }
+      },
+      {
+        "address": {
+          "city": "Omaha",
+          "postalCode": "68164",
+          "street1": "2126 N 117th Ave"
+        },
+        "contactInfo": {
+          "fax": "",
+          "phone1": "(402) 452-2320"
+        }
+      },
+      {
+        "address": {
+          "city": "Belmont",
+          "postalCode": "02478",
+          "street1": "15 Shady Brook Lane"
+        },
+        "contactInfo": {
+          "fax": "",
+          "phone1": ""
+        }
+      },
+      {
+        "address": {
+          "city": "San Francisco",
+          "postalCode": "94111",
+          "street1": "450 Sansome Street"
+        },
+        "contactInfo": {
+          "fax": "",
+          "phone1": ""
+        }
+      },
+      {
+        "address": {
+          "city": "Belmont",
+          "postalCode": "94301",
+          "street1": "15 Shady Brook Lane"
+        },
+        "contactInfo": {
+          "fax": "",
+          "phone1": ""
+        }
+      }
+    ]
+  },
+  "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/0c2/1d7/1894403.png",
+  "name": "LinkedIn",
+  "numFollowers": 90110,
+  "specialties": {
+    "_total": 8,
+    "values": [
+      "Online Professional Network",
+      "Jobs",
+      "People Search",
+      "Company Search",
+      "Address Book",
+      "Advertising",
+      "Professional Identity",
+      "Group Collaboration"
+    ]
+  },
+  "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/0fe/1b9/26acf51.png",
+  "status": {
+    "code": "OPR",
+    "name": "Operating"
+  },
+  "stockExchange": {
+    "code": "NYS",
+    "name": "New York Stock Exchange"
+  },
+  "ticker": "LNKD",
+  "twitterId": "linkedin",
+  "universalName": "linkedin",
+  "websiteUrl": "http://www.linkedin.com"
+}

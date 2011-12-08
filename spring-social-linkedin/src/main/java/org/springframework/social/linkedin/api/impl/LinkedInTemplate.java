@@ -15,15 +15,29 @@
  */
 package org.springframework.social.linkedin.api.impl;
 
+import java.io.IOException;
 import java.util.List;
 
+import org.codehaus.jackson.JsonParser.Feature;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.SerializationConfig;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.client.ClientHttpRequestExecution;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
+import org.springframework.social.linkedin.api.CommunicationOperations;
+import org.springframework.social.linkedin.api.CompanyOperations;
+import org.springframework.social.linkedin.api.ConnectionOperations;
+import org.springframework.social.linkedin.api.JobOperations;
 import org.springframework.social.linkedin.api.LinkedIn;
-import org.springframework.social.linkedin.api.LinkedInConnections;
-import org.springframework.social.linkedin.api.LinkedInProfile;
+import org.springframework.social.linkedin.api.NetworkUpdateOperations;
+import org.springframework.social.linkedin.api.ProfileOperations;
+import org.springframework.social.linkedin.api.impl.json.LinkedInModule;
 import org.springframework.social.oauth1.AbstractOAuth1ApiBinding;
+import org.springframework.social.support.HttpRequestDecorator;
 
 /**
  * This is the central class for interacting with LinkedIn.
@@ -35,7 +49,7 @@ import org.springframework.social.oauth1.AbstractOAuth1ApiBinding;
  * @author Craig Walls
  */
 public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements LinkedIn {
-
+	
 	/**
 	 * Creates a new LinkedInTemplate given the minimal amount of information needed to sign requests with OAuth 1 credentials.
 	 * @param consumerKey the application's API key
@@ -46,39 +60,100 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 	public LinkedInTemplate(String consumerKey, String consumerSecret, String accessToken, String accessTokenSecret) {
 		super(consumerKey, consumerSecret, accessToken, accessTokenSecret);
 		registerLinkedInJsonModule();
+		registerJsonFormatInterceptor();
+		initSubApis();
 	}
 	
-	public String getProfileId() {
-		return getUserProfile().getId();
+	public ConnectionOperations connectionOperations() {
+		return connectionOperations;
+	}
+	
+	public NetworkUpdateOperations networkUpdateOperations() {
+		return networkUpdateOperations;
+	}
+	
+	public ProfileOperations profileOperations() {
+		return profileOperations;
+	}
+	
+	public CompanyOperations companyOperations() {
+		return companyOperations;
+	}
+	
+	public CommunicationOperations communicationOperations() {
+		return communicationOperations;
+	}
+	
+	public JobOperations jobOperations() {
+		return jobOperations;
+	}
+	
+	public String getJson(String url) {
+		return getRestTemplate().getForObject(url, String.class);
 	}
 
-	public String getProfileUrl() {
-		return getUserProfile().getPublicProfileUrl();
-	}
-
-	public LinkedInProfile getUserProfile() {
-		return getRestTemplate().getForObject(PROFILE_URL, LinkedInProfile.class);
-	}
-
-	public List<LinkedInProfile> getConnections() {
-		LinkedInConnections connections = getRestTemplate().getForObject("https://api.linkedin.com/v1/people/~/connections?format=json", LinkedInConnections.class);
-		return connections.getConnections();
-	}
-
-	// private helper
+	// private helpers
+	
 	
 	private void registerLinkedInJsonModule() {
 		List<HttpMessageConverter<?>> converters = getRestTemplate().getMessageConverters();
 		for (HttpMessageConverter<?> converter : converters) {
 			if(converter instanceof MappingJacksonHttpMessageConverter) {
 				MappingJacksonHttpMessageConverter jsonConverter = (MappingJacksonHttpMessageConverter) converter;
-				ObjectMapper objectMapper = new ObjectMapper();				
+				objectMapper = new ObjectMapper();				
 				objectMapper.registerModule(new LinkedInModule());
+				objectMapper.configure(SerializationConfig.Feature.WRITE_ENUMS_USING_TO_STRING, true);
+				objectMapper.configure(Feature.ALLOW_NUMERIC_LEADING_ZEROS, true);
+				objectMapper.setSerializationConfig(objectMapper.getSerializationConfig().withSerializationInclusion(JsonSerialize.Inclusion.NON_NULL));
 				jsonConverter.setObjectMapper(objectMapper);
 			}
 		}
 	}
-
-	static final String PROFILE_URL = "https://api.linkedin.com/v1/people/~:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url)?format=json";
-
+	
+	/*
+	 * Have to register custom interceptor to
+	 * set  "x-li-format: "json" header as
+	 * otherwise we appear to get error from linkedin
+	 * which suggests its expecting xml rather than json.
+	 * API appears to ignore Content-Type header
+	 */
+	private void registerJsonFormatInterceptor() {
+		List<ClientHttpRequestInterceptor> interceptors = getRestTemplate().getInterceptors();
+		interceptors.add(new JsonFormatInterceptor());
+	}
+	
+	private void initSubApis() {
+		connectionOperations = new ConnectionTemplate(getRestTemplate());
+		networkUpdateOperations = new NetworkUpdateTemplate(getRestTemplate());
+		profileOperations = new ProfileTemplate(getRestTemplate(), objectMapper);
+		companyOperations = new CompanyTemplate(getRestTemplate(), objectMapper);
+		communicationOperations = new CommunicationTemplate(getRestTemplate());
+		jobOperations = new JobTemplate(getRestTemplate(), objectMapper);
+	}
+	
+	private NetworkUpdateOperations networkUpdateOperations;
+	
+	private ProfileOperations profileOperations;
+	
+	private ConnectionOperations connectionOperations;
+	
+	private CompanyOperations companyOperations;
+	
+	private CommunicationOperations communicationOperations;
+	
+	private JobOperations jobOperations;
+	
+	private ObjectMapper objectMapper;
+	
+	static final String BASE_URL = "https://api.linkedin.com/v1/people/";
+	
+	private static final class JsonFormatInterceptor implements ClientHttpRequestInterceptor {
+		public ClientHttpResponse intercept(HttpRequest request, byte[] body,
+				ClientHttpRequestExecution execution) throws IOException {
+			HttpRequest contentTypeResourceRequest = new HttpRequestDecorator(request);
+			contentTypeResourceRequest.getHeaders().add("x-li-format", "json");
+			return execution.execute(contentTypeResourceRequest, body);
+		}
+		
+	}
 }

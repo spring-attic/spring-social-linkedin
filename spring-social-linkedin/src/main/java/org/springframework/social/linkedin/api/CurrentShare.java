@@ -13,18 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.social.linkedin.api.impl;
+package org.springframework.social.linkedin.api;
 
-import java.util.List;
+import java.util.Date;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.springframework.social.linkedin.api.LinkedInProfile;
+/**
+ * Details of the last thing that User shared on LinkedIn
+ * 
+ * @author Robert Drysdale
+ *
+ */
+public class CurrentShare extends Share {
+	private static final long serialVersionUID = 1L;
+	
+	private LinkedInProfile author;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInConnectionsMixin {
-
-	public LinkedInConnectionsMixin(
-			@JsonProperty("values") List<LinkedInProfile> connections) {}
+	public CurrentShare(String comment, ShareContent content, 
+			String id, ShareSource source,
+			Date timestamp, String visibility) {
+		super(comment, content, id, source, timestamp, visibility);
+	}
+	
+	public LinkedInProfile getAuthor() {
+		return author;
+	}
 
 }

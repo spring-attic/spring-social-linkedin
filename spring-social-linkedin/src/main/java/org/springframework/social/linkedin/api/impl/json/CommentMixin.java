@@ -13,26 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.social.linkedin.api.impl;
+package org.springframework.social.linkedin.api.impl.json;
 
-import org.codehaus.jackson.Version;
-import org.codehaus.jackson.map.module.SimpleModule;
-import org.springframework.social.linkedin.api.LinkedInConnections;
+import java.util.Date;
+
+import org.codehaus.jackson.annotate.JsonCreator;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 
-/**
- * Jackson module for registering mixin annotations against LinkedIn model classes.
- */
-class LinkedInModule extends SimpleModule {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class CommentMixin {
 
-	public LinkedInModule() {
-		super("LinkedInModule", new Version(1, 0, 0, null));
-	}
+	@JsonCreator
+	public CommentMixin(
+			@JsonProperty("comment") String comment, 
+			@JsonProperty("id") String id,
+			@JsonProperty("person") LinkedInProfile person,
+			@JsonProperty("sequenceNumber") int sequenceNumber,
+			@JsonProperty("timestamp") Date timestamp) {}
 	
-	@Override
-	public void setupModule(SetupContext context) {
-		context.setMixInAnnotations(LinkedInConnections.class, LinkedInConnectionsMixin.class);
-		context.setMixInAnnotations(LinkedInProfile.class, LinkedInProfileMixin.class);
-	}
-
 }

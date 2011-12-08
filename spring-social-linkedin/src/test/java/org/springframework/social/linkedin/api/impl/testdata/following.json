@@ -1,0 +1,402 @@
+{
+  "_total": 6,
+  "values": [
+    {
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "AMWorks is a professional shared workspace where freelance professionals and start-up businesses can find an ideal environment for work while generating a community of like-minded individuals, with the possibility of creating synergy, contribution & business networks.",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["amworks.ie"]
+      },
+      "employeeCountRange": {
+        "code": "A",
+        "name": "myself only"
+      },
+      "foundedYear": 2009,
+      "id": 552563,
+      "industry": "Think Tanks",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "Dublin 7",
+            "postalCode": "D7",
+            "street1": "Anglesea Mills"
+          },
+          "contactInfo": {}
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/035/2ed/115d064.png",
+      "name": "amworks",
+      "numFollowers": 20,
+      "specialties": {
+        "_total": 2,
+        "values": [
+          "coworking",
+          "office space"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "universalName": "amworks",
+      "websiteUrl": "http://www.amworks.ie"
+    },
+    {
+      "blogRssUrl": "",
+      "companyType": {
+        "code": "C",
+        "name": "Public Company"
+      },
+      "description": "Norkom Technologies enables financial organizations to take intelligent action, control defenses, and evolve strategies against fraud, money laundering, and other types of financial crime. \r\n\r\nBy combining a unique investigative technology platform with deep domain expertise, Norkom has established a solid track record of reducing financial losses, protecting users\u2019 reputations, improving operational efficiencies, and lowering the cost of information technology. \r\n\r\nNorkom serves clients in over 100 countries, across four continents.",
+      "emailDomains": {
+        "_total": 3,
+        "values": [
+          "mailsweeper.norkom.com",
+          "be.norkom.com",
+          "norkom.com"
+        ]
+      },
+      "employeeCountRange": {
+        "code": "E",
+        "name": "201-500"
+      },
+      "foundedYear": 1998,
+      "id": 12080,
+      "industry": "Computer Software",
+      "locations": {
+        "_total": 7,
+        "values": [
+          {
+            "address": {
+              "city": "Dublin",
+              "postalCode": "1",
+              "street1": "Chapel House"
+            },
+            "contactInfo": {
+              "fax": "0035318739601",
+              "phone1": "0035318739600"
+            }
+          },
+          {
+            "address": {
+              "city": "Heverlee",
+              "postalCode": "B - 3001",
+              "street1": "Geldenaaksebaan 329"
+            },
+            "contactInfo": {
+              "fax": "003216400380",
+              "phone1": "+32 16 387 880"
+            }
+          },
+          {
+            "address": {
+              "city": "Boston",
+              "postalCode": "MA 02110",
+              "street1": "260 Franklin Street"
+            },
+            "contactInfo": {
+              "fax": "001 (617) 737 4190",
+              "phone1": "001 (617) 737 4170"
+            }
+          },
+          {
+            "address": {
+              "city": "Reston",
+              "postalCode": "VA 20191",
+              "street1": "1851 Alexander Bell Drive"
+            },
+            "contactInfo": {
+              "fax": "001 (703) 476 7435",
+              "phone1": "001 (703) 476 7339"
+            }
+          },
+          {
+            "address": {
+              "city": "Melbourne",
+              "postalCode": "VIC 3000",
+              "street1": "Level 28, 303 Collins Street"
+            },
+            "contactInfo": {
+              "fax": "+61 3 9678 9009",
+              "phone1": "+61 3 9678 9127"
+            }
+          },
+          {
+            "address": {
+              "city": "Sydney",
+              "postalCode": "NSW 2000",
+              "street1": "Level 12"
+            },
+            "contactInfo": {
+              "fax": "+61 2 9255 0401",
+              "phone1": "+61 2 9255 0400"
+            }
+          },
+          {
+            "address": {
+              "city": "Singapore",
+              "postalCode": "048621",
+              "street1": "80 Raffles Place"
+            },
+            "contactInfo": {
+              "fax": "+65 6248 4501",
+              "phone1": "+65 6248 4702"
+            }
+          }
+        ]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/01b/170/3d3e8eb.png",
+      "name": "Norkom Technologies",
+      "numFollowers": 476,
+      "specialties": {
+        "_total": 10,
+        "values": [
+          "financial crime",
+          "financial compliance",
+          "anti-money laundering",
+          "anti-fraud",
+          "enterprise investigation",
+          "interrogation",
+          "detection",
+          "know your customer",
+          "customer due diligence",
+          "compliance software"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "stockExchange": {
+        "code": "LSE",
+        "name": "London Stock Exchange"
+      },
+      "ticker": "NORK.L",
+      "twitterId": "",
+      "universalName": "norkom-technologies",
+      "websiteUrl": "http://www.norkom.com"
+    },
+    {
+      "blogRssUrl": "http://blogs.ts.fujitsu.com/uk-ie/index.php/feed/",
+      "companyType": {
+        "code": "C",
+        "name": "Public Company"
+      },
+      "description": "Fujitsu UK and Ireland is a leading IT systems, services and products company employing 11,400 people with an annual revenue of £1.7 billion. Its business is in enabling its customers to realise their objectives by exploiting information technology through its integrated product and service portfolio. This includes consulting, applications, systems integration, managed services and product for customers in the private and public sectors including retail, financial services, telecoms, government, defence and consumer sectors.",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["uk.fujitsu.com"]
+      },
+      "employeeCountRange": {
+        "code": "I",
+        "name": "10001+"
+      },
+      "foundedYear": 1935,
+      "id": 2042836,
+      "industry": "Information Technology and Services",
+      "locations": {"_total": 0},
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/0d3/052/39a7fbe.png",
+      "name": "Fujitsu UK and Ireland",
+      "numFollowers": 467,
+      "specialties": {
+        "_total": 4,
+        "values": [
+          "Cloud Computing",
+          "Outsourcing",
+          "Applications",
+          "Networks"
+        ]
+      },
+      "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/0d3/052/2ab022e.png",
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "fujitsu_uk",
+      "universalName": "fujitsu-uk-and-ireland",
+      "websiteUrl": "http://uk.fujitsu.com"
+    },
+    {
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "Headquartered in Dublin, Ireland, Arantech supplies its touchpoint and CEM solutions to help its customers derive maximum benefit from their existing network, customer and service management systems. \r\n\r\nArantech\u2019s CEM solutions provide mobile operators with a unique customer insight, a rich experience discovery and enables them to take proactive management action on real time experience events. All Arantech solutions deliver a rapid and strong ROI by identifying customer-centric issues (\u2018the experience gap\u2019) in real time and enable behavioural segmentation of their customer base which today is not possible through existing Business and Operational Support Systems (B/OSS). \r\n\r\nArantech has 39 customers including mobile operators from four out of the six largest mobile operator groups in the world, which serve in excess of 300 million mobile subscribers.",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["arantech.com"]
+      },
+      "employeeCountRange": {
+        "code": "D",
+        "name": "51-200"
+      },
+      "foundedYear": 2002,
+      "id": 17789,
+      "industry": "Telecommunications",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "Blackrock",
+            "postalCode": "IE",
+            "street1": "Unit 6 & & Blackrock Business Park"
+          },
+          "contactInfo": {
+            "fax": "+353 1 2100 101",
+            "phone1": "+353 1 2100 100"
+          }
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/01c/190/0541b1d.png",
+      "name": "Arantech",
+      "numFollowers": 288,
+      "specialties": {
+        "_total": 1,
+        "values": ["Customer Experience Management (CEM)"]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "universalName": "arantech",
+      "websiteUrl": "http://www.arantech.com"
+    },
+    {
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "emailDomains": {
+        "_total": 2,
+        "values": [
+          "wedotechnologies.com",
+          "capetechnologies.com"
+        ]
+      },
+      "employeeCountRange": {
+        "code": "D",
+        "name": "51-200"
+      },
+      "id": 9617,
+      "industry": "Telecommunications",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {},
+          "contactInfo": {}
+        }]
+      },
+      "name": "CAPE Technologies",
+      "numFollowers": 39,
+      "universalName": "cape-technologies",
+      "websiteUrl": "http://www.capetechnologies.com"
+    },
+    {
+      "blogRssUrl": "",
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "Jinny Software is a mobile technology company that puts thought and creativity into action. We are experts in helping companies grow, innovate and stay ahead of the curve. Our global workforce of over 200 people is based in 8 regional offices; we serve the needs of over 70 companies with more than 500 million subscribers. \r\n\r\nWe provide mobile messaging, call completion and media and mobile advertising solutions. We power some of the world's leading mobile operator groups with solutions that drive revenue and add value.\r\n\r\nIn an evolving communications market, we meet the needs of the traditional Mobile Network Operators whilst also delivering solutions to the emerging Virtual Network Operators and Enablers - the MVNOs and MVNEs. We support new companies that are leveraging multiple technologies to become convergent operators and the multitude of other enterprises and content providers coming online to provide mobile services today.\r\n\r\nWith over 30% of our workforce in R&D, we work to evolve our traditional service offerings into the worlds of 4G LTE and WiMAX, while at the same time introducing innovative new mobile service delivery capabilities for immediate deployment.\r\n\r\nJinny Software operates from its headquarters in Dublin, Ireland and offices across the globe. Jinny Software is a wholly owned subsidiary of the Acotel Group S.p.A, headquartered in Rome, Italy and traded on the Milan stock market (ACO.MI).",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["jinny.ie"]
+      },
+      "employeeCountRange": {
+        "code": "D",
+        "name": "51-200"
+      },
+      "foundedYear": 1999,
+      "id": 11621,
+      "industry": "Telecommunications",
+      "locations": {
+        "_total": 8,
+        "values": [
+          {
+            "address": {
+              "city": "Dublin",
+              "postalCode": "-",
+              "street1": "29 North Anne Street,"
+            },
+            "contactInfo": {
+              "fax": "+ 353 (0) 1 877 2692",
+              "phone1": "+ 353 (0) 1 887 2626"
+            }
+          },
+          {
+            "address": {
+              "city": "Nairobi",
+              "postalCode": "-",
+              "street1": "Kilimani Business Centre,"
+            },
+            "contactInfo": {"phone1": "+254 20 3861569"}
+          },
+          {
+            "address": {
+              "city": "Dubai Internet City,",
+              "postalCode": "-",
+              "street1": "Suite 126, Building 3,"
+            },
+            "contactInfo": {
+              "fax": "+971 4 3908942",
+              "phone1": "+971 4 3911610"
+            }
+          },
+          {
+            "address": {
+              "city": "Barat,",
+              "postalCode": "-",
+              "street1": "Suite 11.09, Level 11,"
+            },
+            "contactInfo": {"phone1": "+603 7955 2013"}
+          },
+          {
+            "address": {
+              "city": "Rome",
+              "postalCode": "-",
+              "street1": "29/37 00168 Rome,"
+            },
+            "contactInfo": {}
+          },
+          {
+            "address": {"postalCode": "-"},
+            "contactInfo": {}
+          },
+          {
+            "address": {"postalCode": "-"},
+            "contactInfo": {}
+          },
+          {
+            "address": {"postalCode": "-"},
+            "contactInfo": {}
+          }
+        ]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/097/091/0efc300.png",
+      "name": "Jinny Software",
+      "numFollowers": 454,
+      "specialties": {
+        "_total": 4,
+        "values": [
+          "Mobile Messaging",
+          "Call & Media",
+          "Mobile Advertising Solutions",
+          "Call Completion"
+        ]
+      },
+      "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/097/097/25eb164.png",
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "JinnySoftware",
+      "universalName": "jinny_software",
+      "websiteUrl": "www.jinnysoftware.com"
+    }
+  ]
+}
