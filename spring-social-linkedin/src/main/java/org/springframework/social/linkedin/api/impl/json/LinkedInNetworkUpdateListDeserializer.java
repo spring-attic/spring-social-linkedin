@@ -95,7 +95,7 @@ public class LinkedInNetworkUpdateListDeserializer extends JsonDeserializer<Link
 			
 			if (type == UpdateType.MSFC) {
 				// Set the action via reflection as it's private
-				String action = updatedNode.get("companyPersonUpdate").get("action").get("code").getValueAsText();
+				String action = updatedNode.get("companyPersonUpdate").get("action").get("code").asText();
 				try {
 					Field f = UpdateContentFollow.class.getDeclaredField("action");
 					f.setAccessible(true);

@@ -104,7 +104,7 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 				objectMapper.registerModule(new LinkedInModule());
 				objectMapper.configure(SerializationConfig.Feature.WRITE_ENUMS_USING_TO_STRING, true);
 				objectMapper.configure(Feature.ALLOW_NUMERIC_LEADING_ZEROS, true);
-				objectMapper.getSerializationConfig().setSerializationInclusion(JsonSerialize.Inclusion.NON_NULL);
+				objectMapper.setSerializationConfig(objectMapper.getSerializationConfig().withSerializationInclusion(JsonSerialize.Inclusion.NON_NULL));
 				jsonConverter.setObjectMapper(objectMapper);
 			}
 		}

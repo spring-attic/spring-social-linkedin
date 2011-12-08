@@ -9,7 +9,7 @@ public interface NetworkUpdateOperations {
 	 * 
 	 * @return network updates
 	 */
-	public List<LinkedInNetworkUpdate> getNetworkUpdates();
+	List<LinkedInNetworkUpdate> getNetworkUpdates();
 	
 	/**
 	 * Retrieves network updates for connections
@@ -20,12 +20,12 @@ public interface NetworkUpdateOperations {
 	 * @param recordCount Number of records to return
 	 * @return network updates
 	 */
-	public List<LinkedInNetworkUpdate> getNetworkUpdates(int recordStart, int recordCount);
+	List<LinkedInNetworkUpdate> getNetworkUpdates(int recordStart, int recordCount);
 	
 	/**
 	 * Advanced retrieval of network updates for connections or self
 	 * 
-	 * {@see LinkedInParameters} for details of each field.  Many are left
+	 * {link NetworkUpdateParameters} for details of each field.  Many are left
 	 * as null to turn off.
 	 * 
 	 * As an example.  To retrieve last 20 SHAR Updates (Shares) for a particular user:
@@ -45,19 +45,19 @@ public interface NetworkUpdateOperations {
 	 * @param parameters LinkedInParameters
 	 * @return network updates
 	 */
-	public List<LinkedInNetworkUpdate> getNetworkUpdates(NetworkUpdateParameters parameters);
+	List<LinkedInNetworkUpdate> getNetworkUpdates(NetworkUpdateParameters parameters);
 	
 	/**
 	 * Advanced retrieval of network updates for connections or self
 	 * in JSON format rather than object.  Useful for debugging.
 	 * 
-	 * {@see getNetworkUpdates(LinkedInParameters parameters)}
+	 * {@link #getNetworkUpdates(NetworkUpdateParameters parameters)}
 	 * 
 	 * 
 	 * @param parameters LinkedInParameters
 	 * @return network updates
 	 */
-	public String getNetworkUpdatesJson(NetworkUpdateParameters parameters);
+	String getNetworkUpdatesJson(NetworkUpdateParameters parameters);
 	
 	/**
 	 * Get list of comments on a Network Update.
@@ -65,9 +65,9 @@ public interface NetworkUpdateOperations {
 	 * e.g UNIU-2481200-5541820536390100000-SHARE
 	 * 
 	 * @param updateKey
-	 * @return
+	 * @return List of Comments
 	 */
-	public List<Comment> getNetworkUpdateComments(String updateKey);
+	List<Comment> getNetworkUpdateComments(String updateKey);
 	
 	/**
 	 * Get list of likes on a Network Update.
@@ -75,16 +75,16 @@ public interface NetworkUpdateOperations {
 	 * e.g UNIU-2481200-5541820536390100000-SHARE
 	 * 
 	 * @param updateKey
-	 * @return
+	 * @return List of Linked In Profiles
 	 */
-	public List<LinkedInProfile> getNetworkUpdateLikes(String updateKey);
+	List<LinkedInProfile> getNetworkUpdateLikes(String updateKey);
 	
 	/**
 	 * Updates status of user
 	 * 
 	 * @param update Text of update
 	 */
-	public void createNetworkUpdate(String update);
+	void createNetworkUpdate(String update);
 	
 	/**
 	 * Like network update.
@@ -93,7 +93,7 @@ public interface NetworkUpdateOperations {
 	 * 
 	 * @param updateKey
 	 */
-	public void likeNetworkUpdate(String updateKey);
+	void likeNetworkUpdate(String updateKey);
 	
 	/**
 	 * Unlike network update.
@@ -102,7 +102,7 @@ public interface NetworkUpdateOperations {
 	 * 
 	 * @param updateKey
 	 */
-	public void unlikeNetworkUpdate(String updateKey);
+	void unlikeNetworkUpdate(String updateKey);
 	
 	/**
 	 * Comment on a network update.
@@ -112,14 +112,14 @@ public interface NetworkUpdateOperations {
 	 * @param updateKey
 	 * @param comment
 	 */
-	public void commentOnNetworkUpdate(String updateKey, String comment);
+	void commentOnNetworkUpdate(String updateKey, String comment);
 	
 	/**
 	 * Get the last share for the current user
 	 * 
 	 * @return CurrentShare
 	 */
-	public CurrentShare getCurrentShare();
+	CurrentShare getCurrentShare();
 	
 	/**
 	 * Share something to network
@@ -127,5 +127,5 @@ public interface NetworkUpdateOperations {
 	 * @param share
 	 * @return URI to share location
 	 */
-	public URI share(NewShare share);
+	URI share(NewShare share);
 }

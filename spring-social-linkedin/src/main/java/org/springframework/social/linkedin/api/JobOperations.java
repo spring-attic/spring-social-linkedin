@@ -41,7 +41,7 @@ public interface JobOperations {
 	 * Get suggested list of jobs
 	 * @param start First job to return
 	 * @param count Number of jobs to return
-	 * @return
+	 * @return Job Search Result
 	 */
 	public SearchResultJob getSuggestions(int start, int count);
 	
@@ -50,7 +50,7 @@ public interface JobOperations {
 	 * 
 	 * @param start First job to return
 	 * @param count Number of jobs to return
-	 * @return
+	 * @return Job Bookmark Result
 	 */
 	public JobBookmarkResult getBookmarks(int start, int count);
 }

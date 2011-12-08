@@ -44,7 +44,7 @@ public class CommunicationTemplateTest extends AbstractLinkedInApiTest {
 	public void sendEmailInvitation() {
 		mockServer.expect(requestTo(CommunicationTemplate.MESSAGING_URL))
 		.andExpect(method(POST))
-		.andExpect(body("{\"body\":\"I'd like to add you to my professional network on LinkedIn\",\"recipients\":{\"values\":[{\"person\":{\"firstName\":\"Robert\",\"lastName\":\"Smith\",\"_path\":\"/people/email=rob@test.com\"}}]},\"subject\":\"I'd like to add you to my professional network on LinkedIn\",\"itemContent\":{\"invitationRequest\":{\"connectType\":\"friend\"}}}"))
+		.andExpect(body("{\"body\":\"I'd like to add you to my professional network on LinkedIn\",\"recipients\":{\"values\":[{\"person\":{\"_path\":\"/people/email=rob@test.com\",\"firstName\":\"Robert\",\"lastName\":\"Smith\"}}]},\"subject\":\"I'd like to add you to my professional network on LinkedIn\",\"itemContent\":{\"invitationRequest\":{\"connectType\":\"friend\"}}}"))
 		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 		.andExpect(headerContains("Authorization", "oauth_signature=\""))
