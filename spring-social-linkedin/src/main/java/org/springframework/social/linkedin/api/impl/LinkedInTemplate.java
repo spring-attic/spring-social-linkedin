@@ -88,10 +88,6 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 		return jobOperations;
 	}
 	
-	public String getJson(String url) {
-		return getRestTemplate().getForObject(url, String.class);
-	}
-
 	// private helpers
 	
 	

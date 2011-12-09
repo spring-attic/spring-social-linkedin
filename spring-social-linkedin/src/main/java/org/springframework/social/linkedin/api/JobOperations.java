@@ -13,7 +13,7 @@ public interface JobOperations {
 	 * @param parameters Various parameters that control behaviour of search
 	 * @return Search Result
 	 */
-	public SearchResultJob searchJobs(JobSearchParameters parameters);
+	SearchResultJob searchJobs(JobSearchParameters parameters);
 	
 	/**
 	 * Retreive and Job by ID
@@ -21,21 +21,21 @@ public interface JobOperations {
 	 * @param id Numerical id of job
 	 * @return Job
 	 */
-	public Job getJob(int id);
+	Job getJob(int id);
 	
 	/**
 	 * Bookmark Job
 	 * 
 	 * @param id
 	 */
-	public void bookmarkJob(int id);
+	void bookmarkJob(int id);
 	
 	/**
 	 * Unbookmark Job
 	 * 
 	 * @param id
 	 */
-	public void unbookmarkJob(int id);
+	void unbookmarkJob(int id);
 	
 	/**
 	 * Get suggested list of jobs
@@ -43,7 +43,7 @@ public interface JobOperations {
 	 * @param count Number of jobs to return
 	 * @return Job Search Result
 	 */
-	public SearchResultJob getSuggestions(int start, int count);
+	SearchResultJob getSuggestions(int start, int count);
 	
 	/**
 	 * Get List of Bookmarked Jobs
@@ -52,5 +52,5 @@ public interface JobOperations {
 	 * @param count Number of jobs to return
 	 * @return Job Bookmark Result
 	 */
-	public JobBookmarkResult getBookmarks(int start, int count);
+	JobBookmarkResult getBookmarks(int start, int count);
 }

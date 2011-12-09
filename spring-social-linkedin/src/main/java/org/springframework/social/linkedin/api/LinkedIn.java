@@ -58,21 +58,11 @@ public interface LinkedIn extends ApiBinding {
 	/**
 	 * API for sending messages and connection requests
 	 */
-	public CommunicationOperations communicationOperations();
+	CommunicationOperations communicationOperations();
 	
 	/**
 	 * API for searching, retrieving and bookmarking jobs
 	 */
-	public JobOperations jobOperations();
-	
-	/**
-	 * Retrieves json data from provided url
-	 * url must be valid linked in url.
-	 * Useful for debugging
-	 * 
-	 * @param url
-	 * @return JSON String data
-	 */
-	public String getJson(String url);
+	JobOperations jobOperations();
 	
 }

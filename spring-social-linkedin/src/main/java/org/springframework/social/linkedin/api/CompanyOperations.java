@@ -37,31 +37,31 @@ public interface CompanyOperations {
 	 * @param keywords
 	 * @return Search Result with count, start, total and list of companies
 	 */
-	public SearchResultCompany search(String keywords);
+	SearchResultCompany search(String keywords);
 	
 	/**
 	 * Retrieve list of Companies that user is following
 	 * @return List of Companies
 	 */
-	public List<Company> getFollowing();
+	List<Company> getFollowing();
 	
 	/**
 	 * Retrieve a list of Suggested Companies for user to follow
 	 * @return List of Companies
 	 */
-	public List<Company> getSuggestionsToFollow();
+	List<Company> getSuggestionsToFollow();
 	
 	/**
 	 * Start following company
 	 * @param id
 	 */
-	public void startFollowingCompany(int id);
+	void startFollowingCompany(int id);
 	
 	/**
 	 * Stop following company
 	 * @param id
 	 */
-	public void stopFollowingCompany(int id);
+	void stopFollowingCompany(int id);
 	
-	public ProductResult getProducts(int companyId, int start, int count);
+	ProductResult getProducts(int companyId, int start, int count);
 }
