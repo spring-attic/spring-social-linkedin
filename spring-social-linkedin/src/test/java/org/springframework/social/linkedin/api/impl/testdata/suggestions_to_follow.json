@@ -1,0 +1,595 @@
+{
+  "_count": 10,
+  "_start": 0,
+  "values": [
+    {
+      "blogRssUrl": "http://blog-rd.ideotechnologies.com/?feed=rss2",
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "Ideo Technologies is a french consulting company dedicated to J2EE Open Source Web application and software quality improvement.\r\n\r\nIdeo Technologies has a deep knowledge of the Open Source technologies and Java J2EE Open standards. Throughout missions with our customers or in our R&D department, our consultants improve their skills on Java development environment. Ideo Technologies releases SweetDEV Solutions which accelerate dramatically the development of Web interfaces. Ideo Technologies promotes Open Source projects such as SweetDEV RIA.\r\n\r\nIdeo Technologies built a set of solutions which combine methodology, consulting and support to help customers to improve applications quality. \r\n\r\nAs a first class Atlassian Partner, Ideo Technologies customize, configure, install and support JIRA, Confluence and devtools.\r\n\r\nAfter 9 years of steady growth, Ideo Technologies has been trusted by more than 150 customers in France and Europe.",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["ideotechnologies.com"]
+      },
+      "employeeCountRange": {
+        "code": "D",
+        "name": "51-200"
+      },
+      "foundedYear": 2002,
+      "id": 39169,
+      "industry": "Information Technology and Services",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "Puteaux",
+            "postalCode": "92800",
+            "street1": "124 rue de Verdun"
+          },
+          "contactInfo": {
+            "fax": "+ 33 1 46 25 90 09",
+            "phone1": "+33 1 46 25 09 60"
+          }
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/1/000/0d3/130/1bb2cff.png",
+      "name": "Ideo Technologies",
+      "numFollowers": 161,
+      "specialties": {
+        "_total": 10,
+        "values": [
+          "Professional services",
+          "Open source developement",
+          "Rich Internet Application",
+          "Java",
+          "Flex",
+          "Framework",
+          "Agile methodology",
+          "Atlassian partners JIRA",
+          "Confluence",
+          "devtools"
+        ]
+      },
+      "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/0d3/130/225b304.png",
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "ideotech",
+      "universalName": "ideo-technologies",
+      "websiteUrl": "www.ideotechnologies.com"
+    },
+    {
+      "blogRssUrl": "http://www.linkedin.com/groups?about=&gid=4074413",
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "About OpenJaw Technologies\r\n\r\nOpenJaw Technologies is the creator of the xDistributor Platform, the world\u2019s most powerful eCommerce platform for the travel industry. \r\n\r\nOur solutions enable leading Airlines, Online Travel Agencies, Hotel Groups and Loyalty Programmes to market, distribute and sell their products online in a differentiated way.\r\n\r\nThe xDistributor Platform enables travel supplier integration, distribution channel management and dynamic packaging which are controlled by its fully integrated business rules engine. \r\n\r\nApplications that reside within the xDistributor Platform include:\r\n\r\n\u2022\txRez \u2013 a highly customisable Internet Booking Engine\r\n\u2022\txRezAgent \u2013 sales and servicing for call centre agents\r\n\u2022\txHotel \u2013 inventory, content and distribution management for accommodation\r\n\u2022\txEvent \u2013 content and inventory management for event tickets and destination attractions\r\n\u2022\txLocation \u2013 location data and hierarchies\r\n\r\nOpenJaw Technologies is a member and active participant of the Open Travelª Alliance, CASMA, TTI and HTNG.\r\n\r\nOpenJaw Technologies is headquartered in Dublin, Ireland, with regional offices in Galway, Madrid, Frankfurt, Oslo and Dallas \u2013 as well as representation in Moscow.",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["openjawtech.com"]
+      },
+      "employeeCountRange": {
+        "code": "D",
+        "name": "51-200"
+      },
+      "foundedYear": 2002,
+      "id": 52822,
+      "industry": "Information Technology and Services",
+      "locations": {
+        "_total": 4,
+        "values": [
+          {
+            "address": {
+              "city": "Glasnevin",
+              "postalCode": "9",
+              "street1": "Station Mews"
+            },
+            "contactInfo": {
+              "fax": "",
+              "phone1": "+353 (0)1 882 5444"
+            }
+          },
+          {
+            "address": {
+              "city": "Galway",
+              "postalCode": "0",
+              "street1": "Galway Business Park"
+            },
+            "contactInfo": {
+              "fax": "",
+              "phone1": "+353 (0)91 518 700"
+            }
+          },
+          {
+            "address": {
+              "city": "Madrid",
+              "postalCode": "28015",
+              "street1": "Fernando el Catolico 21, 1A,"
+            },
+            "contactInfo": {
+              "fax": "",
+              "phone1": "+34 911 853 132"
+            }
+          },
+          {
+            "address": {
+              "city": "Irving",
+              "postalCode": "75038",
+              "street1": "5605 N. MacArthur Rd, Suite 1100"
+            },
+            "contactInfo": {
+              "fax": "+1 972 819 3601",
+              "phone1": "+1 972 819 2061"
+            }
+          }
+        ]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/1/000/016/258/182e246.png",
+      "name": "OpenJaw Technologies",
+      "numFollowers": 319,
+      "specialties": {
+        "_total": 10,
+        "values": [
+          "XML Middleware",
+          "Travel Software",
+          "Travel Technology",
+          "Loyalty and redemption",
+          "Dynamic Packaging",
+          "Airlines",
+          "Cross Sell",
+          "Hotel Groups",
+          "Ancillary Revenues",
+          "Online Travel Agencies"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "",
+      "universalName": "openjaw-technologies",
+      "websiteUrl": "http://www.openjawtech.com"
+    },
+    {
+      "blogRssUrl": "http://semanticmind.eu/feed/",
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "Software Mind SA is an innovative, globally operating software house that delivers the highest quality own IT products and services for companies in the telecom, financial and banking and energy sectors. The company\u2019s offer covers the provision of its own solutions connected with the implementation of the company\u2019s value building strategy based on effective customer relationship management and multi-volume transaction payment systems. In the area of services the company offers the execution of dedicated IT solutions, deployments in the field of business process management, SOA/EAI implementation, deployment of Business Intelligence &amp; analytical systems, management and organization of software development processes.\r\n\r\nSoftware Mind SA, relying on innovative technologies, becomes involved in the development of semantic technologies and Web 3.0. The Company actively participates in research and development work and leads projects with partners from Western Europe, which enables it to develop strong competencies and its own products. \r\n\r\nSoftware Mind SA is successful owing to its flexibility in cooperation, high quality of solutions delivered and unique knowledge. The Company has clearly defined values, namely: People, Quality, Products, Innovation, Transparency.",
+      "emailDomains": {
+        "_total": 2,
+        "values": [
+          "biuro.net.pl",
+          "softwaremind.pl"
+        ]
+      },
+      "employeeCountRange": {
+        "code": "D",
+        "name": "51-200"
+      },
+      "foundedYear": 1999,
+      "id": 13480,
+      "industry": "Computer Software",
+      "locations": {
+        "_total": 2,
+        "values": [
+          {
+            "address": {
+              "city": "Krak—w",
+              "postalCode": "31-231",
+              "street1": "ul. Bociana 22A"
+            },
+            "contactInfo": {
+              "fax": "+48 12 252 34 0",
+              "phone1": "+48 12 252 34 00"
+            }
+          },
+          {
+            "address": {
+              "city": "Warsaw",
+              "postalCode": "02-204",
+              "street1": "ul. Nowoberestecka 16/3"
+            },
+            "contactInfo": {
+              "fax": "",
+              "phone1": "48 22 850 60 10"
+            }
+          }
+        ]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/07c/02f/3c18ddc.png",
+      "name": "Software Mind",
+      "numFollowers": 250,
+      "specialties": {
+        "_total": 5,
+        "values": [
+          "Semantic Web",
+          "Customer Experience Management",
+          "SOA",
+          "BPM",
+          "BI"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "SoftwareMind",
+      "universalName": "software-mind",
+      "websiteUrl": "http://www.softwaremind.com"
+    },
+    {
+      "blogRssUrl": "",
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "We are  a leading software development outsourcing company in the Eastern Europe region. We provide our clients with a full spectrum of software development services performed in dedicated offshore center. InterWorks brings to a client a unique combination of a proven offshore engagement model, high quality, consistent development process, deep technical expertise, world class infrastructure, and sense of teamwork...a combination, which results in on-strategy, on-time and on-budget outsourcing. Some of the services we provide are listed below:\r\n\r\n    Software Development\r\n    Web Applications Development\r\n    Application Maintenance\r\n    Application Re-engineering\r\n    Data Conversion\r\n    E-business Solutions\r\n    Enterprise Application Integration\r\n    Service Oriented Architecture (TIBCO, BEA/Oracle, IBM)\r\n    Business Process Management (TIBCO, BEA/Oracle, IBM)\r\n    Complex Event Processing (TIBCO)\r\n    Master Data Management (TIBCO, IBM)",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["interworks.com.mk"]
+      },
+      "employeeCountRange": {
+        "code": "D",
+        "name": "51-200"
+      },
+      "foundedYear": 2004,
+      "id": 1761399,
+      "industry": "Information Technology and Services",
+      "locations": {"_total": 0},
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/0c1/06c/069474e.png",
+      "name": "InterWorks",
+      "numFollowers": 68,
+      "specialties": {
+        "_total": 3,
+        "values": [
+          "TIBCO technologies; TIBCO BW, BusinessEvents, EMS, RV, Administrator; Hawk, Adapters",
+          "EAI, Software Integration, Application Development, Rich UI apps",
+          "IBM platforms, .NET, CMS"
+        ]
+      },
+      "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/0c1/06b/2099a7e.png",
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "",
+      "universalName": "interworks",
+      "websiteUrl": "http://interworks.com.mk"
+    },
+    {
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "A group of consultants with extensive experience in design and implementation of large IT integration projects. \r\n\r\nOur services include: \r\n- requirements analysis and the design of the IT system (requirements driven approach)\r\n- architecture definition assistance\r\n- TIBCO Enterprise Application Integration, portals and B2B consulting\r\n- IBM WebSphere, MQ-Series / WebSphere MQ and Websphere Business Integrator applications\r\n- custom Java/JSP development\r\n- Open Source consulting",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["econsulting.pl"]
+      },
+      "employeeCountRange": {
+        "code": "C",
+        "name": "11-50"
+      },
+      "foundedYear": 2002,
+      "id": 87217,
+      "industry": "Computer Software",
+      "locations": {
+        "_total": 3,
+        "values": [
+          {
+            "address": {
+              "city": "Pruszk—w",
+              "postalCode": "05-802",
+              "street1": "ul. Kochanowskiego 3"
+            },
+            "contactInfo": {
+              "fax": "+48 22 213 9623",
+              "phone1": "+48 22 730 2794"
+            }
+          },
+          {
+            "address": {
+              "city": "Poznan",
+              "postalCode": "61-131"
+            },
+            "contactInfo": {}
+          },
+          {
+            "address": {
+              "city": "Warszawa",
+              "postalCode": "01-402",
+              "street1": "Ciolka 12/401"
+            },
+            "contactInfo": {"phone1": "+48 22 463 6357"}
+          }
+        ]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/01a/0e4/0835ac0.png",
+      "name": "eConsulting",
+      "numFollowers": 106,
+      "specialties": {
+        "_total": 6,
+        "values": [
+          "TIBCO",
+          "Java/J2EE/JEE",
+          "Microsoft.Net/C#",
+          "Oracle",
+          "Siebel",
+          "SAP"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "universalName": "econsulting",
+      "websiteUrl": "http://www.econsulting.pl"
+    },
+    {
+      "blogRssUrl": "",
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "Tricon Infotech, one of the most trusted names in Offshore Software Development, provides software development & support services across the globe in different business models, which includes Fixed Price Turnkey Projects, Time & Material Projects, Offshore Maintenance & Offshore Development Center. Tricon has extensive experience in the technology across a wide range of disciplines, solutions, platforms and languages. Tricon's expertise extends to vertical markets such as:\r\n\r\n    * Social Networking\r\n    * Travel\r\n    * Education\r\n    * Healthcare\r\n    * Manufacturing\r\n    * Retail Management\r\n    * Insurance & Finance\r\n    * Media/Entertainment\r\n\r\nTricon's professionals have extensive experience in the following Technologies:\r\n\r\nLanguages/Technologies: Java, J2EE, EJB, Servlets, JSP, PHP, VB.NET, ASP.Net, C#, XML, XSLT, PL/SQL\r\n\r\nFrameworks: Spring, Struts, JSF, jQuery, .Net framework, Liferay, Drupal, Redhat WAF, DotNetNuke\r\n\r\nRich Internet Application Frameworks: FLEX, Openlaszlo\r\n\r\nORM Technology: Hibernate\r\n\r\nRequirement Phase Tools: Axure, ErWin\r\n\r\nDevelopment Phase Tools: Eclipse, Netbeans, Oracle JDeveloper, Codestriker, Microsoft Visual Studio, Dreamweaver, Adobe Photoshop\r\n\r\nConfiguration Management Tools: SVN (SubVersion), CVS, VSS, Ant, Maven, Continuum\r\n\r\nTesting Phase Tools: Selenium, Jprofiler, JUnit\r\n\r\nProject Management Tools: MS Project, Redmine, Bugzilla\r\n\r\nHosting support and monitoring: Amazon cloud, Nagios\r\n\r\nOperating Systems: Windows 7/VISTA/XP/2003/2000/NT, Redhat Linux Enterprise Edition, CentOS, MAC\r\n\r\nDatabases: Oracle, SQL Server, PostgreSQL, MySQL, MS Access\r\n\r\nWeb/Application Servers: Apache Tomcat, Glassfish, BEA WebLogic, JBoss, I I S\r\n\r\nOthers: Openmeetings, Lucene, Solr, Hibernate-Search, SEO",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["triconinfotech.com"]
+      },
+      "employeeCountRange": {
+        "code": "D",
+        "name": "51-200"
+      },
+      "foundedYear": 1997,
+      "id": 765368,
+      "industry": "Computer Software",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "Bangalore",
+            "postalCode": "560095",
+            "street1": "#5 AVS COmpound, 4th Block"
+          },
+          "contactInfo": {}
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/046/24d/00055d9.png",
+      "name": "Tricon Infotech Pvt. Ltd",
+      "numFollowers": 559,
+      "specialties": {
+        "_total": 1,
+        "values": ["Software Services"]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "",
+      "universalName": "tricon-infotech-pvt.-ltd",
+      "websiteUrl": "www.triconinfotech.com"
+    },
+    {
+      "companyType": {
+        "code": "O",
+        "name": "Self Owned"
+      },
+      "description": "JavaJobs.net is a great source for Java jobs, J2EE jobs, Solaris jobs, JSP jobs etc for consultants, developers, project managers and analysts amongst other Java professionals",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["javajobs.net"]
+      },
+      "employeeCountRange": {
+        "code": "B",
+        "name": "2-10"
+      },
+      "id": 947188,
+      "industry": "Human Resources",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {},
+          "contactInfo": {}
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/057/016/16eb9bd.png",
+      "name": "Java Jobs",
+      "numFollowers": 302,
+      "universalName": "java-jobs",
+      "websiteUrl": "http://javajobs.net/"
+    },
+    {
+      "blogRssUrl": "",
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "OBSS is an open source software company specializing on systems integration and enterprise solutions.\r\n\r\nWith its expertise in Java technologies, OBSS offers technology services to meet different needs and expectations of enterprises. The services provided include turn-key project development, human resource provision, and consultancy.\r\n\r\nWith special focus on Java/J2EE middleware technologies, the highlights of the OBSS team\u2019s expertise include SOA, BPM, Ajax and EJB, amongst others.\r\n\r\nOBSS is also the developer and provider of the GrayMound Framework which is designed to foster rapid application development by allowing enterprises to focus only on the business logic instead of architectural and technical details.",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["obss.com.tr"]
+      },
+      "employeeCountRange": {
+        "code": "D",
+        "name": "51-200"
+      },
+      "foundedYear": 2005,
+      "id": 403624,
+      "industry": "Computer Software",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "istanbul",
+            "postalCode": "34000",
+            "street1": "Fesle?en Sokak, Barbaros Mh."
+          },
+          "contactInfo": {
+            "fax": "",
+            "phone1": ""
+          }
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/1/000/0fd/0cc/1db9c69.png",
+      "name": "OBSS",
+      "numFollowers": 151,
+      "specialties": {
+        "_total": 4,
+        "values": [
+          "Framework Development",
+          "J2EE Technologies",
+          "SOA Architecture",
+          "Graymound Framework"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "",
+      "universalName": "obss",
+      "websiteUrl": "www.obss.com.tr"
+    },
+    {
+      "blogRssUrl": "http://fusesource.com/blogs/",
+      "companyType": {
+        "code": "C",
+        "name": "Public Company"
+      },
+      "description": "FuseSource, a wholly owned subsidiary of Progress Software Corporation, provides professional open source integration and messaging software, tools, training, and consulting to organizations seeking to leverage these technologies in the enterprise.\r\n\r\nFuseSource provides its customers with access to professional open source software through a subscription model.  FuseSourceª subscriptions include certified distributions of Apache Software Foundation projects, professional documentation, enterprise-level support and SLAs, and tools to allow management and metering. As important, FuseSource subscriptions provide customers the ability to influence the product roadmap as well as access to consulting and expertise from open source professionals solely focused on enterprise integration and messaging.  FuseSource offers the following certified Apache distributions:\r\n\r\n\u2022   FUSE ESB¨ \u2013 Based on Apache ServiceMix\r\n\u2022   FUSE Message Broker¨ \u2013 Based on Apache ActiveMQ\r\n\u2022   FUSE Services Framework¨ \u2013 Based on Apache CXF\r\n\u2022   FUSE Mediation Router¨ \u2013 Based on Apache Camel",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["fusesource.com"]
+      },
+      "employeeCountRange": {
+        "code": "D",
+        "name": "51-200"
+      },
+      "foundedYear": 2010,
+      "id": 1415969,
+      "industry": "Computer Software",
+      "locations": {
+        "_total": 1,
+        "values": [{
+          "address": {
+            "city": "Bedford",
+            "postalCode": "01741",
+            "street1": "14 Oak Park Drive"
+          },
+          "contactInfo": {
+            "fax": "",
+            "phone1": ""
+          }
+        }]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/079/269/278ad94.png",
+      "name": "FuseSource",
+      "numFollowers": 174,
+      "specialties": {
+        "_total": 5,
+        "values": [
+          "Open Source Application Integration and Messaging",
+          "Apache ServiceMix",
+          "Apache Camel",
+          "Apache ActiveMQ",
+          "Apache CXF"
+        ]
+      },
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "fusenews",
+      "universalName": "fusesource",
+      "websiteUrl": "fusesource.com"
+    },
+    {
+      "blogRssUrl": "http://blog.genigraph.fr/feed",
+      "companyType": {
+        "code": "P",
+        "name": "Privately Held"
+      },
+      "description": "A different approach to technology \r\nGenitech is an international organization including Genigraph, Optech Software, and Genitech Tunisie, with 140 employees worldwide. \r\n\r\nSince 1992 our business has been dedicated to developing complex software applications combining distributed architecture, interactive graphics, optimization, and business rules. \r\n\r\nWe are a consulting company providing expertise and solutions for object oriented technology. Our engineers are experts in UML, BPMN, Java, J2EE, C++, Design Patterns, C# and .NET. \r\n\r\nWe provide solutions to all levels of the software life cycle including requirements engineering, design, implementation, test, deployment and maintenance. Genitech\u2019s 17+ years of experience in object-oriented technology makes us experts in integrated software packages in several domains: finances, banking, industry, e-services, insurance, and telecom. Ongoing training and certification of our engineers allows our customers to stay up-to-date with fast changing technology.\r\nProduct porfolio includes e-Citiz (http://www.e-citiz.com) and AGIR (http://www.genigraph.fr/index.php?page=rubrique&id_rubrique=30).",
+      "emailDomains": {
+        "_total": 2,
+        "values": [
+          "genigraph.fr",
+          "e-citiz.com"
+        ]
+      },
+      "employeeCountRange": {
+        "code": "D",
+        "name": "51-200"
+      },
+      "foundedYear": 1992,
+      "id": 24669,
+      "industry": "Computer Software",
+      "locations": {
+        "_total": 3,
+        "values": [
+          {
+            "address": {
+              "city": "Malakoff",
+              "postalCode": "92240",
+              "street1": "3, rue Danton"
+            },
+            "contactInfo": {
+              "fax": "",
+              "phone1": ""
+            }
+          },
+          {
+            "address": {
+              "city": "Toulouse",
+              "postalCode": "31100",
+              "street1": "216, Route de Saint Simon"
+            },
+            "contactInfo": {
+              "fax": "",
+              "phone1": ""
+            }
+          },
+          {
+            "address": {
+              "city": "Tunis Ariana",
+              "postalCode": "2088",
+              "street1": "P™le Elgazala des Technologies de la Communication"
+            },
+            "contactInfo": {
+              "fax": "",
+              "phone1": ""
+            }
+          }
+        ]
+      },
+      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/01f/2bf/0a62328.png",
+      "name": "Genigraph",
+      "numFollowers": 160,
+      "specialties": {
+        "_total": 6,
+        "values": [
+          "Time & Materials; Fixed Price",
+          "Consulting",
+          "Training",
+          "ISV",
+          "Business Rules, BRMS, Decision Management, Optimization",
+          "JEE (JBoss, Webshere)"
+        ]
+      },
+      "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/1/000/097/23b/0500591.png",
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "genigraph",
+      "universalName": "genigraph",
+      "websiteUrl": "www.genigraph.fr"
+    }
+  ]
+}

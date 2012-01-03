@@ -1,0 +1,619 @@
+{"jobs": {
+  "_count": 10,
+  "_start": 0,
+  "_total": 50,
+  "values": [
+    {
+      "active": true,
+      "company": {
+        "id": 1004057,
+        "name": "Web Recruit Ireland Ltd"
+      },
+      "customerJobCode": "UNIJD1912/MC ",
+      "description": "<p><strong>Java Developer / Java Programmer - Spring, Hibernate, MySQL<\/strong><br> <strong>Dublin 2, Co Dublin<\/strong><br> <strong>\u20acNegotiable DOE Plus Performance-Related Bonus, Health Insurance, 21 Days\u2019 Holidays + Public Holidays<\/strong><br> <br>If you\u2019re a Java Developer with experience of MySQL, Spring and Hibernate, this might just be the role you\u2019ve been searching for. <br><br>As the leading supplier of digital cinema solutions across Europe, our client is in a period of exciting expansion as the cinema industry switches from 35mm to digital. As such, a unique opportunity has arisen for a Java Developer / Java Programmer to join their team. <br><br>Excellent career progression prospects and the chance to work with the most up-to-date technologies, makes this a role not to be missed. <br><br>Working from our client\u2019s state of the art office, you will be responsible for designing and developing new software solutions, as well as maintaining existing products in the movie industry.<br> <br>As a Java Developer / Java Programmer, your creative input for problem solving and product improvements will be a key element in your role within the organisation. <br><br>To be considered for this superb opportunity, you must have:<br> <br>- Java development experience gained within a commercial environment<br> - Experience of using Spring, Hibernate and MySQL<br> - A degree in computer science or another relevant discipline<br> <br>As a Java Developer / Java Programmer, you\u2019ll need excellent communication skills, both written and verbal. <br><br>Whilst not essential, knowledge of Flex or ActionScript 3 would be beneficial to your application. <br><br>Equipped with the latest technologies and a friendly atmosphere, this is the perfect working environment for any aspiring developer to firmly establish a career for the future. Don\u2019t miss out, apply today. <br><br>To apply for the role of Java Developer / Java Programmer [Spring, Hibernate, MySQL], please apply via the button shown. <br><br>This vacancy is being advertised by Webrecruit Ireland Ltd. The services advertised by Webrecruit Ireland Ltd are those of an Employment Agency.<br> <br>Additional Keywords: Java Developer, Java Programmer, Spring, Hibernate, MySQL, Software Developer, Software Programmer, Java Software Developer, Developer, Programmer, IT. <\/p><p> <\/p>",
+      "descriptionSnippet": "Java Developer / Java Programmer - Spring, Hibernate, MySQL Dublin 2, Co Dublin \u20acNegotiable DOE Plus Performance-Related Bonus, Health Insurance, 21 Days\u2019 Holidays + Public Holidays If you\u2019re a Java Developer with experience of MySQL, Spring and Hibernate, this might just be the role you\u2019ve been searching for. As the leading supplier of digital cinema solutions across Europe, our client is in a pe",
+      "expirationDate": {
+        "day": 21,
+        "month": 12,
+        "year": 2011
+      },
+      "expirationTimestamp": 1324471541000,
+      "id": 2206483,
+      "jobPoster": {
+        "firstName": "private",
+        "id": "private",
+        "lastName": "private"
+      },
+      "locationDescription": "Dublin 2, Co Dublin ",
+      "position": {
+        "experienceLevel": {
+          "code": "4",
+          "name": "Mid-Senior level"
+        },
+        "industries": {
+          "_total": 1,
+          "values": [{
+            "code": "96",
+            "id": 96,
+            "name": "Information Technology and Services"
+          }]
+        },
+        "jobFunctions": {
+          "_total": 1,
+          "values": [{
+            "code": "it",
+            "name": "Information Technology"
+          }]
+        },
+        "jobType": {
+          "code": "F",
+          "name": "Full-time"
+        },
+        "location": {
+          "country": {"code": "ie"},
+          "name": "Ireland"
+        },
+        "title": "Java Developer / Java Programmer - Spring, Hibernate, MySQL "
+      },
+      "postingDate": {
+        "day": 21,
+        "month": 11,
+        "year": 2011
+      },
+      "postingTimestamp": 1321879540000,
+      "salary": "\u20acNegotiable DOE ",
+      "siteJobUrl": "http://www.linkedin.com/jobs?viewJob=&jobId=2206483&trk=api*a151944*s160233*"
+    },
+    {
+      "active": false,
+      "company": {
+        "id": 85309,
+        "name": "Prosperity"
+      },
+      "description": "<p>Jump on the Brand Wagon.<br> -  Join the Prosperity Media Recruitment team and recruit for the best digital companies in Ireland.  Prosperity is a leading Digital recruitment Agency with a presence in both Dublin and London, and with a  client list that\u2019s a who\u2019s who of the top Marketing/Digital and Web companies in Ireland.<br> Due to an increasing volume of business and a move to brand new offices in the city centre, Prosperity are expanding the team. <\/p><p>  <\/p><p>We offer an excellent basic package, high commission, benefits, and the support of efficient admin and marketing teams. Above all, we offer a highly progressive and  enjoyable working environment. <br>If you feel that you tick the requirement boxes, please get in touch. Applications will of course be treated with total discretion.  You can direct dial me at: 01  609 0169 or mail me at: garym@prosperity.ie <br>Many thanks, Gary<\/p>",
+      "descriptionSnippet": "Jump on the Brand Wagon. -  Join the Prosperity Media Recruitment team and recruit for the best digital companies in Ireland.  Prosperity is a leading Digital recruitment Agency with a presence in both Dublin and London, and with a  client list that\u2019s a who\u2019s who of the top Marketing/Digital and Web companies in Ireland. Due to an increasing volume of business and a move to brand new offices in th",
+      "expirationDate": {
+        "day": 30,
+        "month": 10,
+        "year": 2011
+      },
+      "expirationTimestamp": 1319981076000,
+      "id": 2023406,
+      "jobPoster": {
+        "firstName": "Gary",
+        "headline": "Owner, Prosperity and Online Media Consultant",
+        "id": "4DsSKWGNEy",
+        "lastName": "Mullan"
+      },
+      "locationDescription": "Ireland",
+      "position": {
+        "experienceLevel": {
+          "code": "4",
+          "name": "Mid-Senior level"
+        },
+        "industries": {
+          "_total": 1,
+          "values": [{
+            "code": "104",
+            "id": 104,
+            "name": "Staffing and Recruiting"
+          }]
+        },
+        "jobFunctions": {
+          "_total": 1,
+          "values": [{
+            "code": "advr",
+            "name": "Advertising"
+          }]
+        },
+        "jobType": {
+          "code": "F",
+          "name": "Full-time"
+        },
+        "location": {
+          "country": {"code": "ie"},
+          "name": "Ireland"
+        },
+        "title": "Recruitment Consultant"
+      },
+      "postingDate": {
+        "day": 30,
+        "month": 9,
+        "year": 2011
+      },
+      "postingTimestamp": 1317389076000,
+      "salary": "NEG",
+      "siteJobUrl": "http://www.linkedin.com/jobs?viewJob=&jobId=2023406&trk=api*a151944*s160233*",
+      "skillsAndExperience": "<p>We are currently seeking a senior recruiter who is experienced in recruitment and has passion for the sales, marketing, and the advertising and online sectors.<br> The ideal candidate for this role will have excellent networking  and business development / client liaison skills and will have a good understanding of the online sector, and will have strong experience in sales, marketing, advertising. Ideally you will have a number of years working in recruitment and the know how to hit the ground running. You will be passionate, experienced  and have a good sense of humour.  Applicants should be highly presentable and have first rate communication skill <\/p><p>We offer an excellent basic package, high commission, benefits, and the support of efficient admin and marketing teams. Above all, we offer a highly progressive and  enjoyable working environment. <br>If you feel that you tick the requirement boxes, please get in touch. Applications will of course be treated with total discretion.  You can direct dial me at: 01  609 0169 or mail me at: garym@prosperity.ie <br>Many thanks, Gary<\/p>"
+    },
+    {
+      "active": false,
+      "company": {
+        "id": 17789,
+        "name": "Arantech"
+      },
+      "description": "<p><strong>I am recruiting for 2 Senior Customer Solutions Group Software Engineers.<\/strong> <\/p><p>  <\/p><p>Arantech\u2019s touchpoint product consists of a JBoss master server and multiple JGroups based slave servers, each of which collect high volume transaction (in the order of 250,000+ events per minute) data from the GSM and 3G network. This data is stored in a multi-terabyte Oracle 10/11g database server. The product uses XML based models to represent and aggregate data coming from the network in an intelligent way. The models also represent the key performance indicators which are made available via the GUI and other components of the product. <\/p><p>  <\/p><p>The role within the <strong>Customer Solutions Group <\/strong>will primarily focus on the development and maintenance of the XML models used within the product. There are additional components to the product such as Provisioning, Customer Care, Streaming, Pre-Processors and others. These are also areas that the Software Engineer may work in, depending on levels of experience and ability. The right person will play a key role in development of new functionality, extending existing functionality and troubleshooting issues. The Software Engineer will report to the Customer Solutions Group Manager and will be required to contribute to the enhancement and effectiveness of the software and the development process, as well as the quality of the solution we deliver to our customers. This role will require not only a technically strong and flexible candidate, but one who has a genuine interest in both software engineering and mobile telecoms systems. <\/p><p><span style=\"text-decoration:underline\"><strong> <\/strong><\/span> <\/p><p><span style=\"text-decoration:underline\"><strong>Responsible For<\/strong><\/span> <\/p><ul><li>Responsible for developing/maintaining and troubleshooting product components <\/li><li> Understand product enhancements under development, as well as requirements behind the product enhancements and translate into high quality functioning software. <\/li><li> Development of unit tests for all code written and ensuring code is of high quality. <\/li><li> Documentation of new processes and the maintenance of related documents as necessary. <\/li><li> Disciplined reporting, tracking, and resolution of solution defects. <\/li><\/ul><p>  <\/p><p><span style=\"text-decoration:underline\"><strong>Duties/Activities<\/strong><\/span> <\/p><p><span style=\"text-decoration:underline\"><strong> <\/strong><\/span> <\/p><ul><li>Development in XML, java and groovy <\/li><li>Support customers when issues arise <\/li><li>Take part in process improvement activities <\/li><li>Development in XML, java and groovy <\/li><li>Support customers when issues arise <\/li><li>Take part in process improvement activities<\/li><\/ul>",
+      "descriptionSnippet": "I am recruiting for 2 Senior Customer Solutions Group Software Engineers.   Arantech\u2019s touchpoint product consists of a JBoss master server and multiple JGroups based slave servers, each of which collect high volume transaction (in the order of 250,000+ events per minute) data from the GSM and 3G network. This data is stored in a multi-terabyte Oracle 10/11g database server. The product uses XML b",
+      "expirationDate": {
+        "day": 2,
+        "month": 12,
+        "year": 2011
+      },
+      "expirationTimestamp": 1322844512000,
+      "id": 2136008,
+      "jobPoster": {
+        "firstName": "Jason",
+        "headline": "EMEA Talent Acquisition Manager",
+        "id": "hURO9bjiSZ",
+        "lastName": "Want"
+      },
+      "locationDescription": "Ireland",
+      "position": {
+        "experienceLevel": {
+          "code": "4",
+          "name": "Mid-Senior level"
+        },
+        "industries": {
+          "_total": 1,
+          "values": [{
+            "code": "8",
+            "id": 8,
+            "name": "Telecommunications"
+          }]
+        },
+        "jobFunctions": {
+          "_total": 1,
+          "values": [{
+            "code": "it",
+            "name": "Information Technology"
+          }]
+        },
+        "jobType": {
+          "code": "F",
+          "name": "Full-time"
+        },
+        "location": {
+          "country": {"code": "ie"},
+          "name": "Ireland"
+        },
+        "title": "Senior Software Engineer"
+      },
+      "postingDate": {
+        "day": 2,
+        "month": 11,
+        "year": 2011
+      },
+      "postingTimestamp": 1320252511000,
+      "siteJobUrl": "http://www.linkedin.com/jobs?viewJob=&jobId=2136008&trk=api*a151944*s160233*",
+      "skillsAndExperience": "<p><span style=\"text-decoration:underline\"><strong>Minimum<\/strong>:<\/span> <\/p><ul><li>Strong experience/knowledge of XML and complex logic handling within XML. <\/li><li>Excellent UNIX command line knowledge and skills: awk, sed, etc. <\/li><li>Very good UNIX scripting skills, text processing/parsing: Bash, Perl etc. <\/li><li>Good SQL and database knowledge - Oracle - SQL/PLSQL. <\/li><li>Very good understanding of HTTP, FTP, DNS, email protocols, etc. <\/li><li>Strong experience with HTML, CSS, JavaScript. <\/li><li>A good working knowledge of Java (J2EE). <\/li><li>Excellent problem solving and trouble shooting skills. <\/li><li>Demonstrable ability to understand complex software functionality. <\/li><li>Mobile Telecommunications knowledge a big advantage (GSM, GPRS, UMTS, LTE). <\/li><li>Excellent communication skills and the ability to work within and across teams are essential. <\/li><\/ul><p>  <\/p><p><span style=\"text-decoration:underline\"><strong>Bonus<\/strong>:<\/span> <\/p><ul><li>A good working knowledge of Groovy or Python or Ruby or any other dynamic scripting language. <\/li><li>Understanding of/Knowledge of Build &amp; Test Frameworks such as Ant, Maven, Bamboo, etc. <\/li><span style=\"text-decoration:underline\">?<\/span><\/ul><p><span style=\"text-decoration:underline\"><strong>Background<\/strong><\/span> <\/p><ul><li>Degree/Diploma in Computer Science, Telecommunications or Engineering. <\/li><li>Experience in the software industry (preferably within Telecoms). <\/li><\/ul><p>  <\/p><p> <\/p>"
+    },
+    {
+      "active": true,
+      "company": {
+        "id": 17789,
+        "name": "Arantech"
+      },
+      "description": "<p><strong>I am recruiting for 2 Senior Customer Solutions Group Software Engineers.<\/strong> <\/p><p>  <\/p><p>Arantech\u2019s touchpoint product consists of a JBoss master server and multiple JGroups based slave servers, each of which collect high volume transaction (in the order of 250,000+ events per minute) data from the GSM and 3G network. This data is stored in a multi-terabyte Oracle 10/11g database server. The product uses XML based models to represent and aggregate data coming from the network in an intelligent way. The models also represent the key performance indicators which are made available via the GUI and other components of the product. <\/p><p>  <\/p><p>The role within the <strong>Customer Solutions Group <\/strong>will primarily focus on the development and maintenance of the XML models used within the product. There are additional components to the product such as Provisioning, Customer Care, Streaming, Pre-Processors and others. These are also areas that the Software Engineer may work in, depending on levels of experience and ability. The right person will play a key role in development of new functionality, extending existing functionality and troubleshooting issues. The Software Engineer will report to the Customer Solutions Group Manager and will be required to contribute to the enhancement and effectiveness of the software and the development process, as well as the quality of the solution we deliver to our customers. This role will require not only a technically strong and flexible candidate, but one who has a genuine interest in both software engineering and mobile telecoms systems. <\/p><p><span style=\"text-decoration:underline\"><strong> <\/strong><\/span> <\/p><p><span style=\"text-decoration:underline\"><strong>Responsible For<\/strong><\/span> <\/p><ul><li>Responsible for developing/maintaining and troubleshooting product components <\/li><li> Understand product enhancements under development, as well as requirements behind the product enhancements and translate into high quality functioning software. <\/li><li> Development of unit tests for all code written and ensuring code is of high quality. <\/li><li> Documentation of new processes and the maintenance of related documents as necessary. <\/li><li> Disciplined reporting, tracking, and resolution of solution defects. <\/li><\/ul><p>  <\/p><p><span style=\"text-decoration:underline\"><strong>Duties/Activities<\/strong><\/span> <\/p><p><span style=\"text-decoration:underline\"><strong> <\/strong><\/span> <\/p><ul><li>Development in XML, java and groovy <\/li><li>Support customers when issues arise <\/li><li>Take part in process improvement activities <\/li><li>Development in XML, java and groovy <\/li><li>Support customers when issues arise <\/li><li>Take part in process improvement activities<\/li><\/ul>",
+      "descriptionSnippet": "I am recruiting for 2 Senior Customer Solutions Group Software Engineers.   Arantech\u2019s touchpoint product consists of a JBoss master server and multiple JGroups based slave servers, each of which collect high volume transaction (in the order of 250,000+ events per minute) data from the GSM and 3G network. This data is stored in a multi-terabyte Oracle 10/11g database server. The product uses XML b",
+      "expirationDate": {
+        "day": 22,
+        "month": 12,
+        "year": 2011
+      },
+      "expirationTimestamp": 1324568323000,
+      "id": 2212001,
+      "jobPoster": {
+        "firstName": "Jason",
+        "headline": "EMEA Talent Acquisition Manager",
+        "id": "hURO9bjiSZ",
+        "lastName": "Want"
+      },
+      "locationDescription": "Ireland",
+      "position": {
+        "experienceLevel": {
+          "code": "4",
+          "name": "Mid-Senior level"
+        },
+        "industries": {
+          "_total": 1,
+          "values": [{
+            "code": "8",
+            "id": 8,
+            "name": "Telecommunications"
+          }]
+        },
+        "jobFunctions": {
+          "_total": 1,
+          "values": [{
+            "code": "it",
+            "name": "Information Technology"
+          }]
+        },
+        "jobType": {
+          "code": "F",
+          "name": "Full-time"
+        },
+        "location": {
+          "country": {"code": "ie"},
+          "name": "Ireland"
+        },
+        "title": "Senior Software Engineer"
+      },
+      "postingDate": {
+        "day": 22,
+        "month": 11,
+        "year": 2011
+      },
+      "postingTimestamp": 1321976323000,
+      "siteJobUrl": "http://www.linkedin.com/jobs?viewJob=&jobId=2212001&trk=api*a151944*s160233*",
+      "skillsAndExperience": "<p><span style=\"text-decoration:underline\"><strong>Minimum<\/strong>:<\/span> <\/p><ul><li>Strong experience/knowledge of XML and complex logic handling within XML. <\/li><li>Excellent UNIX command line knowledge and skills: awk, sed, etc. <\/li><li>Very good UNIX scripting skills, text processing/parsing: Bash, Perl etc. <\/li><li>Good SQL and database knowledge - Oracle - SQL/PLSQL. <\/li><li>Very good understanding of HTTP, FTP, DNS, email protocols, etc. <\/li><li>Strong experience with HTML, CSS, JavaScript. <\/li><li>A good working knowledge of Java (J2EE). <\/li><li>Excellent problem solving and trouble shooting skills. <\/li><li>Demonstrable ability to understand complex software functionality. <\/li><li>Mobile Telecommunications knowledge a big advantage (GSM, GPRS, UMTS, LTE). <\/li><li>Excellent communication skills and the ability to work within and across teams are essential. <\/li><\/ul><p>  <\/p><p><span style=\"text-decoration:underline\"><strong>Bonus<\/strong>:<\/span> <\/p><ul><li>A good working knowledge of Groovy or Python or Ruby or any other dynamic scripting language. <\/li><li>Understanding of/Knowledge of Build &amp; Test Frameworks such as Ant, Maven, Bamboo, etc. <\/li><span style=\"text-decoration:underline\">?<\/span><\/ul><p><span style=\"text-decoration:underline\"><strong>Background<\/strong><\/span> <\/p><ul><li>Degree/Diploma in Computer Science, Telecommunications or Engineering. <\/li><li>Experience in the software industry (preferably within Telecoms). <\/li><\/ul><p>  <\/p><p> <\/p>"
+    },
+    {
+      "active": false,
+      "company": {
+        "id": 3486,
+        "name": "Hays"
+      },
+      "description": "<p><strong>Multinational Financial Services Company <br>Requires Senior Project Manager <br>Lucrative Long-Term Contract<\/strong><strong><br> <br><\/strong>A world leader in Financial Services are recruiting for a Project Manager to be located in their European Technology Centre in Dublin. <br><br>As part of the Regional IT Team, the Project Manager will be responsible for delivery of multiple, large scale projects across the firm\u2019s European Operations. The candidate will be responsible for the entire project lifecycle to execution stage. Building relationships with key project stakeholders is imperative to success within the position.<br> <br>For these reasons, outstanding Project / Change Management skills, in addition to excellent communicational ability are essential.  The successful candidate will have at least 8 years experience of large scale IT projects, in addition to a Financial Services background. Strong leadership and planning skills will ideally be complimented by an accreditation in a recognised Project Management methodology.<br> <br>This is an opportunity for an experienced Project Manager to be able to drive global change in a rapidly expanding organisation.<br> <br><strong>Candidates must be fully eligible to work in Ireland.<\/strong><\/p>",
+      "descriptionSnippet": "Multinational Financial Services Company Requires Senior Project Manager Lucrative Long-Term Contract A world leader in Financial Services are recruiting for a Project Manager to be located in their European Technology Centre in Dublin. As part of the Regional IT Team, the Project Manager will be responsible for delivery of multiple, large scale projects across the firm\u2019s European Operations. The ",
+      "expirationDate": {
+        "day": 29,
+        "month": 11,
+        "year": 2011
+      },
+      "expirationTimestamp": 1322557641000,
+      "id": 2022813,
+      "jobPoster": {
+        "firstName": "Sean",
+        "headline": "Manager of Hays IT at Hays",
+        "id": "MAi6_dQmDr",
+        "lastName": "O'Kane"
+      },
+      "locationDescription": "Dublin",
+      "position": {
+        "experienceLevel": {
+          "code": "4",
+          "name": "Mid-Senior level"
+        },
+        "industries": {
+          "_total": 1,
+          "values": [{
+            "code": "43",
+            "id": 43,
+            "name": "Financial Services"
+          }]
+        },
+        "jobFunctions": {
+          "_total": 1,
+          "values": [{
+            "code": "it",
+            "name": "Information Technology"
+          }]
+        },
+        "jobType": {
+          "code": "F",
+          "name": "Full-time"
+        },
+        "location": {
+          "country": {"code": "ie"},
+          "name": "Ireland"
+        },
+        "title": "Senior Project Manager"
+      },
+      "postingDate": {
+        "day": 30,
+        "month": 9,
+        "year": 2011
+      },
+      "postingTimestamp": 1317373640000,
+      "salary": "Competitive Daily Rates and Permanent Sa",
+      "siteJobUrl": "http://www.linkedin.com/jobs?viewJob=&jobId=2022813&trk=api*a151944*s160233*"
+    },
+    {
+      "active": false,
+      "company": {"name": "Arantech"},
+      "description": "<p>The role within the <strong>Customer Solutions Group<\/strong> will primarily focus on the <strong>development and maintenance of the XML models used within the product.<\/strong> There are additional components of the product such as Provisioning, Customer Care, Streaming, Pre-Processors and others. These are also areas that the Software Engineer may work in, depending on levels of experience and ability. The right person will play a key role in development of new functionality, extending existing functionality and troubleshooting issues. <\/p><p>  <\/p><p>The Software Engineer will report to the Customer Solutions Group Manager and will be required to contribute to the enhancement and<strong> effectiveness of both the software and the development process, as well as the quality of the solution we deliver to our customers. This role will require not only a technically strong and flexible candidate, but one who has a genuine interest in both software engineering and mobile telecoms systems<\/strong>. Excellent communications skills and the ability to work within and across teams are essential. <\/p><p>  <\/p><p><strong>Key Responsibilities<\/strong>: <\/p><p>- Responsible for developing/maintaining and troubleshooting product components. <\/p><p>- Understand product enhancements under development, as well as requirements behind the product enhancements and <\/p><p>   translate into high quality functioning software. <\/p><p>- Development of unit tests for all code written and ensuring code is of high quality. <\/p><p>- Documentation of new processes and the maintenance of related documents as necessary. <\/p><p>- Disciplined reporting, tracking, and resolution of solution defects<\/p>",
+      "descriptionSnippet": "The role within the Customer Solutions Group will primarily focus on the development and maintenance of the XML models used within the product. There are additional components of the product such as Provisioning, Customer Care, Streaming, Pre-Processors and others. These are also areas that the Software Engineer may work in, depending on levels of experience and ability. The right person will play",
+      "expirationDate": {
+        "day": 20,
+        "month": 11,
+        "year": 2011
+      },
+      "expirationTimestamp": 1321784917000,
+      "id": 2095947,
+      "jobPoster": {
+        "firstName": "Jason",
+        "headline": "EMEA Talent Acquisition Manager",
+        "id": "hURO9bjiSZ",
+        "lastName": "Want"
+      },
+      "locationDescription": "Ireland",
+      "position": {
+        "experienceLevel": {
+          "code": "4",
+          "name": "Mid-Senior level"
+        },
+        "industries": {
+          "_total": 1,
+          "values": [{
+            "code": "8",
+            "id": 8,
+            "name": "Telecommunications"
+          }]
+        },
+        "jobFunctions": {
+          "_total": 1,
+          "values": [{
+            "code": "eng",
+            "name": "Engineering"
+          }]
+        },
+        "jobType": {
+          "code": "F",
+          "name": "Full-time"
+        },
+        "location": {
+          "country": {"code": "ie"},
+          "name": "Ireland"
+        },
+        "title": "Software Engineer (JAVA XML UNIX)"
+      },
+      "postingDate": {
+        "day": 21,
+        "month": 10,
+        "year": 2011
+      },
+      "postingTimestamp": 1319192916000,
+      "siteJobUrl": "http://www.linkedin.com/jobs?viewJob=&jobId=2095947&trk=api*a151944*s160233*",
+      "skillsAndExperience": "<p>   Strong experience/knowledge of XML and complex logic handling within XML. <\/p><p>\u2022 Excellent UNIX command line knowledge and skills: awk, sed, etc. <\/p><p>\u2022 Very good UNIX scripting skills, text processing/parsing: Bash, Perl etc. <\/p><p>\u2022 Good SQL and database knowledge - Oracle - SQL/PLSQL. <\/p><p>\u2022 Very good understanding of HTTP, FTP, DNS, email protocols, etc. <\/p><p>\u2022 Strong experience with HTML, CSS, Javascript. <\/p><p>\u2022 A good working knowledge of Java (J2EE). <\/p><p>\u2022 Excellent problem solving and trouble shooting skills. <\/p><p>\u2022 Demonstrable ability to understand complex software functionality. <\/p><p>\u2022 Mobile Telecommunications knowledge a big advantage (GSM, GPRS, UMTS, LTE). <\/p><p>  <\/p><p>  <\/p><p><strong>Bonus:<\/strong> <\/p><p>\u2022 A good working knowledge of Groovy or Python or Ruby or any other dynamic scripting language. <\/p><p>\u2022 Understanding of/Knowledge of Build &amp; Test Frameworks such as Ant, Maven, Bamboo <\/p><p>etc. <\/p><p>Qualifications: <\/p><p>Degree/Diploma in Computer Science, Telecommunications or Engineering.<\/p>"
+    },
+    {
+      "active": true,
+      "company": {
+        "id": 139355,
+        "name": "Allen Recruitment Consulting"
+      },
+      "customerJobCode": "5404",
+      "description": "<p>Our Client has an excellent opportunity for a number Java GWT Developers. You will be based out of Dublin City Centre office. Overseas candidates are welcome to apply, but ideally you should be currently eligible to work in the EU / Ireland <\/p><p><strong> <\/strong> <\/p><p><strong>Responsibilities:<\/strong> <\/p><ul><li>Ownership of the design and the implementation (estimation, breakdown of tasks) for complex business functional specifications through the full software development lifecycle. <\/li><li>Complete ownership of maintenance and support issues as they come up during the project lifecycle \u2013 pre and post go-live. Provide technical assistance to other teams \u2013 support, QA, business analysis. <\/li><li>Evaluate, apply &amp; lead adoption of new technologies and tools within the Engineering teams and across the organisation to provide productivity, efficiency and scalability benefits. <\/li><li>Collaborate and share technical and business knowledge to all members of the Engineering and wider organisation. <\/li><\/ul><p>  <\/p><p><strong>Requirements<\/strong> <\/p><ul><li>Proven experience developing &amp; designing scalable &amp; high performance GWT frontends / UI for web applications. <\/li><li>3rd level degree in IT/Computer science or related course <\/li><li>Experience in JAVA / J2EE developing multi-tier enterprise object-oriented applications. <\/li><li>Ability to work with remote team in a distributed development model. <\/li><li>Proven Experience in software development using agile methods to deliver scalable &amp; secure Web 2.0 applications. <\/li><\/ul><p><strong> <\/strong> <\/p><p><strong>Technical Environment: <\/strong><\/p><ul><li>J2EE - Application Servers: BEA Weblogic, IBM Websphere, JBoss / Tomcat <\/li><li>Web Presentation Frameworks. Google Web Toolkit (GWT) and GXT. <\/li><li>DOJO, EXT-JS, Yahoo Widgets. <\/li><li>AJAX frameworks (Expertise in Javscript, CSS, JSP,  JSON, JQuery) <\/li><li>Spring framework, IOC, Spring JDBC, Spring MVC, ORM <\/li><li>Web implementation standards: WS-I standards (interoperability), Java API for XML-based RPC (JAX-RPC), JAX WS, REST, SOAP, WSDL, and UDDI.   <\/li><li>J2EE design patterns, GoF, GRASP and other design patterns. <\/li><li>MVC, MVP, UI patterns, caching patterns, concurrency patterns, validation patterns, Internationalization, Client Memory Management techniques, lazy loading techniques and profiling methods. <\/li><li>TDD. Unit testing using JUNIT, TestNG, Cactus or mock objects <\/li><li>SVN, branching, code management <\/li><li>Build Tools (Ant, Maven) <\/li><li>JVM memory management, <\/li><li>Profiling tools: JProbe, JProfiler, HP JMeter <\/li><\/ul><p>  <\/p><p>For more information please contact David Shanahan on +353 1 6694040 or david at allenrec.com<\/p>",
+      "descriptionSnippet": "Our Client has an excellent opportunity for a number Java GWT Developers. You will be based out of Dublin City Centre office. Overseas candidates are welcome to apply, but ideally you should be currently eligible to work in the EU / Ireland   Responsibilities: Ownership of the design and the implementation (estimation, breakdown of tasks) for complex business functional specifications through the ",
+      "expirationDate": {
+        "day": 6,
+        "month": 2,
+        "year": 2012
+      },
+      "expirationTimestamp": 1328549338000,
+      "id": 2160963,
+      "jobPoster": {
+        "firstName": "Louise",
+        "headline": "Director, Allen Recruitment Consulting - Recruitment",
+        "id": "U1Gll9nr47",
+        "lastName": "Allen (Louise@AllenRec.com)"
+      },
+      "locationDescription": "Dublin",
+      "position": {
+        "experienceLevel": {
+          "code": "4",
+          "name": "Mid-Senior level"
+        },
+        "industries": {
+          "_total": 1,
+          "values": [{
+            "code": "4",
+            "id": 4,
+            "name": "Computer Software"
+          }]
+        },
+        "jobFunctions": {
+          "_total": 1,
+          "values": [{
+            "code": "it",
+            "name": "Information Technology"
+          }]
+        },
+        "jobType": {
+          "code": "F",
+          "name": "Full-time"
+        },
+        "location": {
+          "country": {"code": "ie"},
+          "name": "Ireland"
+        },
+        "title": "Java Developer - GWT (Perm or Contract) \u2013 Dublin, Ireland"
+      },
+      "postingDate": {
+        "day": 8,
+        "month": 11,
+        "year": 2011
+      },
+      "postingTimestamp": 1320773338000,
+      "salary": "60 - 70K or 350-400/day (EURO)",
+      "siteJobUrl": "http://www.linkedin.com/jobs?viewJob=&jobId=2160963&trk=api*a151944*s160233*",
+      "skillsAndExperience": "<li>Proven experience developing &amp; designing scalable &amp; high performance GWT frontends / UI for web applications. <\/li><li>3rd level degree in IT/Computer science or related course <\/li><li>Experience in JAVA / J2EE developing multi-tier enterprise object-oriented applications. <\/li><li>Ability to work with remote team in a distributed development model. <\/li><li>Proven Experience in software development using agile methods to deliver scalable &amp; secure Web 2.0 applications<\/li>"
+    },
+    {
+      "active": true,
+      "company": {
+        "id": 115233,
+        "name": "Eden Recruitment"
+      },
+      "customerJobCode": "Eden PF032",
+      "description": "<p><strong>Senior Software Engineer <\/strong><strong>(JAVA Contact)<\/strong> <\/p><p><strong> <br><\/strong>Galway, Ireland <\/p><p>6 months with possibility of extension \u20ac350 \u2013 370/day <\/p><p><br>Our Client is Software Development Centre which is actively looking to recruit two (2) Senior Software Developers with strong JAVA /J2EE expertise. <\/p><p><br>For a detailed Job Spec, submit your CV today! <p><br><\/p><\/p><p>For more information about available and upcoming IT Jobs in Ireland, please submit your CV to Phil in Eden Recruitment <\/p><p> <\/p>",
+      "descriptionSnippet": "Senior Software Engineer (JAVA Contact)  Galway, Ireland 6 months with possibility of extension \u20ac350 \u2013 370/day Our Client is Software Development Centre which is actively looking to recruit two (2) Senior Software Developers with strong JAVA /J2EE expertise. For a detailed Job Spec, submit your CV today! For more information about available and upcoming IT Jobs in Ireland, please submit your CV to",
+      "expirationDate": {
+        "day": 6,
+        "month": 2,
+        "year": 2012
+      },
+      "expirationTimestamp": 1328520847000,
+      "id": 2159015,
+      "jobPoster": {
+        "firstName": "Philip",
+        "headline": "Manager - IT Recruitment at Eden",
+        "id": "QLqweAHzVG",
+        "lastName": "Finane"
+      },
+      "locationDescription": "Galway, Ireland",
+      "position": {
+        "experienceLevel": {
+          "code": "4",
+          "name": "Mid-Senior level"
+        },
+        "industries": {
+          "_total": 1,
+          "values": [{
+            "code": "96",
+            "id": 96,
+            "name": "Information Technology and Services"
+          }]
+        },
+        "jobFunctions": {
+          "_total": 1,
+          "values": [{
+            "code": "it",
+            "name": "Information Technology"
+          }]
+        },
+        "jobType": {
+          "code": "C",
+          "name": "Contract"
+        },
+        "location": {
+          "country": {"code": "ie"},
+          "name": "Ireland"
+        },
+        "title": "Senior Software Engineer (JAVA Contract)"
+      },
+      "postingDate": {
+        "day": 8,
+        "month": 11,
+        "year": 2011
+      },
+      "postingTimestamp": 1320744847000,
+      "salary": "\u20ac350 - 380/day",
+      "siteJobUrl": "http://www.linkedin.com/jobs?viewJob=&jobId=2159015&trk=api*a151944*s160233*",
+      "skillsAndExperience": "<p><strong>Key Skill Requirements:<\/strong> <\/p><ul><li>A minimum of 5 years of Java and JEE programming experience <\/li><li>Strong understanding and experience with object-oriented programming concepts <\/li><li>Experience working with ubiquitous open source tools such as <strong>Spring, iBatis, log4j<\/strong> <\/li><li>Experience integrating 3rd party web services and other types of remote services <\/li><li>Experience implementing MVC-style web applications <\/li><li>Experience with Oracle database and SQL <\/li><li>Agile methodology experience is a plus <\/li><\/ul><p> <\/p>"
+    },
+    {
+      "active": true,
+      "company": {
+        "id": 1004057,
+        "name": "Web Recruit Ireland Ltd"
+      },
+      "customerJobCode": "VERSS0712/MN",
+      "description": "<p><strong>SQL Server / BI Developer - SSIS, T-SQL (6 \u2013 12 Month Contract)<\/strong><br> <strong>Cork, Co Cork<\/strong><br> <strong>\u20ac350 - \u20ac400 DOE (per day) <br><br><\/strong>Are you a BI developer with experience of SSIS? Do you have first class SQL Server and T-SQL skills? If so, read on.<br> <br>As Ireland's leading IT consulting and outsourced managed services company, our client has offices in Dublin, Cork and Belfast. They\u2019re now hiring aggressively and have just announced the creation of 180 new jobs, a number of which will be based in Northern Ireland. As such, they are now on the lookout for a SQL Server / BI Developer to join their team on a 6 \u2013 12 month contract.<br> <br>This is an excellent opportunity to work with the latest technologies on exciting and upcoming projects with Ireland\u2019s leading IT and business solutions company. Having won Ireland\u2019s ICT Company of the Year 2011, and more recently winning Microsoft Partner of the Year 2011, this is undoubtedly an excellent company in which to develop your IT career. <br><br>As a SQL Server / BI Developer, you\u2019ll be responsible for developing an on-going enterprise level data warehouse project.<br> <br>To be considered for this unique role, you must have:<br> <br>- Commercial BI development experience<br> - Experience of SSIS (SQL Server Integration Services)<br> - SQL Server and T-SQL experience<br> <br>As a SQL Server / BI Developer, you\u2019ll be a first class communicator, both written and verbal. Good problem solving abilities are also key. <br><br>Whilst not essential, experience of SSRS (SQL Server Reporting Services) or SSAS (SQL Server Analysis Services) would be beneficial. <br><br>Our client also offers this role on a permanent basis at their Cork offices, as well as on a permanent or contract basis at their offices in Dublin. <br><br>To apply for the role of SQL Server / BI Developer [SSIS, T-SQL, Contract], please apply via the button shown. <br><br>This vacancy is being advertised by Webrecruit Ireland Ltd. The services advertised by Webrecruit Ireland Ltd are those of an Employment Agency.<br> <br>Additional Keywords: SQL Server, BI Developer, SSIS, T-SQL, Business Intelligence Developer, Developer, BI Programmer, Programmer, Software Developer, Software Programmer, IT, Contract. <\/p><p> <\/p>",
+      "descriptionSnippet": "SQL Server / BI Developer - SSIS, T-SQL (6 \u2013 12 Month Contract) Cork, Co Cork \u20ac350 - \u20ac400 DOE (per day) Are you a BI developer with experience of SSIS? Do you have first class SQL Server and T-SQL skills? If so, read on. As Ireland's leading IT consulting and outsourced managed services company, our client has offices in Dublin, Cork and Belfast. They\u2019re now hiring aggressively and have just annou",
+      "expirationDate": {
+        "day": 10,
+        "month": 12,
+        "year": 2011
+      },
+      "expirationTimestamp": 1323529822000,
+      "id": 2170720,
+      "jobPoster": {
+        "firstName": "private",
+        "id": "private",
+        "lastName": "private"
+      },
+      "locationDescription": "Cork, Co Cork ",
+      "position": {
+        "experienceLevel": {
+          "code": "4",
+          "name": "Mid-Senior level"
+        },
+        "industries": {
+          "_total": 1,
+          "values": [{
+            "code": "96",
+            "id": 96,
+            "name": "Information Technology and Services"
+          }]
+        },
+        "jobFunctions": {
+          "_total": 1,
+          "values": [{
+            "code": "it",
+            "name": "Information Technology"
+          }]
+        },
+        "jobType": {
+          "code": "C",
+          "name": "Contract"
+        },
+        "location": {
+          "country": {"code": "ie"},
+          "name": "Ireland"
+        },
+        "title": "SQL Server / BI Developer - SSIS, T-SQL (Contract) "
+      },
+      "postingDate": {
+        "day": 10,
+        "month": 11,
+        "year": 2011
+      },
+      "postingTimestamp": 1320937821000,
+      "salary": "\u20ac350 - \u20ac400 DOE (per day) ",
+      "siteJobUrl": "http://www.linkedin.com/jobs?viewJob=&jobId=2170720&trk=api*a151944*s160233*"
+    },
+    {
+      "active": false,
+      "company": {
+        "id": 1063,
+        "name": "Cisco Systems"
+      },
+      "description": "<p>CiscoSystems is the recognized global leader in the innovation, development anddeployment of data and Unified Communications products supporting the publicinternet and the enterprise networks of businesses throughout the world. <br><br>The Location:<br> <br>Cisco continues to expand its Software Research and Development Lab based inGalway, Ireland. The Galway Lab has been set up specifically to expand Cisco\u2019sproduct portfolio in the area of Unified Communications. <br><br>In this space, Cisco continues to enhance its existing voice and datacapabilities by integrating other means of communications including video,instant messaging and end user presence sharing. This involves the developmentof web 2.0, desktop and mobile client and server applications.<br> <br>This is an exciting and challenging opportunity to be part of Cisco\u2019s EuropeanResearch and Development Lab in the innovative area of Unified Communicationssoftware development.<br> <br>Target Capabilities and Skills: <br><br>This role is targeted at experienced Software Application Developers with asignificant, but not exclusive focus on Embedded Database development.Reporting to the Software Development manager the role will require anexcellent track record that exhibits some or all of the following capabilitiesand skills:<br> <br>\u2022 Education: CE/EE/CS to degree level<br> \u2022 Software development using C, C++ or Java, JSP, Struts.<br> \u2022 Software development experience in one or more of graphical user interface,web application an advantage.<br> \u2022 Significant application development experience using one or more commercialdatabases such as Informix, DB2, Oracle, SQL Server.<br> \u2022 Experience in software development using industry-standard database API suchas ODBC, JDBC, OLE-DB, ADO.<br> \u2022 Experience with SQL queries, triggers and writing server-side logic usingstored procedures.<br> \u2022 Experience with database schema design, query optimization, database tuning.<br> \u2022 Experience in source code (Clearcase) and build management systems withworking knowledge of Automated Build, Software Integration and Automated Testutilities a significant advantage.<br> \u2022 Excellent written and oral communications and proven track record in teambased working<\/p>",
+      "descriptionSnippet": "CiscoSystems is the recognized global leader in the innovation, development anddeployment of data and Unified Communications products supporting the publicinternet and the enterprise networks of businesses throughout the world. The Location: Cisco continues to expand its Software Research and Development Lab based inGalway, Ireland. The Galway Lab has been set up specifically to expand Cisco\u2019sprod",
+      "expirationDate": {
+        "day": 31,
+        "month": 10,
+        "year": 2011
+      },
+      "expirationTimestamp": 1320070851000,
+      "id": 1931525,
+      "jobPoster": {
+        "firstName": "Elaine",
+        "headline": "Researcher at Cisco Systems",
+        "id": "AYKYXSmjyw",
+        "lastName": "McCarthy"
+      },
+      "locationDescription": "Galway",
+      "position": {
+        "experienceLevel": {
+          "code": "4",
+          "name": "Mid-Senior level"
+        },
+        "industries": {
+          "_total": 1,
+          "values": [{
+            "code": "8",
+            "id": 8,
+            "name": "Telecommunications"
+          }]
+        },
+        "jobFunctions": {
+          "_total": 1,
+          "values": [{
+            "code": "it",
+            "name": "Information Technology"
+          }]
+        },
+        "jobType": {
+          "code": "F",
+          "name": "Full-time"
+        },
+        "location": {
+          "country": {"code": "ie"},
+          "name": "Ireland"
+        },
+        "title": "Software Applications Development \u2013 Database Specialist "
+      },
+      "postingDate": {
+        "day": 1,
+        "month": 9,
+        "year": 2011
+      },
+      "postingTimestamp": 1314886850000,
+      "siteJobUrl": "http://www.linkedin.com/jobs?viewJob=&jobId=1931525&trk=api*a151944*s160233*",
+      "skillsAndExperience": "<p>The Role:<br> The successful candidate will be responsible for some or all of the followingtasks:<br> \u2022 As part of a Software Applications Development team, develop generic end toend software features including graphical user interface, middle-tier businesslogic to backend data store across a range of languages and technologies.<br> \u2022 As part of the team, analyse the database needs of the feature and transformdiscussions of desired behavior into database requirements and designdocuments.<br> \u2022 Deliver on requirements through high level and detailed design to code level(SQL, stored procedures etc.).<br> \u2022 Provide ongoing sustaining support to the product, addressing end to endfeature enhancements with specialisation in the database area.<br> \u2022 Review and work with others (Product Management, Technical Architects,Development Engineers, Software Development Manager) to confirm and trackFeature Requirements through to delivery.<br> \u2022 Support ISO and Quality standards in terms of software developmentdocumentation, unit testing, code reviews.<br> \u2022 Participate in and drive Software Development Process improvement activitiesfor the team.<br> \u2022 Participate in site wide process improvement initiatives as required.<br> <br>This is an exciting opportunity to play a key role in the development ofCisco\u2019s Global Unified Communications product portfolio.<\/p>"
+    }
+  ]
+}}

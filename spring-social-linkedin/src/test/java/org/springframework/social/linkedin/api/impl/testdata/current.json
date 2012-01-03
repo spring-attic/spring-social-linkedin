@@ -1,0 +1,23 @@
+{"currentShare": {
+  "author": {
+    "firstName": "Robert",
+    "id": "UB2kruYmAL",
+    "lastName": "Drysdale"
+  },
+  "comment": "It's not sexy but ...",
+  "content": {
+    "description": " ",
+    "eyebrowUrl": "http://www.linkedin.com/share?viewLink=&sid=s702970589&url=http%3A%2F%2Flnkd%2Ein%2F9TDwJN&urlhash=3uAS",
+    "resolvedUrl": "http://www.bbc.co.uk/news/technology-15728306",
+    "shortenedUrl": "http://lnkd.in/9TDwJN",
+    "submittedUrl": "http://www.bbc.co.uk/news/technology-15728306",
+    "title": "Warren Buffett buys IBM stake with $10.7bn investment"
+  },
+  "id": "s702970589",
+  "source": {
+    "application": {"name": "netm"},
+    "serviceProvider": {"name": "LINKEDIN"}
+  },
+  "timestamp": 1321436986000,
+  "visibility": {"code": "connections-only"}
+}}

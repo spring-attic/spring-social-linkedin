@@ -15,13 +15,16 @@
  */
 package org.springframework.social.linkedin.connect;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.social.connect.UserProfile;
 import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.social.linkedin.api.LinkedInProfile;
+import org.springframework.social.linkedin.api.ProfileOperations;
+import org.springframework.social.linkedin.api.UrlResource;
 
 public class LinkedInAdapterTest {
 
@@ -31,7 +34,10 @@ public class LinkedInAdapterTest {
 	
 	@Test
 	public void fetchProfile() {
-		Mockito.when(linkedin.getUserProfile()).thenReturn(new LinkedInProfile("50A3nOf73z", "Craig", "Walls", "Spring Guy", "Software", "http://www.linkedin.com/in/habuma", "http://www.linkedin.com/profile?viewProfile=&key=3630172&authToken=0IpZ&authType=name&trk=api*a121026*s129482*", "http://media.linkedin.com/mpr/mprx/0_9-Hjc8b0ViE1gGElNtdCcGh0s3pjxbRlNzpCciT05XHD8i2Asq4AM_zAN7yGp8VgcAoi4k1faewD"));
+		ProfileOperations profileOperations = Mockito.mock(ProfileOperations.class);
+		Mockito.when(linkedin.profileOperations()).thenReturn(profileOperations);
+		Mockito.when(profileOperations.getUserProfile()).thenReturn(new LinkedInProfile("50A3nOf73z", "Craig", "Walls", "Spring Guy", "Software", "http://www.linkedin.com/in/habuma", 
+				new UrlResource(null, "http://www.linkedin.com/profile?viewProfile=&key=3630172&authToken=0IpZ&authType=name&trk=api*a121026*s129482*"), "http://media.linkedin.com/mpr/mprx/0_9-Hjc8b0ViE1gGElNtdCcGh0s3pjxbRlNzpCciT05XHD8i2Asq4AM_zAN7yGp8VgcAoi4k1faewD"));
 		UserProfile profile = apiAdapter.fetchUserProfile(linkedin);
 		assertEquals("Craig Walls", profile.getName());
 		assertEquals("Craig", profile.getFirstName());

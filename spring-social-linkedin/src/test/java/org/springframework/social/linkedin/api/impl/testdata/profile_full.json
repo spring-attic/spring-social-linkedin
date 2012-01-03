@@ -1,0 +1,403 @@
+{
+  "apiStandardProfileRequest": {
+    "headers": {
+      "_total": 1,
+      "values": [{
+        "name": "x-li-auth-token",
+        "value": "name:O91G"
+      }]
+    },
+    "url": "http://api.linkedin.com/v1/people/UB2kruYmAL"
+  },
+  "associations": "Canoeing Ireland",
+  "currentShare": {
+    "author": {
+      "firstName": "Robert",
+      "id": "UB2kruYmAL",
+      "lastName": "Drysdale"
+    },
+    "comment": "It's not sexy but ...",
+    "content": {
+      "description": " ",
+      "eyebrowUrl": "http://www.linkedin.com/share?viewLink=&sid=s703802238&url=http%3A%2F%2Flnkd%2Ein%2F9TDwJN&urlhash=3uAS",
+      "resolvedUrl": "http://www.bbc.co.uk/news/technology-15728306",
+      "shortenedUrl": "http://lnkd.in/9TDwJN",
+      "submittedUrl": "http://www.bbc.co.uk/news/technology-15728306",
+      "title": "Warren Buffett buys IBM stake with $10.7bn investment"
+    },
+    "id": "s703802238",
+    "source": {
+      "application": {"name": "netm"},
+      "serviceProvider": {"name": "LINKEDIN"}
+    },
+    "timestamp": 1321463183000,
+    "visibility": {"code": "connections-only"}
+  },
+  "dateOfBirth": {
+    "day": 01,
+    "month": 01,
+    "year": 1900
+  },
+  "distance": 0,
+  "educations": {
+    "_total": 3,
+    "values": [
+      {
+        "activities": "",
+        "degree": "MSc Innovation & Technology Management",
+        "endDate": {"year": 2009},
+        "fieldOfStudy": "Product Management, Project Management, New Business Development, Portfolio Managment, Supply Chain",
+        "id": 11962179,
+        "notes": "",
+        "schoolName": "University College Dublin",
+        "startDate": {"year": 2007}
+      },
+      {
+        "degree": "BEng",
+        "endDate": {"year": 2000},
+        "fieldOfStudy": "Telecommunications Engineering",
+        "id": 11961863,
+        "schoolName": "Dublin City University",
+        "startDate": {"year": 1995}
+      },
+      {
+        "activities": "",
+        "degree": "",
+        "endDate": {"year": 1995},
+        "fieldOfStudy": "",
+        "id": 30071361,
+        "notes": "",
+        "schoolName": "Belvedere College",
+        "startDate": {"year": 1985}
+      }
+    ]
+  },
+  "firstName": "Robert",
+  "headline": "Software Architect",
+  "honors": "None",
+  "id": "UB2kruYmAL",
+  "imAccounts": {
+    "_total": 1,
+    "values": [{
+      "imAccountName": "robbiedrysdale",
+      "imAccountType": "skype"
+    }]
+  },
+  "industry": "Telecommunications",
+  "interests": "Kayaking",
+  "lastName": "Drysdale",
+  "location": {
+    "country": {"code": "ie"},
+    "name": "Ireland"
+  },
+  "mainAddress": "Dublin, Ireland",
+  "memberUrlResources": {
+    "_total": 1,
+    "values": [{
+      "name": "Company Website",
+      "url": "http://www.robatron.com"
+    }]
+  },
+  "numConnections": 189,
+  "numConnectionsCapped": false,
+  "numRecommenders": 2,
+  "phoneNumbers": {
+    "_total": 1,
+    "values": [{
+      "phoneNumber": "+353 87 9580000",
+      "phoneType": "mobile"
+    }]
+  },
+  "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_ZSvRnXWWa3I_WgIYVmQHnQZEuTD7WORYVETknbWvPkJxns2Oqw5c4FjUCfSKoJVtMmBLMhUX6kUM",
+  "positions": {
+    "_total": 8,
+    "values": [
+      {
+        "company": {
+          "industry": "Computer Software",
+          "name": "robatron"
+        },
+        "id": 133861560,
+        "isCurrent": true,
+        "startDate": {
+          "month": 6,
+          "year": 2010
+        },
+        "summary": "CBW at robatron, a Media Streaming startup.  Ongoing Technology research into potential new products.",
+        "title": "CBW"
+      },
+      {
+        "company": {
+          "industry": "Computer Software",
+          "name": "Various"
+        },
+        "endDate": {
+          "month": 7,
+          "year": 2011
+        },
+        "id": 23214564,
+        "isCurrent": false,
+        "startDate": {
+          "month": 7,
+          "year": 2004
+        },
+        "summary": "Fujitsu, Dublin, Ireland: Oct 2010 - July 2011\nBank of Ireland, Dublin, Ireland: February 2006 - May 2006\nNorkom, Dublin, Ireland: May 2005 - January 2006\nACN Australia, Sydney, Australia: July 2004 - December 2004",
+        "title": "Senior Java/J2EE Architect/Developer (Contract)"
+      },
+      {
+        "company": {
+          "id": 17789,
+          "industry": "Telecommunications",
+          "name": "Arantech",
+          "type": "Privately Held"
+        },
+        "endDate": {
+          "month": 5,
+          "year": 2010
+        },
+        "id": 22559057,
+        "isCurrent": false,
+        "startDate": {
+          "month": 6,
+          "year": 2006
+        },
+        "summary": "Implementer of Jira for for Issue, CR, and Support Ticket life cycle tracking.\nImplementer of Confluence for Knowledge Management.\nImplementer of Bamboo for Continuous Integration.\nTechnology choice and architecture of Customer World Profiler Product.\nTechnology choice and architecture of Customer World ProAction Product.\nTechnology choice and architecture of Mediation Product.",
+        "title": "System Architect"
+      },
+      {
+        "company": {
+          "id": 9617,
+          "industry": "Telecommunications",
+          "name": "CAPE Technologies",
+          "size": "51-200 employees",
+          "type": "Privately Held"
+        },
+        "endDate": {
+          "month": 2,
+          "year": 2004
+        },
+        "id": 23214568,
+        "isCurrent": false,
+        "startDate": {
+          "month": 1,
+          "year": 2002
+        },
+        "title": "Senior Integration Engineer"
+      },
+      {
+        "company": {
+          "id": 69425,
+          "industry": "Telecommunications",
+          "name": "Incite",
+          "size": "1-10 employees",
+          "type": "Privately Held"
+        },
+        "endDate": {
+          "month": 11,
+          "year": 2001
+        },
+        "id": 23214691,
+        "isCurrent": false,
+        "startDate": {
+          "month": 7,
+          "year": 2001
+        },
+        "title": "Technical Architect & Founder"
+      },
+      {
+        "company": {
+          "id": 11621,
+          "industry": "Telecommunications",
+          "name": "Jinny Software",
+          "size": "51-200 employees",
+          "type": "Privately Held"
+        },
+        "endDate": {
+          "month": 7,
+          "year": 2001
+        },
+        "id": 23214697,
+        "isCurrent": false,
+        "startDate": {
+          "month": 11,
+          "year": 1999
+        },
+        "title": "Support & Integration Engineer"
+      },
+      {
+        "company": {
+          "industry": "Telecommunications",
+          "name": "Vodafone Ireland (formally Eircell)",
+          "size": "1001-5000 employees",
+          "type": "Public Company"
+        },
+        "endDate": {
+          "month": 9,
+          "year": 1999
+        },
+        "id": 23214755,
+        "isCurrent": false,
+        "startDate": {
+          "month": 3,
+          "year": 1999
+        },
+        "title": "Student Engineer"
+      },
+      {
+        "company": {
+          "id": 2578,
+          "industry": "Computer Hardware",
+          "name": "Gateway",
+          "size": "1001-5000 employees",
+          "type": "Public Company"
+        },
+        "endDate": {
+          "month": 3,
+          "year": 1999
+        },
+        "id": 23214811,
+        "isCurrent": false,
+        "startDate": {
+          "month": 9,
+          "year": 1997
+        },
+        "title": "Support Technician"
+      }
+    ]
+  },
+  "proposalComments": "",
+  "publicProfileUrl": "http://www.linkedin.com/in/robdrysdale",
+  "recommendationsReceived": {
+    "_total": 2,
+    "values": [
+      {
+        "id": 28176382,
+        "recommendationText": "Great guy to work with, open, friendly and approachable as well as very knowledgeable on a wide range of areas outside the immediate remit of standard java development. In all an asset to any team, would be happy to work with him again.",
+        "recommendationType": {"code": "colleague"},
+        "recommender": {
+          "firstName": "Damien",
+          "id": "UG3zmpvvvv",
+          "lastName": "Smith"
+        }
+      },
+      {
+        "id": 18933134,
+        "recommendationText": "Robert's telecomms experience was invaluable along with his very excellent Java skills. his communications skills are extremely good, helped enormously by his personable demenour and great sense of humour.",
+        "recommendationType": {"code": "colleague"},
+        "recommender": {
+          "firstName": "Kevin",
+          "id": "h-BKclJc3I",
+          "lastName": "Moriarty"
+        }
+      }
+    ]
+  },
+  "relationToViewer": {"distance": 0},
+  "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile?viewProfile=&key=15567709&authToken=O91G&authType=name&trk=api*a151944*s160233*"},
+  "skills": {
+    "_total": 3,
+    "values": [
+      {
+        "id": 2,
+        "skill": {"name": "Java"}
+      },
+      {
+        "id": 3,
+        "skill": {"name": "J2EE"}
+      },
+      {
+        "id": 4,
+        "skill": {"name": "J2EE Architecture"}
+      }
+    ]
+  },
+  "specialties": "Mobile Telecomms, GSM, 3G, SMS, Network Probing, Billing, Roaming, SMPP, UCP, SNMP, Corba\nJava, J2EE, JSP, JMS, EJB2, EJB3, Spring Framework, Hibernate, Webservices, WSDL\nSQL, Oracle, SQL Server, DB2, MySQL",
+  "summary": "J2EE Application Architect with over 10 years industry experience.  In-depth technical knowledge combined with extensive international customer facing experience.  Full Project Lifecycle exposure from scoping and technology selection through to implementation and final delivery to customer.  Knowledge and proven ability in complete solutions design.  Experience of mentoring team members and of the implementation of the latest development processes and tools.",
+  "threeCurrentPositions": {
+    "_total": 1,
+    "values": [{
+      "company": {
+        "industry": "Computer Software",
+        "name": "robatron"
+      },
+      "id": 133861560,
+      "isCurrent": true,
+      "startDate": {
+        "month": 6,
+        "year": 2010
+      },
+      "summary": "CBW at robatron, a Media Streaming startup.  Ongoing Technology research into potential new products.",
+      "title": "CBW"
+    }]
+  },
+  "threePastPositions": {
+    "_total": 3,
+    "values": [
+      {
+        "company": {
+          "industry": "Computer Software",
+          "name": "Various"
+        },
+        "endDate": {
+          "month": 7,
+          "year": 2011
+        },
+        "id": 23214564,
+        "isCurrent": false,
+        "startDate": {
+          "month": 7,
+          "year": 2004
+        },
+        "summary": "Fujitsu, Dublin, Ireland: Oct 2010 - July 2011\nBank of Ireland, Dublin, Ireland: February 2006 - May 2006\nNorkom, Dublin, Ireland: May 2005 - January 2006\nACN Australia, Sydney, Australia: July 2004 - December 2004",
+        "title": "Senior Java/J2EE Architect/Developer (Contract)"
+      },
+      {
+        "company": {
+          "id": 17789,
+          "industry": "Telecommunications",
+          "name": "Arantech",
+          "type": "Privately Held"
+        },
+        "endDate": {
+          "month": 5,
+          "year": 2010
+        },
+        "id": 22559057,
+        "isCurrent": false,
+        "startDate": {
+          "month": 6,
+          "year": 2006
+        },
+        "summary": "Implementer of Jira for for Issue, CR, and Support Ticket life cycle tracking.\nImplementer of Confluence for Knowledge Management.\nImplementer of Bamboo for Continuous Integration.\nTechnology choice and architecture of Customer World Profiler Product.\nTechnology choice and architecture of Customer World ProAction Product.\nTechnology choice and architecture of Mediation Product.",
+        "title": "System Architect"
+      },
+      {
+        "company": {
+          "id": 9617,
+          "industry": "Telecommunications",
+          "name": "CAPE Technologies",
+          "size": "51-200 employees",
+          "type": "Privately Held"
+        },
+        "endDate": {
+          "month": 2,
+          "year": 2004
+        },
+        "id": 23214568,
+        "isCurrent": false,
+        "startDate": {
+          "month": 1,
+          "year": 2002
+        },
+        "title": "Senior Integration Engineer"
+      }
+    ]
+  },
+  "twitterAccounts": {
+    "_total": 1,
+    "values": [{
+      "providerAccountId": "23438000",
+      "providerAccountName": "robdrysdale"
+    }]
+  }
+}
