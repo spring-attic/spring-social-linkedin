@@ -165,7 +165,7 @@ public class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUp
 		return expand(url, variables, false);
 	}
 	
-	static final String UPDATES_URL = BASE_URL + "{id}/network/updates?format=json{&count}{&start}{&scope}{type}{&before}{&after}{&show-hidden-members}";
+	static final String UPDATES_URL = BASE_URL + "{id}/network/updates?{&count}{&start}{&scope}{type}{&before}{&after}{&show-hidden-members}&format=json";
 
 	static final String UPDATE_COMMENTS_URL = BASE_URL + "~/network/updates/key={key}/update-comments?format=json";
 	

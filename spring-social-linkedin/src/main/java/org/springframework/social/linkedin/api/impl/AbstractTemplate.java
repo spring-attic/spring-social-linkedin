@@ -20,13 +20,15 @@ public abstract class AbstractTemplate {
 		Matcher matcher = NAMES_PATTERN.matcher(url);
 		StringBuffer buffer = new StringBuffer();
 		int i = 0;
+		String separator = "";
 		while (matcher.find()) {
 			Object uriVariable = variables[i++];
 			String replacement = Matcher.quoteReplacement(uriVariable != null ? (encode ? encode(uriVariable.toString()): uriVariable.toString()) : "");
 			String key = matcher.group();
 			if (key.charAt(1) == '&' && replacement != null && replacement.length() > 0) {
-				key = key.substring(1, key.length()-1);
-				matcher.appendReplacement(buffer, key + '=' + replacement);
+				key = key.substring(2, key.length()-1);
+				matcher.appendReplacement(buffer, separator + key + '=' + replacement);
+				separator = "&";
 			}
 			else {
 				matcher.appendReplacement(buffer, replacement);
