@@ -149,7 +149,7 @@ public class SearchParameters {
 	
 	public static enum Sort {
 		CONNECTIONS,
-		RECOMMENDORS,
+		RECOMMENDERS,
 		DISTANCE,
 		RELEVANCE;
 		

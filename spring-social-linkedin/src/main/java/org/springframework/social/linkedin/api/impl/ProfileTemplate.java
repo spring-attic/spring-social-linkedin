@@ -93,7 +93,7 @@ public class ProfileTemplate extends AbstractTemplate implements ProfileOperatio
 		}
 		
 	}
-	
+
 	private URI expand(String url, SearchParameters parameters) {
 		Object[] variables = new Object[] {
 				parameters.getKeywords(),
