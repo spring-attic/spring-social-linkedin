@@ -120,7 +120,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 	@Test 
 	public void search() {
 		mockServer.expect(requestTo(
-				"https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,api-standard-profile-request))?&keywords=Java%20J2EE&&country-code=ie&start=0&count=10"
+				"https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,api-standard-profile-request))?keywords=Java%20J2EE&country-code=ie&start=0&count=10"
 				)).andExpect(method(GET))
 		.andRespond(withResponse(new ClassPathResource("testdata/search.json", getClass()), responseHeaders));
 		
