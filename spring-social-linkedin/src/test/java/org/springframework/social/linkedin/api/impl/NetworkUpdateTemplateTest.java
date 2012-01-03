@@ -98,7 +98,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test 
 	public void getUpdates() {
-		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates?format=json&count=10&start=0&type=ANSW&type=APPS&type=CMPY&type=CONN&type=JOBS&type=JGRP&type=PICT&type=PRFX&type=RECU&type=PRFU&type=QSTN&type=SHAR&type=VIRL")).andExpect(method(GET))
+		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates?count=10&start=0&type=ANSW&type=APPS&type=CMPY&type=CONN&type=JOBS&type=JGRP&type=PICT&type=PRFX&type=RECU&type=PRFU&type=QSTN&type=SHAR&type=VIRL&format=json")).andExpect(method(GET))
 		.andRespond(withResponse(new ClassPathResource("testdata/updates.json", getClass()), responseHeaders));
 		List<LinkedInNetworkUpdate> updates = linkedIn.networkUpdateOperations().getNetworkUpdates();
 		assertEquals(9, updates.size());

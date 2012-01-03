@@ -27,7 +27,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void search() {
 		mockServer.expect(requestTo(JobTemplate.SEARCH_URL
-				.replaceFirst("\\{\\&keywords\\}", "&keywords=j2ee")
+				.replaceFirst("\\{\\&keywords\\}", "keywords=j2ee")
 				.replaceFirst("\\{\\&company-name\\}", "")
 				.replaceFirst("\\{\\&job-title\\}", "")
 				.replaceFirst("\\{\\&country-code\\}", "&country-code=ie")
@@ -78,7 +78,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getSuggestions() {
 		mockServer.expect(requestTo(JobTemplate.SUGGESTED_URL
-				.replaceFirst("\\{\\&start\\}", "&start=0")
+				.replaceFirst("\\{\\&start\\}", "start=0")
 				.replaceFirst("\\{\\&count\\}", "&count=10"))).andExpect(method(GET))
 		.andRespond(withResponse(new ClassPathResource("testdata/job_suggestions.json", getClass()), responseHeaders));
 		
@@ -162,7 +162,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getBookmarks() {
 		mockServer.expect(requestTo(JobTemplate.BOOKMARKS_URL
-				.replaceFirst("\\{\\&start\\}", "&start=0")
+				.replaceFirst("\\{\\&start\\}", "start=0")
 				.replaceFirst("\\{\\&count\\}", "&count=10"))).andExpect(method(GET))
 		.andRespond(withResponse(new ClassPathResource("testdata/job_bookmarks.json", getClass()), responseHeaders));
 		
