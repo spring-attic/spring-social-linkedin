@@ -1,6 +1,6 @@
 package org.springframework.social.linkedin.api.impl;
 
-import static org.springframework.social.linkedin.api.impl.LinkedInTemplate.BASE_URL;
+import static org.springframework.social.linkedin.api.impl.LinkedInTemplate.*;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.social.linkedin.api.ConnectionOperations;
 import org.springframework.social.linkedin.api.LinkedInConnections;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.NetworkStatistics;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestOperations;
 
 /**
  * Class that implements Connection API
@@ -17,19 +17,19 @@ import org.springframework.web.client.RestTemplate;
  *
  */
 public class ConnectionTemplate implements ConnectionOperations {
-	private final RestTemplate restTemplate;
+	private final RestOperations restOperations;
 	
-	public ConnectionTemplate(RestTemplate restTemplate) {
-		this.restTemplate = restTemplate;
+	public ConnectionTemplate(RestOperations restOperations) {
+		this.restOperations = restOperations;
 	}
 	
 	public List<LinkedInProfile> getConnections() {
-		LinkedInConnections connections = restTemplate.getForObject(CONNECTIONS_URL, LinkedInConnections.class);
+		LinkedInConnections connections = restOperations.getForObject(CONNECTIONS_URL, LinkedInConnections.class);
 		return connections.getConnections();
 	}
 	
 	public NetworkStatistics getNetworkStatistics(){
-		return restTemplate.getForObject(STATISTICS_URL,  NetworkStatistics.class);
+		return restOperations.getForObject(STATISTICS_URL,  NetworkStatistics.class);
 	}
 	
 	static final String CONNECTIONS_URL = BASE_URL + "~/connections?format=json";
