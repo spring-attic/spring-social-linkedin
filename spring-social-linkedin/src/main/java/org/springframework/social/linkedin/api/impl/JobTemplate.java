@@ -11,7 +11,7 @@ import org.springframework.social.linkedin.api.JobBookmarkResult;
 import org.springframework.social.linkedin.api.JobOperations;
 import org.springframework.social.linkedin.api.JobSearchParameters;
 import org.springframework.social.linkedin.api.SearchResultJob;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestOperations;
 
 /**
  * Class that implements Job API
@@ -20,11 +20,11 @@ import org.springframework.web.client.RestTemplate;
  *
  */
 public class JobTemplate extends AbstractTemplate implements JobOperations {
-	private final RestTemplate restTemplate;
+	private final RestOperations restOperations;
 	private final ObjectMapper objectMapper;
 	
-	public JobTemplate(RestTemplate restTemplate, ObjectMapper objectMapper ) {
-		this.restTemplate = restTemplate;
+	public JobTemplate(RestOperations restOperations, ObjectMapper objectMapper ) {
+		this.restOperations = restOperations;
 		this.objectMapper = objectMapper;
 	}
 	
@@ -41,7 +41,7 @@ public class JobTemplate extends AbstractTemplate implements JobOperations {
 				parameters.getSort()
 		};
 		
-		JsonNode node = restTemplate.getForObject(expand(SEARCH_URL, params, true), JsonNode.class);
+		JsonNode node = restOperations.getForObject(expand(SEARCH_URL, params, true), JsonNode.class);
 		
 		try {
 			return objectMapper.readValue(node.path("jobs"), new TypeReference<SearchResultJob>() {});
@@ -52,7 +52,7 @@ public class JobTemplate extends AbstractTemplate implements JobOperations {
 	}
 	
 	public Job getJob(int id) {
-		return restTemplate.getForObject(JOB_URL, Job.class, id);
+		return restOperations.getForObject(JOB_URL, Job.class, id);
 	}
 	
 	public void bookmarkJob(int id) {
@@ -60,15 +60,15 @@ public class JobTemplate extends AbstractTemplate implements JobOperations {
 		Map<String,Integer>idDetails = new HashMap<String,Integer>();
 		jobDetails.put("job", idDetails);
 		idDetails.put("id", id);
-		restTemplate.postForLocation(BOOKMARK_URL, jobDetails);
+		restOperations.postForLocation(BOOKMARK_URL, jobDetails);
 	}
 	
 	public void unbookmarkJob(int id) {
-		restTemplate.delete(UNBOOKMARK_URL, id);
+		restOperations.delete(UNBOOKMARK_URL, id);
 	}
 	
 	public SearchResultJob getSuggestions(int start, int count) {
-		JsonNode node =  restTemplate.getForObject(expand(SUGGESTED_URL, new Object[] {start,count}, false), JsonNode.class);
+		JsonNode node =  restOperations.getForObject(expand(SUGGESTED_URL, new Object[] {start,count}, false), JsonNode.class);
 		
 		try {
 			return objectMapper.readValue(node.path("jobs"), new TypeReference<SearchResultJob>() {});
@@ -79,7 +79,7 @@ public class JobTemplate extends AbstractTemplate implements JobOperations {
 	}
 	
 	public JobBookmarkResult getBookmarks(int start, int count) {
-		return restTemplate.getForObject(expand(BOOKMARKS_URL, new Object[] {start,count}, false), JobBookmarkResult.class);
+		return restOperations.getForObject(expand(BOOKMARKS_URL, new Object[] {start,count}, false), JobBookmarkResult.class);
 		
 	}
 	

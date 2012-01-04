@@ -1,6 +1,6 @@
 package org.springframework.social.linkedin.api.impl;
 
-import static org.springframework.social.linkedin.api.impl.LinkedInTemplate.BASE_URL;
+import static org.springframework.social.linkedin.api.impl.LinkedInTemplate.*;
 
 import java.net.URI;
 
@@ -12,7 +12,7 @@ import org.springframework.social.linkedin.api.ProfileField;
 import org.springframework.social.linkedin.api.ProfileOperations;
 import org.springframework.social.linkedin.api.SearchParameters;
 import org.springframework.social.linkedin.api.SearchResultPeople;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestOperations;
 
 /**
  * Class that implements operations for Profile API
@@ -44,11 +44,11 @@ public class ProfileTemplate extends AbstractTemplate implements ProfileOperatio
 		PROFILE_URL_FULL = b.toString();
 	}
 	
-	private RestTemplate restTemplate;
+	private RestOperations restOperations;
 	private ObjectMapper objectMapper;
 	
-	public ProfileTemplate(RestTemplate restTemplate, ObjectMapper objectMapper) {
-		this.restTemplate = restTemplate;
+	public ProfileTemplate(RestOperations restOperations, ObjectMapper objectMapper) {
+		this.restOperations = restOperations;
 		this.objectMapper = objectMapper;
 	}
 	public String getProfileId() {
@@ -60,31 +60,31 @@ public class ProfileTemplate extends AbstractTemplate implements ProfileOperatio
 	}
 
 	public LinkedInProfile getUserProfile() {
-		return restTemplate.getForObject(PROFILE_URL, LinkedInProfile.class, "~");
+		return restOperations.getForObject(PROFILE_URL, LinkedInProfile.class, "~");
 	}
 	
 	public LinkedInProfileFull getUserProfileFull() {
-		return restTemplate.getForObject(PROFILE_URL_FULL, LinkedInProfileFull.class, "~");
+		return restOperations.getForObject(PROFILE_URL_FULL, LinkedInProfileFull.class, "~");
 	}
 	
 	public LinkedInProfile getProfileById(String id) {
-		return restTemplate.getForObject(PROFILE_URL, LinkedInProfile.class, "id=" + id);
+		return restOperations.getForObject(PROFILE_URL, LinkedInProfile.class, "id=" + id);
 	}
 	
 	public LinkedInProfile getProfileByPublicUrl(String url) {
-		return restTemplate.getForObject(PROFILE_URL, LinkedInProfile.class, "url=" + url);
+		return restOperations.getForObject(PROFILE_URL, LinkedInProfile.class, "url=" + url);
 	}
 	
 	public LinkedInProfileFull getProfileFullById(String id) {
-		return restTemplate.getForObject(PROFILE_URL_FULL, LinkedInProfileFull.class, "id=" + id);
+		return restOperations.getForObject(PROFILE_URL_FULL, LinkedInProfileFull.class, "id=" + id);
 	}
 	
 	public LinkedInProfileFull getProfileFullByPublicUrl(String url) {
-		return restTemplate.getForObject(PROFILE_URL_FULL, LinkedInProfileFull.class, "url=" + url);
+		return restOperations.getForObject(PROFILE_URL_FULL, LinkedInProfileFull.class, "url=" + url);
 	}
 	
 	public SearchResultPeople search(SearchParameters parameters) {
-		JsonNode node =  restTemplate.getForObject(expand(PEOPLE_SEARCH_URL, parameters), JsonNode.class);
+		JsonNode node =  restOperations.getForObject(expand(PEOPLE_SEARCH_URL, parameters), JsonNode.class);
 		try {
 			return objectMapper.readValue(node.path("people"), SearchResultPeople.class);
 		}
