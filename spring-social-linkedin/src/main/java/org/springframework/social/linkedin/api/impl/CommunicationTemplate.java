@@ -11,7 +11,7 @@ import java.util.Map;
 
 import org.springframework.social.linkedin.api.ApiStandardProfileRequest;
 import org.springframework.social.linkedin.api.CommunicationOperations;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestOperations;
 
 /**
  * Class that implements communication API for sending messages and invitations
@@ -20,10 +20,10 @@ import org.springframework.web.client.RestTemplate;
  *
  */
 public class CommunicationTemplate implements CommunicationOperations {
-	private final RestTemplate restTemplate;
+	private final RestOperations restOperations;
 	
-	public CommunicationTemplate(RestTemplate restTemplate) {
-		this.restTemplate = restTemplate;
+	public CommunicationTemplate(RestOperations restOperations) {
+		this.restOperations = restOperations;
 	}
 	
 	public void sendMessage(String subject, String body, List<String> recipientIds) {
@@ -33,7 +33,7 @@ public class CommunicationTemplate implements CommunicationOperations {
 		mailboxItem.put("subject", subject);
 		mailboxItem.put("body", body);
 		
-		restTemplate.postForLocation(MESSAGING_URL, mailboxItem);
+		restOperations.postForLocation(MESSAGING_URL, mailboxItem);
 	}
 	
 	public void sendMessage(String subject, String body, String... recipientIds) {
@@ -49,7 +49,7 @@ public class CommunicationTemplate implements CommunicationOperations {
 		String[] nameValue = apiStandardProfileRequest.getValue().split(":");
 		mailboxItem.put("itemContent", new ItemContent(nameValue[0], nameValue[1]));
 		
-		restTemplate.postForLocation(MESSAGING_URL, mailboxItem);
+		restOperations.postForLocation(MESSAGING_URL, mailboxItem);
 	}
 	
 	public void connectTo(String subject, String body, String email, String firstName, String lastName) {
@@ -60,7 +60,7 @@ public class CommunicationTemplate implements CommunicationOperations {
 		mailboxItem.put("body", body);
 		mailboxItem.put("itemContent", new ItemContent());
 		
-		restTemplate.postForLocation(MESSAGING_URL, mailboxItem);
+		restOperations.postForLocation(MESSAGING_URL, mailboxItem);
 	}
 	
 	

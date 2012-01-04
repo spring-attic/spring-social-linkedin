@@ -10,7 +10,7 @@ import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.CompanyOperations;
 import org.springframework.social.linkedin.api.ProductResult;
 import org.springframework.social.linkedin.api.SearchResultCompany;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestOperations;
 
 /**
  * Class that implements Company API for searching for and getting Companies
@@ -18,25 +18,25 @@ import org.springframework.web.client.RestTemplate;
  *
  */
 public class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
-	private final RestTemplate restTemplate;
+	private final RestOperations restOperations;
 	private final ObjectMapper objectMapper;
 	
-	public CompanyTemplate(RestTemplate restTemplate, ObjectMapper objectMapper) {
-		this.restTemplate = restTemplate;
+	public CompanyTemplate(RestOperations RestOperations, ObjectMapper objectMapper) {
+		this.restOperations = RestOperations;
 		this.objectMapper = objectMapper;
 	}
 	
 	public Company getCompany(int id) {
-		return restTemplate.getForObject(COMPANY_URL, Company.class, "/" + id, "");
+		return restOperations.getForObject(COMPANY_URL, Company.class, "/" + id, "");
 	}
 	
 	public Company getCompanyByUniversalName(String name) {
-		return restTemplate.getForObject(COMPANY_URL, Company.class, "/universal-name=" + name, "");
+		return restOperations.getForObject(COMPANY_URL, Company.class, "/universal-name=" + name, "");
 	}
 	
 	public List<Company> getCompaniesByEmailDomain(String domain) {
 		String[] params = new String[] { "", "email-domain=" + domain};
-		JsonNode node = restTemplate.getForObject(expand(COMPANY_URL, params, false), JsonNode.class);
+		JsonNode node = restOperations.getForObject(expand(COMPANY_URL, params, false), JsonNode.class);
 		
 		try {
 			return objectMapper.readValue(node.path("values"), new TypeReference<List<Company>>(){});
@@ -47,7 +47,7 @@ public class CompanyTemplate extends AbstractTemplate implements CompanyOperatio
 	}
 	
 	public SearchResultCompany search(String keywords) {
-		JsonNode node = restTemplate.getForObject(COMPANY_SEARCH_URL, JsonNode.class, keywords);
+		JsonNode node = restOperations.getForObject(COMPANY_SEARCH_URL, JsonNode.class, keywords);
 		try {
 			return objectMapper.readValue(node.path("companies"), new TypeReference<SearchResultCompany>(){});
 		}
@@ -57,7 +57,7 @@ public class CompanyTemplate extends AbstractTemplate implements CompanyOperatio
 	}
 	
 	public List<Company> getFollowing() {
-		JsonNode node = restTemplate.getForObject(COMPANY_FOLLOW_URL, JsonNode.class);
+		JsonNode node = restOperations.getForObject(COMPANY_FOLLOW_URL, JsonNode.class);
 		try {
 			return objectMapper.readValue(node.path("values"), new TypeReference<List<Company>>(){});
 		}
@@ -67,7 +67,7 @@ public class CompanyTemplate extends AbstractTemplate implements CompanyOperatio
 	}
 	
 	public List<Company> getSuggestionsToFollow() {
-		JsonNode node = restTemplate.getForObject(COMPANY_SUGGESTIONS_TO_FOLLOW, JsonNode.class);
+		JsonNode node = restOperations.getForObject(COMPANY_SUGGESTIONS_TO_FOLLOW, JsonNode.class);
 		try {
 			return objectMapper.readValue(node.path("values"), new TypeReference<List<Company>>(){});
 		}
@@ -77,15 +77,15 @@ public class CompanyTemplate extends AbstractTemplate implements CompanyOperatio
 	}
 	
 	public void startFollowingCompany(int id) {
-		restTemplate.postForLocation(COMPANY_FOLLOW_START_STOP_URL, Collections.singletonMap("id", id));
+		restOperations.postForLocation(COMPANY_FOLLOW_START_STOP_URL, Collections.singletonMap("id", id));
 	}
 	
 	public void stopFollowingCompany(int id) {
-		restTemplate.delete(COMPANY_FOLLOW_START_STOP_URL, id);
+		restOperations.delete(COMPANY_FOLLOW_START_STOP_URL, id);
 	}
 	
 	public ProductResult getProducts(int companyId, int start, int count) {
-		return restTemplate.getForObject(PRODUCTS_URL, ProductResult.class, companyId, start, count);
+		return restOperations.getForObject(PRODUCTS_URL, ProductResult.class, companyId, start, count);
 	}
 	
 	public static final String BASE_URL = "https://api.linkedin.com/v1/";

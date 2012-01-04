@@ -1,6 +1,6 @@
 package org.springframework.social.linkedin.api.impl;
 
-import static org.springframework.social.linkedin.api.impl.LinkedInTemplate.BASE_URL;
+import static org.springframework.social.linkedin.api.impl.LinkedInTemplate.*;
 
 import java.net.URI;
 import java.util.Collections;
@@ -20,7 +20,7 @@ import org.springframework.social.linkedin.api.NetworkUpdateParameters;
 import org.springframework.social.linkedin.api.NewShare;
 import org.springframework.social.linkedin.api.UpdateContentShare;
 import org.springframework.social.linkedin.api.UpdateTypeInput;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestOperations;
 
 /**
  * Class that impelements API for retrieving Network Updates and
@@ -46,8 +46,8 @@ public class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUp
 		UPDATE_TYPE_ALL_STRING = b.toString();
 	}
 	
-	public NetworkUpdateTemplate(RestTemplate restTemplate) {
-		this.restTemplate = restTemplate;
+	public NetworkUpdateTemplate(RestOperations restOperations) {
+		this.restOperations = restOperations;
 	}
 	
 	public List<LinkedInNetworkUpdate> getNetworkUpdates() {
@@ -83,7 +83,7 @@ public class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUp
 	}
 	
 	public List<Comment> getNetworkUpdateComments(String updateKey) {
-		Comments comments = restTemplate.getForObject(UPDATE_COMMENTS_URL, Comments.class, updateKey);
+		Comments comments = restOperations.getForObject(UPDATE_COMMENTS_URL, Comments.class, updateKey);
 		return comments.getComments();
 	}
 	
@@ -91,33 +91,33 @@ public class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUp
 		Map<String,String> activity = new HashMap<String, String>();
 		activity.put("contentType", "linkedin-html");
 		activity.put("body", update);
-		restTemplate.put(ACTIVITY_URL, activity);
+		restOperations.put(ACTIVITY_URL, activity);
 	}
 	
 	public CurrentShare getCurrentShare() {
-		return restTemplate.getForObject(CURRENT_SHARE_URL, UpdateContentShare.class).getCurrentShare();
+		return restOperations.getForObject(CURRENT_SHARE_URL, UpdateContentShare.class).getCurrentShare();
 	}
 	
 	public URI share(NewShare share) {
-		URI uri = restTemplate.postForLocation(SHARE_URL, share);
+		URI uri = restOperations.postForLocation(SHARE_URL, share);
 		return uri;
 	}
 	
 	public void likeNetworkUpdate(String updateKey) {
-		restTemplate.put(UPDATE_IS_LIKED_URL, Boolean.TRUE, updateKey);
+		restOperations.put(UPDATE_IS_LIKED_URL, Boolean.TRUE, updateKey);
 	}
 	
 	public void unlikeNetworkUpdate(String updateKey) {
-		restTemplate.put(UPDATE_IS_LIKED_URL, Boolean.FALSE, updateKey);
+		restOperations.put(UPDATE_IS_LIKED_URL, Boolean.FALSE, updateKey);
 	}
 	
 	public void commentOnNetworkUpdate(String updateKey, String comment) {
-		restTemplate.put(UPDATE_COMMENTS_URL, 
+		restOperations.put(UPDATE_COMMENTS_URL, 
 				Collections.singletonMap("comment", comment), updateKey);
 	}
 	
 	public List<LinkedInProfile> getNetworkUpdateLikes(String updateKey) {
-		Likes likes = restTemplate.getForObject(UPDATE_LIKES_URL, Likes.class, updateKey);
+		Likes likes = restOperations.getForObject(UPDATE_LIKES_URL, Likes.class, updateKey);
 		return likes.getLikes();
 	}
 	
@@ -126,7 +126,7 @@ public class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUp
 	}
 	
 	private <T> T  getNetworkUpdates(NetworkUpdateParameters parameters, Class<T> responseType) {
-		return restTemplate.getForObject(expand(UPDATES_URL, parameters), responseType);
+		return restOperations.getForObject(expand(UPDATES_URL, parameters), responseType);
 	}
 	
 	/*
@@ -185,7 +185,7 @@ public class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUp
 	
 	private static final String UPDATE_TYPE_ALL_STRING;
 	
-	private final RestTemplate restTemplate;
+	private final RestOperations restOperations;
 	
 	
 }

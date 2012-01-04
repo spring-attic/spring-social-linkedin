@@ -24,6 +24,7 @@ import org.codehaus.jackson.map.SerializationConfig;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;
+import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -38,6 +39,8 @@ import org.springframework.social.linkedin.api.ProfileOperations;
 import org.springframework.social.linkedin.api.impl.json.LinkedInModule;
 import org.springframework.social.oauth1.AbstractOAuth1ApiBinding;
 import org.springframework.social.support.HttpRequestDecorator;
+import org.springframework.util.ClassUtils;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * This is the central class for interacting with LinkedIn.
@@ -113,9 +116,17 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 	 * which suggests its expecting xml rather than json.
 	 * API appears to ignore Content-Type header
 	 */
-	private void registerJsonFormatInterceptor() {
-		List<ClientHttpRequestInterceptor> interceptors = getRestTemplate().getInterceptors();
-		interceptors.add(new JsonFormatInterceptor());
+	private void registerJsonFormatInterceptor() {		
+		RestTemplate restTemplate = getRestTemplate();
+		if (interceptorsSupported) {
+			List<ClientHttpRequestInterceptor> interceptors = restTemplate.getInterceptors();
+			interceptors.add(new JsonFormatInterceptor());
+		} else {
+			// for Spring 3.0.x where interceptors aren't supported
+			ClientHttpRequestFactory originalRequestFactory = restTemplate.getRequestFactory();
+			JsonFormatHeaderRequestFactory newRequestFactory = new JsonFormatHeaderRequestFactory(originalRequestFactory);
+			restTemplate.setRequestFactory(newRequestFactory);
+		}
 	}
 	
 	private void initSubApis() {
@@ -140,6 +151,8 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 	private JobOperations jobOperations;
 	
 	private ObjectMapper objectMapper;
+	
+	private static boolean interceptorsSupported = ClassUtils.isPresent("org.springframework.http.client.ClientHttpRequestInterceptor", LinkedInTemplate.class.getClassLoader());
 	
 	static final String BASE_URL = "https://api.linkedin.com/v1/people/";
 	
