@@ -28,6 +28,13 @@ import org.springframework.social.linkedin.api.Company.CompanyLocation;
 import org.springframework.social.linkedin.api.CompanyJobUpdate;
 import org.springframework.social.linkedin.api.CurrentShare;
 import org.springframework.social.linkedin.api.Education;
+import org.springframework.social.linkedin.api.Group;
+import org.springframework.social.linkedin.api.Group.GroupCount;
+import org.springframework.social.linkedin.api.Group.GroupPosts;
+import org.springframework.social.linkedin.api.Group.GroupRelation;
+import org.springframework.social.linkedin.api.GroupMemberships;
+import org.springframework.social.linkedin.api.GroupSettings;
+import org.springframework.social.linkedin.api.GroupSuggestions;
 import org.springframework.social.linkedin.api.ImAccount;
 import org.springframework.social.linkedin.api.Job;
 import org.springframework.social.linkedin.api.JobBookmark;
@@ -46,6 +53,11 @@ import org.springframework.social.linkedin.api.NetworkStatistics;
 import org.springframework.social.linkedin.api.PersonActivity;
 import org.springframework.social.linkedin.api.PhoneNumber;
 import org.springframework.social.linkedin.api.Position;
+import org.springframework.social.linkedin.api.Post;
+import org.springframework.social.linkedin.api.Post.Attachment;
+import org.springframework.social.linkedin.api.Post.PostRelation;
+import org.springframework.social.linkedin.api.PostComment;
+import org.springframework.social.linkedin.api.PostComments;
 import org.springframework.social.linkedin.api.Product;
 import org.springframework.social.linkedin.api.Product.ProductRecommendation;
 import org.springframework.social.linkedin.api.ProductResult;
@@ -136,6 +148,21 @@ public class LinkedInModule extends SimpleModule {
 		context.setMixInAnnotations(UpdateContentShare.class, UpdateContentShareMixin.class);
 		context.setMixInAnnotations(UpdateContentCompany.class, UpdateContentCompanyMixin.class);
 		
+		context.setMixInAnnotations(Group.class, GroupMixin.class);
+		context.setMixInAnnotations(GroupCount.class, GroupCountMixin.class);
+		context.setMixInAnnotations(GroupPosts.class, GroupPostsMixin.class);
+		context.setMixInAnnotations(GroupRelation.class, GroupRelationMixin.class);
+		
+		context.setMixInAnnotations(Post.class, PostMixin.class);
+		context.setMixInAnnotations(PostRelation.class, PostRelationMixin.class);
+		context.setMixInAnnotations(Attachment.class, AttachmentMixin.class);
+		
+		context.setMixInAnnotations(PostComments.class, PostCommentsMixin.class);
+		context.setMixInAnnotations(PostComment.class, PostCommentMixin.class);
+		
+		context.setMixInAnnotations(GroupSuggestions.class, GroupSuggestionsMixin.class);
+		context.setMixInAnnotations(GroupMemberships.class, GroupMembershipsMixin.class);
+		context.setMixInAnnotations(GroupSettings.class, GroupSettingsMixin.class);
 	}
 
 }

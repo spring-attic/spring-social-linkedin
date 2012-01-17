@@ -1,0 +1,161 @@
+{
+  "allowMemberInvites": true,
+  "category": {"code": "professional"},
+  "countsByCategory": {
+    "_total": 2,
+    "values": [
+      {
+        "category": {"code": "discussion"},
+        "count": 11
+      },
+      {
+        "category": {"code": "job"},
+        "count": 2
+      }
+    ]
+  },
+  "description": "This is a group for users of the Spring Framework and related projects (Roo, Batch, Integration, BlazeDS, Security, Web Flow etc) to meet and discuss things of common interest.",
+  "id": "46964",
+  "isOpenToNonMembers": true,
+  "largeLogoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/05d/2b8/0c75024.png",
+  "locale": "en_US",
+  "name": "Spring Users",
+  "posts": {
+    "_count": 10,
+    "_start": 0,
+    "_total": 199,
+    "values": [
+      {
+        "creator": {
+          "firstName": "Mukesh",
+          "headline": "Business Development Executive at HOSTINGINDIA.CO",
+          "id": "0_Fb-UVig_",
+          "lastName": "K.",
+          "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_mB1VmUq0fRiHlVvwmNrLm46x7yQ5Pxvw2KF5m4v_KVtvuRCIGli9hZ3STl6srZNb7NAXTxbuAB9O"
+        },
+        "id": "g-46964-S-88566811",
+        "title": "Tips on Choosing The Best Web Hosting Services",
+        "type": {"code": "standard"}
+      },
+      {
+        "creator": {
+          "firstName": "Namita",
+          "headline": "Contributor at Interns Over 40",
+          "id": "xUrpzJkWYp",
+          "lastName": "M."
+        },
+        "id": "g-46964-S-88566237",
+        "title": "4 Tips To Gain Job Interviewing Confidence",
+        "type": {"code": "standard"}
+      },
+      {
+        "creator": {
+          "firstName": "Vinodh",
+          "headline": "TA at Infosys Technologies Ltd",
+          "id": "ExmS53nJVM",
+          "lastName": "K."
+        },
+        "id": "g-46964-S-88517278",
+        "title": "Dear Group, I need questions and answers on Spring , hibernate  for interview prepration, kinldy any body share me link or provide me the same \r\nTIA",
+        "type": {"code": "standard"}
+      },
+      {
+        "creator": {
+          "firstName": "Gaurav",
+          "headline": "--",
+          "id": "j7JPc55X-8",
+          "lastName": "D."
+        },
+        "id": "g-46964-S-88516475",
+        "title": "Hi Guys,\nCan anyone tell me what are the interview questions on Spring Core? \nI'm having 1.6 years of experience and looking for change.",
+        "type": {"code": "standard"}
+      },
+      {
+        "creator": {
+          "firstName": "Sergi",
+          "headline": "CTO at PayTouch",
+          "id": "03Z_WQ2Pl5",
+          "lastName": "A.",
+          "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_eOkdZa9X86eW_Ja3oVXVZSFQG8Rd7sO3oJKnZSXJj5fJKOdTX4NL9DKc2aU92g0DWjQcBonDjd85"
+        },
+        "id": "g-46964-S-88501383",
+        "title": "Spring I/O 2012 - Agenda and Registration",
+        "type": {"code": "standard"}
+      },
+      {
+        "creator": {
+          "firstName": "Vishal",
+          "headline": "Lead Developer",
+          "id": "cEu0y5uJq2",
+          "lastName": "B."
+        },
+        "id": "g-46964-S-88481716",
+        "title": "Why we should use @RequestMapping(\"URL\") annotation?",
+        "type": {"code": "standard"}
+      },
+      {
+        "creator": {
+          "firstName": "Emilie",
+          "headline": "Technical Recruiter at STONE Resource Group",
+          "id": "NluD9Xen4n",
+          "lastName": "S.",
+          "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_7QQHyxJ88rPkMJKCfkXUypM_C-cbRJKCDTtByjsggciBXgbGi8nX-gaPuyBZZOlmm5k9PskdQHXp"
+        },
+        "id": "g-46964-S-88471444",
+        "title": "Looking for Java Developers with JSF 2.0 experience!!!! 2.5 YEAR LONG CONTRACT! Atlanta market (alpharetta). Hiring immediately. Spring + Hibernate Framework",
+        "type": {"code": "standard"}
+      },
+      {
+        "creator": {
+          "firstName": "Katrina",
+          "headline": "EMEA Sourcing Consultant  at VMware - kurbanovica@vmware.com",
+          "id": "cp9LR1lSM1",
+          "lastName": "U.",
+          "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_UQF0Z_RT-h2aR1H3J5qhZhRDOiUGRn43JT18Zhsj357-X-fTc8c198a1raRjZlJDs5L3BbeTr5lR"
+        },
+        "id": "g-46964-S-88432929",
+        "title": "Use @SpringSourceJob on Twitter to track our Job Opportunities for the Gemstone and SpringSource divisions!",
+        "type": {"code": "standard"}
+      },
+      {
+        "creator": {
+          "firstName": "Catherine",
+          "headline": "Technical Recruiter at DP Professionals",
+          "id": "6ssv_1Tdgx",
+          "lastName": "W.",
+          "pictureUrl": "http://media.linkedin.com/mpr/mprx/0__by8vYfpc86Mz_a1TFS0vjuKv6tBz_a138e0vjpGEiQboFJPfTuuRge2Ue-enkf0CkYYssmgiT_S"
+        },
+        "id": "g-46964-S-88414772",
+        "title": "Java developers, systems engineers, and testers needed for gov't contractor in Arlington and Charleston, SC. 2 yrs exp. min.Great pay, paid relo, need clearance or interim clearance, 803-738-0066 x13",
+        "type": {"code": "standard"}
+      },
+      {
+        "creator": {
+          "firstName": "Samantha",
+          "headline": "Accenture Technology Solutions - Recruiter Experienced Hire",
+          "id": "bp1Gvr700F",
+          "lastName": "M.",
+          "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_WTL7mWM7rpuwvz_IFkqymIeT-0IwMzPIIiArmIoxDV0UQlkwLbz_hwYlplwNV-tFeCFlTu4oerui"
+        },
+        "id": "g-46964-S-88389062",
+        "title": "Currently seeking Senior Java Developers",
+        "type": {"code": "standard"}
+      }
+    ]
+  },
+  "relationToViewer": {
+    "availableActions": {
+      "_total": 3,
+      "values": [
+        {"code": "add-post"},
+        {"code": "leave"},
+        {"code": "view-posts"}
+      ]
+    },
+    "membershipState": {"code": "member"}
+  },
+  "shortDescription": "This is a group that welcomes all users of the Spring platform, including Spring Framework, Roo, Batch, Integration, BlazeDS, Security, Web Flow etc.",
+  "siteGroupUrl": "http://www.linkedin.com/groups?gid=46964&trk=api*a151944*s160233*",
+  "smallLogoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/05d/2b8/0cc68d3.png",
+  "websiteUrl": "http://www.springsource.org"
+}

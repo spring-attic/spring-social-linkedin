@@ -1,0 +1,57 @@
+{
+  "_count": 10,
+  "_start": 0,
+  "_total": 37,
+  "values": [
+    {
+      "id": "1835657",
+      "isOpenToNonMembers": true,
+      "name": "97 Things Every Software Architect Should Know"
+    },
+    {
+      "id": "1465727",
+      "isOpenToNonMembers": true,
+      "name": "Software Architects and Enterprise Architects Group"
+    },
+    {
+      "id": "1525237",
+      "isOpenToNonMembers": false,
+      "name": "Spring Python"
+    },
+    {
+      "id": "1885380",
+      "isOpenToNonMembers": false,
+      "name": "Chief Technology Consultants Group"
+    },
+    {
+      "id": "2967358",
+      "isOpenToNonMembers": false,
+      "name": "Software Architecture"
+    },
+    {
+      "id": "70526",
+      "isOpenToNonMembers": true,
+      "name": "Java Developers"
+    },
+    {
+      "id": "79713",
+      "isOpenToNonMembers": true,
+      "name": "Logica Technical Software Engineering"
+    },
+    {
+      "id": "2077136",
+      "isOpenToNonMembers": false,
+      "name": "Model Oriented Architecture"
+    },
+    {
+      "id": "1035067",
+      "isOpenToNonMembers": false,
+      "name": "Software Architecture Workshop - Bredemeyer"
+    },
+    {
+      "id": "2891065",
+      "isOpenToNonMembers": true,
+      "name": "Lean Architecture"
+    }
+  ]
+}
