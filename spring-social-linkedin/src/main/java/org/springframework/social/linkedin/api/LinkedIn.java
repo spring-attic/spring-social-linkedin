@@ -65,4 +65,9 @@ public interface LinkedIn extends ApiBinding {
 	 */
 	JobOperations jobOperations();
 	
+	/**
+	 * API for retrieving details of groups
+	 */
+	GroupOperations groupOperations();
+	
 }

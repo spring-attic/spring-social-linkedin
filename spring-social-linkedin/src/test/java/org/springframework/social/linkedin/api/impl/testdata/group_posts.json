@@ -1,0 +1,314 @@
+{
+  "_count": 10,
+  "_start": 0,
+  "_total": 199,
+  "values": [
+    {
+      "creationTimestamp": 1326384086809,
+      "creator": {
+        "firstName": "Sathish",
+        "headline": "Programmer analyst trainee at Cognizant Technology Solutions",
+        "lastName": "K.",
+        "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_U-uG036P9zxGPLrGJ97j0_bON9Vm1LhGJzZg0_bawKaY2TcCcqyali1hsRslKG3asAmprXzj4Eoj"
+      },
+      "id": "g-35936-S-88778673",
+      "likes": {
+        "_total": 2,
+        "values": [
+          {"person": {
+            "firstName": "Tom",
+            "headline": "Managing Director",
+            "id": "i21Fzhxxxx",
+            "lastName": "Smith",
+            "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_0hOv4tMAW_QTnDM80L0o4Am0wLN29DW8gFoo4AdiNh8pdWYhP6aMnlgD5wq1voeuOipwcnUoxxxx"
+          }},
+          {"person": {
+            "firstName": "Gerry",
+            "headline": "Supply Chain Management Expert",
+            "id": "q8sgCmxxxx",
+            "lastName": "Smith",
+            "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_OYjMBnXFEGKChfepOy76BqQzHCimCuJpypd6BqbFcbcYgHaytZDvJN1d62_l3w4r0g0bZPvKxxxx"
+          }}
+        ]
+      },
+      "relationToViewer": {
+        "availableActions": {
+          "_total": 7,
+          "values": [
+            {"code": "add-comment"},
+            {"code": "categorize-as-job"},
+            {"code": "categorize-as-promotion"},
+            {"code": "flag-as-inappropriate"},
+            {"code": "follow"},
+            {"code": "like"},
+            {"code": "reply-privately"}
+          ]
+        },
+        "isFollowing": false,
+        "isLiked": false
+      },
+      "summary": "",
+      "title": "how to integate spring batch admin console into existing spring batch process application /web application."
+    },
+    {
+      "attachment": {
+        "contentDomain": "internsover40beta.blogspot.com",
+        "contentUrl": "http://internsover40beta.blogspot.com/2011/11/find-those-hidden-jobs-webinar.html#",
+        "imageUrl": "http://2.bp.blogspot.com/-rqUKPf90Tv8/TsboRglXxJI/AAAAAAAADe0/EafW1pC6sns/s72-c/c419333_m.jpg",
+        "summary": "We keep doing it the same way. Looking for jobs where everyone else is looking . How stupid can I be. Thanks Peggy. Join our Insider updates: http://ow.ly/6Z4gy",
+        "title": "\"How To Find Jobs in ANY Economy\"  For Older Skilled Workers."
+      },
+      "creationTimestamp": 1326376683000,
+      "creator": {
+        "firstName": "Namita",
+        "headline": "Contributor at Interns Over 40",
+        "lastName": "M."
+      },
+      "id": "g-35936-S-88778673",
+      "likes": {"_total": 0},
+      "relationToViewer": {
+        "availableActions": {
+          "_total": 7,
+          "values": [
+            {"code": "add-comment"},
+            {"code": "categorize-as-job"},
+            {"code": "categorize-as-promotion"},
+            {"code": "flag-as-inappropriate"},
+            {"code": "follow"},
+            {"code": "like"},
+            {"code": "reply-privately"}
+          ]
+        },
+        "isFollowing": false,
+        "isLiked": false
+      },
+      "summary": "We keep doing it the same way. Looking for jobs where everyone else is looking . How stupid can I be. Thanks Peggy. Join our Insider updates: http://ow.ly/6Z4gy",
+      "title": "\"How To Find Jobs in ANY Economy\"  For Older Skilled Workers."
+    },
+    {
+      "creationTimestamp": 1326376383950,
+      "creator": {
+        "firstName": "Thenmozhi",
+        "headline": "SSE at Planetsoft",
+        "lastName": "V."
+      },
+      "likes": {"_total": 0},
+      "relationToViewer": {
+        "availableActions": {
+          "_total": 7,
+          "values": [
+            {"code": "add-comment"},
+            {"code": "categorize-as-job"},
+            {"code": "categorize-as-promotion"},
+            {"code": "flag-as-inappropriate"},
+            {"code": "follow"},
+            {"code": "like"},
+            {"code": "reply-privately"}
+          ]
+        },
+        "isFollowing": false,
+        "isLiked": false
+      },
+      "summary": ".Also i dont have any value object for my entites",
+      "title": "Hi Friends, Is batch process (Update/insert) can be implemented using NamedParameterJDBCTemplate, as my data is available in Map with key as its column as its corresponding value"
+    },
+    {
+      "creationTimestamp": 1326373548757,
+      "creator": {
+        "firstName": "Shahbaz",
+        "headline": "Research Analyst at Tangence",
+        "lastName": "H.",
+        "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_D5pUSVUpHgGkNSQoSbuXSZJ-Ej5Lnano7FHXSMZGvUlzWETET_2BiJ22krLVzdB62QO5COQXQ0hs"
+      },
+      "likes": {"_total": 0},
+      "relationToViewer": {
+        "availableActions": {
+          "_total": 7,
+          "values": [
+            {"code": "add-comment"},
+            {"code": "categorize-as-job"},
+            {"code": "categorize-as-promotion"},
+            {"code": "flag-as-inappropriate"},
+            {"code": "follow"},
+            {"code": "like"},
+            {"code": "reply-privately"}
+          ]
+        },
+        "isFollowing": false,
+        "isLiked": false
+      },
+      "summary": "1. Create Evergreen Content: The best way to make sure your content is seen this way to is create content that is forever useful, not trendy and disposable. Create content that people will be reading 10 years from now, and you\u2019ll be getting linkbacks for a decade.\n2. Audit Your Online Profiles: Is the biography up to date? More importantly, is your website\u2019s URL listed somewhere? The incoming links from these profiles may not weigh too much in Google\u2019s mysterious algorithm, but you\u2019ll be surprised what it can do if you have more than a handful of accounts online.\n3. Think Like Your Customer Types: Keep in mind that 25% of keywords have never been typed in before, but you\u2019ll want to aim for popular keywords with low competition if you can. Then write content around these keywords and learn to optimize.\n4. Hire an Expert: Yes, you can hire SEO company. Look for individuals or companies with proven track records, and monitor their bi-weekly reports closely ( http://www.topseos.com/rankings-of-best-pay-for-performance-seo-companies ).\nLearn more: http://bit.ly/tGu7cx\n5. Guest Post:Start guest posting on tons of relevant blogs. Blogs love fresh content, and for you it\u2019s a great way to build links, which will boost your rankings on Google.\n6. Content is King and Links are Queen: Google loves links, especially those from other relevant, authority websites. Join any and all industry associations, guest blog with a link back to your website, and submit your site to any relevant directories to grow your backlink profile and your searches.\n7. Bust Out the Camera: Video is such a huge thing now for business owners. Not only does it give your company personality, but it can also be spread across networks while linking back to your site. Create great videos filled with information people can share and then repeat. Now videos can be distributed across multiple platforms from one single platform, causing Google to love you.\n8. Colleges and Universities: The biggest SEO secret is that when .edu sites link to your website it gives you a higher Google ranking. Contact college and universities and find a reason for them to link to your site by running a special internship opportunity, for example.\n9. Update Your Site Frequently: The more often you update your site, the more important Google thinks it is. With every blog post, you have another chance at ranking for new search terms, so each article increases the odds of your site being found.\n10. Use the Right Keywords: Two effective ways of increasing your SEO rank are tagging articles and keyword analysis. You want to make sure your headlines are descriptive. You should also choose keywords that people are going to look for \u2014 so imagine yourself as a searcher.\n11. Move Away From Flash: Many small businesses, especially restaurants and bars, use Flash for their sites because it\u2019s easy to launch, looks good and is fairly cheap. While the sites might look decent, they rank really poorly in Google (without doing some tricks). Change your Flash-based site to WordPress or another platform, and you\u2019ll rocket up the search engine rankings.\n12. Have You Taken Advantage of Local Search?: Are you a local business? Have you claimed your listing on Google, Yahoo! and Bing? If not, stop reading this article now and go claim your business listings immediately! The future of search is personalized local results, and these valuable profiles are often overlooked.\n13. Know Exactly What Words People Use to Search: The biggest mistake people make in trying to rank high in Google is having no clue what people are actually typing into search engines to find you. An easy way to find this out is to go to the Google homepage and slowly start typing in your phrases. You\u2019ll notice Google suggested searches come up. Use those exact phrases in your titles. That\u2019s what people want, so give it to them.",
+      "title": "13 Tips for Increasing Your Company\u2019s Google Rank"
+    },
+    {
+      "creationTimestamp": 1326365506000,
+      "creator": {
+        "firstName": "Ranjith",
+        "headline": "Associate Engineer at Virtusa pvt ltd",
+        "lastName": "S.",
+        "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_IUM7SWnwzOUkS3CEWVdySoXWBjH57C1EWsSrSovveUpvK6XobgW_iE3UMres25-QoZUlCSIpuIu4"
+      },
+      "likes": {"_total": 0},
+      "relationToViewer": {
+        "availableActions": {
+          "_total": 7,
+          "values": [
+            {"code": "add-comment"},
+            {"code": "categorize-as-job"},
+            {"code": "categorize-as-promotion"},
+            {"code": "flag-as-inappropriate"},
+            {"code": "follow"},
+            {"code": "like"},
+            {"code": "reply-privately"}
+          ]
+        },
+        "isFollowing": false,
+        "isLiked": false
+      },
+      "title": "what is the usage of IoC in spring application?..anyone can you explain that"
+    },
+    {
+      "creationTimestamp": 1326232237000,
+      "creator": {
+        "firstName": "Ranjith",
+        "headline": "System Architect at iGATE Patni",
+        "lastName": "C.",
+        "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_vrCZ-hlKuvDgtsbrBB5w-Ci1m10grsBrctnF-C8flvISfO8KJ9tNyGq38OxCPgnpN18QjLO4U2Ht"
+      },
+      "likes": {"_total": 0},
+      "relationToViewer": {
+        "availableActions": {
+          "_total": 7,
+          "values": [
+            {"code": "add-comment"},
+            {"code": "categorize-as-job"},
+            {"code": "categorize-as-promotion"},
+            {"code": "flag-as-inappropriate"},
+            {"code": "follow"},
+            {"code": "like"},
+            {"code": "reply-privately"}
+          ]
+        },
+        "isFollowing": false,
+        "isLiked": false
+      },
+      "summary": "Hi Friends, I have a question on Java Object modeling best practices.\nIs it a good practice to use one Object Model across all tiers of an application.\neg: same java objects used in the DAO layer will also be used in the services and presentation layer.\n(OR)\nIs it a good practice to have a separate object model for services / presentation tier and Data tier.\nPlease share the pros and cons of both these approaches.\nNote : Our application is a medium size app.",
+      "title": "Java Object modeling best practices."
+    },
+    {
+      "creationTimestamp": 1326232237000,
+      "creator": {
+        "firstName": "Ranjith",
+        "headline": "System Architect at iGATE Patni",
+        "lastName": "C.",
+        "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_vrCZ-hlKuvDgtsbrBB5w-Ci1m10grsBrctnF-C8flvISfO8KJ9tNyGq38OxCPgnpN18QjLO4U2Ht"
+      },
+      "likes": {"_total": 0},
+      "relationToViewer": {
+        "availableActions": {
+          "_total": 7,
+          "values": [
+            {"code": "add-comment"},
+            {"code": "categorize-as-job"},
+            {"code": "categorize-as-promotion"},
+            {"code": "flag-as-inappropriate"},
+            {"code": "follow"},
+            {"code": "like"},
+            {"code": "reply-privately"}
+          ]
+        },
+        "isFollowing": false,
+        "isLiked": false
+      },
+      "summary": "Hi Friends, I have a question on Java Object modeling best practices.\nIs it a good practice to use one Object Model across all tiers of an application.\neg: same java objects used in the DAO layer will also be used in the services and presentation layer.\n(OR)\nIs it a good practice to have a separate object model for services / presentation tier and Data tier.\nPlease share the pros and cons of both these approaches.\nNote : Our application is a medium size app.",
+      "title": "Java Object modeling best practices."
+    },
+    {
+      "creationTimestamp": 1326204177000,
+      "creator": {
+        "firstName": "Scott",
+        "headline": "Provider of DIMS Internet Security Management Software & SSL certificates",
+        "lastName": "B."
+      },
+      "likes": {"_total": 0},
+      "relationToViewer": {
+        "availableActions": {
+          "_total": 7,
+          "values": [
+            {"code": "add-comment"},
+            {"code": "categorize-as-job"},
+            {"code": "categorize-as-promotion"},
+            {"code": "flag-as-inappropriate"},
+            {"code": "follow"},
+            {"code": "like"},
+            {"code": "reply-privately"}
+          ]
+        },
+        "isFollowing": false,
+        "isLiked": false
+      },
+      "summary": "\u2022 Centralisation of SSL management no matter what brand.\n\u2022 Scan your entire IP range (internal/external).\n\u2022 Upload scan results to inventory.\n\u2022 Automated scan scheduling.\n\u2022 Renew SSL\u2019s, No matter what brand.\n\u2022 Automated email renewal notices.\n\u2022 Automated exception reporting.\n\u2022 Forecasting & planning tool.\n\nWe offer DIMS free of charge to our clients when they purchase SSL certificates through ourselves. In terms of additional value, we guarantee to reduce any SSL spend by 10% (up to 40% in some cases) on any certificate purchases, when compared to purchasing from the certificate authorities direct.\n\nIf this may be of interest, it would be great to have the opportunity to talk to you more about what we do at Genius and how it could be a great fit for your own organisation.\n\nScott Brown\nE Mail:  sbrown@geniusis.net\nwebsite: www.geniusis.net \n \nGenius Internet Security    \nSecure in the Knowledge\n \nGlasgow HQ:\nCity View, Port Dundas, Glasgow, G4 9XA\nT. 0141 280 1617\nM.07787 278 438",
+      "title": "SSL Management can be a real pain, that\u2019s why Genius Internet Security have developed very Unique Software \"DIMS\" (Discovery Inventory Management Software)"
+    },
+    {
+      "creationTimestamp": 1326198632000,
+      "creator": {
+        "firstName": "pooja",
+        "headline": "Student at chetna istitute of management & research- MBA (HR)",
+        "lastName": "A."
+      },
+      "likes": {"_total": 0},
+      "relationToViewer": {
+        "availableActions": {
+          "_total": 7,
+          "values": [
+            {"code": "add-comment"},
+            {"code": "categorize-as-job"},
+            {"code": "categorize-as-promotion"},
+            {"code": "flag-as-inappropriate"},
+            {"code": "follow"},
+            {"code": "like"},
+            {"code": "reply-privately"}
+          ]
+        },
+        "isFollowing": false,
+        "isLiked": false
+      },
+      "summary": "Skills: Core java, Spring, Oracle/ MySQL\nExperience: 3-6 years\nLocation: Mumbai\n\nInterested candidates can forward their resumes at pooja.aras@synergyhr.in",
+      "title": "Looking for java developers with 3+ years of experience, spring framework with at least 6mths of experience in a leading IT based in Mumbai."
+    },
+    {
+      "attachment": {
+        "contentDomain": "hostingindia.co",
+        "contentUrl": "http://bit.ly/uwPHV3",
+        "title": "Tips on Choosing The Best Web Hosting Services"
+      },
+      "creationTimestamp": 1326195789000,
+      "creator": {
+        "firstName": "Mukesh",
+        "headline": "Business Development Executive at HOSTINGINDIA.CO",
+        "lastName": "K.",
+        "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_mB1VmUq0fRiHlVvwmNrLm46x7yQ5Pxvw2KF5m4v_KVtvuRCIGli9hZ3STl6srZNb7NAXTxbuAB9O"
+      },
+      "likes": {"_total": 0},
+      "relationToViewer": {
+        "availableActions": {
+          "_total": 7,
+          "values": [
+            {"code": "add-comment"},
+            {"code": "categorize-as-job"},
+            {"code": "categorize-as-promotion"},
+            {"code": "flag-as-inappropriate"},
+            {"code": "follow"},
+            {"code": "like"},
+            {"code": "reply-privately"}
+          ]
+        },
+        "isFollowing": false,
+        "isLiked": false
+      },
+      "summary": "The best web hosting is the dedicated web hosting that guarantees you their uptime is at the very least an average of 99% every day. If they have any less uptime then your customers may get discouraged when they attempt to go to your site and the site is down for maintenance. If this happens several times the customer will look for another site that can offer them close to the same thing that you can. You need a dedicated web hosting service that guarantees you this scenario will not happen to you.\n\nGet Now Free Registration : http://bit.ly/uwPHV3",
+      "title": "Tips on Choosing The Best Web Hosting Services"
+    }
+  ]
+}

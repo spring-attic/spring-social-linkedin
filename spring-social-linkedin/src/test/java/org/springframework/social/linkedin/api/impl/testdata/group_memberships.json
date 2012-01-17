@@ -1,0 +1,137 @@
+{
+  "_count": 10,
+  "_start": 0,
+  "_total": 30,
+  "values": [
+    {
+      "_key": "69286",
+      "allowMessagesFromMembers": true,
+      "emailAnnouncementsFromManagers": false,
+      "emailDigestFrequency": {"code": "none"},
+      "emailForEveryNewPost": false,
+      "group": {
+        "id": "69286",
+        "name": "Software Architect Network"
+      },
+      "membershipState": {"code": "member"},
+      "showGroupLogoInProfile": true
+    },
+    {
+      "_key": "46929",
+      "allowMessagesFromMembers": true,
+      "emailAnnouncementsFromManagers": true,
+      "emailDigestFrequency": {"code": "none"},
+      "emailForEveryNewPost": false,
+      "group": {
+        "id": "46929",
+        "name": "Gateway Employees Alumni"
+      },
+      "membershipState": {"code": "member"},
+      "showGroupLogoInProfile": true
+    },
+    {
+      "_key": "135304",
+      "allowMessagesFromMembers": true,
+      "emailAnnouncementsFromManagers": true,
+      "emailDigestFrequency": {"code": "none"},
+      "emailForEveryNewPost": false,
+      "group": {
+        "id": "135304",
+        "name": "Dublin City University Alumni"
+      },
+      "membershipState": {"code": "member"},
+      "showGroupLogoInProfile": true
+    },
+    {
+      "_key": "130697",
+      "allowMessagesFromMembers": true,
+      "emailAnnouncementsFromManagers": true,
+      "emailDigestFrequency": {"code": "none"},
+      "emailForEveryNewPost": false,
+      "group": {
+        "id": "130697",
+        "name": "Eircell & Vodafone Ireland"
+      },
+      "membershipState": {"code": "member"},
+      "showGroupLogoInProfile": true
+    },
+    {
+      "_key": "2404821",
+      "allowMessagesFromMembers": true,
+      "emailAnnouncementsFromManagers": false,
+      "emailDigestFrequency": {"code": "none"},
+      "emailForEveryNewPost": false,
+      "group": {
+        "id": "2404821",
+        "name": "Irish Software Association"
+      },
+      "membershipState": {"code": "member"},
+      "showGroupLogoInProfile": true
+    },
+    {
+      "_key": "1876050",
+      "allowMessagesFromMembers": false,
+      "emailAnnouncementsFromManagers": false,
+      "emailDigestFrequency": {"code": "none"},
+      "emailForEveryNewPost": false,
+      "group": {
+        "id": "1876050",
+        "name": "Software Architects Ireland"
+      },
+      "membershipState": {"code": "member"},
+      "showGroupLogoInProfile": true
+    },
+    {
+      "_key": "915277",
+      "allowMessagesFromMembers": true,
+      "emailAnnouncementsFromManagers": true,
+      "emailDigestFrequency": {"code": "none"},
+      "emailForEveryNewPost": false,
+      "group": {
+        "id": "915277",
+        "name": "CAPE Alumni"
+      },
+      "membershipState": {"code": "member"},
+      "showGroupLogoInProfile": true
+    },
+    {
+      "_key": "57487",
+      "allowMessagesFromMembers": true,
+      "emailAnnouncementsFromManagers": true,
+      "emailDigestFrequency": {"code": "none"},
+      "emailForEveryNewPost": false,
+      "group": {
+        "id": "57487",
+        "name": "Belvedere College SJ Alumni"
+      },
+      "membershipState": {"code": "member"},
+      "showGroupLogoInProfile": true
+    },
+    {
+      "_key": "81065",
+      "allowMessagesFromMembers": true,
+      "emailAnnouncementsFromManagers": true,
+      "emailDigestFrequency": {"code": "none"},
+      "emailForEveryNewPost": false,
+      "group": {
+        "id": "81065",
+        "name": "Agile Project Managers"
+      },
+      "membershipState": {"code": "member"},
+      "showGroupLogoInProfile": true
+    },
+    {
+      "_key": "117832",
+      "allowMessagesFromMembers": true,
+      "emailAnnouncementsFromManagers": false,
+      "emailDigestFrequency": {"code": "none"},
+      "emailForEveryNewPost": false,
+      "group": {
+        "id": "117832",
+        "name": "JIRA Community"
+      },
+      "membershipState": {"code": "member"},
+      "showGroupLogoInProfile": true
+    }
+  ]
+}
