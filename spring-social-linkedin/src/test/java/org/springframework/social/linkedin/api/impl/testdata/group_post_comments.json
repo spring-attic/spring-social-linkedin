@@ -1,0 +1,55 @@
+{
+  "_count": 5,
+  "_start": 0,
+  "_total": 10,
+  "values": [
+    {
+      "creationTimestamp": 1325749391000,
+      "creator": {
+        "firstName": "Piotr",
+        "lastName": "H.",
+        "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_yrLwHBQ_TDTDOx2oO-qqHqn7iu52pMpoOtAqHzLxpolpijIEr9zbQvllDTL1xYj6g1FvFtRlt6XL"
+      },
+      "id": "g-4253322-S-89528249-64901084",
+      "text": "http://static.springsource.org/spring/docs/3.1.x/spring-framework-reference/html/overview.html#overview-dependency-injection"
+    },
+    {
+      "creationTimestamp": 1325749913000,
+      "creator": {
+        "firstName": "Gaurav",
+        "lastName": "D."
+      },
+      "id": "g-4253322-S-89528249-64901084",
+      "text": "Thanks Piotr."
+    },
+    {
+      "creationTimestamp": 1325825415000,
+      "creator": {
+        "firstName": "Pankaj",
+        "lastName": "D.",
+        "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_tpExEqr6qDqgm8ZepUo8EB1X4SFxuLJerjYhEBi4FI17PTaHOVsPXcB998b8fG4kP0eT5rAzKtcz"
+      },
+      "id": "g-4253322-S-89528249-64901084",
+      "text": "IOC is a terminology which is used to mention that the control of object creation is given to spring controller instead of indivial classes creating object of there dependent classes.\nDI is the actual design pattern which implements the concept of IOC in spring. Here the dependent objects are injected by spring container.\nHope that helps :)"
+    },
+    {
+      "creationTimestamp": 1325831252000,
+      "creator": {
+        "firstName": "Gaurav",
+        "lastName": "D."
+      },
+      "id": "g-4253322-S-89528249-64901084",
+      "text": "Thanks Pankaj."
+    },
+    {
+      "creationTimestamp": 1325868964000,
+      "creator": {
+        "firstName": "Atul",
+        "lastName": "M.",
+        "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_1C0R39gKWyXY9ocUPixk3NardY8yq7cUl_Ik3Nah94NuIIhRxkfc7qsaFPh_Be9B-TjLa1Ktazaa"
+      },
+      "id": "g-4253322-S-89528249-64901084",
+      "text": "Wahtever Pankaj said is almost correct, just want to add more: IOC is nothing but the technique in which Spring containr will take the resposibility to creat a object of mentioned classes . IOC refers DI  while creating a mentioned object to link the mentioned object/properties by either constructor/setter type injection."
+    }
+  ]
+}
