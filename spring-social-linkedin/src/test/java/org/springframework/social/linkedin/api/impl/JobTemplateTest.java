@@ -1,14 +1,9 @@
 package org.springframework.social.linkedin.api.impl;
 
-import static org.junit.Assert.assertEquals;
-import static org.springframework.http.HttpMethod.GET;
-import static org.springframework.http.HttpMethod.POST;
-import static org.springframework.http.HttpMethod.DELETE;
-import static org.springframework.social.test.client.RequestMatchers.body;
-import static org.springframework.social.test.client.RequestMatchers.headerContains;
-import static org.springframework.social.test.client.RequestMatchers.method;
-import static org.springframework.social.test.client.RequestMatchers.requestTo;
-import static org.springframework.social.test.client.ResponseCreators.withResponse;
+import static org.junit.Assert.*;
+import static org.springframework.http.HttpMethod.*;
+import static org.springframework.test.web.client.RequestMatchers.*;
+import static org.springframework.test.web.client.ResponseCreators.*;
 
 import java.util.Date;
 import java.util.List;

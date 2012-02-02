@@ -1,15 +1,9 @@
 package org.springframework.social.linkedin.api.impl;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.springframework.http.HttpMethod.GET;
-import static org.springframework.http.HttpMethod.POST;
-import static org.springframework.http.HttpMethod.PUT;
-import static org.springframework.social.test.client.RequestMatchers.body;
-import static org.springframework.social.test.client.RequestMatchers.headerContains;
-import static org.springframework.social.test.client.RequestMatchers.method;
-import static org.springframework.social.test.client.RequestMatchers.requestTo;
-import static org.springframework.social.test.client.ResponseCreators.withResponse;
+import static org.junit.Assert.*;
+import static org.springframework.http.HttpMethod.*;
+import static org.springframework.test.web.client.RequestMatchers.*;
+import static org.springframework.test.web.client.ResponseCreators.*;
 
 import java.util.Date;
 import java.util.List;
@@ -19,6 +13,9 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.social.linkedin.api.CurrentShare;
 import org.springframework.social.linkedin.api.LinkedInNetworkUpdate;
 import org.springframework.social.linkedin.api.NewShare;
+import org.springframework.social.linkedin.api.NewShare.NewShareVisibility;
+import org.springframework.social.linkedin.api.NewShare.NewShareVisibilityCode;
+import org.springframework.social.linkedin.api.Recommendation.RecommendationType;
 import org.springframework.social.linkedin.api.UpdateContent;
 import org.springframework.social.linkedin.api.UpdateContentConnection;
 import org.springframework.social.linkedin.api.UpdateContentGroup;
@@ -27,9 +24,6 @@ import org.springframework.social.linkedin.api.UpdateContentRecommendation;
 import org.springframework.social.linkedin.api.UpdateContentShare;
 import org.springframework.social.linkedin.api.UpdateContentViral;
 import org.springframework.social.linkedin.api.UpdateType;
-import org.springframework.social.linkedin.api.NewShare.NewShareVisibility;
-import org.springframework.social.linkedin.api.NewShare.NewShareVisibilityCode;
-import org.springframework.social.linkedin.api.Recommendation.RecommendationType;
 
 public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	@Test 
