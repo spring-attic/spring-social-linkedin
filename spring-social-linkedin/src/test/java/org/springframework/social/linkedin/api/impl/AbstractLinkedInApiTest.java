@@ -1,6 +1,6 @@
 package org.springframework.social.linkedin.api.impl;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.Date;
 
@@ -17,7 +17,7 @@ import org.springframework.social.linkedin.api.Recommendation;
 import org.springframework.social.linkedin.api.Recommendation.RecommendationType;
 import org.springframework.social.linkedin.api.UpdateContent;
 import org.springframework.social.linkedin.api.UpdateType;
-import org.springframework.social.test.client.MockRestServiceServer;
+import org.springframework.test.web.client.MockRestServiceServer;
 
 public class AbstractLinkedInApiTest {
 	protected LinkedInTemplate linkedIn;
