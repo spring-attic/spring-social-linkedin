@@ -99,6 +99,7 @@ configure(javaprojects) {
     mockitoVersion = '1.9.0'
     springVersion = '3.1.0.RELEASE'
     springSecurityVersion = '3.1.0.RELEASE'
+    springTestMvcVersion = "1.0.0.BUILD-SNAPSHOT"
 
     sourceSets {
         main {
@@ -117,7 +118,7 @@ configure(javaprojects) {
     dependencies {
         testCompile "junit:junit-dep:$junitVersion"
         testCompile "org.mockito:mockito-all:$mockitoVersion"
-        testCompile "org.springframework:spring-test:$springVersion"
+        testCompile "org.springframework:spring-test-mvc:$springTestMvcVersion"
     }
 
     // enable all compiler warnings (GRADLE-1077)
@@ -138,7 +139,7 @@ project('spring-social-linkedin') {
     dependencies {
 	   compile "org.springframework.social:spring-social-core:$springSocialVersion"
        compile "org.codehaus.jackson:jackson-mapper-asl:$jacksonVersion"
-	   testCompile "org.springframework.social:spring-social-test:$springSocialVersion"
+       testCompile "org.springframework:spring-test-mvc:$springTestMvcVersion"
        testCompile "org.springframework.security:spring-security-crypto:$springSecurityVersion"
     }
 }
