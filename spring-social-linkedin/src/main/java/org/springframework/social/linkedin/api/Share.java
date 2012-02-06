@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,20 +22,23 @@ import java.util.Date;
  * Share
  * 
  * @author Robert Drysdale
- *
  */
 public class Share implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private final String comment;
+
 	private final ShareContent content;
+	
 	private final String id;
+	
 	private final ShareSource source;
+	
 	private final Date timestamp;
+	
 	private final String visibility;
 	
-	public Share(String comment, ShareContent content,
-			String id, ShareSource source, Date timestamp, String visibility) {
+	public Share(String comment, ShareContent content, String id, ShareSource source, Date timestamp, String visibility) {
 		this.comment = comment;
 		this.content = content;
 		this.id = id;
@@ -72,16 +75,20 @@ public class Share implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final String description;
+		
 		private final String eyebrowUrl;
+		
 		private final String shortenedUrl;
+		
 		private final String submittedImageUrl;
+		
 		private final String submittedUrl;
+		
 		private final String thumbnailUrl;
+		
 		private final String title;
 		
-		public ShareContent(String description, String eyebrowUrl, 
-				String shortenedUrl, String submittedImageUrl,
-				String submittedUrl, String thumbnailUrl, String title) {
+		public ShareContent(String description, String eyebrowUrl, String shortenedUrl, String submittedImageUrl, String submittedUrl, String thumbnailUrl, String title) {
 			this.description = description;
 			this.eyebrowUrl = eyebrowUrl;
 			this.shortenedUrl = shortenedUrl;
@@ -121,17 +128,20 @@ public class Share implements Serializable {
 	}
 	
 	public static class ShareSource implements Serializable {
+
 		private static final long serialVersionUID = 1L;
 		
 		private final String application;
+		
 		private final String serviceProvider;
+		
 		private final String serviceProviderAccountHandle;
+		
 		private final String serviceProviderAccountId;
+		
 		private final String serviceProviderShareId;
 		
-		public ShareSource(String application, String serviceProvider,
-				String serviceProviderAccountHandle, String serviceProviderAccountId,
-				String serviceProviderShareId) {
+		public ShareSource(String application, String serviceProvider, String serviceProviderAccountHandle, String serviceProviderAccountId, String serviceProviderShareId) {
 			this.application = application;
 			this.serviceProvider = serviceProvider;
 			this.serviceProviderAccountHandle = serviceProviderAccountHandle;
@@ -158,5 +168,7 @@ public class Share implements Serializable {
 		public String getServiceProviderShareId() {
 			return serviceProviderShareId;
 		}
+
 	}
+
 }

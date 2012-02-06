@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,16 +30,16 @@ import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.Recommendation.RecommendationType;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RecommendationMixin {
+abstract class RecommendationMixin {
 
 	@JsonCreator
-	public RecommendationMixin(
-			@JsonProperty("id") String id, 
-			@JsonProperty("recommendationSnippet") String recommendationSnippet, 
-			@JsonProperty("recommendationText") String recommendationText, 
-			@JsonProperty("recommendationType") @JsonDeserialize(using=RecommendationTypeDeserializer.class) RecommendationType recommendationType,
-			@JsonProperty("recommender") LinkedInProfile recommender,
-			@JsonProperty("recommendee") LinkedInProfile recommendee) {}
+	RecommendationMixin(
+		@JsonProperty("id") String id, 
+		@JsonProperty("recommendationSnippet") String recommendationSnippet, 
+		@JsonProperty("recommendationText") String recommendationText, 
+		@JsonProperty("recommendationType") @JsonDeserialize(using=RecommendationTypeDeserializer.class) RecommendationType recommendationType,
+		@JsonProperty("recommender") LinkedInProfile recommender,
+		@JsonProperty("recommendee") LinkedInProfile recommendee) {}
 	
 	private static class RecommendationTypeDeserializer extends JsonDeserializer<RecommendationType> {
 		@Override
@@ -48,4 +48,5 @@ public class RecommendationMixin {
 			return RecommendationType.valueOf(node.get("code").getTextValue().replace('-', '_').toUpperCase());
 		}
 	}
+
 }

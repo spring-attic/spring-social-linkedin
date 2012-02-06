@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,11 +21,11 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MemberGroupMixin {
+abstract class MemberGroupMixin {
 
 	@JsonCreator
-	public MemberGroupMixin(
-			@JsonProperty("id") String id, 
-			@JsonProperty("name") String name, 
-			@JsonProperty("siteGroupRequest") UrlResource siteGroupRequest) {}
+	MemberGroupMixin(
+		@JsonProperty("id") String id, 
+		@JsonProperty("name") String name, 
+		@JsonProperty("siteGroupRequest") UrlResource siteGroupRequest) {}
 }

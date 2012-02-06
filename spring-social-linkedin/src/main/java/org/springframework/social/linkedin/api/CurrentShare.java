@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,12 +18,12 @@ package org.springframework.social.linkedin.api;
 import java.util.Date;
 
 /**
- * Details of the last thing that User shared on LinkedIn
+ * Model class representing details of the last thing that User shared on LinkedIn
  * 
  * @author Robert Drysdale
- *
  */
 public class CurrentShare extends Share {
+
 	private static final long serialVersionUID = 1L;
 	
 	private LinkedInProfile author;

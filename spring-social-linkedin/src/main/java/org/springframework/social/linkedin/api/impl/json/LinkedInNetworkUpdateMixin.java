@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,18 +30,17 @@ import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
-import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.UpdateType;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInNetworkUpdateMixin {
+abstract class LinkedInNetworkUpdateMixin {
 
 	@JsonCreator
-	public LinkedInNetworkUpdateMixin(
-			@JsonProperty("timestamp") Date timestamp, 
-			@JsonProperty("updateKey") String updateKey, 
-			@JsonProperty("updateType") @JsonDeserialize(using = UpdateTypeDeserializer.class) UpdateType updateType) {}
+	LinkedInNetworkUpdateMixin(
+		@JsonProperty("timestamp") Date timestamp, 
+		@JsonProperty("updateKey") String updateKey, 
+		@JsonProperty("updateType") @JsonDeserialize(using = UpdateTypeDeserializer.class) UpdateType updateType) {}
 	
 	@JsonProperty("isCommentable") 
 	boolean commentable;
@@ -64,40 +63,7 @@ public class LinkedInNetworkUpdateMixin {
 	@JsonDeserialize(using = UpdatedFieldsListDeserializer.class)
 	List<String> updatedFields;
 	
-	public static class UpdateTypeDeserializer extends JsonDeserializer<UpdateType> {
-		@Override
-		public UpdateType deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			try {
-				return UpdateType.valueOf(jp.getText().toUpperCase());
-			}
-			catch (IllegalArgumentException e) {
-				return UpdateType.UNKNOWN;
-			}
-		}
-	}
-	
-	public static class LikesListDeserializer extends JsonDeserializer<List<LinkedInProfile>> {
-		@Override
-		public List<LinkedInProfile> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				List<LinkedInProfile> likes = new ArrayList<LinkedInProfile>();
-				// Have to iterate through list due to person sub object.
-				for (JsonNode like : dataNode) {
-					LinkedInProfile profile = mapper.readValue(like.get("person"), new TypeReference<LinkedInProfile>() {});
-					likes.add(profile);
-				}
-				return likes;
-			}
-			
-			return null;
-		}
-	}
-	
-	public static class UpdatedFieldsListDeserializer extends JsonDeserializer<List<String>> {
+	private static class UpdatedFieldsListDeserializer extends JsonDeserializer<List<String>> {
 		@Override
 		public List<String> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
@@ -116,4 +82,5 @@ public class LinkedInNetworkUpdateMixin {
 			return null;
 		}
 	}
+
 }

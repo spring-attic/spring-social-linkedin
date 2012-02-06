@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,22 +42,20 @@ import org.springframework.social.linkedin.api.Recommendation;
 import org.springframework.social.linkedin.api.Relation;
 import org.springframework.social.linkedin.api.TwitterAccount;
 import org.springframework.social.linkedin.api.UrlResource;
-import org.springframework.social.linkedin.api.impl.json.LinkedInProfileMixin.ApiStandardProfileRequestDeserializer;
-import org.springframework.social.linkedin.api.impl.json.UpdateContentRecommendationMixin.RecommendationsListDeserializer;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInProfileFullMixin {
+abstract class LinkedInProfileFullMixin {
 
 	@JsonCreator
-	public LinkedInProfileFullMixin(
-			@JsonProperty("id") String id, 
-			@JsonProperty("firstName") String firstName, 
-			@JsonProperty("lastName") String lastName, 
-			@JsonProperty("headline") String headline, 
-			@JsonProperty("industry") String industry, 
-			@JsonProperty("publicProfileUrl") String publicProfileUrl, 
-			@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
-			@JsonProperty("pictureUrl") String profilePictureUrl) {}
+	LinkedInProfileFullMixin(
+		@JsonProperty("id") String id, 
+		@JsonProperty("firstName") String firstName, 
+		@JsonProperty("lastName") String lastName, 
+		@JsonProperty("headline") String headline, 
+		@JsonProperty("industry") String industry, 
+		@JsonProperty("publicProfileUrl") String publicProfileUrl, 
+		@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
+		@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
 	@JsonProperty @JsonDeserialize(using=PositionListDeserializer.class)
 	List<Position> positions;
@@ -138,7 +136,7 @@ public class LinkedInProfileFullMixin {
 	@JsonDeserialize(using=ApiStandardProfileRequestDeserializer.class) 
 	ApiStandardProfileRequest apiStandardProfileRequest;
 	
-	public static final class PositionListDeserializer extends JsonDeserializer<List<Position>>  {
+	private static final class PositionListDeserializer extends JsonDeserializer<List<Position>>  {
 		public List<Position> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
@@ -153,7 +151,7 @@ public class LinkedInProfileFullMixin {
 		}
 	}
 	
-	public static final class ImAccountListDeserializer extends JsonDeserializer<List<ImAccount>>  {
+	private static final class ImAccountListDeserializer extends JsonDeserializer<List<ImAccount>>  {
 		public List<ImAccount> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
@@ -168,7 +166,7 @@ public class LinkedInProfileFullMixin {
 		}
 	}
 	
-	public static final class TwitterAccountListDeserializer extends JsonDeserializer<List<TwitterAccount>>  {
+	private static final class TwitterAccountListDeserializer extends JsonDeserializer<List<TwitterAccount>>  {
 		public List<TwitterAccount> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
@@ -183,7 +181,7 @@ public class LinkedInProfileFullMixin {
 		}
 	}
 	
-	public static final class UrlResourceListDeserializer extends JsonDeserializer<List<UrlResource>>  {
+	private static final class UrlResourceListDeserializer extends JsonDeserializer<List<UrlResource>>  {
 		public List<UrlResource> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
@@ -198,7 +196,7 @@ public class LinkedInProfileFullMixin {
 		}
 	}
 	
-	public static final class PhoneNumberListDeserializer extends JsonDeserializer<List<PhoneNumber>>  {
+	private static final class PhoneNumberListDeserializer extends JsonDeserializer<List<PhoneNumber>>  {
 		public List<PhoneNumber> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
@@ -213,7 +211,7 @@ public class LinkedInProfileFullMixin {
 		}
 	}
 	
-	public static final class EducationListDeserializer extends JsonDeserializer<List<Education>>  {
+	private static final class EducationListDeserializer extends JsonDeserializer<List<Education>>  {
 		public List<Education> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
@@ -228,7 +226,7 @@ public class LinkedInProfileFullMixin {
 		}
 	}
 	
-	public static final class SkillListDeserializer extends JsonDeserializer<List<String>> {
+	private static final class SkillListDeserializer extends JsonDeserializer<List<String>> {
 		@Override
 		public List<String> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();

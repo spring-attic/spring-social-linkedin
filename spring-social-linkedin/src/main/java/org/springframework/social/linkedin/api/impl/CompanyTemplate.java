@@ -1,3 +1,18 @@
+/*
+ * Copyright 2012 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.springframework.social.linkedin.api.impl;
 
 import java.util.Collections;
@@ -6,19 +21,21 @@ import java.util.List;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
+import org.springframework.social.linkedin.api.Companies;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.CompanyOperations;
-import org.springframework.social.linkedin.api.ProductResult;
-import org.springframework.social.linkedin.api.SearchResultCompany;
+import org.springframework.social.linkedin.api.Products;
 import org.springframework.web.client.RestOperations;
 
 /**
  * Class that implements Company API for searching for and getting Companies
+ * 
  * @author Robert Drysdale
- *
  */
-public class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
+class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
+
 	private final RestOperations restOperations;
+	
 	private final ObjectMapper objectMapper;
 	
 	public CompanyTemplate(RestOperations RestOperations, ObjectMapper objectMapper) {
@@ -46,10 +63,10 @@ public class CompanyTemplate extends AbstractTemplate implements CompanyOperatio
 		}
 	}
 	
-	public SearchResultCompany search(String keywords) {
+	public Companies search(String keywords) {
 		JsonNode node = restOperations.getForObject(COMPANY_SEARCH_URL, JsonNode.class, keywords);
 		try {
-			return objectMapper.readValue(node.path("companies"), new TypeReference<SearchResultCompany>(){});
+			return objectMapper.readValue(node.path("companies"), new TypeReference<Companies>(){});
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
@@ -84,8 +101,8 @@ public class CompanyTemplate extends AbstractTemplate implements CompanyOperatio
 		restOperations.delete(COMPANY_FOLLOW_START_STOP_URL, id);
 	}
 	
-	public ProductResult getProducts(int companyId, int start, int count) {
-		return restOperations.getForObject(PRODUCTS_URL, ProductResult.class, companyId, start, count);
+	public Products getProducts(int companyId, int start, int count) {
+		return restOperations.getForObject(PRODUCTS_URL, Products.class, companyId, start, count);
 	}
 	
 	public static final String BASE_URL = "https://api.linkedin.com/v1/";

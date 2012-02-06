@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,17 +21,17 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.LinkedInDate;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EducationMixin {
+abstract class EducationMixin {
 
 	@JsonCreator
-	public EducationMixin(
-			@JsonProperty("activities") String activities, 
-			@JsonProperty("degree")  String degree,
-			@JsonProperty("fieldOfStudy")  String fieldOfStudy,
-			@JsonProperty("id")  String id,
-			@JsonProperty("notes")  String notes,
-			@JsonProperty("schoolName")  String schoolName,
-			@JsonProperty("startDate")  LinkedInDate startDate,
-			@JsonProperty("endDate")  LinkedInDate endDte) {}
+	EducationMixin(
+		@JsonProperty("activities") String activities, 
+		@JsonProperty("degree")  String degree,
+		@JsonProperty("fieldOfStudy")  String fieldOfStudy,
+		@JsonProperty("id")  String id,
+		@JsonProperty("notes")  String notes,
+		@JsonProperty("schoolName")  String schoolName,
+		@JsonProperty("startDate")  LinkedInDate startDate,
+		@JsonProperty("endDate")  LinkedInDate endDte) {}
 	
 }

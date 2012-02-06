@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,12 +22,12 @@ import java.util.List;
  * Update Action
  * 
  * @author Robert Drysdale
- *
  */
 public class UpdateAction extends LinkedInNetworkUpdate {
 	private static final long serialVersionUID = 1L;
 	
 	private String action;
+
 	private List<Comment> updateComments;
 	
 	public UpdateAction(Date timestamp, String updateKey, UpdateType updateType) {
@@ -41,4 +41,5 @@ public class UpdateAction extends LinkedInNetworkUpdate {
 	public List<Comment> getUpdateComments() {
 		return updateComments;
 	}
+
 }

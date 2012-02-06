@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,43 +29,68 @@ import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.type.TypeReference;
-import org.springframework.social.linkedin.api.Company.CompanyLocation;
 import org.springframework.social.linkedin.api.Group.GroupCategory;
 import org.springframework.social.linkedin.api.Group.GroupCount;
 import org.springframework.social.linkedin.api.Group.GroupPosts;
 import org.springframework.social.linkedin.api.Group.GroupRelation;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GroupMixin {
+abstract class GroupMixin {
 
 	@JsonCreator
-	public GroupMixin(
-			@JsonProperty("id") Integer id, 
-			@JsonProperty("name") String name) {}
+	GroupMixin(
+		@JsonProperty("id") Integer id, 
+		@JsonProperty("name") String name) {}
 	
-
-	@JsonProperty Boolean allowMemberInvites;
-	@JsonProperty @JsonDeserialize(using=GroupCategoryDeserializer.class) GroupCategory category;
-	@JsonProperty @JsonDeserialize(using=GroupCountDeserializer.class) List<GroupCount> countsByCategory;
-	@JsonProperty String description;
-	@JsonProperty Boolean isOpenToNonMembers;
-	@JsonProperty String largeLogoUrl;
-	@JsonProperty String locale;
-	@JsonProperty GroupPosts posts;
-	@JsonProperty GroupRelation relationToViewer;
-	@JsonProperty String shortDescription;
-	@JsonProperty String siteGroupUrl;
-	@JsonProperty String smallLogoUrl;
-	@JsonProperty String websiteUrl;
+	@JsonProperty 
+	Boolean allowMemberInvites;
 	
-	public static final class GroupCategoryDeserializer extends JsonDeserializer<GroupCategory>  {
+	@JsonProperty 
+	@JsonDeserialize(using=GroupCategoryDeserializer.class) 
+	GroupCategory category;
+	
+	@JsonProperty 
+	@JsonDeserialize(using=GroupCountDeserializer.class) 
+	List<GroupCount> countsByCategory;
+	
+	@JsonProperty 
+	String description;
+	
+	@JsonProperty 
+	Boolean isOpenToNonMembers;
+	
+	@JsonProperty 
+	String largeLogoUrl;
+	
+	@JsonProperty 
+	String locale;
+	
+	@JsonProperty 
+	GroupPosts posts;
+	
+	@JsonProperty 
+	GroupRelation relationToViewer;
+	
+	@JsonProperty 
+	String shortDescription;
+	
+	@JsonProperty 
+	String siteGroupUrl;
+	
+	@JsonProperty 
+	String smallLogoUrl;
+	
+	@JsonProperty 
+	String websiteUrl;
+	
+	private static final class GroupCategoryDeserializer extends JsonDeserializer<GroupCategory>  {
 		public GroupCategory deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			JsonNode node = jp.readValueAsTree();
 			return GroupCategory.valueOf(node.get("code").getTextValue().replace('-', '_').toUpperCase());
 		}
 	}
 	
-	public static final class GroupCountDeserializer extends JsonDeserializer<List<GroupCount>>  {
+	private static final class GroupCountDeserializer extends JsonDeserializer<List<GroupCount>>  {
 		public List<GroupCount> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
@@ -74,21 +99,6 @@ public class GroupMixin {
 				JsonNode dataNode = jp.readValueAsTree().get("values");
 				if (dataNode != null) {
 					return mapper.readValue(dataNode, new TypeReference<List<GroupCount>>() {} );
-				}
-			}
-			return null;
-		}
-	}
-	
-	public static final class CompanyLocationListDeserializer extends JsonDeserializer<List<CompanyLocation>>  {
-		public List<CompanyLocation> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<CompanyLocation>>() {} );
 				}
 			}
 			return null;

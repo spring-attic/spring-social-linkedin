@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ package org.springframework.social.linkedin.api;
  * A viral update such as liking something
  * 
  * @author Robert Drysdale
- *
  */
 public class UpdateContentViral extends UpdateContent {
 
@@ -27,11 +26,8 @@ public class UpdateContentViral extends UpdateContent {
 	
 	private UpdateAction updateAction;
 	
-	public UpdateContentViral(String id, String firstName, String lastName,
-			String headline, String industry, String publicProfileUrl,
-			UrlResource siteStandardProfileRequest, String profilePictureUrl) {
-		super(id, firstName, lastName, headline, industry, publicProfileUrl,
-				siteStandardProfileRequest, profilePictureUrl);
+	public UpdateContentViral(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, UrlResource siteStandardProfileRequest, String profilePictureUrl) {
+		super(id, firstName, lastName, headline, industry, publicProfileUrl, siteStandardProfileRequest, profilePictureUrl);
 	}
 	
 	public UpdateAction getUpdateAction() {

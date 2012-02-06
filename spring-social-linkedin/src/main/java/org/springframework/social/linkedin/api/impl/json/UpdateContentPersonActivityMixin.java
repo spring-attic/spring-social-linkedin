@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,18 +33,18 @@ import org.springframework.social.linkedin.api.PersonActivity;
 import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UpdateContentPersonActivityMixin {
+abstract class UpdateContentPersonActivityMixin {
 
 	@JsonCreator
-	public UpdateContentPersonActivityMixin (
-			@JsonProperty("id") String id, 
-			@JsonProperty("firstName") String firstName, 
-			@JsonProperty("lastName") String lastName, 
-			@JsonProperty("headline") String headline, 
-			@JsonProperty("industry") String industry, 
-			@JsonProperty("publicProfileUrl") String publicProfileUrl, 
-			@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
-			@JsonProperty("pictureUrl") String profilePictureUrl) {}
+	UpdateContentPersonActivityMixin (
+		@JsonProperty("id") String id, 
+		@JsonProperty("firstName") String firstName, 
+		@JsonProperty("lastName") String lastName, 
+		@JsonProperty("headline") String headline, 
+		@JsonProperty("industry") String industry, 
+		@JsonProperty("publicProfileUrl") String publicProfileUrl, 
+		@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
+		@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
 	@JsonProperty("personActivities")
 	@JsonDeserialize(using=PersonActivitiesListDeserializer.class)

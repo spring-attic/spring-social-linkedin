@@ -1,3 +1,18 @@
+/*
+ * Copyright 2012 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
@@ -5,21 +20,29 @@ import java.util.Date;
 import java.util.List;
 
 public class Post implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
+
 	private final LinkedInProfile creator;
+	
 	private final String id;
+	
 	private final String title;
+	
 	private final PostType type;
 	
 	private Date creationTimestamp;
+	
 	private PostRelation relationToViewer;
+	
 	private String summary;
+	
 	private List<LinkedInProfile> likes;
+	
 	private Attachment attachment;
 	
-	public Post(LinkedInProfile creator, String id,
-			String title, PostType type) {
+	public Post(LinkedInProfile creator, String id, String title, PostType type) {
 		this.creator = creator;
 		this.id = id;
 		this.title = title;
@@ -66,11 +89,12 @@ public class Post implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final Boolean isFollowing;
+		
 		private final Boolean isLiked;
+		
 		private final List<PostAvailableAction> availableActions;
 		
-		public PostRelation(List<PostAvailableAction> availableActions, 
-				Boolean isFollowing, Boolean isLiked) {
+		public PostRelation(List<PostAvailableAction> availableActions, Boolean isFollowing, Boolean isLiked) {
 			this.availableActions = availableActions;
 			this.isFollowing = isFollowing;
 			this.isLiked = isLiked;
@@ -93,13 +117,16 @@ public class Post implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final String contentDomain;
+
 		private final String contentUrl;
+		
 		private final String imageUrl;
+		
 		private final String summary;
+		
 		private final String title;
 		
-		public Attachment(String contentDomain, String contentUrl,
-				String imageUrl, String summary, String title) {
+		public Attachment(String contentDomain, String contentUrl, String imageUrl, String summary, String title) {
 			this.contentDomain = contentDomain;
 			this.contentUrl = contentUrl;
 			this.imageUrl = imageUrl;
@@ -147,4 +174,5 @@ public class Post implements Serializable {
 		LIKE,
 		REPLY_PRIVATELY
 	}
+
 }

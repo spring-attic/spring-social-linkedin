@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.social.linkedin.api.Recommendation.RecommendationType;
 import org.springframework.social.linkedin.api.SearchParameters;
-import org.springframework.social.linkedin.api.SearchResultPeople;
+import org.springframework.social.linkedin.api.LinkedInProfiles;
 
 /**
  * @author Craig Walls
@@ -126,7 +126,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		SearchParameters parameters = new SearchParameters();
 		parameters.setCountryCode("ie");
 		parameters.setKeywords("Java J2EE");
-		SearchResultPeople result = linkedIn.profileOperations().search(parameters);
+		LinkedInProfiles result = linkedIn.profileOperations().search(parameters);
 		assertEquals(0, result.getStart());
 		assertEquals(10, result.getCount());
 		assertEquals(110, result.getTotal());

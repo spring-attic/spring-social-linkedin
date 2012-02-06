@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,14 +23,14 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CommentMixin {
+abstract class CommentMixin {
 
 	@JsonCreator
-	public CommentMixin(
-			@JsonProperty("comment") String comment, 
-			@JsonProperty("id") String id,
-			@JsonProperty("person") LinkedInProfile person,
-			@JsonProperty("sequenceNumber") int sequenceNumber,
-			@JsonProperty("timestamp") Date timestamp) {}
+	CommentMixin(
+		@JsonProperty("comment") String comment, 
+		@JsonProperty("id") String id,
+		@JsonProperty("person") LinkedInProfile person,
+		@JsonProperty("sequenceNumber") int sequenceNumber,
+		@JsonProperty("timestamp") Date timestamp) {}
 	
 }

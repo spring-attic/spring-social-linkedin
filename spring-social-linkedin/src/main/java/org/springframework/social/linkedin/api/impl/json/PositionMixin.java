@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,16 +22,16 @@ import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.LinkedInDate;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PositionMixin {
+abstract class PositionMixin {
 
 	@JsonCreator
-	public PositionMixin(
-			@JsonProperty("company") Company company, 
-			@JsonProperty("id") String id,
-			@JsonProperty("isCurrent") boolean isCurrent,
-			@JsonProperty("startDate") LinkedInDate startDate,
-			@JsonProperty("endDate") LinkedInDate endDate,
-			@JsonProperty("summary") String summary,
-			@JsonProperty("title") String title) {}
+	PositionMixin(
+		@JsonProperty("company") Company company, 
+		@JsonProperty("id") String id,
+		@JsonProperty("isCurrent") boolean isCurrent,
+		@JsonProperty("startDate") LinkedInDate startDate,
+		@JsonProperty("endDate") LinkedInDate endDate,
+		@JsonProperty("summary") String summary,
+		@JsonProperty("title") String title) {}
 	
 }
