@@ -15,6 +15,7 @@
  */
 package org.springframework.social.linkedin.api.impl;
 
+import static java.util.Collections.*;
 import static org.springframework.social.linkedin.api.impl.LinkedInTemplate.*;
 
 import java.net.URI;
@@ -78,7 +79,7 @@ class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUpdateOpe
 				Collections.<UpdateTypeInput>emptyList());
 		return getNetworkUpdates(parameters);
 	}
-	
+
 	public List<LinkedInNetworkUpdate> getNetworkUpdates(int start, int count) {
 		NetworkUpdateParameters parameters = new NetworkUpdateParameters(
 				null,
@@ -96,12 +97,11 @@ class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUpdateOpe
 	public List<LinkedInNetworkUpdate> getNetworkUpdates(NetworkUpdateParameters parameters) {
 		return getNetworkUpdates(parameters, LinkedInNetworkUpdates.class).getUpdates();
 	}
-	
+
 	public List<Comment> getNetworkUpdateComments(String updateKey) {
-		Comments comments = restOperations.getForObject(UPDATE_COMMENTS_URL, Comments.class, updateKey);
-		return comments.getComments();
+		return restOperations.getForObject(UPDATE_COMMENTS_URL, Comments.class, updateKey).getComments();
 	}
-	
+
 	public void createNetworkUpdate(String update) {
 		Map<String,String> activity = new HashMap<String, String>();
 		activity.put("contentType", "linkedin-html");
@@ -114,8 +114,7 @@ class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUpdateOpe
 	}
 	
 	public URI share(NewShare share) {
-		URI uri = restOperations.postForLocation(SHARE_URL, share);
-		return uri;
+		return restOperations.postForLocation(SHARE_URL, share);
 	}
 	
 	public void likeNetworkUpdate(String updateKey) {
@@ -127,13 +126,11 @@ class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUpdateOpe
 	}
 	
 	public void commentOnNetworkUpdate(String updateKey, String comment) {
-		restOperations.put(UPDATE_COMMENTS_URL, 
-				Collections.singletonMap("comment", comment), updateKey);
+		restOperations.put(UPDATE_COMMENTS_URL, singletonMap("comment", comment), updateKey);
 	}
-	
+
 	public List<LinkedInProfile> getNetworkUpdateLikes(String updateKey) {
-		Likes likes = restOperations.getForObject(UPDATE_LIKES_URL, Likes.class, updateKey);
-		return likes.getLikes();
+		return restOperations.getForObject(UPDATE_LIKES_URL, Likes.class, updateKey).getLikes();
 	}
 	
 	public String getNetworkUpdatesJson(NetworkUpdateParameters parameters) {
