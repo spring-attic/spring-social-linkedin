@@ -16,8 +16,8 @@
 package org.springframework.social.linkedin.api;
 /**
  * Update Type for input to search
+ * 
  * @author Robert Drysdale
- *
  */
 public enum UpdateTypeInput {
 	ANSW,

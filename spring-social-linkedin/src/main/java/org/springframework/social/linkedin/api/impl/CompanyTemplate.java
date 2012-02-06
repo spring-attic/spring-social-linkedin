@@ -21,19 +21,21 @@ import java.util.List;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
+import org.springframework.social.linkedin.api.Companies;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.CompanyOperations;
-import org.springframework.social.linkedin.api.ProductResult;
-import org.springframework.social.linkedin.api.SearchResultCompany;
+import org.springframework.social.linkedin.api.Products;
 import org.springframework.web.client.RestOperations;
 
 /**
  * Class that implements Company API for searching for and getting Companies
+ * 
  * @author Robert Drysdale
- *
  */
-public class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
+class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
+
 	private final RestOperations restOperations;
+	
 	private final ObjectMapper objectMapper;
 	
 	public CompanyTemplate(RestOperations RestOperations, ObjectMapper objectMapper) {
@@ -61,10 +63,10 @@ public class CompanyTemplate extends AbstractTemplate implements CompanyOperatio
 		}
 	}
 	
-	public SearchResultCompany search(String keywords) {
+	public Companies search(String keywords) {
 		JsonNode node = restOperations.getForObject(COMPANY_SEARCH_URL, JsonNode.class, keywords);
 		try {
-			return objectMapper.readValue(node.path("companies"), new TypeReference<SearchResultCompany>(){});
+			return objectMapper.readValue(node.path("companies"), new TypeReference<Companies>(){});
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
@@ -99,8 +101,8 @@ public class CompanyTemplate extends AbstractTemplate implements CompanyOperatio
 		restOperations.delete(COMPANY_FOLLOW_START_STOP_URL, id);
 	}
 	
-	public ProductResult getProducts(int companyId, int start, int count) {
-		return restOperations.getForObject(PRODUCTS_URL, ProductResult.class, companyId, start, count);
+	public Products getProducts(int companyId, int start, int count) {
+		return restOperations.getForObject(PRODUCTS_URL, Products.class, companyId, start, count);
 	}
 	
 	public static final String BASE_URL = "https://api.linkedin.com/v1/";

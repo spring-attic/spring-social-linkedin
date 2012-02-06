@@ -24,9 +24,11 @@ import java.io.Serializable;
  *
  */
 public class PhoneNumber implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private final String phoneType;
+	
 	private final String phoneNumber;
 
 	public PhoneNumber(String phoneType, String phoneNumber) {
@@ -41,4 +43,5 @@ public class PhoneNumber implements Serializable {
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+
 }

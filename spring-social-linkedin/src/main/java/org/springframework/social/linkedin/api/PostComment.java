@@ -22,14 +22,17 @@ import java.util.Date;
  * Comment on an object such as a post or update
  * 
  * @author Robert Drysdale
- *
  */
 public class PostComment implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private final Date creationTimestamp;
+	
 	private final LinkedInProfile creator;
+	
 	private final String id;
+	
 	private final String text;
 	
 	public PostComment(Date creationTimestamp, LinkedInProfile creator, String id, String text) {
@@ -54,4 +57,5 @@ public class PostComment implements Serializable {
 	public String getText() {
 		return text;
 	}
+
 }

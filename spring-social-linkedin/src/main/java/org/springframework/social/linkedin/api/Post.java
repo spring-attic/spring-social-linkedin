@@ -20,21 +20,29 @@ import java.util.Date;
 import java.util.List;
 
 public class Post implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
+
 	private final LinkedInProfile creator;
+	
 	private final String id;
+	
 	private final String title;
+	
 	private final PostType type;
 	
 	private Date creationTimestamp;
+	
 	private PostRelation relationToViewer;
+	
 	private String summary;
+	
 	private List<LinkedInProfile> likes;
+	
 	private Attachment attachment;
 	
-	public Post(LinkedInProfile creator, String id,
-			String title, PostType type) {
+	public Post(LinkedInProfile creator, String id, String title, PostType type) {
 		this.creator = creator;
 		this.id = id;
 		this.title = title;
@@ -81,11 +89,12 @@ public class Post implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final Boolean isFollowing;
+		
 		private final Boolean isLiked;
+		
 		private final List<PostAvailableAction> availableActions;
 		
-		public PostRelation(List<PostAvailableAction> availableActions, 
-				Boolean isFollowing, Boolean isLiked) {
+		public PostRelation(List<PostAvailableAction> availableActions, Boolean isFollowing, Boolean isLiked) {
 			this.availableActions = availableActions;
 			this.isFollowing = isFollowing;
 			this.isLiked = isLiked;
@@ -108,13 +117,16 @@ public class Post implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final String contentDomain;
+
 		private final String contentUrl;
+		
 		private final String imageUrl;
+		
 		private final String summary;
+		
 		private final String title;
 		
-		public Attachment(String contentDomain, String contentUrl,
-				String imageUrl, String summary, String title) {
+		public Attachment(String contentDomain, String contentUrl, String imageUrl, String summary, String title) {
 			this.contentDomain = contentDomain;
 			this.contentUrl = contentUrl;
 			this.imageUrl = imageUrl;
@@ -162,4 +174,5 @@ public class Post implements Serializable {
 		LIKE,
 		REPLY_PRIVATELY
 	}
+
 }

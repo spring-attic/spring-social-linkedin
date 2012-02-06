@@ -20,12 +20,12 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInDateMixin {
+abstract class LinkedInDateMixin {
 
 	@JsonCreator
-	public LinkedInDateMixin(
-			@JsonProperty("year") int year, 
-			@JsonProperty("month") int month,
-			@JsonProperty("day") int day) {}
+	LinkedInDateMixin(
+		@JsonProperty("year") int year, 
+		@JsonProperty("month") int month,
+		@JsonProperty("day") int day) {}
 	
 }

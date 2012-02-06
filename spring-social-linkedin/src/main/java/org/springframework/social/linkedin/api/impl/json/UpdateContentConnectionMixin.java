@@ -33,18 +33,18 @@ import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UpdateContentConnectionMixin {
+abstract class UpdateContentConnectionMixin {
 
 	@JsonCreator
-	public UpdateContentConnectionMixin (
-			@JsonProperty("id") String id, 
-			@JsonProperty("firstName") String firstName, 
-			@JsonProperty("lastName") String lastName, 
-			@JsonProperty("headline") String headline, 
-			@JsonProperty("industry") String industry, 
-			@JsonProperty("publicProfileUrl") String publicProfileUrl, 
-			@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
-			@JsonProperty("pictureUrl") String profilePictureUrl) {}
+	UpdateContentConnectionMixin (
+		@JsonProperty("id") String id, 
+		@JsonProperty("firstName") String firstName, 
+		@JsonProperty("lastName") String lastName, 
+		@JsonProperty("headline") String headline, 
+		@JsonProperty("industry") String industry, 
+		@JsonProperty("publicProfileUrl") String publicProfileUrl, 
+		@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
+		@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
 	@JsonProperty("summary")
 	String summary;

@@ -21,9 +21,9 @@ import java.util.List;
  * Operations related to User Connections on LinkedIn
  * 
  * @author Robert Drysdale
- *
  */
 public interface ConnectionOperations {
+	
 	/**
 	 * Retrieves the 1st-degree connections from the current user's network.
 	 * 
@@ -38,4 +38,5 @@ public interface ConnectionOperations {
 	 * @return Network Statistics
 	 */
 	NetworkStatistics getNetworkStatistics();
+
 }

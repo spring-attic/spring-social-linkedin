@@ -126,4 +126,5 @@ public class LinkedInProfile implements Serializable {
 	public ApiStandardProfileRequest getApiStandardProfileRequest() {
 		return apiStandardProfileRequest;
 	}
+
 }

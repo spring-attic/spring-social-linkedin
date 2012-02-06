@@ -21,9 +21,9 @@ import java.util.List;
  *	Operations related to Companies on LinkedIn
  * 
  * @author Robert Drysdale
- *
  */
 public interface CompanyOperations {
+
 	/**
 	 * Retrieve Company Details based on unique integer id
 	 * @param id
@@ -52,7 +52,7 @@ public interface CompanyOperations {
 	 * @param keywords
 	 * @return Search Result with count, start, total and list of companies
 	 */
-	SearchResultCompany search(String keywords);
+	Companies search(String keywords);
 	
 	/**
 	 * Retrieve list of Companies that user is following
@@ -78,5 +78,6 @@ public interface CompanyOperations {
 	 */
 	void stopFollowingCompany(int id);
 	
-	ProductResult getProducts(int companyId, int start, int count);
+	Products getProducts(int companyId, int start, int count);
+
 }

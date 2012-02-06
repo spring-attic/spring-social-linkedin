@@ -32,24 +32,25 @@ import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.CodeAndName;
 import org.springframework.social.linkedin.api.Product.ProductRecommendation;
-import org.springframework.social.linkedin.api.impl.json.CompanyMixin.StringListDeserializer;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ProductMixin {
-	@JsonCreator
-	public ProductMixin(
-			@JsonProperty(value="creationTimestamp") Date creationTimestamp, 
-			@JsonProperty(value="description") String description,
-			@JsonProperty(value="features") @JsonDeserialize(using=StringListDeserializer.class) List<String> features, 
-			@JsonProperty(value="id") int id, 
-			@JsonProperty(value="logoUrl") String logoUrl, 
-			@JsonProperty(value="name") String name,
-			@JsonProperty(value="numRecommendations") int numRecommendations, 
-			@JsonProperty(value="productCategory") CodeAndName productCategory,
-			@JsonProperty(value="recommendations") @JsonDeserialize(using=ProductRecommendationListDeserializer.class)  List<ProductRecommendation> recommendations,
-			@JsonProperty(value="type") CodeAndName type, 
-			@JsonProperty(value="websiteUrl") String websiteUrl) {}
+abstract class ProductMixin {
 	
-	public static final class ProductRecommendationListDeserializer extends JsonDeserializer<List<ProductRecommendation>>  {
+	@JsonCreator
+	ProductMixin(
+		@JsonProperty(value="creationTimestamp") Date creationTimestamp, 
+		@JsonProperty(value="description") String description,
+		@JsonProperty(value="features") @JsonDeserialize(using=StringListDeserializer.class) List<String> features, 
+		@JsonProperty(value="id") int id, 
+		@JsonProperty(value="logoUrl") String logoUrl, 
+		@JsonProperty(value="name") String name,
+		@JsonProperty(value="numRecommendations") int numRecommendations, 
+		@JsonProperty(value="productCategory") CodeAndName productCategory,
+		@JsonProperty(value="recommendations") @JsonDeserialize(using=ProductRecommendationListDeserializer.class)  List<ProductRecommendation> recommendations,
+		@JsonProperty(value="type") CodeAndName type, 
+		@JsonProperty(value="websiteUrl") String websiteUrl) {}
+	
+	private static final class ProductRecommendationListDeserializer extends JsonDeserializer<List<ProductRecommendation>>  {
 		public List<ProductRecommendation> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
@@ -63,4 +64,5 @@ public class ProductMixin {
 			return null;
 		}
 	}
+
 }

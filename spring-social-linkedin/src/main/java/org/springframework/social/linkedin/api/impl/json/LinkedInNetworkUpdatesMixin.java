@@ -23,9 +23,9 @@ import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.springframework.social.linkedin.api.LinkedInNetworkUpdate;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInNetworkUpdatesMixin {
+abstract class LinkedInNetworkUpdatesMixin {
 
-	public LinkedInNetworkUpdatesMixin(
-			@JsonProperty("values") @JsonDeserialize(contentUsing = LinkedInNetworkUpdateListDeserializer.class) List<LinkedInNetworkUpdate> updates) {}
+	LinkedInNetworkUpdatesMixin(
+		@JsonProperty("values") @JsonDeserialize(contentUsing = LinkedInNetworkUpdateListDeserializer.class) List<LinkedInNetworkUpdate> updates) {}
 
 }

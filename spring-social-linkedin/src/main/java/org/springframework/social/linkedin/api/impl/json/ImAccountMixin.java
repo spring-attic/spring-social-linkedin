@@ -20,11 +20,11 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ImAccountMixin {
+abstract class ImAccountMixin {
 
 	@JsonCreator
-	public ImAccountMixin(
-			@JsonProperty("imAccountType") String imAccountType, 
-			@JsonProperty("imAccountName") String imAccountName) {}
+	ImAccountMixin(
+		@JsonProperty("imAccountType") String imAccountType, 
+		@JsonProperty("imAccountName") String imAccountName) {}
 	
 }

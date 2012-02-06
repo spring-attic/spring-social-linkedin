@@ -21,12 +21,13 @@ import java.io.Serializable;
  * Location
  * 
  * @author Robert Drysdale
- *
  */
 public class Location implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	
 	private final String country;
+	
 	private final String name;
 
 	public Location(String country, String name) {
@@ -41,4 +42,5 @@ public class Location implements Serializable {
 	public String getName() {
 		return name;
 	}
+
 }

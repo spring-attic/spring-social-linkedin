@@ -22,20 +22,21 @@ import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.Job;
-import org.springframework.social.linkedin.api.JobBookmarkResult;
+import org.springframework.social.linkedin.api.JobBookmarks;
 import org.springframework.social.linkedin.api.JobOperations;
 import org.springframework.social.linkedin.api.JobSearchParameters;
-import org.springframework.social.linkedin.api.SearchResultJob;
+import org.springframework.social.linkedin.api.Jobs;
 import org.springframework.web.client.RestOperations;
 
 /**
  * Class that implements Job API
  * 
  * @author Robert Drysdale
- *
  */
-public class JobTemplate extends AbstractTemplate implements JobOperations {
+class JobTemplate extends AbstractTemplate implements JobOperations {
+
 	private final RestOperations restOperations;
+	
 	private final ObjectMapper objectMapper;
 	
 	public JobTemplate(RestOperations restOperations, ObjectMapper objectMapper ) {
@@ -43,7 +44,7 @@ public class JobTemplate extends AbstractTemplate implements JobOperations {
 		this.objectMapper = objectMapper;
 	}
 	
-	public SearchResultJob searchJobs(JobSearchParameters parameters) {
+	public Jobs searchJobs(JobSearchParameters parameters) {
 		Object[] params = new Object[] {
 				parameters.getKeywords(),
 				parameters.getCompanyName(),
@@ -59,7 +60,7 @@ public class JobTemplate extends AbstractTemplate implements JobOperations {
 		JsonNode node = restOperations.getForObject(expand(SEARCH_URL, params, true), JsonNode.class);
 		
 		try {
-			return objectMapper.readValue(node.path("jobs"), new TypeReference<SearchResultJob>() {});
+			return objectMapper.readValue(node.path("jobs"), new TypeReference<Jobs>() {});
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
@@ -82,20 +83,19 @@ public class JobTemplate extends AbstractTemplate implements JobOperations {
 		restOperations.delete(UNBOOKMARK_URL, id);
 	}
 	
-	public SearchResultJob getSuggestions(int start, int count) {
+	public Jobs getSuggestions(int start, int count) {
 		JsonNode node =  restOperations.getForObject(expand(SUGGESTED_URL, new Object[] {start,count}, false), JsonNode.class);
 		
 		try {
-			return objectMapper.readValue(node.path("jobs"), new TypeReference<SearchResultJob>() {});
+			return objectMapper.readValue(node.path("jobs"), new TypeReference<Jobs>() {});
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}
 	
-	public JobBookmarkResult getBookmarks(int start, int count) {
-		return restOperations.getForObject(expand(BOOKMARKS_URL, new Object[] {start,count}, false), JobBookmarkResult.class);
-		
+	public JobBookmarks getBookmarks(int start, int count) {
+		return restOperations.getForObject(expand(BOOKMARKS_URL, new Object[] {start,count}, false), JobBookmarks.class);		
 	}
 	
 	public static final String BASE_URL = "https://api.linkedin.com/v1/";
@@ -107,4 +107,5 @@ public class JobTemplate extends AbstractTemplate implements JobOperations {
 	public static final String BOOKMARKS_URL = BOOKMARK_URL + "?{&start}{&count}";
 	public static final String UNBOOKMARK_URL = BASE_URL + "people/~/job-bookmarks/{job-id}";
 	public static final String SUGGESTED_URL = BASE_URL + "people/~/suggestions/job-suggestions:" + SEARCH_FIELDS + "?{&start}{&count}";
+
 }

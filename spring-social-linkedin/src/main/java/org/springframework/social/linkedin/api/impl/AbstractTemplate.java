@@ -25,9 +25,9 @@ import java.util.regex.Pattern;
  * Base Template extended by various specific API Templates
  * 
  * @author Robert Drysdale
- *
  */
-public abstract class AbstractTemplate {
+abstract class AbstractTemplate {
+
 	/** Captures URI template variable names. */
 	private static final Pattern NAMES_PATTERN = Pattern.compile("\\{([^/]+?)\\}");
 	
@@ -111,4 +111,5 @@ public abstract class AbstractTemplate {
          return '!' == c || '$' == c || '&' == c || '\'' == c || '(' == c || ')' == c || '*' == c || '+' == c ||
                  ',' == c || ';' == c || '=' == c;
      }
+
 }

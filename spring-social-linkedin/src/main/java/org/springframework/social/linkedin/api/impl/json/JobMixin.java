@@ -27,26 +27,50 @@ import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class JobMixin {
+abstract class JobMixin {
+
 	@JsonCreator
-	public JobMixin(
-			@JsonProperty("company") Company company, 
-			@JsonProperty("description") String description,
-			@JsonProperty("id") int id,
-			@JsonProperty("locationDescription") String locationDescription,
-			@JsonProperty("siteJobRequest") UrlResource siteJobRequest) {}
+	JobMixin(
+		@JsonProperty("company") Company company, 
+		@JsonProperty("description") String description,
+		@JsonProperty("id") int id,
+		@JsonProperty("locationDescription") String locationDescription,
+		@JsonProperty("siteJobRequest") UrlResource siteJobRequest) {}
 	
-	@JsonProperty boolean active;
-	@JsonProperty String customerJobCode;
-	@JsonProperty String descriptionSnippet;
-	@JsonProperty LinkedInDate expirationDate;
-	@JsonProperty Date expirationTimestamp;
-	@JsonProperty LinkedInProfile jobPoster;
-	@JsonProperty JobPosition position;
-	@JsonProperty LinkedInDate postingDate;
-	@JsonProperty Date postingTimestamp;
-	@JsonProperty String salary;
-	@JsonProperty String siteJobUrl;
-	@JsonProperty String skillsAndExperience;
+	@JsonProperty 
+	boolean active;
+	
+	@JsonProperty 
+	String customerJobCode;
+	
+	@JsonProperty 
+	String descriptionSnippet;
+	
+	@JsonProperty 
+	LinkedInDate expirationDate;
+	
+	@JsonProperty 
+	Date expirationTimestamp;
+	
+	@JsonProperty 
+	LinkedInProfile jobPoster;
+	
+	@JsonProperty 
+	JobPosition position;
+	
+	@JsonProperty 
+	LinkedInDate postingDate;
+	
+	@JsonProperty 
+	Date postingTimestamp;
+	
+	@JsonProperty 
+	String salary;
+	
+	@JsonProperty 
+	String siteJobUrl;
+	
+	@JsonProperty 
+	String skillsAndExperience;
 	
 }

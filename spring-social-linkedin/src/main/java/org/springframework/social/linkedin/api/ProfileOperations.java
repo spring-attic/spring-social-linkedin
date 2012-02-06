@@ -15,7 +15,13 @@
  */
 package org.springframework.social.linkedin.api;
 
+/**
+ * Operations on Profile API
+ * 
+ * @author Robert Drysdale
+ */
 public interface ProfileOperations {
+
 	/**
 	 * Retrieves the user's LinkedIn profile ID.
 	 * 
@@ -79,5 +85,6 @@ public interface ProfileOperations {
 	 * 
 	 * @return search result.
 	 */
-	SearchResultPeople search(SearchParameters parameters) ;
+	LinkedInProfiles search(SearchParameters parameters);
+
 }

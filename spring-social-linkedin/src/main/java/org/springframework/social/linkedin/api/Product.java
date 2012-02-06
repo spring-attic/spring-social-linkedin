@@ -29,22 +29,29 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private final Date creationTimestamp;
+	
 	private final String description;
+	
 	private final List<String> features;
+	
 	private final int id;
+	
 	private final String logoUrl;
+	
 	private final String name;
+	
 	private final int numRecommendations;
+	
 	private final CodeAndName productCategory;
+	
 	private final List<ProductRecommendation> recommendations;
+	
 	private final CodeAndName type;
+	
 	private final String websiteUrl;
 	
-	public Product(Date creationTimestamp, String description,
-			List<String> features, int id, String logoUrl, String name,
-			int numRecommendations, CodeAndName productCategory,
-			List<ProductRecommendation> recommendations,
-			CodeAndName type, String websiteUrl) {
+	public Product(Date creationTimestamp, String description, List<String> features, int id, String logoUrl, String name, int numRecommendations, CodeAndName productCategory,
+			List<ProductRecommendation> recommendations, CodeAndName type, String websiteUrl) {
 		this.creationTimestamp = creationTimestamp;
 		this.description = description;
 		this.features = features;
@@ -106,13 +113,16 @@ public class Product implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final int id;
+
 		private final int productId;
+		
 		private LinkedInProfile recommender;
+		
 		private final String text;
+		
 		private Date timestamp;
 		
-		public ProductRecommendation(int id, int productId,
-				LinkedInProfile recommender, String text, Date timestamp) {
+		public ProductRecommendation(int id, int productId, LinkedInProfile recommender, String text, Date timestamp) {
 			this.id = id;
 			this.productId = productId;
 			this.recommender = recommender;
@@ -140,4 +150,5 @@ public class Product implements Serializable {
 			return timestamp;
 		}
 	}
+
 }

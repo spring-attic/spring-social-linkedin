@@ -17,7 +17,13 @@ package org.springframework.social.linkedin.api;
 
 import java.util.List;
 
+/**
+ * Model class representing group memberships on LinkedIn
+ * 
+ * @author Robert Drysdale
+ */
 public class GroupMemberships extends SearchResult {
+	
 	private static final long serialVersionUID = 1L;
 	
 	private List<GroupSettings> memberships;

@@ -32,9 +32,9 @@ import org.springframework.web.client.RestOperations;
  * Class that implements communication API for sending messages and invitations
  *  
  * @author Robert Drysdale
- *
  */
-public class CommunicationTemplate implements CommunicationOperations {
+class CommunicationTemplate implements CommunicationOperations {
+
 	private final RestOperations restOperations;
 	
 	public CommunicationTemplate(RestOperations restOperations) {
@@ -191,7 +191,9 @@ public class CommunicationTemplate implements CommunicationOperations {
 	
 	private static final class Person {
 		private final String _path;
+		
 		private final String firstName;
+		
 		private final String lastName;
 		
 		private Person(String _path) {
@@ -224,4 +226,5 @@ public class CommunicationTemplate implements CommunicationOperations {
 			return lastName;
 		}
 	}
+
 }

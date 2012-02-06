@@ -27,7 +27,7 @@ import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.social.linkedin.api.Job;
 import org.springframework.social.linkedin.api.JobBookmark;
-import org.springframework.social.linkedin.api.JobBookmarkResult;
+import org.springframework.social.linkedin.api.JobBookmarks;
 import org.springframework.social.linkedin.api.JobPosition;
 import org.springframework.social.linkedin.api.JobSearchParameters;
 
@@ -176,7 +176,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 				.replaceFirst("\\{\\&count\\}", "&count=10"))).andExpect(method(GET))
 		.andRespond(withResponse(new ClassPathResource("testdata/job_bookmarks.json", getClass()), responseHeaders));
 		
-		JobBookmarkResult r = linkedIn.jobOperations().getBookmarks(0, 10);
+		JobBookmarks r = linkedIn.jobOperations().getBookmarks(0, 10);
 		assertEquals(0,r.getCount());
 		assertEquals(0,r.getStart());
 		assertEquals(1,r.getTotal());

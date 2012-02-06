@@ -22,11 +22,11 @@ import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.springframework.social.linkedin.api.Job;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CompanyJobUpdateMixin {
+abstract class CompanyJobUpdateMixin {
 
 	@JsonCreator
-	public CompanyJobUpdateMixin(
-			@JsonProperty("action") @JsonDeserialize(using=CodeDeserializer.class)  String action, 
-			@JsonProperty("job") Job job) {}
+	CompanyJobUpdateMixin(
+		@JsonProperty("action") @JsonDeserialize(using=CodeDeserializer.class)  String action, 
+		@JsonProperty("job") Job job) {}
 	
 }

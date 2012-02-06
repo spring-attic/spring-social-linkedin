@@ -21,11 +21,11 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MemberGroupMixin {
+abstract class MemberGroupMixin {
 
 	@JsonCreator
-	public MemberGroupMixin(
-			@JsonProperty("id") String id, 
-			@JsonProperty("name") String name, 
-			@JsonProperty("siteGroupRequest") UrlResource siteGroupRequest) {}
+	MemberGroupMixin(
+		@JsonProperty("id") String id, 
+		@JsonProperty("name") String name, 
+		@JsonProperty("siteGroupRequest") UrlResource siteGroupRequest) {}
 }

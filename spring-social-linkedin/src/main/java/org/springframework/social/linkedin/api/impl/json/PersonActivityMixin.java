@@ -20,10 +20,11 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PersonActivityMixin {
+abstract class PersonActivityMixin {
 
 	@JsonCreator
-	public PersonActivityMixin(
-			@JsonProperty("appId") int appId, 
-			@JsonProperty("body") String body) {}
+	PersonActivityMixin(
+		@JsonProperty("appId") int appId, 
+		@JsonProperty("body") String body) {}
+
 }

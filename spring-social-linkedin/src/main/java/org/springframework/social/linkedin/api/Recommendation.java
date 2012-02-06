@@ -21,20 +21,23 @@ import java.io.Serializable;
  * Recommendation
  * 
  * @author Robert Drysdale
- *
  */
 public class Recommendation implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private final String id;
+
 	private final String recommendationSnippet;
+	
 	private final String recommendationText;
+	
 	private final RecommendationType recommendationType;
+	
 	private final LinkedInProfile recommender;
+	
 	private final LinkedInProfile recommendee;
 	
-	public Recommendation(String id, String recommendationSnippet, String recommendationText,
-			RecommendationType recommendationType, LinkedInProfile recommender, LinkedInProfile recommendee) {
+	public Recommendation(String id, String recommendationSnippet, String recommendationText, RecommendationType recommendationType, LinkedInProfile recommender, LinkedInProfile recommendee) {
 		this.id = id;
 		this.recommendationSnippet = recommendationSnippet;
 		this.recommendationText = recommendationText;
@@ -72,5 +75,6 @@ public class Recommendation implements Serializable {
 		COLLEAGUE,
 		EDUCATION,
 		SERVICE_PROVIDER
-		}
+	}
+
 }

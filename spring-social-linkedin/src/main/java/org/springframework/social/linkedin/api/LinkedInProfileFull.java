@@ -22,9 +22,9 @@ import java.util.List;
  * Full LinkedInProfile returned by querying profile
  * 
  * @author Robert Drysdale
- *
  */
 public class LinkedInProfileFull extends LinkedInProfile {
+
 	private static final long serialVersionUID = 1L;
 	
 	private List<Position> positions;

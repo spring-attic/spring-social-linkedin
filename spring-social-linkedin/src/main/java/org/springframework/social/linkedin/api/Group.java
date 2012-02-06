@@ -20,6 +20,11 @@ import java.util.List;
 
 import org.springframework.social.linkedin.api.Post.PostCategory;
 
+/**
+ * Model class representing a group on LinkedIn
+ * 
+ * @author Robert Drysdale
+ */
 public class Group implements Serializable {
 
 	private static final long serialVersionUID = 1L;

@@ -16,6 +16,8 @@
 package org.springframework.social.linkedin.api.impl.json;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.JsonParser;
@@ -24,21 +26,27 @@ import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
-import org.springframework.social.linkedin.api.UpdateContent;
+import org.springframework.social.linkedin.api.LinkedInProfile;
 
-public class UpdateContentDeserializer extends JsonDeserializer<UpdateContent> {
+class LikesListDeserializer extends JsonDeserializer<List<LinkedInProfile>> {
+
 	@Override
-	public UpdateContent deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+	public List<LinkedInProfile> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setDeserializationConfig(ctxt.getConfig());
 		jp.setCodec(mapper);
 		if(jp.hasCurrentToken()) {
-			JsonNode dataNode = jp.readValueAsTree();
-			if(dataNode != null) {
-				return (UpdateContent) mapper.readValue(dataNode, new TypeReference<UpdateContent>() {});
+			JsonNode dataNode = jp.readValueAsTree().get("values");
+			List<LinkedInProfile> likes = new ArrayList<LinkedInProfile>();
+			// Have to iterate through list due to person sub object.
+			for (JsonNode like : dataNode) {
+				LinkedInProfile profile = mapper.readValue(like.get("person"), new TypeReference<LinkedInProfile>() {});
+				likes.add(profile);
 			}
+			return likes;
 		}
 		
 		return null;
 	}
+
 }

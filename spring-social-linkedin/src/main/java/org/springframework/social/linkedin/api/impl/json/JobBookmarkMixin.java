@@ -23,12 +23,13 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.Job;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class JobBookmarkMixin {
+abstract class JobBookmarkMixin {
+	
 	@JsonCreator
-	public JobBookmarkMixin(
-			@JsonProperty("isApplied") boolean isApplied, 
-			@JsonProperty("isSaved") boolean isSaved, 
-			@JsonProperty("job") Job job, 
-			@JsonProperty("savedTimestamp") Date savedTimestamp) {}
+	JobBookmarkMixin(
+		@JsonProperty("isApplied") boolean isApplied, 
+		@JsonProperty("isSaved") boolean isSaved, 
+		@JsonProperty("job") Job job, 
+		@JsonProperty("savedTimestamp") Date savedTimestamp) {}
 	
 }

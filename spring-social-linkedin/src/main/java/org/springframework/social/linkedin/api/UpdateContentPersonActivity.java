@@ -20,7 +20,6 @@ import java.util.List;
  * A person activity update
  * 
  * @author Robert Drysdale
- *
  */
 public class UpdateContentPersonActivity extends UpdateContent {
 
@@ -28,17 +27,12 @@ public class UpdateContentPersonActivity extends UpdateContent {
 	
 	private List<PersonActivity> personActivities;
 	
-	public UpdateContentPersonActivity(String id, String firstName, String lastName,
-			String headline, String industry, String publicProfileUrl,
-			UrlResource siteStandardProfileRequest, String profilePictureUrl) {
-		super(id, firstName, lastName, headline, industry, publicProfileUrl,
-				siteStandardProfileRequest, profilePictureUrl);
+	public UpdateContentPersonActivity(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, UrlResource siteStandardProfileRequest, String profilePictureUrl) {
+		super(id, firstName, lastName, headline, industry, publicProfileUrl, siteStandardProfileRequest, profilePictureUrl);
 	}
 	
 	public List<PersonActivity> getPersonActivities() {
 		return personActivities;
 	}
-	
-	
 
 }

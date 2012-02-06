@@ -20,15 +20,15 @@ package org.springframework.social.linkedin.api;
  * Operations on Linkedin Jobs API
  * 
  * @author Robert Drysdale
- *
  */
 public interface JobOperations {
+
 	/**
 	 * Search form Jobs
 	 * @param parameters Various parameters that control behaviour of search
 	 * @return Search Result
 	 */
-	SearchResultJob searchJobs(JobSearchParameters parameters);
+	Jobs searchJobs(JobSearchParameters parameters);
 	
 	/**
 	 * Retreive and Job by ID
@@ -58,7 +58,7 @@ public interface JobOperations {
 	 * @param count Number of jobs to return
 	 * @return Job Search Result
 	 */
-	SearchResultJob getSuggestions(int start, int count);
+	Jobs getSuggestions(int start, int count);
 	
 	/**
 	 * Get List of Bookmarked Jobs
@@ -67,5 +67,6 @@ public interface JobOperations {
 	 * @param count Number of jobs to return
 	 * @return Job Bookmark Result
 	 */
-	JobBookmarkResult getBookmarks(int start, int count);
+	JobBookmarks getBookmarks(int start, int count);
+
 }

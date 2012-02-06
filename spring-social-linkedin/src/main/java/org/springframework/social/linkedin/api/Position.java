@@ -21,21 +21,26 @@ import java.io.Serializable;
  * Position
  * 
  * @author Robert Drysdale
- *
  */
 public class Position implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private final Company company;
+	
 	private final String id;
+	
 	private final boolean isCurrent;
+	
 	private final LinkedInDate startDate;
+	
 	private final LinkedInDate endDate;
+	
 	private final String summary;
+	
 	private final String title;
 	
-	public Position(Company company, String id, boolean isCurrent,
-			LinkedInDate startDate, LinkedInDate endDate, String summary, String title) {
+	public Position(Company company, String id, boolean isCurrent, LinkedInDate startDate, LinkedInDate endDate, String summary, String title) {
 		this.company = company;
 		this.id = id;
 		this.isCurrent = isCurrent;

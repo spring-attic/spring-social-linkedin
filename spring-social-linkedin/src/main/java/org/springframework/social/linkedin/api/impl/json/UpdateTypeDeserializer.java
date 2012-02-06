@@ -15,20 +15,25 @@
  */
 package org.springframework.social.linkedin.api.impl.json;
 
-import java.util.List;
+import java.io.IOException;
 
-import org.codehaus.jackson.annotate.JsonCreator;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.springframework.social.linkedin.api.LinkedInProfile;
+import org.codehaus.jackson.JsonParser;
+import org.codehaus.jackson.JsonProcessingException;
+import org.codehaus.jackson.map.DeserializationContext;
+import org.codehaus.jackson.map.JsonDeserializer;
+import org.springframework.social.linkedin.api.UpdateType;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class SearchResultPeopleMixin {
-	
-	@JsonCreator
-	public SearchResultPeopleMixin(@JsonProperty("_count") int count, 
-			@JsonProperty("_start") int start, 
-			@JsonProperty("_total") int total) {}
-	
-	@JsonProperty("values") List<LinkedInProfile> people;
+class UpdateTypeDeserializer extends JsonDeserializer<UpdateType> {
+
+	@Override
+	public UpdateType deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+		try {
+			return UpdateType.valueOf(jp.getText().toUpperCase());
+		}
+		catch (IllegalArgumentException e) {
+			return UpdateType.UNKNOWN;
+		}
+	}
+
 }
+

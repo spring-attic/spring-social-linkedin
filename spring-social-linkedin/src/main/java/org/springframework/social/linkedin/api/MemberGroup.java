@@ -21,13 +21,15 @@ import java.io.Serializable;
  * Member Group 
  * 
  * @author Robert Drysdale
- *
  */
 public class MemberGroup implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private final String id;
+	
 	private final String name;
+	
 	private final UrlResource siteGroupRequest;
 	
 	public MemberGroup(String id, String name, UrlResource siteGroupRequest) {
@@ -47,4 +49,5 @@ public class MemberGroup implements Serializable {
 	public UrlResource getSiteGroupRequest() {
 		return siteGroupRequest;
 	}
+
 }

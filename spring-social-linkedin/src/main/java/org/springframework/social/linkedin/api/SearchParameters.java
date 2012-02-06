@@ -53,9 +53,8 @@ public class SearchParameters {
 	
 	public SearchParameters() {}
 	
-	public SearchParameters(String keywords, String firstName, String lastName, String companyName, Boolean currentCompany, 
-			String title, Boolean currentTitle, String schoolName, Boolean currentSchool, String countryCode, String postalCode, 
-			Integer distance, int start, int count, Sort sort) {
+	public SearchParameters(String keywords, String firstName, String lastName, String companyName, Boolean currentCompany, String title, Boolean currentTitle, 
+			String schoolName, Boolean currentSchool, String countryCode, String postalCode, Integer distance, int start, int count, Sort sort) {
 		super();
 		this.keywords = keywords;
 		this.firstName = firstName;
@@ -204,4 +203,5 @@ public class SearchParameters {
 			return this.name().toLowerCase();
 		}
 	}
+
 }

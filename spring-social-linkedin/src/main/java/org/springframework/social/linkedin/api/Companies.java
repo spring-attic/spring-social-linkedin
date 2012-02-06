@@ -1,7 +1,6 @@
 /*
- * Copyright 2012 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright 2012 the original author or authorimport java.util.List;
+ the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -18,21 +17,22 @@ package org.springframework.social.linkedin.api;
 import java.util.List;
 
 /**
- * Search result for querying profiles
+ * Search Result for querying companies
  * 
  * @author Robert Drysdale
  *
  */
-public class SearchResultPeople extends SearchResult {
+public class Companies extends SearchResult {
 	private static final long serialVersionUID = 1L;
+	
+	private List<Company> companies;
 
-	public SearchResultPeople(int count, int start, int total) {
+	public Companies(int count, int start, int total) {
 		super(count, start, total);
 	}
-
-	private List<LinkedInProfile> people;
 	
-	public List<LinkedInProfile> getPeople() {
-		return people;
+	public List<Company> getCompanies() {
+		return companies;
 	}
+
 }

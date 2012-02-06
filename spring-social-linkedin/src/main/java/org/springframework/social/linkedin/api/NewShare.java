@@ -21,13 +21,15 @@ import java.io.Serializable;
  * Model object to represent a Share
  * 
  * @author Robert Drysdale
- *
  */
 public class NewShare implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private String comment;
+	
 	private NewShareContent content;
+	
 	private NewShareVisibility visibility;
 	
 	public NewShare() {}
@@ -144,4 +146,5 @@ public class NewShare implements Serializable {
 			return this.name().toLowerCase().replace('_', '-');
 		}
 	}
+
 }

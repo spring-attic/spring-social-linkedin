@@ -19,31 +19,46 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Details of a Posted Job or Shared Job on LinkedIn
+ * Model class representing a Posted Job or Shared Job on LinkedIn
  * 
  * @author Robert Drysdale
- *
  */
 public class Job implements Serializable{
+	
 	private static final long serialVersionUID = 1L;
 	
 	private final Company company;
+
 	private final String description;
+	
 	private final int id;
+	
 	private final String locationDescription;
+	
 	private final UrlResource siteJobRequest;
 
 	private boolean active;
+
 	private String customerJobCode;
+	
 	private String descriptionSnippet;
+	
 	private LinkedInDate expirationDate;
+	
 	private Date expirationTimestamp;
+	
 	private LinkedInProfile jobPoster;
+	
 	private JobPosition position;
+	
 	private LinkedInDate postingDate;
+	
 	private Date postingTimestamp;
+	
 	private String salary;
+	
 	private String siteJobUrl;
+	
 	private String skillsAndExperience;
 	
 	public Job(Company company, String description, int id, String locationDescription, UrlResource siteJobRequest) {
@@ -121,4 +136,5 @@ public class Job implements Serializable{
 	public String getCustomerJobCode() {
 		return customerJobCode;
 	}
+
 }

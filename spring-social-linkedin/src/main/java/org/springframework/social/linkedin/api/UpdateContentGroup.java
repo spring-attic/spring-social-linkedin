@@ -20,7 +20,6 @@ import java.util.List;
  * A group update
  * 
  * @author Robert Drysdale
- *
  */
 public class UpdateContentGroup extends UpdateContent {
 
@@ -28,17 +27,12 @@ public class UpdateContentGroup extends UpdateContent {
 	
 	private List<MemberGroup> memberGroups;
 	
-	public UpdateContentGroup(String id, String firstName, String lastName,
-			String headline, String industry, String publicProfileUrl,
-			UrlResource siteStandardProfileRequest, String profilePictureUrl) {
-		super(id, firstName, lastName, headline, industry, publicProfileUrl,
-				siteStandardProfileRequest, profilePictureUrl);
+	public UpdateContentGroup(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, UrlResource siteStandardProfileRequest, String profilePictureUrl) {
+		super(id, firstName, lastName, headline, industry, publicProfileUrl, siteStandardProfileRequest, profilePictureUrl);
 	}
 	
 	public List<MemberGroup> getMemberGroups() {
 		return memberGroups;
 	}
-	
-	
 
 }

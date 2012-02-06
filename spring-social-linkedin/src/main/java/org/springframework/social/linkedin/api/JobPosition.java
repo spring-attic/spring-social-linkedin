@@ -22,16 +22,21 @@ import java.util.List;
  * Details of position of a Job
  * 
  * @author Robert Drysdale
- *
  */
 public class JobPosition implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private final String title;
+	
 	private final Location location;
+	
 	private CodeAndName experienceLevel;
+	
 	private List<CodeAndName> industries;
+	
 	private List<CodeAndName> jobFunctions;
+	
 	private CodeAndName jobType;
 	
 	public JobPosition(String title, Location location) {
@@ -62,4 +67,5 @@ public class JobPosition implements Serializable {
 	public CodeAndName getJobType() {
 		return jobType;
 	}
+
 }

@@ -27,6 +27,7 @@ public class NetworkStatistics implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private final int firstDegreeCount;
+	
 	private final int secondDegreeCount;
 	
 	public NetworkStatistics(int[] counts) {
@@ -46,4 +47,5 @@ public class NetworkStatistics implements Serializable {
 	public int getSecondDegreeCount() {
 		return secondDegreeCount;
 	}
+
 }

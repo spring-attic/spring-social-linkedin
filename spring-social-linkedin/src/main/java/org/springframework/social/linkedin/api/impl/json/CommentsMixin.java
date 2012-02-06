@@ -23,10 +23,10 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.Comment;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CommentsMixin {
+abstract class CommentsMixin {
 
 	@JsonCreator
-	public CommentsMixin(
-			@JsonProperty("values") List<Comment> comments) {}
+	CommentsMixin(
+		@JsonProperty("values") List<Comment> comments) {}
 	
 }

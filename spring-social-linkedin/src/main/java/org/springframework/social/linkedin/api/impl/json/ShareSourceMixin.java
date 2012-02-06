@@ -28,10 +28,11 @@ import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ShareSourceMixin {
+abstract class ShareSourceMixin {
 	
 	@JsonCreator
-	public ShareSourceMixin(@JsonProperty("application") @JsonDeserialize(using=NameDeserializer.class) String application, 
+	ShareSourceMixin(
+			@JsonProperty("application") @JsonDeserialize(using=NameDeserializer.class) String application, 
 			@JsonProperty("serviceProvider")  @JsonDeserialize(using=NameDeserializer.class) String serviceProvider,
 			@JsonProperty("serviceProviderAccountHandle") String serviceProviderAccountHandle, 
 			@JsonProperty("serviceProviderAccountId") String serviceProviderAccountId,
@@ -44,4 +45,5 @@ public class ShareSourceMixin {
 			return node.get("name").getTextValue();
 		}
 	}
+
 }

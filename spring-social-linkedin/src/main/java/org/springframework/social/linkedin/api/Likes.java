@@ -22,7 +22,6 @@ import java.util.List;
  * List of likes
  * 
  * @author Robert Drysdale
- *
  */
 public class Likes implements Serializable {
 	
@@ -37,4 +36,5 @@ public class Likes implements Serializable {
 	public List<LinkedInProfile> getLikes() {
 		return likes;
 	}
+
 }

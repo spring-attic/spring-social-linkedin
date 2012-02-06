@@ -40,7 +40,8 @@ import org.springframework.social.linkedin.api.UpdateContentStatus;
 import org.springframework.social.linkedin.api.UpdateContentViral;
 import org.springframework.social.linkedin.api.UpdateType;
 
-public class LinkedInNetworkUpdateListDeserializer extends JsonDeserializer<LinkedInNetworkUpdate> {
+class LinkedInNetworkUpdateListDeserializer extends JsonDeserializer<LinkedInNetworkUpdate> {
+
 	@Override
 	public LinkedInNetworkUpdate deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 		ObjectMapper mapper = new ObjectMapper();
@@ -162,4 +163,5 @@ public class LinkedInNetworkUpdateListDeserializer extends JsonDeserializer<Link
 		
 		return null;
 	}
+
 }

@@ -20,27 +20,25 @@ import java.io.IOException;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.annotate.JsonCreator;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
-import org.codehaus.jackson.map.annotate.JsonDeserialize;
-import org.springframework.social.linkedin.api.Post.PostCategory;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference;
+import org.springframework.social.linkedin.api.ApiStandardProfileRequest;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-abstract class GroupCountMixin {
-	
-	@JsonCreator
-	GroupCountMixin(
-		@JsonProperty("category") @JsonDeserialize(using=PostCategoryDeserializer.class) PostCategory category, 
-		@JsonProperty("count") Integer count) {}
-	
-	private static final class PostCategoryDeserializer extends JsonDeserializer<PostCategory>  {
-		public PostCategory deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			JsonNode node = jp.readValueAsTree();
-			return PostCategory.valueOf(node.get("code").getTextValue().replace('-', '_').toUpperCase());
+final class ApiStandardProfileRequestDeserializer extends JsonDeserializer<ApiStandardProfileRequest>  {
+
+	public ApiStandardProfileRequest deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.setDeserializationConfig(ctxt.getConfig());
+		jp.setCodec(mapper);
+		if(jp.hasCurrentToken()) {
+			JsonNode dataNode = jp.readValueAsTree().path("headers").path("values").get(0);
+			if (dataNode != null) {
+				return mapper.readValue(dataNode, new TypeReference<ApiStandardProfileRequest>() {} );
+			}
 		}
+		return null;
 	}
 
 }

@@ -23,10 +23,10 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LikesMixin {
+abstract class LikesMixin {
 
 	@JsonCreator
-	public LikesMixin(
-			@JsonProperty("values") List<LinkedInProfile> likes) {}
+	LikesMixin(
+		@JsonProperty("values") List<LinkedInProfile> likes) {}
 	
 }

@@ -17,6 +17,7 @@ package org.springframework.social.linkedin.api;
 
 import org.springframework.social.ApiBinding;
 import org.springframework.social.linkedin.api.impl.LinkedInTemplate;
+import org.springframework.web.client.RestOperations;
 
 /**
  * <p>
@@ -69,5 +70,11 @@ public interface LinkedIn extends ApiBinding {
 	 * API for retrieving details of groups
 	 */
 	GroupOperations groupOperations();
+	
+	/**
+	 * Returns the underlying {@link RestOperations} object allowing for consumption of LinkedIn endpoints that may not be otherwise covered by the API binding.
+	 * The RestOperations object returned is configured to include an OAuth "Authorization" header on all requests.
+	 */
+	RestOperations restOperations();
 	
 }

@@ -44,7 +44,7 @@ import org.springframework.web.client.RestOperations;
  * @author Robert Drysdale
  *
  */
-public class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUpdateOperations {
+class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUpdateOperations {
 	
 	static {
 		/*
@@ -201,6 +201,5 @@ public class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUp
 	private static final String UPDATE_TYPE_ALL_STRING;
 	
 	private final RestOperations restOperations;
-	
-	
+
 }

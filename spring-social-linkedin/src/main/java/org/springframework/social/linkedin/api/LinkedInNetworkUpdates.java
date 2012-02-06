@@ -38,4 +38,5 @@ public class LinkedInNetworkUpdates {
 	public List<LinkedInNetworkUpdate> getUpdates() {
 		return updates;
 	}
+
 }

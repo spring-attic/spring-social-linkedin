@@ -20,11 +20,11 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PhoneNumberMixin {
+abstract class PhoneNumberMixin {
 
 	@JsonCreator
-	public PhoneNumberMixin(
-			@JsonProperty(value="phoneType") String phoneType, 
-			@JsonProperty(value="phoneNumber") String phoneNumber) {}
+	PhoneNumberMixin(
+		@JsonProperty(value="phoneType") String phoneType, 
+		@JsonProperty(value="phoneNumber") String phoneNumber) {}
 	
 }

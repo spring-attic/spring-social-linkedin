@@ -23,13 +23,16 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.PostComment;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PostCommentsMixin {
+abstract class PostCommentsMixin {
 
 	@JsonCreator
-	public PostCommentsMixin(@JsonProperty("_count") int count, 
-			@JsonProperty("_start") int start, 
-			@JsonProperty("_total") int total) {}
+	PostCommentsMixin(
+		@JsonProperty("_count") int count, 
+		@JsonProperty("_start") int start, 
+		@JsonProperty("_total") int total) {}
 	
 
-	@JsonProperty("values") List<PostComment> comments;
+	@JsonProperty("values") 
+	List<PostComment> comments;
+
 }

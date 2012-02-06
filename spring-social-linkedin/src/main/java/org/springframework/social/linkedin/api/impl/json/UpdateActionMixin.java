@@ -36,16 +36,15 @@ import org.springframework.social.linkedin.api.UpdateContent;
 import org.springframework.social.linkedin.api.UpdateContentCompany;
 import org.springframework.social.linkedin.api.UpdateContentShare;
 import org.springframework.social.linkedin.api.UpdateType;
-import org.springframework.social.linkedin.api.impl.json.LinkedInNetworkUpdateMixin.LikesListDeserializer;
-import org.springframework.social.linkedin.api.impl.json.LinkedInNetworkUpdateMixin.UpdateTypeDeserializer;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UpdateActionMixin {
+abstract class UpdateActionMixin {
+
 	@JsonCreator
-	public UpdateActionMixin(
-			@JsonProperty("timestamp") Date timestamp, 
-			@JsonProperty("updateKey") String updateKey, 
-			@JsonProperty("updateType") @JsonDeserialize(using = UpdateTypeDeserializer.class) UpdateType updateType) {}
+	UpdateActionMixin(
+		@JsonProperty("timestamp") Date timestamp, 
+		@JsonProperty("updateKey") String updateKey, 
+		@JsonProperty("updateType") @JsonDeserialize(using = UpdateTypeDeserializer.class) UpdateType updateType) {}
 	
 	@JsonProperty("isCommentable") 
 	boolean commentable;

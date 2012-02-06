@@ -20,10 +20,10 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class NetworkStatisticsMixin {
+abstract class NetworkStatisticsMixin {
 
 	@JsonCreator
-	public NetworkStatisticsMixin(
-			@JsonProperty("values") int[] values) {}
+	NetworkStatisticsMixin(
+		@JsonProperty("values") int[] values) {}
 	
 }

@@ -13,22 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.social.linkedin.api.impl.json;
+package org.springframework.social.linkedin.api;
 
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonCreator;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.springframework.social.linkedin.api.Job;
+/**
+ * Model class representing results returned from querying Job Bookmarks
+ * 
+ * @author Robert Drysdale
+ */
+public class JobBookmarks extends SearchResult {
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class SearchResultJobMixin {
+	private static final long serialVersionUID = 1L;
 	
-	@JsonCreator
-	public SearchResultJobMixin(@JsonProperty("_count") int count, 
-			@JsonProperty("_start") int start, 
-			@JsonProperty("_total") int total) {}
+	private List<JobBookmark> jobBookmarks;
+
+	public JobBookmarks(int count, int start, int total) {
+		super(count, start, total);
+	}
 	
-	@JsonProperty("values") List<Job> jobs;
+	public List<JobBookmark> getJobBookmarks() {
+		return jobBookmarks;
+	}
+
 }

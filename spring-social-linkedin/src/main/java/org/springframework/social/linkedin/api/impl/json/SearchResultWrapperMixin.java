@@ -21,8 +21,10 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.SearchResult;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SearchResultWrapperMixin {
+abstract class SearchResultWrapperMixin {
 	
 	@JsonCreator
-	public SearchResultWrapperMixin(@JsonProperty("people") SearchResult result) {}
+	SearchResultWrapperMixin(
+		@JsonProperty("people") SearchResult result) {}
+
 }

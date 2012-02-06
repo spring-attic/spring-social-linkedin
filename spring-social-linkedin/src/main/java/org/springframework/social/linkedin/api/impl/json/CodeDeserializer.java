@@ -23,8 +23,8 @@ import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
 
-
-public class CodeDeserializer extends JsonDeserializer<String> {
+class CodeDeserializer extends JsonDeserializer<String> {
+	
 	private static final String VALUE = "code";
 	
 	@Override
@@ -32,4 +32,5 @@ public class CodeDeserializer extends JsonDeserializer<String> {
 		JsonNode node = jp.readValueAsTree();
 		return node.get(VALUE).getTextValue();
 	}
+	
 }

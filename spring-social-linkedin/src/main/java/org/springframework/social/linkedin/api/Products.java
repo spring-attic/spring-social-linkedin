@@ -21,15 +21,14 @@ import java.util.List;
  * Product Result
  * 
  * @author Robert Drysdale
- *
  */
-public class ProductResult extends SearchResult {
+public class Products extends SearchResult {
 
 	private static final long serialVersionUID = 1L;
 	
 	private List<Product> products;
 	
-	public ProductResult(int count, int start, int total) {
+	public Products(int count, int start, int total) {
 		super(count, start, total);
 	}
 	

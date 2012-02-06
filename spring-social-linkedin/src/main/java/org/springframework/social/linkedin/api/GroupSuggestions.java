@@ -17,7 +17,13 @@ package org.springframework.social.linkedin.api;
 
 import java.util.List;
 
+/**
+ * Model class representing group suggestions on LinkedIn
+ * 
+ * @author Robert Drysdale
+ */
 public class GroupSuggestions extends SearchResult {
+
 	private static final long serialVersionUID = 1L;
 	
 	private List<Group> suggestions;

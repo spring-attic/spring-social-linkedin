@@ -15,16 +15,23 @@
  */
 package org.springframework.social.linkedin.api.impl.json;
 
+import java.util.List;
+
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.springframework.social.linkedin.api.JobBookmark;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-abstract class UrlResourceMixin {
-
+abstract class JobBookmarksMixin {
+	
 	@JsonCreator
-	UrlResourceMixin(
-		@JsonProperty("name") String name, 
-		@JsonProperty("url") String url) {}
+	JobBookmarksMixin(
+		@JsonProperty("_count") int count, 
+		@JsonProperty("_start") int start, 
+		@JsonProperty("_total") int total) {}
+	
+	@JsonProperty("values") 
+	List<JobBookmark> jobBookmarks;
 
 }

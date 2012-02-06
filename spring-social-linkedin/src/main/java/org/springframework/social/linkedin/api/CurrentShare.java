@@ -18,12 +18,12 @@ package org.springframework.social.linkedin.api;
 import java.util.Date;
 
 /**
- * Details of the last thing that User shared on LinkedIn
+ * Model class representing details of the last thing that User shared on LinkedIn
  * 
  * @author Robert Drysdale
- *
  */
 public class CurrentShare extends Share {
+
 	private static final long serialVersionUID = 1L;
 	
 	private LinkedInProfile author;

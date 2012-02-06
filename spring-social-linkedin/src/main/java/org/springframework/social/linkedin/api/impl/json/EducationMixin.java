@@ -21,17 +21,17 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.LinkedInDate;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EducationMixin {
+abstract class EducationMixin {
 
 	@JsonCreator
-	public EducationMixin(
-			@JsonProperty("activities") String activities, 
-			@JsonProperty("degree")  String degree,
-			@JsonProperty("fieldOfStudy")  String fieldOfStudy,
-			@JsonProperty("id")  String id,
-			@JsonProperty("notes")  String notes,
-			@JsonProperty("schoolName")  String schoolName,
-			@JsonProperty("startDate")  LinkedInDate startDate,
-			@JsonProperty("endDate")  LinkedInDate endDte) {}
+	EducationMixin(
+		@JsonProperty("activities") String activities, 
+		@JsonProperty("degree")  String degree,
+		@JsonProperty("fieldOfStudy")  String fieldOfStudy,
+		@JsonProperty("id")  String id,
+		@JsonProperty("notes")  String notes,
+		@JsonProperty("schoolName")  String schoolName,
+		@JsonProperty("startDate")  LinkedInDate startDate,
+		@JsonProperty("endDate")  LinkedInDate endDte) {}
 	
 }

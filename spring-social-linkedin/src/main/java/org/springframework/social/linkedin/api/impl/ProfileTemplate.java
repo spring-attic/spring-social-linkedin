@@ -23,19 +23,19 @@ import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
+import org.springframework.social.linkedin.api.LinkedInProfiles;
 import org.springframework.social.linkedin.api.ProfileField;
 import org.springframework.social.linkedin.api.ProfileOperations;
 import org.springframework.social.linkedin.api.SearchParameters;
-import org.springframework.social.linkedin.api.SearchResultPeople;
 import org.springframework.web.client.RestOperations;
 
 /**
  * Class that implements operations for Profile API
  * 
  * @author Robert Drysdale
- *
  */
-public class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
+class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
+
 	static {
 		StringBuffer b = new StringBuffer();
 		b.append(BASE_URL).append("{id}:(");
@@ -60,6 +60,7 @@ public class ProfileTemplate extends AbstractTemplate implements ProfileOperatio
 	}
 	
 	private RestOperations restOperations;
+	
 	private ObjectMapper objectMapper;
 	
 	public ProfileTemplate(RestOperations restOperations, ObjectMapper objectMapper) {
@@ -98,10 +99,10 @@ public class ProfileTemplate extends AbstractTemplate implements ProfileOperatio
 		return restOperations.getForObject(PROFILE_URL_FULL, LinkedInProfileFull.class, "url=" + url);
 	}
 	
-	public SearchResultPeople search(SearchParameters parameters) {
+	public LinkedInProfiles search(SearchParameters parameters) {
 		JsonNode node =  restOperations.getForObject(expand(PEOPLE_SEARCH_URL, parameters), JsonNode.class);
 		try {
-			return objectMapper.readValue(node.path("people"), SearchResultPeople.class);
+			return objectMapper.readValue(node.path("people"), LinkedInProfiles.class);
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);

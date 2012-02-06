@@ -17,7 +17,10 @@ package org.springframework.social.linkedin.api.impl.json;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
-public class ApiStandardProfileRequestMixin{
+abstract class ApiStandardProfileRequestMixin{
 	
-	public ApiStandardProfileRequestMixin(@JsonProperty("name") String name, @JsonProperty("value") String value) {}
+	ApiStandardProfileRequestMixin(
+		@JsonProperty("name") String name, 
+		@JsonProperty("value") String value) {}
+
 }

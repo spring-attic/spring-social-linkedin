@@ -21,9 +21,9 @@ import org.springframework.social.linkedin.api.Group.GroupPosts;
  * Operations on LinkedIn Group API
  * 
  * @author Robert Drysdale
- *
  */
 public interface GroupOperations {
+	
 	/**
 	 * Get Details for a Group
 	 * @param id Id of Group
@@ -189,4 +189,5 @@ public interface GroupOperations {
 	 * @param groupId Id of Group
 	 */
 	public void deleteGroupSuggestion(Integer groupId);
+
 }

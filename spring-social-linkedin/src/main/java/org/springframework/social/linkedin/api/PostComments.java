@@ -21,7 +21,6 @@ import java.util.List;
  * Structure which contains list of post comments inside
  * 
  * @author Robert Drysdale
- *
  */
 public class PostComments extends SearchResult {
 
@@ -36,4 +35,5 @@ public class PostComments extends SearchResult {
 	public List<PostComment> getComments() {
 		return comments;
 	}
+
 }

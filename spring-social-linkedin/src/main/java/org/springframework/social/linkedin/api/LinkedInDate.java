@@ -22,8 +22,11 @@ package org.springframework.social.linkedin.api;
  *
  */
 public class LinkedInDate {
+	
 	private final int year;
+	
 	private final int month;
+	
 	private final int day;
 	
 	public LinkedInDate(int year, int month, int day) {

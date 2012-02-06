@@ -33,18 +33,18 @@ import org.springframework.social.linkedin.api.Share;
 import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UpdateContentCompanyMixin {
+abstract class UpdateContentCompanyMixin {
 
 	@JsonCreator
-	public UpdateContentCompanyMixin (
-			@JsonProperty("id") String id, 
-			@JsonProperty("firstName") String firstName, 
-			@JsonProperty("lastName") String lastName, 
-			@JsonProperty("headline") String headline, 
-			@JsonProperty("industry") String industry, 
-			@JsonProperty("publicProfileUrl") String publicProfileUrl, 
-			@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
-			@JsonProperty("pictureUrl") String profilePictureUrl) {}
+	UpdateContentCompanyMixin (
+		@JsonProperty("id") String id, 
+		@JsonProperty("firstName") String firstName, 
+		@JsonProperty("lastName") String lastName, 
+		@JsonProperty("headline") String headline, 
+		@JsonProperty("industry") String industry, 
+		@JsonProperty("publicProfileUrl") String publicProfileUrl, 
+		@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
+		@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
 	@JsonProperty("company")
 	Company company;
@@ -56,7 +56,7 @@ public class UpdateContentCompanyMixin {
 	@JsonProperty("companyJobUpdate")
 	CompanyJobUpdate companyJobUpdate;
 	
-	public static final class CompanyStatusUpdateDeserializer extends JsonDeserializer<Share> {
+	private static final class CompanyStatusUpdateDeserializer extends JsonDeserializer<Share> {
 		@Override
 		public Share deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();

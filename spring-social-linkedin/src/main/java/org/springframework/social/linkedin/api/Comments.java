@@ -19,10 +19,9 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Structure which contains list of comments inside
+ * Model class representing a list of comments
  * 
  * @author Robert Drysdale
- *
  */
 public class Comments implements Serializable {
 	
@@ -37,4 +36,5 @@ public class Comments implements Serializable {
 	public List<Comment> getComments() {
 		return comments;
 	}
+	
 }

@@ -18,7 +18,13 @@ package org.springframework.social.linkedin.api;
 import java.net.URI;
 import java.util.List;
 
+/**
+ * Operations on Linkedin Network Update API
+ * 
+ * @author Robert Drysdale
+ */
 public interface NetworkUpdateOperations {
+
 	/**
 	 * Retrieves network updates for connections
 	 * 
@@ -143,4 +149,5 @@ public interface NetworkUpdateOperations {
 	 * @return URI to share location
 	 */
 	URI share(NewShare share);
+
 }

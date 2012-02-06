@@ -13,28 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.social.linkedin.api;
+package org.springframework.social.linkedin.api.impl.json;
 
 import java.util.List;
 
-/**
- * Search result for querying jobs
- * 
- * @author Robert Drysdale
- *
- */
-public class SearchResultJob extends SearchResult {
+import org.codehaus.jackson.annotate.JsonCreator;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonProperty;
+import org.springframework.social.linkedin.api.Company;
 
-	private static final long serialVersionUID = 1L;
+@JsonIgnoreProperties(ignoreUnknown = true)
+abstract class CompaniesMixin {
 	
-	private List<Job> jobs;
-
-	public SearchResultJob(int count, int start, int total) {
-		super(count, start, total);
-	}
+	@JsonCreator
+	CompaniesMixin(
+		@JsonProperty("_count") int count, 
+		@JsonProperty("_start") int start, 
+		@JsonProperty("_total") int total) {}
 	
-	public List<Job> getJobs() {
-		return jobs;
-	}
+	@JsonProperty("values") 
+	List<Company> companies;
 
 }

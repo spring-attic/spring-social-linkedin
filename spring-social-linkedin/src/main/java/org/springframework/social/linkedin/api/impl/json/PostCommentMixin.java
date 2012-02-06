@@ -23,13 +23,13 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PostCommentMixin {
+abstract class PostCommentMixin {
 
 	@JsonCreator
-	public PostCommentMixin(
-			@JsonProperty("creationTimestamp") Date creationTimestamp,
-			@JsonProperty("creator") LinkedInProfile creator,
-			@JsonProperty("id") String id,
-			@JsonProperty("text") String text) {}
+	PostCommentMixin(
+		@JsonProperty("creationTimestamp") Date creationTimestamp,
+		@JsonProperty("creator") LinkedInProfile creator,
+		@JsonProperty("id") String id,
+		@JsonProperty("text") String text) {}
 	
 }

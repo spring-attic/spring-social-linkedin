@@ -27,8 +27,8 @@ import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.Product;
-import org.springframework.social.linkedin.api.ProductResult;
-import org.springframework.social.linkedin.api.SearchResultCompany;
+import org.springframework.social.linkedin.api.Products;
+import org.springframework.social.linkedin.api.Companies;
 
 public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 	@Test
@@ -73,7 +73,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 	public void search() {
 		mockServer.expect(requestTo(CompanyTemplate.COMPANY_SEARCH_URL.replaceFirst("\\{keywords\\}", "spring%20j2ee"))).andExpect(method(GET))
 		.andRespond(withResponse(new ClassPathResource("testdata/company_search.json", getClass()), responseHeaders));
-		SearchResultCompany result = linkedIn.companyOperations().search("spring j2ee");
+		Companies result = linkedIn.companyOperations().search("spring j2ee");
 		
 		assertEquals(10, result.getCount());
 		assertEquals(0, result.getStart());
@@ -133,7 +133,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 				.replaceFirst("\\{start\\}", "0")
 				.replaceFirst("\\{count\\}", "5"))).andExpect(method(GET))
 		.andRespond(withResponse(new ClassPathResource("testdata/products.json", getClass()), responseHeaders));
-		ProductResult productResult = linkedIn.companyOperations().getProducts(1337, 0, 5);
+		Products productResult = linkedIn.companyOperations().getProducts(1337, 0, 5);
 		
 		assertEquals(5, productResult.getCount());
 		assertEquals(0, productResult.getStart());

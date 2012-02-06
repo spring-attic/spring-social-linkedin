@@ -38,4 +38,5 @@ public class LinkedInConnections {
 	public List<LinkedInProfile> getConnections() {
 		return connections;
 	}
+
 }

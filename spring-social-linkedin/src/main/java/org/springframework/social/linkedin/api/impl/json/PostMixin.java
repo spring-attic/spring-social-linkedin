@@ -36,28 +36,36 @@ import org.springframework.social.linkedin.api.Post.PostRelation;
 import org.springframework.social.linkedin.api.Post.PostType;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PostMixin {
+abstract class PostMixin {
 	
 	@JsonCreator
-	public PostMixin(
-			@JsonProperty("creator") LinkedInProfile creator, 
-			@JsonProperty("id") String id,
-			@JsonProperty("title") String title,
-			@JsonProperty("type") @JsonDeserialize(using=PostTypeDeserializer.class) PostType type) {}
+	PostMixin(
+		@JsonProperty("creator") LinkedInProfile creator, 
+		@JsonProperty("id") String id,
+		@JsonProperty("title") String title,
+		@JsonProperty("type") @JsonDeserialize(using=PostTypeDeserializer.class) PostType type) {}
 	
-	@JsonProperty Date creationTimestamp;
-	@JsonProperty PostRelation relationToViewer;
-	@JsonProperty String summary;
-	@JsonProperty @JsonDeserialize(using=LikesListDeserializer.class) List<LinkedInProfile> likes;
+	@JsonProperty 
+	Date creationTimestamp;
 	
-	public static final class PostTypeDeserializer extends JsonDeserializer<PostType>  {
+	@JsonProperty 
+	PostRelation relationToViewer;
+	
+	@JsonProperty 
+	String summary;
+	
+	@JsonProperty 
+	@JsonDeserialize(using=LikesListDeserializer.class) 
+	List<LinkedInProfile> likes;
+	
+	private static final class PostTypeDeserializer extends JsonDeserializer<PostType>  {
 		public PostType deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			JsonNode node = jp.readValueAsTree();
 			return PostType.valueOf(node.get("code").getTextValue().replace('-', '_').toUpperCase());
 		}
 	}
 	
-	public static final class LikesListDeserializer extends JsonDeserializer<List<LinkedInProfile>>  {
+	private static final class LikesListDeserializer extends JsonDeserializer<List<LinkedInProfile>>  {
 		public List<LinkedInProfile> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
@@ -75,4 +83,5 @@ public class PostMixin {
 			return likes;
 		}
 	}
+
 }

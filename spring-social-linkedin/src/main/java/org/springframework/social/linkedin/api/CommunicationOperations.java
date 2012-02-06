@@ -25,6 +25,7 @@ import java.util.List;
  *
  */
 public interface CommunicationOperations {
+
 	/**
 	 * Send a textual message to a list of recipientIds
 	 * Requires id from LinkedInProfile object
@@ -66,4 +67,5 @@ public interface CommunicationOperations {
 	 * @param lastName Last Name of recipient
 	 */
 	void connectTo(String subject, String body, String email, String firstName, String lastName);
+
 }

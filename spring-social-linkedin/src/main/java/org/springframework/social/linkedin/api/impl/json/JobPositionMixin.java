@@ -33,19 +33,29 @@ import org.springframework.social.linkedin.api.CodeAndName;
 import org.springframework.social.linkedin.api.Location;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class JobPositionMixin {
+abstract class JobPositionMixin {
+
 	@JsonCreator
-	public JobPositionMixin(
-			@JsonProperty("title") String title, 
-			@JsonProperty("location") Location location) {}
+	JobPositionMixin(
+		@JsonProperty("title") String title, 
+		@JsonProperty("location") Location location) {}
 	
 
-	@JsonProperty CodeAndName experienceLevel;
-	@JsonProperty @JsonDeserialize(using=CodeAndNameListDeserializer.class) List<CodeAndName> industries;
-	@JsonProperty @JsonDeserialize(using=CodeAndNameListDeserializer.class) List<CodeAndName> jobFunctions;
-	@JsonProperty CodeAndName jobType;
+	@JsonProperty 
+	CodeAndName experienceLevel;
 	
-	public static final class CodeAndNameListDeserializer extends JsonDeserializer<List<CodeAndName>>  {
+	@JsonProperty 
+	@JsonDeserialize(using=CodeAndNameListDeserializer.class) 
+	List<CodeAndName> industries;
+	
+	@JsonProperty 
+	@JsonDeserialize(using=CodeAndNameListDeserializer.class) 
+	List<CodeAndName> jobFunctions;
+	
+	@JsonProperty 
+	CodeAndName jobType;
+	
+	private static final class CodeAndNameListDeserializer extends JsonDeserializer<List<CodeAndName>>  {
 		public List<CodeAndName> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());

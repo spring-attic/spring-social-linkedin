@@ -33,13 +33,14 @@ import org.springframework.social.linkedin.api.Group.GroupAvailableAction;
 import org.springframework.social.linkedin.api.Group.MembershipState;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GroupRelationMixin {
+abstract class GroupRelationMixin {
 	
 	@JsonCreator
-	public GroupRelationMixin(@JsonProperty("availableActions") @JsonDeserialize(using=AvailableActionDeserializer.class) List<GroupAvailableAction> availableActions, 
-			@JsonProperty("membershipState") @JsonDeserialize(using=MembershipStateDeserializer.class) MembershipState membershipState) {}
+	GroupRelationMixin(
+		@JsonProperty("availableActions") @JsonDeserialize(using=AvailableActionDeserializer.class) List<GroupAvailableAction> availableActions, 
+		@JsonProperty("membershipState") @JsonDeserialize(using=MembershipStateDeserializer.class) MembershipState membershipState) {}
 	
-	public static final class AvailableActionDeserializer extends JsonDeserializer<List<GroupAvailableAction>>  {
+	private static final class AvailableActionDeserializer extends JsonDeserializer<List<GroupAvailableAction>>  {
 		public List<GroupAvailableAction> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
@@ -60,10 +61,11 @@ public class GroupRelationMixin {
 		}
 	}
 	
-	public static final class MembershipStateDeserializer extends JsonDeserializer<MembershipState>  {
+	private static final class MembershipStateDeserializer extends JsonDeserializer<MembershipState>  {
 		public MembershipState deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			JsonNode node = jp.readValueAsTree();
 			return MembershipState.valueOf(node.get("code").getTextValue().replace('-', '_').toUpperCase());
 		}
 	}
+
 }

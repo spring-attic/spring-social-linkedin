@@ -19,17 +19,27 @@ import java.io.Serializable;
 
 import org.springframework.social.linkedin.api.Group.MembershipState;
 
+/**
+ * Model class representing group settings on LinkedIn
+ * 
+ * @author Robert Drysdale
+ */
 public class GroupSettings implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private final Boolean allowMessagesFromMembers;
-	private final Boolean emailAnnouncementsFromManagers;
-	private final EmailDigestFrequency emailDigestFrequency;
-	private final Boolean emailForEveryNewPost;
-	private final Group group;
-	private final MembershipState membershipState;
-	private final Boolean showGroupLogoInProfile;
 	
+	private final Boolean emailAnnouncementsFromManagers;
+
+	private final EmailDigestFrequency emailDigestFrequency;
+
+	private final Boolean emailForEveryNewPost;
+
+	private final Group group;
+
+	private final MembershipState membershipState;
+
+	private final Boolean showGroupLogoInProfile;
 
 	public GroupSettings(Boolean allowMessagesFromMembers,
 			Boolean emailAnnouncementsFromManagers,
@@ -47,21 +57,27 @@ public class GroupSettings implements Serializable {
 	public Boolean getAllowMessagesFromMembers() {
 		return allowMessagesFromMembers;
 	}
+	
 	public Boolean getEmailAnnouncementsFromManagers() {
 		return emailAnnouncementsFromManagers;
 	}
+	
 	public EmailDigestFrequency getEmailDigestFrequency() {
 		return emailDigestFrequency;
 	}
+	
 	public Boolean getEmailForEveryNewPost() {
 		return emailForEveryNewPost;
 	}
+	
 	public Group getGroup() {
 		return group;
 	}
+	
 	public MembershipState getMembershipState() {
 		return membershipState;
 	}
+	
 	public Boolean getShowGroupLogoInProfile() {
 		return showGroupLogoInProfile;
 	}
@@ -71,4 +87,5 @@ public class GroupSettings implements Serializable {
 		DAILY,
 		WEEKLY
 	}
+
 }

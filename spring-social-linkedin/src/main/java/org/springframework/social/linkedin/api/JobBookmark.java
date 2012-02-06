@@ -19,17 +19,19 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Job Bookmark
+ * Model class representing a job bookmark.
  * 
  * @author Robert Drysdale
- *
  */
 public class JobBookmark implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private final boolean isApplied;
+	
 	private final boolean isSaved;
+	
 	private final Job job;
+	
 	private final Date savedTimestamp;
 	
 	public JobBookmark(boolean isApplied, boolean isSaved, Job job, Date savedTimestamp) {
@@ -54,4 +56,5 @@ public class JobBookmark implements Serializable {
 	public Date getSavedTimestamp() {
 		return savedTimestamp;
 	}
+
 }

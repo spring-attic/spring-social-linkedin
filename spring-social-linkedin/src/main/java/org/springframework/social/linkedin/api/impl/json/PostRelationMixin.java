@@ -30,18 +30,18 @@ import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.springframework.social.linkedin.api.Group.GroupAvailableAction;
-import org.springframework.social.linkedin.api.Group.MembershipState;
 import org.springframework.social.linkedin.api.Post.PostAvailableAction;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PostRelationMixin {
+abstract class PostRelationMixin {
 	
 	@JsonCreator
-	public PostRelationMixin(@JsonProperty("availableActions") @JsonDeserialize(using=AvailableActionDeserializer.class) List<GroupAvailableAction> availableActions, 
+	PostRelationMixin(
+			@JsonProperty("availableActions") @JsonDeserialize(using=AvailableActionDeserializer.class) List<GroupAvailableAction> availableActions, 
 			@JsonProperty("isFollowing") Boolean isFollowing, 
 			@JsonProperty("isLiked") Boolean isLiked) {}
 	
-	public static final class AvailableActionDeserializer extends JsonDeserializer<List<PostAvailableAction>>  {
+	private static final class AvailableActionDeserializer extends JsonDeserializer<List<PostAvailableAction>>  {
 		public List<PostAvailableAction> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
@@ -62,10 +62,4 @@ public class PostRelationMixin {
 		}
 	}
 	
-	public static final class MembershipStateDeserializer extends JsonDeserializer<MembershipState>  {
-		public MembershipState deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			JsonNode node = jp.readValueAsTree();
-			return MembershipState.valueOf(node.get("code").getTextValue().replace('-', '_').toUpperCase());
-		}
-	}
 }

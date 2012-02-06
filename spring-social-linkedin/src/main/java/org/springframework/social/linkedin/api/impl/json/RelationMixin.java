@@ -20,10 +20,10 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RelationMixin {
+abstract class RelationMixin {
 
 	@JsonCreator
-	public RelationMixin(
-			@JsonProperty("distance") int distance) {}
+	RelationMixin(
+		@JsonProperty("distance") int distance) {}
 	
 }

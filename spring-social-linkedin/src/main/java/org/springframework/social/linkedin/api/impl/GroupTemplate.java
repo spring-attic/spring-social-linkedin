@@ -27,8 +27,9 @@ import org.springframework.social.linkedin.api.GroupSuggestions;
 import org.springframework.social.linkedin.api.PostComments;
 import org.springframework.web.client.RestOperations;
 
-public class GroupTemplate extends AbstractTemplate implements GroupOperations {
-private final RestOperations restOperations;
+class GroupTemplate extends AbstractTemplate implements GroupOperations {
+	
+	private final RestOperations restOperations;
 	
 	public GroupTemplate(RestOperations restOperations) {
 		this.restOperations = restOperations;
@@ -157,4 +158,5 @@ private final RestOperations restOperations;
 	public static final String GROUP_POST_DELETE_URL = GROUP_POSTS_BASE_URL + "{post-id}";
 	public static final String GROUP_POST_ADD_COMMENT_URL = GROUP_POSTS_BASE_URL + "{post-id}/comments";
 	public static final String GROUP_POST_DELETE_COMMENT_URL = BASE_URL + "comments/{comment-id}";
+
 }

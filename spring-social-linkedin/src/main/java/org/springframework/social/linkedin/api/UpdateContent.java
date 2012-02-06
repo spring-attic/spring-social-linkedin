@@ -19,7 +19,6 @@ package org.springframework.social.linkedin.api;
  * Base class of Updated Content
  * 
  * @author Robert Drysdale
- *
  */
 public class UpdateContent extends LinkedInProfile {
 

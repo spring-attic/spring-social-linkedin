@@ -23,12 +23,15 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.Product;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ProductResultMixin {
+abstract class ProductsMixin {
 	
 	@JsonCreator
-	public ProductResultMixin(@JsonProperty("_count") int count, 
-			@JsonProperty("_start") int start, 
-			@JsonProperty("_total") int total) {}
+	ProductsMixin(
+		@JsonProperty("_count") int count, 
+		@JsonProperty("_start") int start, 
+		@JsonProperty("_total") int total) {}
 	
-	@JsonProperty("values") List<Product> products;
+	@JsonProperty("values") 
+	List<Product> products;
+
 }

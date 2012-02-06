@@ -21,9 +21,9 @@ import java.io.Serializable;
  * Relation
  * 
  * @author Robert Drysdale
- *
  */
 public class Relation implements Serializable {
+	
 	private static final long serialVersionUID = -3045269758643542427L;
 	
 	private final int distance;
@@ -35,4 +35,5 @@ public class Relation implements Serializable {
 	public int getDistance() {
 		return distance;
 	}
+
 }

@@ -29,9 +29,8 @@ import org.springframework.web.client.RestOperations;
  * Class that implements Connection API
  * 
  * @author Robert Drysdale
- *
  */
-public class ConnectionTemplate implements ConnectionOperations {
+class ConnectionTemplate implements ConnectionOperations {
 	private final RestOperations restOperations;
 	
 	public ConnectionTemplate(RestOperations restOperations) {
@@ -50,4 +49,5 @@ public class ConnectionTemplate implements ConnectionOperations {
 	static final String CONNECTIONS_URL = BASE_URL + "~/connections?format=json";
 	
 	static final String STATISTICS_URL = BASE_URL + "~/network/network-stats?format=json";
+
 }

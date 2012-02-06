@@ -21,11 +21,11 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LocationMixin {
+abstract class LocationMixin {
 
 	@JsonCreator
-	public LocationMixin(
-			@JsonProperty("country") @JsonDeserialize(using=CodeDeserializer.class) String country, 
-			@JsonProperty("name") String name) {}
+	LocationMixin(
+		@JsonProperty("country") @JsonDeserialize(using=CodeDeserializer.class) String country, 
+		@JsonProperty("name") String name) {}
 	
 }

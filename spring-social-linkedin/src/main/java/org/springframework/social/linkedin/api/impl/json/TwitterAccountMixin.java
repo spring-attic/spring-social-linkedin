@@ -20,11 +20,11 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TwitterAccountMixin {
+abstract class TwitterAccountMixin {
 
 	@JsonCreator
-	public TwitterAccountMixin(
-			@JsonProperty("providerAccountId") String providerAccountId, 
-			@JsonProperty("providerAccountName") String providerAccountName) {}
+	TwitterAccountMixin(
+		@JsonProperty("providerAccountId") String providerAccountId, 
+		@JsonProperty("providerAccountName") String providerAccountName) {}
 	
 }
