@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,18 +19,22 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Comment on an object such as a post or update
+ * Model class representing a comment on an object such as a post or update
  * 
  * @author Robert Drysdale
- *
  */
 public class Comment implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private final String comment;
+	
 	private final String id;
+	
 	private final LinkedInProfile person;
+	
 	private final int sequenceNumber;
+	
 	private final Date timestamp;
 	
 	public Comment(String comment, String id, LinkedInProfile person, int sequenceNumber, Date timestamp) {
@@ -60,4 +64,5 @@ public class Comment implements Serializable {
 	public Date getTimestamp() {
 		return timestamp;
 	}
+	
 }

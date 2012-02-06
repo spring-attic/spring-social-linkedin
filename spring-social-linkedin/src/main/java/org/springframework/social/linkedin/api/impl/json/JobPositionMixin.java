@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,19 +33,29 @@ import org.springframework.social.linkedin.api.CodeAndName;
 import org.springframework.social.linkedin.api.Location;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class JobPositionMixin {
+abstract class JobPositionMixin {
+
 	@JsonCreator
-	public JobPositionMixin(
-			@JsonProperty("title") String title, 
-			@JsonProperty("location") Location location) {}
+	JobPositionMixin(
+		@JsonProperty("title") String title, 
+		@JsonProperty("location") Location location) {}
 	
 
-	@JsonProperty CodeAndName experienceLevel;
-	@JsonProperty @JsonDeserialize(using=CodeAndNameListDeserializer.class) List<CodeAndName> industries;
-	@JsonProperty @JsonDeserialize(using=CodeAndNameListDeserializer.class) List<CodeAndName> jobFunctions;
-	@JsonProperty CodeAndName jobType;
+	@JsonProperty 
+	CodeAndName experienceLevel;
 	
-	public static final class CodeAndNameListDeserializer extends JsonDeserializer<List<CodeAndName>>  {
+	@JsonProperty 
+	@JsonDeserialize(using=CodeAndNameListDeserializer.class) 
+	List<CodeAndName> industries;
+	
+	@JsonProperty 
+	@JsonDeserialize(using=CodeAndNameListDeserializer.class) 
+	List<CodeAndName> jobFunctions;
+	
+	@JsonProperty 
+	CodeAndName jobType;
+	
+	private static final class CodeAndNameListDeserializer extends JsonDeserializer<List<CodeAndName>>  {
 		public List<CodeAndName> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());

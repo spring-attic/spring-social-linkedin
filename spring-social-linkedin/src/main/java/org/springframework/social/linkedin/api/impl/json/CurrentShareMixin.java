@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,16 +26,18 @@ import org.springframework.social.linkedin.api.Share.ShareContent;
 import org.springframework.social.linkedin.api.Share.ShareSource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CurrentShareMixin {
+abstract class CurrentShareMixin {
 	
 	@JsonCreator
-	public CurrentShareMixin( 
-			@JsonProperty("comment") String comment, 
-			@JsonProperty("content") ShareContent content,
-			@JsonProperty("id") String id, 
-			@JsonProperty("source") ShareSource source, 
-			@JsonProperty("timestamp") Date timestamp, 
-			@JsonProperty("visibility") @JsonDeserialize(using=CodeDeserializer.class) String visibility) {}
+	CurrentShareMixin( 
+		@JsonProperty("comment") String comment, 
+		@JsonProperty("content") ShareContent content,
+		@JsonProperty("id") String id, 
+		@JsonProperty("source") ShareSource source, 
+		@JsonProperty("timestamp") Date timestamp, 
+		@JsonProperty("visibility") @JsonDeserialize(using=CodeDeserializer.class) String visibility) {}
 	
-	@JsonProperty("author") LinkedInProfile author;
+	@JsonProperty("author") 
+	LinkedInProfile author;
+
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,36 +15,28 @@
  */
 package org.springframework.social.linkedin.api.impl.json;
 
-import java.io.IOException;
 import java.util.List;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.DeserializationContext;
-import org.codehaus.jackson.map.JsonDeserializer;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
-import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.Recommendation;
 import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UpdateContentRecommendationMixin {
+abstract class UpdateContentRecommendationMixin {
 
 	@JsonCreator
-	public UpdateContentRecommendationMixin (
-			@JsonProperty("id") String id, 
-			@JsonProperty("firstName") String firstName, 
-			@JsonProperty("lastName") String lastName, 
-			@JsonProperty("headline") String headline, 
-			@JsonProperty("industry") String industry, 
-			@JsonProperty("publicProfileUrl") String publicProfileUrl, 
-			@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
-			@JsonProperty("pictureUrl") String profilePictureUrl) {}
+	UpdateContentRecommendationMixin (
+		@JsonProperty("id") String id, 
+		@JsonProperty("firstName") String firstName, 
+		@JsonProperty("lastName") String lastName, 
+		@JsonProperty("headline") String headline, 
+		@JsonProperty("industry") String industry, 
+		@JsonProperty("publicProfileUrl") String publicProfileUrl, 
+		@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
+		@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
 	@JsonProperty("recommendationsReceived")
 	@JsonDeserialize(using=RecommendationsListDeserializer.class)
@@ -53,20 +45,5 @@ public class UpdateContentRecommendationMixin {
 	@JsonProperty("recommendationsGiven")
 	@JsonDeserialize(using=RecommendationsListDeserializer.class)
 	List<Recommendation> recommendationsGiven;
-	
-	public static class RecommendationsListDeserializer extends JsonDeserializer<List<Recommendation>>  {
-		public List<Recommendation> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<Recommendation>>() {} );
-				}
-			}
-			return null;
-		}
-	}
 
 }

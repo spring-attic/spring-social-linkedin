@@ -1,3 +1,18 @@
+/*
+ * Copyright 2012 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.springframework.social.linkedin.api;
 
 import java.util.Arrays;
@@ -5,24 +20,28 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * <p>
- * Model Object passed to getNetworkUpdates()
- * to control what parameters are set on the Http GET
- * request to LinkedIn Network Updates API
- * </p>
+ * Model Object passed to getNetworkUpdates() to control what parameters are set on the Http GET request to LinkedIn Network Updates API.
+ * 
  * @author Robert Drysdale
- *
  */
 public class NetworkUpdateParameters {
 	
 	private final String user;
+
 	private final boolean self;
+	
 	private final int recordStart;
+	
 	private final int recordCount;
+	
 	private final Date recordsBefore;
+	
 	private final Date recordsAfter;
+	
 	private final List<UpdateTypeInput> updateTypes;
+	
 	private final boolean updateAll;
+	
 	private final boolean showHidden;
 	
 	/**
@@ -63,11 +82,8 @@ public class NetworkUpdateParameters {
 	 * @param showHidden Show updates that user has set to hidden
 	 * @param updateTypes List of Update Types to retrieve
 	 */
-	public NetworkUpdateParameters(String user, boolean self, int recordStart, int recordCount, 
-			Date recordsBefore, Date recordsAfter, boolean updateAll, boolean showHidden, 
-			UpdateTypeInput... updateTypes) {
-		this(user, self, recordStart, recordCount, recordsBefore, recordsAfter, updateAll,
-				showHidden, Arrays.asList(updateTypes));
+	public NetworkUpdateParameters(String user, boolean self, int recordStart, int recordCount, Date recordsBefore, Date recordsAfter, boolean updateAll, boolean showHidden, UpdateTypeInput... updateTypes) {
+		this(user, self, recordStart, recordCount, recordsBefore, recordsAfter, updateAll, showHidden, Arrays.asList(updateTypes));
 	}
 	
 	public String getUser() {
@@ -105,4 +121,5 @@ public class NetworkUpdateParameters {
 	public boolean getShowHidden() {
 		return showHidden;
 	}
+
 }

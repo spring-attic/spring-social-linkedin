@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,11 +31,8 @@ public class UpdateContentCompany extends UpdateContent {
 	
 	private Company company;
 	
-	public UpdateContentCompany(String id, String firstName, String lastName,
-			String headline, String industry, String publicProfileUrl,
-			UrlResource siteStandardProfileRequest, String profilePictureUrl) {
-		super(id, firstName, lastName, headline, industry, publicProfileUrl,
-				siteStandardProfileRequest, profilePictureUrl);
+	public UpdateContentCompany(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, UrlResource siteStandardProfileRequest, String profilePictureUrl) {
+		super(id, firstName, lastName, headline, industry, publicProfileUrl, siteStandardProfileRequest, profilePictureUrl);
 	}
 	
 	public Share getCompanyStatusUpdate() {

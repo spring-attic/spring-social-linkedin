@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,6 +41,7 @@ import org.springframework.social.linkedin.api.impl.json.LinkedInModule;
 import org.springframework.social.oauth1.AbstractOAuth1ApiBinding;
 import org.springframework.social.support.HttpRequestDecorator;
 import org.springframework.util.ClassUtils;
+import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -96,8 +97,11 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 		return groupOperations;
 	}
 	
-	// private helpers
+	public RestOperations restOperations() {
+		return getRestTemplate();
+	}
 	
+	// private helpers
 	
 	private void registerLinkedInJsonModule() {
 		List<HttpMessageConverter<?>> converters = getRestTemplate().getMessageConverters();
@@ -173,4 +177,5 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 		}
 		
 	}
+
 }

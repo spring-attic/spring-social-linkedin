@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,35 +15,26 @@
  */
 package org.springframework.social.linkedin.api.impl.json;
 
-import java.io.IOException;
-
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.DeserializationContext;
-import org.codehaus.jackson.map.JsonDeserializer;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
-import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.ApiStandardProfileRequest;
 import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LinkedInProfileMixin {
+abstract class LinkedInProfileMixin {
 
 	@JsonCreator
-	public LinkedInProfileMixin(
-			@JsonProperty("id") String id, 
-			@JsonProperty("firstName") String firstName, 
-			@JsonProperty("lastName") String lastName, 
-			@JsonProperty("headline") String headline, 
-			@JsonProperty("industry") String industry, 
-			@JsonProperty("publicProfileUrl") String publicProfileUrl, 
-			@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
-			@JsonProperty("pictureUrl") String profilePictureUrl) {}
+	LinkedInProfileMixin(
+		@JsonProperty("id") String id, 
+		@JsonProperty("firstName") String firstName, 
+		@JsonProperty("lastName") String lastName, 
+		@JsonProperty("headline") String headline, 
+		@JsonProperty("industry") String industry, 
+		@JsonProperty("publicProfileUrl") String publicProfileUrl, 
+		@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
+		@JsonProperty("pictureUrl") String profilePictureUrl) {}
 	
 	@JsonProperty("summary")
 	String summary;
@@ -51,19 +42,5 @@ public class LinkedInProfileMixin {
 	@JsonProperty("apiStandardProfileRequest")
 	@JsonDeserialize(using=ApiStandardProfileRequestDeserializer.class) 
 	ApiStandardProfileRequest apiStandardProfileRequest;
-	
-	public static final class ApiStandardProfileRequestDeserializer extends JsonDeserializer<ApiStandardProfileRequest>  {
-		public ApiStandardProfileRequest deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().path("headers").path("values").get(0);
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<ApiStandardProfileRequest>() {} );
-				}
-			}
-			return null;
-		}
-	}
+
 }

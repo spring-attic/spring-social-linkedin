@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,32 +18,56 @@ package org.springframework.social.linkedin.api;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Model class representing a Company
+ */
 public class Company implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private final int id;
-	private final String name;
-	private String industry;
-	private String size;
-	private String type;
-	private String blogRssUrl;
-	private CodeAndName companyType;
-	private String description;
-	private List<String> emailDomains;
-	private CodeAndName employeeCountRange;
-	private int foundedYear;
-	private List<CompanyLocation> locations;
-	private String logoUrl;
-	private int numFollowers;
-	private List<String> specialties;
-	private String squareLogoUrl;
-	private CodeAndName status;
-	private CodeAndName stockExchange;
-	private String ticker;
-	private String twitterId;
-	private String universalName;
-	private String websiteUrl;
 	
+	private final String name;
+	
+	private String industry;
+	
+	private String size;
+	
+	private String type;
+	
+	private String blogRssUrl;
+	
+	private CodeAndName companyType;
+	
+	private String description;
+	
+	private List<String> emailDomains;
+	
+	private CodeAndName employeeCountRange;
+	
+	private int foundedYear;
+	
+	private List<CompanyLocation> locations;
+	
+	private String logoUrl;
+	
+	private int numFollowers;
+	
+	private List<String> specialties;
+	
+	private String squareLogoUrl;
+	
+	private CodeAndName status;
+	
+	private CodeAndName stockExchange;
+	
+	private String ticker;
+	
+	private String twitterId;
+	
+	private String universalName;
+	
+	private String websiteUrl;
 	
 	public Company(int id, String name) {
 		this.id = id;

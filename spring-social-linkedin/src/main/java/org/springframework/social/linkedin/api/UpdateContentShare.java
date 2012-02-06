@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,6 @@ package org.springframework.social.linkedin.api;
  * A share content update
  * 
  * @author Robert Drysdale
- *
  */
 public class UpdateContentShare extends UpdateContent {
 
@@ -26,11 +25,8 @@ public class UpdateContentShare extends UpdateContent {
 	
 	private CurrentShare currentShare;
 	
-	public UpdateContentShare(String id, String firstName, String lastName,
-			String headline, String industry, String publicProfileUrl,
-			UrlResource siteStandardProfileRequest, String profilePictureUrl) {
-		super(id, firstName, lastName, headline, industry, publicProfileUrl,
-				siteStandardProfileRequest, profilePictureUrl);
+	public UpdateContentShare(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, UrlResource siteStandardProfileRequest, String profilePictureUrl) {
+		super(id, firstName, lastName, headline, industry, publicProfileUrl, siteStandardProfileRequest, profilePictureUrl);
 	}
 	
 	public CurrentShare getCurrentShare() {

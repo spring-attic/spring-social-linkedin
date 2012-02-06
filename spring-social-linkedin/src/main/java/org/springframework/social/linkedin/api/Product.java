@@ -1,3 +1,18 @@
+/*
+ * Copyright 2012 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
@@ -14,22 +29,29 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private final Date creationTimestamp;
+	
 	private final String description;
+	
 	private final List<String> features;
+	
 	private final int id;
+	
 	private final String logoUrl;
+	
 	private final String name;
+	
 	private final int numRecommendations;
+	
 	private final CodeAndName productCategory;
+	
 	private final List<ProductRecommendation> recommendations;
+	
 	private final CodeAndName type;
+	
 	private final String websiteUrl;
 	
-	public Product(Date creationTimestamp, String description,
-			List<String> features, int id, String logoUrl, String name,
-			int numRecommendations, CodeAndName productCategory,
-			List<ProductRecommendation> recommendations,
-			CodeAndName type, String websiteUrl) {
+	public Product(Date creationTimestamp, String description, List<String> features, int id, String logoUrl, String name, int numRecommendations, CodeAndName productCategory,
+			List<ProductRecommendation> recommendations, CodeAndName type, String websiteUrl) {
 		this.creationTimestamp = creationTimestamp;
 		this.description = description;
 		this.features = features;
@@ -91,13 +113,16 @@ public class Product implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final int id;
+
 		private final int productId;
+		
 		private LinkedInProfile recommender;
+		
 		private final String text;
+		
 		private Date timestamp;
 		
-		public ProductRecommendation(int id, int productId,
-				LinkedInProfile recommender, String text, Date timestamp) {
+		public ProductRecommendation(int id, int productId, LinkedInProfile recommender, String text, Date timestamp) {
 			this.id = id;
 			this.productId = productId;
 			this.recommender = recommender;
@@ -125,4 +150,5 @@ public class Product implements Serializable {
 			return timestamp;
 		}
 	}
+
 }

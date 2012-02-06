@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,8 +23,8 @@ import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
 
-
-public class CodeDeserializer extends JsonDeserializer<String> {
+class CodeDeserializer extends JsonDeserializer<String> {
+	
 	private static final String VALUE = "code";
 	
 	@Override
@@ -32,4 +32,5 @@ public class CodeDeserializer extends JsonDeserializer<String> {
 		JsonNode node = jp.readValueAsTree();
 		return node.get(VALUE).getTextValue();
 	}
+	
 }
