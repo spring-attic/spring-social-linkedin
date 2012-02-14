@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.ApiStandardProfileRequest;
 import org.springframework.social.linkedin.api.CommunicationOperations;
 import org.springframework.web.client.RestOperations;
@@ -62,7 +63,7 @@ class CommunicationTemplate implements CommunicationOperations {
 		mailboxItem.put("subject", subject);
 		mailboxItem.put("body", body);
 		String[] nameValue = apiStandardProfileRequest.getValue().split(":");
-		mailboxItem.put("itemContent", new ItemContent(nameValue[0], nameValue[1]));
+		mailboxItem.put("item-content", new ItemContent(nameValue[0], nameValue[1]));
 		
 		restOperations.postForLocation(MESSAGING_URL, mailboxItem);
 	}
@@ -73,7 +74,7 @@ class CommunicationTemplate implements CommunicationOperations {
 		mailboxItem.put("recipients", new Recipients(email, firstName, lastName));
 		mailboxItem.put("subject", subject);
 		mailboxItem.put("body", body);
-		mailboxItem.put("itemContent", new ItemContent());
+		mailboxItem.put("item-content", new ItemContent());
 		
 		restOperations.postForLocation(MESSAGING_URL, mailboxItem);
 	}
@@ -96,6 +97,7 @@ class CommunicationTemplate implements CommunicationOperations {
 		}
 
 		@SuppressWarnings("unused")
+		@JsonProperty("invitation-request")
 		public InvitationRequest getInvitationRequest() {
 			return invitationRequest;
 		}
@@ -114,6 +116,7 @@ class CommunicationTemplate implements CommunicationOperations {
 		
 
 		@SuppressWarnings("unused")
+		@JsonProperty("connect-type")
 		public String getConnectType() {
 			return connectType;
 		}
@@ -216,12 +219,14 @@ class CommunicationTemplate implements CommunicationOperations {
 		
 
 		@SuppressWarnings("unused")
+		@JsonProperty("first-name")
 		public String getFirstName() {
 			return firstName;
 		}
 		
 
 		@SuppressWarnings("unused")
+		@JsonProperty("last-name")
 		public String getLastName() {
 			return lastName;
 		}
