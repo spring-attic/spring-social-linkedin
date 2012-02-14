@@ -20,10 +20,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Product
- * 
+ * Model class representing a product.
  * @author Robert Drysdale
- *
  */
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
