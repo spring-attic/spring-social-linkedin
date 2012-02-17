@@ -18,7 +18,7 @@ package org.springframework.social.linkedin.api;
 import java.util.List;
 
 /**
- * Product Result
+ * Model class representing a list of products.
  * 
  * @author Robert Drysdale
  */
