@@ -19,6 +19,7 @@ import java.io.Serializable;
 
 /**
  * Model class containing a user's LinkedIn profile information.
+ * 
  * @author Craig Walls
  */
 public class LinkedInProfile implements Serializable {

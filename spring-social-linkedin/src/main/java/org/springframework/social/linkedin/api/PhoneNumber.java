@@ -21,7 +21,6 @@ import java.io.Serializable;
  * Phone Number
  * 
  * @author Robert Drysdale
- *
  */
 public class PhoneNumber implements Serializable {
 

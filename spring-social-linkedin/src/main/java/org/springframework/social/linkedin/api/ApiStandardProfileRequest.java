@@ -19,8 +19,8 @@ import java.io.Serializable;
 
 public class ApiStandardProfileRequest implements Serializable {
 
-	private static final long serialVersionUID = -4957171160371820101L;
-	
+	private static final long serialVersionUID = 1L;
+
 	private final String name;
 
 	private final String value;

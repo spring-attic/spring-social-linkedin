@@ -18,7 +18,7 @@ package org.springframework.social.linkedin.api;
 import java.io.Serializable;
 
 /**
- * Location
+ * Model class representing a location.
  * 
  * @author Robert Drysdale
  */

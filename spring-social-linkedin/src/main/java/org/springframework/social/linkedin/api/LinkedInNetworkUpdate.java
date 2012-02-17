@@ -21,6 +21,7 @@ import java.util.List;
 
 /**
  * Model class containing a user's LinkedIn Network update information.
+ * 
  * @author Robert Drysdale
  */
 public class LinkedInNetworkUpdate implements Serializable {

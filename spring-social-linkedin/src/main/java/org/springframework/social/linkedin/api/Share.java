@@ -19,11 +19,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Share
+ * Model class representing a share.
  * 
  * @author Robert Drysdale
  */
 public class Share implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private final String comment;

@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Model Object passed to getNetworkUpdates() to control what parameters are set on the Http GET request to LinkedIn Network Updates API.
+ * Model Object passed to getNetworkUpdates() to control what parameters are set on the HTTP GET request to LinkedIn Network Updates API.
  * 
  * @author Robert Drysdale
  */

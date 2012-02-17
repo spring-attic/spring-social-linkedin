@@ -22,7 +22,6 @@ import java.util.List;
  * users on LinkedIn
  * 
  * @author Robert Drysdale
- *
  */
 public interface CommunicationOperations {
 

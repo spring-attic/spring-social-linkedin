@@ -21,9 +21,9 @@ import java.io.Serializable;
  * Network Statistics 
  * 
  * @author Robert Drysdale
- *
  */
 public class NetworkStatistics implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private final int firstDegreeCount;

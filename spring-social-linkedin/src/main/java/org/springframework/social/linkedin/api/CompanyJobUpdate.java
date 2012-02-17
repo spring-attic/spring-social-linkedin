@@ -17,10 +17,17 @@ package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
 
+/**
+ * Model class representing a Company Job Update
+ * 
+ * @author Robert Drysdale
+ */
 public class CompanyJobUpdate implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private String action;
+	
 	private Job job;
 	
 	public CompanyJobUpdate(String action, Job job) {

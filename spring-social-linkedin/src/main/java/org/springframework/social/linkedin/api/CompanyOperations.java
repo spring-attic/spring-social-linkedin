@@ -18,7 +18,7 @@ package org.springframework.social.linkedin.api;
 import java.util.List;
 
 /**
- *	Operations related to Companies on LinkedIn
+ * Operations related to Companies on LinkedIn
  * 
  * @author Robert Drysdale
  */

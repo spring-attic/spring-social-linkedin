@@ -16,6 +16,7 @@
 package org.springframework.social.linkedin.api;
 
 import java.util.List;
+
 /**
  * A person activity update
  * 

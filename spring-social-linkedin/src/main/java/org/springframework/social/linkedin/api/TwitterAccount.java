@@ -18,7 +18,7 @@ package org.springframework.social.linkedin.api;
 import java.io.Serializable;
 
 /**
- * Twitter account
+ * Model class representing a user's Twitter account.
  * 
  * @author Robert Drysdale
  */
