@@ -21,7 +21,6 @@ import java.io.Serializable;
  * Model class representing IM (Instance Message) Account Details for a Profile on LinkedIn
  *  
  * @author Robert Drysdale
- *
  */
 public class ImAccount implements Serializable {
 	

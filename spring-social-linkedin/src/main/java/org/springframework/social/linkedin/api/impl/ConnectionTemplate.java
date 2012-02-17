@@ -17,12 +17,14 @@ package org.springframework.social.linkedin.api.impl;
 
 import static org.springframework.social.linkedin.api.impl.LinkedInTemplate.*;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.social.linkedin.api.ConnectionOperations;
 import org.springframework.social.linkedin.api.LinkedInConnections;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.NetworkStatistics;
+import org.springframework.social.support.URIBuilder;
 import org.springframework.web.client.RestOperations;
 
 /**
@@ -31,6 +33,7 @@ import org.springframework.web.client.RestOperations;
  * @author Robert Drysdale
  */
 class ConnectionTemplate implements ConnectionOperations {
+
 	private final RestOperations restOperations;
 	
 	public ConnectionTemplate(RestOperations restOperations) {
@@ -38,10 +41,18 @@ class ConnectionTemplate implements ConnectionOperations {
 	}
 	
 	public List<LinkedInProfile> getConnections() {
-		LinkedInConnections connections = restOperations.getForObject(CONNECTIONS_URL, LinkedInConnections.class);
+		LinkedInConnections connections = restOperations.getForObject(URIBuilder.fromUri(CONNECTIONS_URL).build(), LinkedInConnections.class);
 		return connections.getConnections();
 	}
-	
+
+	public List<LinkedInProfile> getConnections(int start, int count) {
+		URI uri = URIBuilder.fromUri(CONNECTIONS_URL)
+					.queryParam("start", String.valueOf(start))
+					.queryParam("count", String.valueOf(count)).build();
+		LinkedInConnections connections = restOperations.getForObject(uri, LinkedInConnections.class);
+		return connections.getConnections();
+	}
+
 	public NetworkStatistics getNetworkStatistics(){
 		return restOperations.getForObject(STATISTICS_URL,  NetworkStatistics.class);
 	}

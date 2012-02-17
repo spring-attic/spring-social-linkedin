@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package org.springframework.social.linkedin.api;
+
 /**
  * Update Type for input to search
  * 

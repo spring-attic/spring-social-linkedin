@@ -22,7 +22,6 @@ import java.util.List;
  * users on LinkedIn
  * 
  * @author Robert Drysdale
- *
  */
 public interface CommunicationOperations {
 
@@ -47,15 +46,16 @@ public interface CommunicationOperations {
 	void sendMessage(String subject, String body, String... recipientIds);
 	
 	/**
-	 * Send a connect invitation message to recipientId
-	 * Requires id from LinkedInProfile object
+	 * Send a connect invitation message to recipientId.
+	 * When sending a connection invitation for a LinkedIn profile by ID, you must also provide a {@link ConnectionAuthorization} object.
+	 * This object is available from a {@link LinkedInProfile} object after doing a search.
 	 * 
 	 * @param subject The subject of message
 	 * @param body The body or text of message (does not support html)
 	 * @param recipientId Id of recipient
-	 * @param apiStandardProfileRequest Part of LinkedInProfile returned when perfroming a search
+	 * @param connectionAuthorization authorization required to create a connection the connection.
 	 */
-	void connectTo(String subject, String body, String recipientId, ApiStandardProfileRequest apiStandardProfileRequest);
+	void connectTo(String subject, String body, String recipientId, ConnectionAuthorization connectionAuthorization);
 	
 	/**
 	 * Send a connect invitation message to and email (for users not on LinkedIn)

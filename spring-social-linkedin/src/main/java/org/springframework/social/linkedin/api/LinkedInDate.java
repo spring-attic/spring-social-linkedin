@@ -15,14 +15,17 @@
  */
 package org.springframework.social.linkedin.api;
 
+import java.io.Serializable;
+
 /**
  * LinkedIn Date which just contains year, month and day
  * 
  * @author Robert Drysdale
- *
  */
-public class LinkedInDate {
+public class LinkedInDate implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	private final int year;
 	
 	private final int month;

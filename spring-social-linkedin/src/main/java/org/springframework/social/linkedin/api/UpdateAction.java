@@ -19,11 +19,12 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Update Action
+ * Model class representing an update action.
  * 
  * @author Robert Drysdale
  */
 public class UpdateAction extends LinkedInNetworkUpdate {
+
 	private static final long serialVersionUID = 1L;
 	
 	private String action;

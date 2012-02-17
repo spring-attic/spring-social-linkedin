@@ -20,16 +20,9 @@ import org.springframework.social.linkedin.api.impl.LinkedInTemplate;
 import org.springframework.web.client.RestOperations;
 
 /**
- * <p>
- * Interface specifying a basic set of operations for interacting with LinkedIn.
- * Implemented by {@link LinkedInTemplate}.
- * </p>
- * 
- * <p>
- * Many of the methods contained in this interface require OAuth authentication
- * with LinkedIn. When a method's description speaks of the "current user", it
- * is referring to the user for whom the access token has been issued.
- * </p>
+ * Interface specifying a basic set of operations for interacting with LinkedIn. Implemented by {@link LinkedInTemplate}.
+ * Many of the methods contained in this interface require OAuth authentication with LinkedIn. 
+ * When a method's description speaks of the "current user", it is referring to the user for whom the access token has been issued.
  * 
  * @author Craig Walls
  * @author Robert Drysdale

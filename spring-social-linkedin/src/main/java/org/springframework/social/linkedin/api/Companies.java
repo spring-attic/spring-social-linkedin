@@ -20,9 +20,9 @@ import java.util.List;
  * Search Result for querying companies
  * 
  * @author Robert Drysdale
- *
  */
 public class Companies extends SearchResult {
+
 	private static final long serialVersionUID = 1L;
 	
 	private List<Company> companies;

@@ -19,7 +19,7 @@ import java.io.Serializable;
 
 /**
  * Search parameters to search for jobs.
- * Leave parameters as null to turn off.
+ * Null parameters will not be used as search criteria.
  * 
  * @author Robert Drysdale
  */
