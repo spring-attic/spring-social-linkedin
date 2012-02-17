@@ -20,6 +20,8 @@ import java.util.List;
 
 /**
  * Model class representing a Company
+ * 
+ * @author Robert Drysdale
  */
 public class Company implements Serializable {
 

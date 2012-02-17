@@ -18,13 +18,13 @@ package org.springframework.social.linkedin.api;
 import java.io.Serializable;
 
 /**
- * Relation
+ * Model class representing a relation.
  * 
  * @author Robert Drysdale
  */
 public class Relation implements Serializable {
 	
-	private static final long serialVersionUID = -3045269758643542427L;
+	private static final long serialVersionUID = 1L;
 	
 	private final int distance;
 

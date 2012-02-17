@@ -17,14 +17,22 @@ package org.springframework.social.linkedin.api;
 
 import java.io.Serializable;
 
-public class ApiStandardProfileRequest implements Serializable {
+/**
+ * Carries authorization information required for connecting to another LinkedIn user by their ID.
+ * Obtained via a {@link LinkedInProfile} after a user profile search.
+ * 
+ * @author Robert Drysdale
+ * @author habuma
+ */
+public class ConnectionAuthorization implements Serializable {
 
-	private static final long serialVersionUID = -4957171160371820101L;
-	
+	private static final long serialVersionUID = 1L;
+
 	private final String name;
+
 	private final String value;
 	
-	public ApiStandardProfileRequest(String name, String value) {
+	public ConnectionAuthorization(String name, String value) {
 		this.name = name;
 		this.value = value;
 	}

@@ -18,7 +18,7 @@ package org.springframework.social.linkedin.api;
 import java.util.List;
 
 /**
- *	Operations related to Companies on LinkedIn
+ * Operations related to Companies on LinkedIn
  * 
  * @author Robert Drysdale
  */
@@ -78,6 +78,13 @@ public interface CompanyOperations {
 	 */
 	void stopFollowingCompany(int id);
 	
+	/**
+	 * Get products for a company.
+	 * @param companyId the ID of the company to get products for.
+	 * @param start The starting point in the result set. Used with count for pagination.
+	 * @param count The number of products to return. Used with start for pagination.
+	 * @return the products for the specified company.
+	 */
 	Products getProducts(int companyId, int start, int count);
 
 }

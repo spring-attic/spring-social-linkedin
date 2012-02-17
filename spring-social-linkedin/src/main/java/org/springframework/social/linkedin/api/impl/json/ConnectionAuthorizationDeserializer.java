@@ -24,18 +24,18 @@ import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
-import org.springframework.social.linkedin.api.ApiStandardProfileRequest;
+import org.springframework.social.linkedin.api.ConnectionAuthorization;
 
-final class ApiStandardProfileRequestDeserializer extends JsonDeserializer<ApiStandardProfileRequest>  {
+final class ConnectionAuthorizationDeserializer extends JsonDeserializer<ConnectionAuthorization>  {
 
-	public ApiStandardProfileRequest deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+	public ConnectionAuthorization deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setDeserializationConfig(ctxt.getConfig());
 		jp.setCodec(mapper);
 		if(jp.hasCurrentToken()) {
 			JsonNode dataNode = jp.readValueAsTree().path("headers").path("values").get(0);
 			if (dataNode != null) {
-				return mapper.readValue(dataNode, new TypeReference<ApiStandardProfileRequest>() {} );
+				return mapper.readValue(dataNode, new TypeReference<ConnectionAuthorization>() {} );
 			}
 		}
 		return null;

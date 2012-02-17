@@ -18,7 +18,7 @@ package org.springframework.social.linkedin.api;
 import java.util.List;
 
 /**
- * A connection update
+ * Model class representing a connection update.
  * 
  * @author Robert Drysdale
  */

@@ -28,11 +28,35 @@ import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.NetworkStatistics;
 
 public class ConnectionTemplateTest extends AbstractLinkedInApiTest {
+
 	@Test
 	public void getConnections() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/connections?format=json")).andExpect(method(GET))
 				.andRespond(withResponse(new ClassPathResource("testdata/connections.json", getClass()), responseHeaders));
 		List<LinkedInProfile> connections = linkedIn.connectionOperations().getConnections();
+		assertConnections(connections);
+	}
+
+	@Test
+	public void getConnections_withStartAndCount() {
+		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/connections?format=json&start=10&count=20")).andExpect(method(GET))
+				.andRespond(withResponse(new ClassPathResource("testdata/connections.json", getClass()), responseHeaders));
+		List<LinkedInProfile> connections = linkedIn.connectionOperations().getConnections(10, 20);
+		assertConnections(connections);
+	}
+
+	@Test
+	public void getStatistics() {
+		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/network-stats?format=json")).andExpect(method(GET))
+				.andRespond(withResponse(new ClassPathResource("testdata/statistics.json", getClass()), responseHeaders));
+		
+		NetworkStatistics stats = linkedIn.connectionOperations().getNetworkStatistics();
+		
+		assertEquals(189, stats.getFirstDegreeCount());
+		assertEquals(50803, stats.getSecondDegreeCount());
+	}
+	
+	private void assertConnections(List<LinkedInProfile> connections) {
 		assertEquals(4, connections.size());
 		assertProfile(connections.get(0), "kR0lnX1ll8", "SpringSource Cofounder", "Keith", "Donald", "Computer Software",
 				"http://www.linkedin.com/profile?viewProfile=&key=2526541&authToken=61Sm&authType=name&trk=api*a121026*s129482*");
@@ -47,15 +71,5 @@ public class ConnectionTemplateTest extends AbstractLinkedInApiTest {
 				"Laforge", "Information Technology and Services",
 				"http://www.linkedin.com/profile?viewProfile=&key=822306&authToken=YmIW&authType=name&trk=api*a121026*s129482*");
 	}
-	
-	@Test
-	public void getStatistics() {
-		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/network-stats?format=json")).andExpect(method(GET))
-				.andRespond(withResponse(new ClassPathResource("testdata/statistics.json", getClass()), responseHeaders));
-		
-		NetworkStatistics stats = linkedIn.connectionOperations().getNetworkStatistics();
-		
-		assertEquals(189, stats.getFirstDegreeCount());
-		assertEquals(50803, stats.getSecondDegreeCount());
-	}
+
 }

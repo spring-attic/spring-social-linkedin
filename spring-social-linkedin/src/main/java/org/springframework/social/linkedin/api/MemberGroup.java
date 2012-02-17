@@ -18,7 +18,7 @@ package org.springframework.social.linkedin.api;
 import java.io.Serializable;
 
 /**
- * Member Group 
+ * Model class representing a Member Group. 
  * 
  * @author Robert Drysdale
  */

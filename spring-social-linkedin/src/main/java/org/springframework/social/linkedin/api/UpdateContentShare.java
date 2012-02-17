@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package org.springframework.social.linkedin.api;
+
 /**
  * A share content update
  * 

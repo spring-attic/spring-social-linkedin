@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 package org.springframework.social.linkedin.api;
+
 /**
- * A follow update
+ * Model class repreenting a follow update.
  * 
  * @author Robert Drysdale
  */

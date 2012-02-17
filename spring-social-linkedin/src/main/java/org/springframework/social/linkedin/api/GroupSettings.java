@@ -25,6 +25,7 @@ import org.springframework.social.linkedin.api.Group.MembershipState;
  * @author Robert Drysdale
  */
 public class GroupSettings implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	private final Boolean allowMessagesFromMembers;

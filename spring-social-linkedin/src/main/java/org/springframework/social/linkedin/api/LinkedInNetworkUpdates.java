@@ -15,6 +15,7 @@
  */
 package org.springframework.social.linkedin.api;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -22,7 +23,9 @@ import java.util.List;
  * 
  * @author Robert Drysdale
  */
-public class LinkedInNetworkUpdates {
+public class LinkedInNetworkUpdates implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	
 	private List<LinkedInNetworkUpdate> updates;
 	

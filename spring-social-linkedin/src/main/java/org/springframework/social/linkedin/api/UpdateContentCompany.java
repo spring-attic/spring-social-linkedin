@@ -19,7 +19,6 @@ package org.springframework.social.linkedin.api;
  * A Company Update
  * 
  * @author Robert Drysdale
- *
  */
 public class UpdateContentCompany extends UpdateContent {
 
