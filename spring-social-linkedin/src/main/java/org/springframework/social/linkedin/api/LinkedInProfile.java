@@ -44,7 +44,7 @@ public class LinkedInProfile implements Serializable {
 	
 	private String summary;
 	
-	private ApiStandardProfileRequest apiStandardProfileRequest;
+	private ConnectionAuthorization connectionAuthorization;
 	
 	public LinkedInProfile(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, UrlResource siteStandardProfileRequest, String profilePictureUrl) {
 		this.id = id;
@@ -122,10 +122,10 @@ public class LinkedInProfile implements Serializable {
 	}
 	
 	/**
-	 * @return auth information required for connecting to user
+	 * @return Authorization information required for connecting to this user.
 	 */
-	public ApiStandardProfileRequest getApiStandardProfileRequest() {
-		return apiStandardProfileRequest;
+	public ConnectionAuthorization getConnectionAuthorization() {
+		return connectionAuthorization;
 	}
 
 }

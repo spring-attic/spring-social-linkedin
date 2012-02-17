@@ -83,7 +83,7 @@ public interface CompanyOperations {
 	 * @param companyId the ID of the company to get products for.
 	 * @param start The starting point in the result set. Used with count for pagination.
 	 * @param count The number of products to return. Used with start for pagination.
-	 * @return
+	 * @return the products for the specified company.
 	 */
 	Products getProducts(int companyId, int start, int count);
 

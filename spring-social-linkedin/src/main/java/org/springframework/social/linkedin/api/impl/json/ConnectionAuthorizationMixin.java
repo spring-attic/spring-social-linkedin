@@ -17,9 +17,9 @@ package org.springframework.social.linkedin.api.impl.json;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
-abstract class ApiStandardProfileRequestMixin{
+abstract class ConnectionAuthorizationMixin{
 	
-	ApiStandardProfileRequestMixin(
+	ConnectionAuthorizationMixin(
 		@JsonProperty("name") String name, 
 		@JsonProperty("value") String value) {}
 

@@ -19,7 +19,7 @@ import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
-import org.springframework.social.linkedin.api.ApiStandardProfileRequest;
+import org.springframework.social.linkedin.api.ConnectionAuthorization;
 import org.springframework.social.linkedin.api.UrlResource;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -40,7 +40,7 @@ abstract class LinkedInProfileMixin {
 	String summary;
 	
 	@JsonProperty("apiStandardProfileRequest")
-	@JsonDeserialize(using=ApiStandardProfileRequestDeserializer.class) 
-	ApiStandardProfileRequest apiStandardProfileRequest;
+	@JsonDeserialize(using=ConnectionAuthorizationDeserializer.class) 
+	ConnectionAuthorization connectionAuthorization;
 
 }

@@ -25,8 +25,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.springframework.social.linkedin.api.ApiStandardProfileRequest;
 import org.springframework.social.linkedin.api.CommunicationOperations;
+import org.springframework.social.linkedin.api.ConnectionAuthorization;
 import org.springframework.web.client.RestOperations;
 
 /**
@@ -56,13 +56,13 @@ class CommunicationTemplate implements CommunicationOperations {
 		sendMessage(subject, body, Arrays.asList(recipientIds));
 	}
 	
-	public void connectTo(String subject, String body, String recipientId, ApiStandardProfileRequest apiStandardProfileRequest) {
+	public void connectTo(String subject, String body, String recipientId, ConnectionAuthorization connectionAuthorization) {
 		Map<String, Object> mailboxItem = new HashMap<String,Object>();
 		
 		mailboxItem.put("recipients", new Recipients(Arrays.asList(recipientId)));
 		mailboxItem.put("subject", subject);
 		mailboxItem.put("body", body);
-		String[] nameValue = apiStandardProfileRequest.getValue().split(":");
+		String[] nameValue = connectionAuthorization.getValue().split(":");
 		mailboxItem.put("item-content", new ItemContent(nameValue[0], nameValue[1]));
 		
 		restOperations.postForLocation(MESSAGING_URL, mailboxItem);

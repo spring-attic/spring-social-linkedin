@@ -20,7 +20,7 @@ import static org.springframework.test.web.client.RequestMatchers.*;
 import static org.springframework.test.web.client.ResponseCreators.*;
 
 import org.junit.Test;
-import org.springframework.social.linkedin.api.ApiStandardProfileRequest;
+import org.springframework.social.linkedin.api.ConnectionAuthorization;
 
 public class CommunicationTemplateTest extends AbstractLinkedInApiTest {
 	@Test
@@ -48,7 +48,7 @@ public class CommunicationTemplateTest extends AbstractLinkedInApiTest {
 		
 		
 		linkedIn.communicationOperations().connectTo("I'd like to add you to my professional network on LinkedIn",
-				"I'd like to add you to my professional network on LinkedIn", "UB2kruYvvv", new ApiStandardProfileRequest("blah", "NAME_SEARCH:aaaa"));
+				"I'd like to add you to my professional network on LinkedIn", "UB2kruYvvv", new ConnectionAuthorization("blah", "NAME_SEARCH:aaaa"));
 
 	}
 	
