@@ -1,3 +1,16 @@
+Spring Social LinkedIn 1.0.0 Release Candidate 1 (February 21, 2012)
+====================================================================
+Improvements:
+ - Added start and count parameters to ConnectionOperations.getConnections()
+   to support pagination of results. (SOCIALLI-13)
+ - Changed JSON property names sent in request for invitation to connect--
+   CommunicationOperations.connectTo()--to better align with LinkedIn's
+   API documentation. (SOCIALLI-17)
+ 
+Misc:
+ - Renamed ApiStandardProfileRequest to ConnectionAuthorization
+ - Added more JavaDoc
+
 Spring Social LinkedIn 1.0.0 Milestone 5 (January 23, 2012)
 ===========================================================
 Bug Fixes:
