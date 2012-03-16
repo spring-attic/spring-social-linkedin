@@ -17,16 +17,20 @@ package org.springframework.social.linkedin.api.impl;
 
 import static org.springframework.social.linkedin.api.impl.LinkedInTemplate.*;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.net.URLEncoder;
 
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.social.ApiException;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.social.linkedin.api.LinkedInProfiles;
 import org.springframework.social.linkedin.api.ProfileField;
 import org.springframework.social.linkedin.api.ProfileOperations;
 import org.springframework.social.linkedin.api.SearchParameters;
+import org.springframework.social.support.URIBuilder;
 import org.springframework.web.client.RestOperations;
 
 /**
@@ -35,6 +39,7 @@ import org.springframework.web.client.RestOperations;
  * @author Robert Drysdale
  */
 class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
+
 
 	static {
 		StringBuffer b = new StringBuffer();
@@ -75,8 +80,8 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 		return getUserProfile().getPublicProfileUrl();
 	}
 
-	public LinkedInProfile getUserProfile() {
-		return restOperations.getForObject(PROFILE_URL, LinkedInProfile.class, "~");
+	public LinkedInProfile getUserProfile() {		
+		return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "~" + PROFILE_FIELDS).build(), LinkedInProfile.class);
 	}
 	
 	public LinkedInProfileFull getUserProfileFull() {
@@ -84,11 +89,16 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 	}
 	
 	public LinkedInProfile getProfileById(String id) {
-		return restOperations.getForObject(PROFILE_URL, LinkedInProfile.class, "id=" + id);
+		return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "id=" + id + PROFILE_FIELDS).build(), LinkedInProfile.class);
 	}
 	
 	public LinkedInProfile getProfileByPublicUrl(String url) {
-		return restOperations.getForObject(PROFILE_URL, LinkedInProfile.class, "url=" + url);
+		try {
+			return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "url=" + URLEncoder.encode(url, "UTF-8") + PROFILE_FIELDS).build(), LinkedInProfile.class);
+		} catch (UnsupportedEncodingException unlikely) {
+			unlikely.printStackTrace();
+			throw new ApiException("Unlikely unsupported encoding error", unlikely);
+		}
 	}
 	
 	public LinkedInProfileFull getProfileFullById(String id) {
@@ -131,7 +141,7 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 		return expand(url, variables, true);
 	}
 	
-	static final String PROFILE_URL = BASE_URL + "{id}:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary)?format=json";
+	static final String PROFILE_FIELDS = ":(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary)?format=json";
 	
 	static final String PROFILE_URL_FULL;
 	
