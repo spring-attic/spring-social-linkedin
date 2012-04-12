@@ -1,4 +1,4 @@
-Spring Social LinkedIn
+Spring Social LinkedIn ${version}
 -----------------------------------------------------------
 Spring Social LinkedIn is an extension to Spring Social to enable connectivity with LinkedIn.
 
