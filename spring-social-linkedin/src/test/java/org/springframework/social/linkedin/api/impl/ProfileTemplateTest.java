@@ -24,9 +24,9 @@ import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
+import org.springframework.social.linkedin.api.LinkedInProfiles;
 import org.springframework.social.linkedin.api.Recommendation.RecommendationType;
 import org.springframework.social.linkedin.api.SearchParameters;
-import org.springframework.social.linkedin.api.LinkedInProfiles;
 
 /**
  * @author Craig Walls
@@ -35,7 +35,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 
 	@Test
 	public void getUserProfile() {
-		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL.replaceFirst("\\{id\\}", "~"))).andExpect(method(GET))
+		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.PROFILE_FIELDS)).andExpect(method(GET))
 				.andRespond(withResponse(new ClassPathResource("testdata/profile.json", getClass()), responseHeaders));
 		LinkedInProfile profile = linkedIn.profileOperations().getUserProfile();
 		assertEquals("z37f0n3A05", profile.getId());
@@ -104,14 +104,14 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 
 	@Test
 	public void getProfileId() {
-		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL.replaceFirst("\\{id\\}", "~"))).andExpect(method(GET))
+		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.PROFILE_FIELDS)).andExpect(method(GET))
 				.andRespond(withResponse(new ClassPathResource("testdata/profile.json", getClass()), responseHeaders));
 		assertEquals("z37f0n3A05", linkedIn.profileOperations().getProfileId());
 	}
 
 	@Test
 	public void getProfileUrl() {
-		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL.replaceFirst("\\{id\\}", "~"))).andExpect(method(GET))
+		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.PROFILE_FIELDS)).andExpect(method(GET))
 				.andRespond(withResponse(new ClassPathResource("testdata/profile.json", getClass()), responseHeaders));
 		assertEquals("http://www.linkedin.com/in/habuma", linkedIn.profileOperations().getProfileUrl());
 	}
