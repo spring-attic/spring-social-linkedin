@@ -15,6 +15,8 @@
  */
 package org.springframework.social.linkedin.api;
 
+import java.net.URI;
+
 import org.springframework.social.linkedin.api.Group.GroupPosts;
 
 /**
@@ -117,8 +119,9 @@ public interface GroupOperations {
 	 * @param groupId Group to Create Post on
 	 * @param title Title of Post
 	 * @param summary Text of Post
+	 * @return the URI of the newly created Post
 	 */
-	void createPost(Integer groupId, String title, String summary);
+	URI createPost(Integer groupId, String title, String summary);
 	
 	/**
 	 * Like a Post

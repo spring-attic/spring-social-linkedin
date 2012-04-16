@@ -15,6 +15,7 @@
  */
 package org.springframework.social.linkedin.api.impl;
 
+import java.net.URI;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -86,11 +87,11 @@ class GroupTemplate extends AbstractTemplate implements GroupOperations {
 		restOperations.delete(GROUP_JOIN_LEAVE_URL, groupId);
 	}
 	
-	public void createPost(Integer groupId, String title, String summary) {
+	public URI createPost(Integer groupId, String title, String summary) {
 		Map<String, String> post = new HashMap<String,String>();
 		post.put("title", title);
 		post.put("summary", summary);
-		restOperations.postForObject(GROUP_CREATE_POST_URL, post, String.class, groupId);
+		return restOperations.postForLocation(GROUP_CREATE_POST_URL, post, groupId);
 	}
 	
 	public void likePost(String postId) {
