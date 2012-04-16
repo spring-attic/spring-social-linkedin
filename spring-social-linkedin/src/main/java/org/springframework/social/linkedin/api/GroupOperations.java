@@ -15,6 +15,8 @@
  */
 package org.springframework.social.linkedin.api;
 
+import java.net.URI;
+
 import org.springframework.social.linkedin.api.Group.GroupPosts;
 
 /**
@@ -117,56 +119,57 @@ public interface GroupOperations {
 	 * @param groupId Group to Create Post on
 	 * @param title Title of Post
 	 * @param summary Text of Post
+	 * @return the URI of the newly created Post
 	 */
-	public void createPost(Integer groupId, String title, String summary);
+	URI createPost(Integer groupId, String title, String summary);
 	
 	/**
 	 * Like a Post
 	 * 
 	 * @param postId Id of Post
 	 */
-	public void likePost(String postId);
+	void likePost(String postId);
 	
 	/**
 	 * Unlike a Post 
 	 * @param postId Id of Post
 	 */
-	public void unlikePost(String postId);
+	void unlikePost(String postId);
 	
 	/**
 	 * Follow a Post
 	 * 
 	 * @param postId Id of Post
 	 */
-	public void followPost(String postId);
+	void followPost(String postId);
 	
 	/**
 	 * Like a Post
 	 * 
 	 * @param postId Id of Post
 	 */
-	public void unfollowPost(String postId);
+	void unfollowPost(String postId);
 	
 	/**
 	 * Flag a Post as a Job
 	 * 
 	 * @param postId Id of Post
 	 */
-	public void flagPostAsJob(String postId);
+	void flagPostAsJob(String postId);
 	
 	/**
 	 * Flag a Post as a Promotion
 	 * 
 	 * @param postId Id of Post
 	 */
-	public void flagPostAsPromotion(String postId);
+	void flagPostAsPromotion(String postId);
 	
 	/**
 	 * Delete a Post (if group administrator) or flag as inappropriate 
 	 * 
 	 * @param postId Id of Post
 	 */
-	public void deleteOrFlagPostAsInappropriate(String postId);
+	void deleteOrFlagPostAsInappropriate(String postId);
 	
 	/**
 	 * Add a Comment to a Post
@@ -174,20 +177,20 @@ public interface GroupOperations {
 	 * @param postId Id of Post
 	 * @param text Text of Comment
 	 */
-	public void addCommentToPost(String postId, String text);
+	void addCommentToPost(String postId, String text);
 	
 	/**
 	 * Delete a Comment (if group administrator) or flag as inappropriate 
 	 * 
 	 * @param commentId Id of Comment
 	 */
-	public void deleteOrFlagCommentAsInappropriate(String commentId);
+	void deleteOrFlagCommentAsInappropriate(String commentId);
 	
 	/**
 	 * Delete Group Suggestion
 	 * 
 	 * @param groupId Id of Group
 	 */
-	public void deleteGroupSuggestion(Integer groupId);
+	void deleteGroupSuggestion(Integer groupId);
 
 }
