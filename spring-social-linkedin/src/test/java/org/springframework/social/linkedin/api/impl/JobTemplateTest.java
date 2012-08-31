@@ -193,7 +193,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals(2160963, j.getId());
 		assertEquals("Java Developer - GWT (Perm or Contract) \u2013 Dublin, Ireland", j.getPosition().getTitle());
 		assertEquals(new Date(1320773338000l), j.getPostingTimestamp());
-		assertEquals("Our Client has an excellent opportunity for a number Java GWT Developers. You will be based out of Dublin City Centre office. Overseas candidates are welcome to apply, but ideally you should be currently eligible to work in the EU / Ireland Ê Responsibilities: Ownership of the design and the implementation (estimation, breakdown of tasks) for complex business functional specifications through the ", j.getDescriptionSnippet());
+		assertEquals("Our Client has an excellent opportunity for a number Java GWT Developers. You will be based out of Dublin City Centre office. Overseas candidates are welcome to apply, but ideally you should be currently eligible to work in the EU / Ireland Responsibilities: Ownership of the design and the implementation (estimation, breakdown of tasks) for complex business functional specifications through the ", j.getDescriptionSnippet());
 	}
 	
 	@Test

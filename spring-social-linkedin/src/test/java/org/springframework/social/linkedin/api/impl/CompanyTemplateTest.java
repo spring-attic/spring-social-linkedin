@@ -25,10 +25,10 @@ import java.util.List;
 
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.social.linkedin.api.Companies;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.Product;
 import org.springframework.social.linkedin.api.Products;
-import org.springframework.social.linkedin.api.Companies;
 
 public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 	@Test
