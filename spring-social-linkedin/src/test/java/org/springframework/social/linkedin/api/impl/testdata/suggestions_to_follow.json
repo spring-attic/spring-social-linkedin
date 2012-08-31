@@ -67,7 +67,7 @@
         "code": "P",
         "name": "Privately Held"
       },
-      "description": "About OpenJaw Technologies\r\n\r\nOpenJaw Technologies is the creator of the xDistributor Platform, the world\u2019s most powerful eCommerce platform for the travel industry. \r\n\r\nOur solutions enable leading Airlines, Online Travel Agencies, Hotel Groups and Loyalty Programmes to market, distribute and sell their products online in a differentiated way.\r\n\r\nThe xDistributor Platform enables travel supplier integration, distribution channel management and dynamic packaging which are controlled by its fully integrated business rules engine. \r\n\r\nApplications that reside within the xDistributor Platform include:\r\n\r\n\u2022\txRez \u2013 a highly customisable Internet Booking Engine\r\n\u2022\txRezAgent \u2013 sales and servicing for call centre agents\r\n\u2022\txHotel \u2013 inventory, content and distribution management for accommodation\r\n\u2022\txEvent \u2013 content and inventory management for event tickets and destination attractions\r\n\u2022\txLocation \u2013 location data and hierarchies\r\n\r\nOpenJaw Technologies is a member and active participant of the Open Travelª Alliance, CASMA, TTI and HTNG.\r\n\r\nOpenJaw Technologies is headquartered in Dublin, Ireland, with regional offices in Galway, Madrid, Frankfurt, Oslo and Dallas \u2013 as well as representation in Moscow.",
+      "description": "About OpenJaw Technologies\r\n\r\nOpenJaw Technologies is the creator of the xDistributor Platform, the world\u2019s most powerful eCommerce platform for the travel industry. \r\n\r\nOur solutions enable leading Airlines, Online Travel Agencies, Hotel Groups and Loyalty Programmes to market, distribute and sell their products online in a differentiated way.\r\n\r\nThe xDistributor Platform enables travel supplier integration, distribution channel management and dynamic packaging which are controlled by its fully integrated business rules engine. \r\n\r\nApplications that reside within the xDistributor Platform include:\r\n\r\n\u2022\txRez \u2013 a highly customisable Internet Booking Engine\r\n\u2022\txRezAgent \u2013 sales and servicing for call centre agents\r\n\u2022\txHotel \u2013 inventory, content and distribution management for accommodation\r\n\u2022\txEvent \u2013 content and inventory management for event tickets and destination attractions\r\n\u2022\txLocation \u2013 location data and hierarchies\r\n\r\nOpenJaw Technologies is a member and active participant of the Open Travelâ„¢ Alliance, CASMA, TTI and HTNG.\r\n\r\nOpenJaw Technologies is headquartered in Dublin, Ireland, with regional offices in Galway, Madrid, Frankfurt, Oslo and Dallas \u2013 as well as representation in Moscow.",
       "emailDomains": {
         "_total": 1,
         "values": ["openjawtech.com"]
@@ -180,7 +180,7 @@
         "values": [
           {
             "address": {
-              "city": "Krak—w",
+              "city": "KrakÃ³w",
               "postalCode": "31-231",
               "street1": "ul. Bociana 22A"
             },
@@ -284,7 +284,7 @@
         "values": [
           {
             "address": {
-              "city": "Pruszk—w",
+              "city": "PruszkÃ³w",
               "postalCode": "05-802",
               "street1": "ul. Kochanowskiego 3"
             },
@@ -462,7 +462,7 @@
         "code": "C",
         "name": "Public Company"
       },
-      "description": "FuseSource, a wholly owned subsidiary of Progress Software Corporation, provides professional open source integration and messaging software, tools, training, and consulting to organizations seeking to leverage these technologies in the enterprise.\r\n\r\nFuseSource provides its customers with access to professional open source software through a subscription model.  FuseSourceª subscriptions include certified distributions of Apache Software Foundation projects, professional documentation, enterprise-level support and SLAs, and tools to allow management and metering. As important, FuseSource subscriptions provide customers the ability to influence the product roadmap as well as access to consulting and expertise from open source professionals solely focused on enterprise integration and messaging.  FuseSource offers the following certified Apache distributions:\r\n\r\n\u2022   FUSE ESB¨ \u2013 Based on Apache ServiceMix\r\n\u2022   FUSE Message Broker¨ \u2013 Based on Apache ActiveMQ\r\n\u2022   FUSE Services Framework¨ \u2013 Based on Apache CXF\r\n\u2022   FUSE Mediation Router¨ \u2013 Based on Apache Camel",
+      "description": "FuseSource, a wholly owned subsidiary of Progress Software Corporation, provides professional open source integration and messaging software, tools, training, and consulting to organizations seeking to leverage these technologies in the enterprise.\r\n\r\nFuseSource provides its customers with access to professional open source software through a subscription model.  FuseSourceâ„¢ subscriptions include certified distributions of Apache Software Foundation projects, professional documentation, enterprise-level support and SLAs, and tools to allow management and metering. As important, FuseSource subscriptions provide customers the ability to influence the product roadmap as well as access to consulting and expertise from open source professionals solely focused on enterprise integration and messaging.  FuseSource offers the following certified Apache distributions:\r\n\r\n\u2022   FUSE ESBÂ® \u2013 Based on Apache ServiceMix\r\n\u2022   FUSE Message BrokerÂ® \u2013 Based on Apache ActiveMQ\r\n\u2022   FUSE Services FrameworkÂ® \u2013 Based on Apache CXF\r\n\u2022   FUSE Mediation RouterÂ® \u2013 Based on Apache Camel",
       "emailDomains": {
         "_total": 1,
         "values": ["fusesource.com"]
@@ -559,7 +559,7 @@
             "address": {
               "city": "Tunis Ariana",
               "postalCode": "2088",
-              "street1": "P™le Elgazala des Technologies de la Communication"
+              "street1": "PÃ´le Elgazala des Technologies de la Communication"
             },
             "contactInfo": {
               "fax": "",

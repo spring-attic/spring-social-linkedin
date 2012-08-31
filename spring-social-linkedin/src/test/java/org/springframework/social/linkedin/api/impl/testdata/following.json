@@ -187,7 +187,7 @@
         "code": "C",
         "name": "Public Company"
       },
-      "description": "Fujitsu UK and Ireland is a leading IT systems, services and products company employing 11,400 people with an annual revenue of £1.7 billion. Its business is in enabling its customers to realise their objectives by exploiting information technology through its integrated product and service portfolio. This includes consulting, applications, systems integration, managed services and product for customers in the private and public sectors including retail, financial services, telecoms, government, defence and consumer sectors.",
+      "description": "Fujitsu UK and Ireland is a leading IT systems, services and products company employing 11,400 people with an annual revenue of Â£1.7 billion. Its business is in enabling its customers to realise their objectives by exploiting information technology through its integrated product and service portfolio. This includes consulting, applications, systems integration, managed services and product for customers in the private and public sectors including retail, financial services, telecoms, government, defence and consumer sectors.",
       "emailDomains": {
         "_total": 1,
         "values": ["uk.fujitsu.com"]

@@ -25,16 +25,17 @@ import java.util.List;
 
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.MediaType;
+import org.springframework.social.linkedin.api.Companies;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.Product;
 import org.springframework.social.linkedin.api.Products;
-import org.springframework.social.linkedin.api.Companies;
 
 public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getCompany() {
 		mockServer.expect(requestTo(CompanyTemplate.COMPANY_URL.replaceFirst("\\{id\\}", "/1337").replaceFirst("\\{filter\\}", ""))).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/company.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/company.json", getClass()), MediaType.APPLICATION_JSON));
 		Company company = linkedIn.companyOperations().getCompany(1337);
 		
 		assertEquals(1337, company.getId());
@@ -72,7 +73,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void search() {
 		mockServer.expect(requestTo(CompanyTemplate.COMPANY_SEARCH_URL.replaceFirst("\\{keywords\\}", "spring%20j2ee"))).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/company_search.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/company_search.json", getClass()), MediaType.APPLICATION_JSON));
 		Companies result = linkedIn.companyOperations().search("spring j2ee");
 		
 		assertEquals(10, result.getCount());
@@ -109,7 +110,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getFollowing() {
 		mockServer.expect(requestTo(CompanyTemplate.COMPANY_FOLLOW_URL)).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/following.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/following.json", getClass()), MediaType.APPLICATION_JSON));
 		List<Company> companies = linkedIn.companyOperations().getFollowing();
 		
 		assertEquals(6, companies.size());
@@ -119,7 +120,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getSuggestionsToFollow() {
 		mockServer.expect(requestTo(CompanyTemplate.COMPANY_SUGGESTIONS_TO_FOLLOW)).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/suggestions_to_follow.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/suggestions_to_follow.json", getClass()), MediaType.APPLICATION_JSON));
 		List<Company> companies = linkedIn.companyOperations().getSuggestionsToFollow();
 		
 		assertEquals(10, companies.size());
@@ -129,10 +130,10 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getProducts() {
 		mockServer.expect(requestTo(CompanyTemplate.PRODUCTS_URL
-				.replaceFirst("\\{id\\}", "1337")
-				.replaceFirst("\\{start\\}", "0")
-				.replaceFirst("\\{count\\}", "5"))).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/products.json", getClass()), responseHeaders));
+			.replaceFirst("\\{id\\}", "1337")
+			.replaceFirst("\\{start\\}", "0")
+			.replaceFirst("\\{count\\}", "5"))).andExpect(method(GET))
+			.andRespond(withSuccess(new ClassPathResource("testdata/products.json", getClass()), MediaType.APPLICATION_JSON));
 		Products productResult = linkedIn.companyOperations().getProducts(1337, 0, 5);
 		
 		assertEquals(5, productResult.getCount());

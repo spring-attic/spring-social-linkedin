@@ -96,7 +96,6 @@ class CommunicationTemplate implements CommunicationOperations {
 			invitationRequest = new InvitationRequest();
 		}
 
-		@SuppressWarnings("unused")
 		@JsonProperty("invitation-request")
 		public InvitationRequest getInvitationRequest() {
 			return invitationRequest;
@@ -115,7 +114,6 @@ class CommunicationTemplate implements CommunicationOperations {
 		}
 		
 
-		@SuppressWarnings("unused")
 		@JsonProperty("connect-type")
 		public String getConnectType() {
 			return connectType;
@@ -218,14 +216,12 @@ class CommunicationTemplate implements CommunicationOperations {
 		}
 		
 
-		@SuppressWarnings("unused")
 		@JsonProperty("first-name")
 		public String getFirstName() {
 			return firstName;
 		}
 		
 
-		@SuppressWarnings("unused")
 		@JsonProperty("last-name")
 		public String getLastName() {
 			return lastName;
