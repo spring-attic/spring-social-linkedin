@@ -40,7 +40,7 @@ configure(allprojects) {
 
     dependencies {
         testCompile "junit:junit-dep:$junitVersion"
-        testCompile "org.mockito:mockito-all:$mockitoVersion"
+        testCompile "org.mockito:mockito-core:$mockitoVersion"
         testCompile "org.springframework:spring-test-mvc:$springTestMvcVersion"
     }
 
