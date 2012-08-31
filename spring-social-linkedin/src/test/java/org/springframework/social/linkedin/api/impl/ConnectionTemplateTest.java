@@ -24,6 +24,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.MediaType;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.NetworkStatistics;
 
@@ -32,7 +33,7 @@ public class ConnectionTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getConnections() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/connections?format=json")).andExpect(method(GET))
-				.andRespond(withResponse(new ClassPathResource("testdata/connections.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/connections.json", getClass()), MediaType.APPLICATION_JSON));
 		List<LinkedInProfile> connections = linkedIn.connectionOperations().getConnections();
 		assertConnections(connections);
 	}
@@ -40,7 +41,7 @@ public class ConnectionTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getConnections_withStartAndCount() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/connections?format=json&start=10&count=20")).andExpect(method(GET))
-				.andRespond(withResponse(new ClassPathResource("testdata/connections.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/connections.json", getClass()), MediaType.APPLICATION_JSON));
 		List<LinkedInProfile> connections = linkedIn.connectionOperations().getConnections(10, 20);
 		assertConnections(connections);
 	}
@@ -48,7 +49,7 @@ public class ConnectionTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getStatistics() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/network-stats?format=json")).andExpect(method(GET))
-				.andRespond(withResponse(new ClassPathResource("testdata/statistics.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/statistics.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		NetworkStatistics stats = linkedIn.connectionOperations().getNetworkStatistics();
 		

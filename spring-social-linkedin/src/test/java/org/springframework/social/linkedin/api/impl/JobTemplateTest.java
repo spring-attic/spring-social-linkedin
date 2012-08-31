@@ -25,6 +25,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.MediaType;
 import org.springframework.social.linkedin.api.Job;
 import org.springframework.social.linkedin.api.JobBookmark;
 import org.springframework.social.linkedin.api.JobBookmarks;
@@ -46,7 +47,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 				.replaceFirst("\\{\\&start\\}", "&start=0")
 				.replaceFirst("\\{\\&count\\}", "&count=10")
 				.replaceFirst("\\{\\&sort\\}", ""))).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/job_search.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/job_search.json", getClass()), MediaType.APPLICATION_JSON));
 		JobSearchParameters parameters = new JobSearchParameters();
 		parameters.setCountryCode("ie");
 		parameters.setKeywords("j2ee");
@@ -90,7 +91,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 		mockServer.expect(requestTo(JobTemplate.SUGGESTED_URL
 				.replaceFirst("\\{\\&start\\}", "start=0")
 				.replaceFirst("\\{\\&count\\}", "&count=10"))).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/job_suggestions.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/job_suggestions.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		List<Job> jobs = linkedIn.jobOperations().getSuggestions(0, 10).getJobs();
 		
@@ -131,7 +132,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	public void getJob() {
 		mockServer.expect(requestTo(JobTemplate.JOB_URL
 				.replaceFirst("\\{id\\}", "2160963"))).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/job.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/job.json", getClass()), MediaType.APPLICATION_JSON));
 		JobSearchParameters parameters = new JobSearchParameters();
 		parameters.setCountryCode("ie");
 		parameters.setKeywords("j2ee");
@@ -174,7 +175,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 		mockServer.expect(requestTo(JobTemplate.BOOKMARKS_URL
 				.replaceFirst("\\{\\&start\\}", "start=0")
 				.replaceFirst("\\{\\&count\\}", "&count=10"))).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/job_bookmarks.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/job_bookmarks.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		JobBookmarks r = linkedIn.jobOperations().getBookmarks(0, 10);
 		assertEquals(0,r.getCount());
@@ -199,12 +200,12 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void bookmark() {
 		mockServer.expect(requestTo(JobTemplate.BOOKMARK_URL))
-		.andExpect(method(POST))
-		.andExpect(body("{\"job\":{\"id\":123456}}"))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+			.andExpect(method(POST))
+			.andExpect(body("{\"job\":{\"id\":123456}}"))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 		
 		linkedIn.jobOperations().bookmarkJob(123456);
 	}
@@ -212,12 +213,12 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void unbookmark() {
 		mockServer.expect(requestTo(JobTemplate.UNBOOKMARK_URL.replaceFirst("\\{job-id\\}", "123456")))
-		.andExpect(method(DELETE))
-		.andExpect(body(""))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+			.andExpect(method(DELETE))
+			.andExpect(body(""))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 		
 		linkedIn.jobOperations().unbookmarkJob(123456);
 	}
