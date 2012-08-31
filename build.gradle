@@ -17,13 +17,15 @@ configure(allprojects) {
     sourceCompatibility=1.5
     targetCompatibility=1.5
 
-    springSocialVersion = '1.1.0.BUILD-SNAPSHOT'
-    jacksonVersion = '1.9.6'
-    junitVersion = '4.10'
-    mockitoVersion = '1.9.0'
-    springVersion = '3.1.1.RELEASE'
-    springSecurityVersion = '3.1.0.RELEASE'
-    springTestMvcVersion = "1.0.0.BUILD-SNAPSHOT"
+    ext {
+      springSocialVersion = '1.1.0.BUILD-SNAPSHOT'
+      jacksonVersion = '1.9.9'
+      junitVersion = '4.10'
+      mockitoVersion = '1.9.0'
+      springVersion = '3.1.2.RELEASE'
+      springSecurityVersion = '3.1.1.RELEASE'
+      springTestMvcVersion = "1.0.0.BUILD-SNAPSHOT"
+    }
 
     [compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:none']
 
@@ -106,7 +108,7 @@ configure(rootProject) {
     apply plugin: 'docbook-reference'
 
     reference {
-        sourceDir = file('src/reference/docbook')
+        ext.sourceDir = file('src/reference/docbook')
     }
 
     // don't publish the default jar for the root project
@@ -188,7 +190,7 @@ configure(rootProject) {
         description = "Builds -${classifier} archive, containing all jars and docs, " +
                       "suitable for community download page."
 
-        baseDir = "${project.name}-${project.version}";
+        ext.baseDir = "${project.name}-${project.version}";
 
         from('src/dist') {
             include 'readme.txt'
@@ -227,7 +229,7 @@ configure(rootProject) {
 
     task wrapper(type: Wrapper) {
         description = 'Generates gradlew[.bat] scripts'
-        gradleVersion = '1.0-milestone-8a'
+        gradleVersion = '1.1'
     }
 
 }

@@ -24,6 +24,7 @@ import java.util.Date;
 
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.MediaType;
 import org.springframework.social.linkedin.api.Group;
 import org.springframework.social.linkedin.api.Group.GroupAvailableAction;
 import org.springframework.social.linkedin.api.Group.GroupCategory;
@@ -44,7 +45,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getGroupMemberships() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_MEMBERSHIPS_URL)).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/group_memberships.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/group_memberships.json", getClass()), MediaType.APPLICATION_JSON));
 		GroupMemberships memberships = linkedIn.groupOperations().getGroupMemberships();
 		
 		assertEquals(10, memberships.getCount());
@@ -65,7 +66,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getGroupSuggestions() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_SUGGESTIONS_URL)).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/group_suggestions.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/group_suggestions.json", getClass()), MediaType.APPLICATION_JSON));
 		GroupSuggestions suggestions = linkedIn.groupOperations().getGroupSuggestions();
 		
 		assertEquals(10, suggestions.getCount());
@@ -82,7 +83,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getGroupDetails() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_DETAILS_URL.replaceFirst("\\{group-id\\}", "46964"))).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/group.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/group.json", getClass()), MediaType.APPLICATION_JSON));
 		Group group = linkedIn.groupOperations().getGroupDetails(46964);
 
 		assertEquals(true, group.getAllowMemberInvites());
@@ -132,7 +133,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getPosts() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_POSTS_URL.replaceFirst("\\{group-id\\}", "46964"))).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/group_posts.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/group_posts.json", getClass()), MediaType.APPLICATION_JSON));
 		GroupPosts posts = linkedIn.groupOperations().getPosts(46964);
 		
 		assertEquals(10, posts.getCount());
@@ -188,7 +189,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getPostComments() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_COMMENTS_URL.replaceFirst("\\{post-id\\}", "g-46964-S-87679641"))).andExpect(method(GET))
-		.andRespond(withResponse(new ClassPathResource("testdata/group_post_comments.json", getClass()), responseHeaders));
+			.andRespond(withSuccess(new ClassPathResource("testdata/group_post_comments.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		PostComments comments = linkedIn.groupOperations().getPostComments("g-46964-S-87679641");
 		
@@ -219,152 +220,164 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
-			.andRespond(withResponse("", responseHeaders));
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 		
 		linkedIn.groupOperations().createPost(4253322, "Test Post", "This is a test");
 		
 	}
 	
 	@Test
-	public void likePost() {mockServer.expect(requestTo(GroupTemplate.GROUP_POST_LIKE_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
-		.andExpect(method(PUT))
-		.andExpect(body("true"))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+	public void likePost() {
+		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_LIKE_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
+			.andExpect(method(PUT))
+			.andExpect(body("true"))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 	
 		linkedIn.groupOperations().likePost("g-4253322-S-89528249");
 	}
 	
 	@Test
-	public void unlikePost() {mockServer.expect(requestTo(GroupTemplate.GROUP_POST_LIKE_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
-		.andExpect(method(PUT))
-		.andExpect(body("false"))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+	public void unlikePost() {
+		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_LIKE_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
+			.andExpect(method(PUT))
+			.andExpect(body("false"))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 	
 		linkedIn.groupOperations().unlikePost("g-4253322-S-89528249");
 	}
 	
 	@Test
-	public void flagPostAsJob() {mockServer.expect(requestTo(GroupTemplate.GROUP_POST_FLAG_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
-		.andExpect(method(PUT))
-		.andExpect(body("\"job\""))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+	public void flagPostAsJob() {
+		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_FLAG_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
+			.andExpect(method(PUT))
+			.andExpect(body("\"job\""))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 	
 		linkedIn.groupOperations().flagPostAsJob("g-4253322-S-89528249");
 	}
 	
 	@Test
-	public void flagPostAsPromotion() {mockServer.expect(requestTo(GroupTemplate.GROUP_POST_FLAG_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
-		.andExpect(method(PUT))
-		.andExpect(body("\"promotion\""))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+	public void flagPostAsPromotion() {
+		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_FLAG_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
+			.andExpect(method(PUT))
+			.andExpect(body("\"promotion\""))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 	
 		linkedIn.groupOperations().flagPostAsPromotion("g-4253322-S-89528249");
 	}
 	
 	@Test
-	public void followPost() {mockServer.expect(requestTo(GroupTemplate.GROUP_POST_FOLLOW_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
-		.andExpect(method(PUT))
-		.andExpect(body("true"))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+	public void followPost() {
+		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_FOLLOW_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
+			.andExpect(method(PUT))
+			.andExpect(body("true"))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 	
 		linkedIn.groupOperations().followPost("g-4253322-S-89528249");
 	}
 	
 	@Test
-	public void unfollowPost() {mockServer.expect(requestTo(GroupTemplate.GROUP_POST_FOLLOW_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
-		.andExpect(method(PUT))
-		.andExpect(body("false"))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+	public void unfollowPost() {
+		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_FOLLOW_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
+			.andExpect(method(PUT))
+			.andExpect(body("false"))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 	
 		linkedIn.groupOperations().unfollowPost("g-4253322-S-89528249");
 	}
 	
 	@Test
-	public void deletePost() {mockServer.expect(requestTo(GroupTemplate.GROUP_POST_DELETE_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
-		.andExpect(method(DELETE))
-		.andExpect(body(""))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+	public void deletePost() {
+		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_DELETE_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
+			.andExpect(method(DELETE))
+			.andExpect(body(""))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 	
 		linkedIn.groupOperations().deleteOrFlagPostAsInappropriate("g-4253322-S-89528249");
 	}
 	
 	@Test
-	public void addCommentToPost() {mockServer.expect(requestTo(GroupTemplate.GROUP_POST_ADD_COMMENT_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
-		.andExpect(method(POST))
-		.andExpect(body("{\"text\":\"This is a test comment\"}"))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+	public void addCommentToPost() {
+		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_ADD_COMMENT_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
+			.andExpect(method(POST))
+			.andExpect(body("{\"text\":\"This is a test comment\"}"))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 	
 		linkedIn.groupOperations().addCommentToPost("g-4253322-S-89528249","This is a test comment");
 	}
 	
 	@Test
-	public void deleteComment() {mockServer.expect(requestTo(GroupTemplate.GROUP_POST_DELETE_COMMENT_URL.replaceFirst("\\{comment-id\\}", "g-4253322-S-89528249")))
-		.andExpect(method(DELETE))
-		.andExpect(body(""))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+	public void deleteComment() {
+		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_DELETE_COMMENT_URL.replaceFirst("\\{comment-id\\}", "g-4253322-S-89528249")))
+			.andExpect(method(DELETE))
+			.andExpect(body(""))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 	
 		linkedIn.groupOperations().deleteOrFlagCommentAsInappropriate("g-4253322-S-89528249");
 	}
 	
 	@Test
-	public void deleteGroupSuggestion() {mockServer.expect(requestTo(GroupTemplate.GROUP_SUGGESTION_DELETE_URL.replaceFirst("\\{id\\}", "46964")))
-		.andExpect(method(DELETE))
-		.andExpect(body(""))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+	public void deleteGroupSuggestion() {
+		mockServer.expect(requestTo(GroupTemplate.GROUP_SUGGESTION_DELETE_URL.replaceFirst("\\{id\\}", "46964")))
+			.andExpect(method(DELETE))
+			.andExpect(body(""))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 	
 		linkedIn.groupOperations().deleteGroupSuggestion(46964);
 	}
 	
 	@Test
-	public void joinGroup() {mockServer.expect(requestTo(GroupTemplate.GROUP_JOIN_LEAVE_URL.replaceFirst("\\{group-id\\}", "46964")))
-		.andExpect(method(PUT))
-		.andExpect(body("{\"membership-state\":{\"code\":\"member\"}}"))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+	public void joinGroup() {
+		mockServer.expect(requestTo(GroupTemplate.GROUP_JOIN_LEAVE_URL.replaceFirst("\\{group-id\\}", "46964")))
+			.andExpect(method(PUT))
+			.andExpect(body("{\"membership-state\":{\"code\":\"member\"}}"))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 	
 		linkedIn.groupOperations().joinGroup(46964);
 	}
 	
 	@Test
-	public void leaveGroup() {mockServer.expect(requestTo(GroupTemplate.GROUP_JOIN_LEAVE_URL.replaceFirst("\\{group-id\\}", "46964")))
-		.andExpect(method(DELETE))
-		.andExpect(body(""))
-		.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-		.andExpect(headerContains("Authorization", "oauth_signature=\""))
-		.andRespond(withResponse("", responseHeaders));
+	public void leaveGroup() {
+		mockServer.expect(requestTo(GroupTemplate.GROUP_JOIN_LEAVE_URL.replaceFirst("\\{group-id\\}", "46964")))
+			.andExpect(method(DELETE))
+			.andExpect(body(""))
+			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
+			.andExpect(headerContains("Authorization", "oauth_signature=\""))
+			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 	
 		linkedIn.groupOperations().leaveGroup(46964);
 	}

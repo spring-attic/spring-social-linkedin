@@ -344,7 +344,7 @@
         "code": "S",
         "name": "Partnership"
       },
-      "description": "Les métiers de BK Consulting : \r\n- Salle de marché (Front/Middle/Back Office) \r\n- Asset Management \r\n- Administration de fonds \r\n- R&D (pricers) \r\n\r\nNous sommes présents sur Paris et l'international (Luxembourg, Bruxelles...) et intervenons notamment auprès de BNP Paribas, Société Générale, CaLyon, Natixis, CDC, Banque de France\u2026 \r\n\r\nAu niveau technologie, nous sommes fortement sollicités sur : \r\n- Java et les architectures J2EE (JSP, Servlet, EJB, JMS, JDBC\u2026) AWT, Swing, SWT sur serveurs d\u2019applications Weblo, Websphere et/ou frameworks : Struts, Hibernate, Spring\u2026 \r\n- C++ (sous Unix et/ou Windows) sur les librairies MFC, STL, COM/DCOM\u2026 \r\n- .NET (VB.NET, C#...), Winforms et/ou Webforms \r\n- Sybase (Transact SQL) et/ou Oracle (PL/SQL) et/ou SQL Server (Transact SQL) : Maîtrise du requêtage SQL, des procédures stockées, des triggers, vues... \r\n- L4G : Developper2000 et/ou Delphi et/ou 4D et/ou VB et/ou PB \r\n\r\nPar ailleurs, il est vrai que nous attachons une certaine importance à la connaissance d\u2019UML et des Design Patterns. \r\n\r\nNous travaillons également en administration système notamment sous : \r\n- Unix (Solaris, AIX, HP-UX\u2026), maîtrise des scripts shell\u2026 \r\n\r\nNous sommes également sollicités sur de la MOA : \r\n- Expression des besoins \r\n- Rédaction du cahier des charges \r\n- Rédaction des spécifications fonctionnelles \r\n- Mise en œuvre de la recette, homologation, testing \r\n- Paramétrage et/ou extension de progiciel financier (Summit, Infinity, Diagram, Reuters, Kondor+, Sophis, Panorama\u2026)",
+      "description": "Les m√©tiers de BK Consulting : \r\n- Salle de march√© (Front/Middle/Back Office) \r\n- Asset Management \r\n- Administration de fonds \r\n- R&D (pricers) \r\n\r\nNous sommes pr√©sents sur Paris et l'international (Luxembourg, Bruxelles...) et intervenons notamment aupr√®s de BNP Paribas, Soci√©t√© G√©n√©rale, CaLyon, Natixis, CDC, Banque de France\u2026 \r\n\r\nAu niveau technologie, nous sommes fortement sollicit√©s sur : \r\n- Java et les architectures J2EE (JSP, Servlet, EJB, JMS, JDBC\u2026) AWT, Swing, SWT sur serveurs d\u2019applications Weblo, Websphere et/ou frameworks : Struts, Hibernate, Spring\u2026 \r\n- C++ (sous Unix et/ou Windows) sur les librairies MFC, STL, COM/DCOM\u2026 \r\n- .NET (VB.NET, C#...), Winforms et/ou Webforms \r\n- Sybase (Transact SQL) et/ou Oracle (PL/SQL) et/ou SQL Server (Transact SQL) : Ma√Ætrise du requ√™tage SQL, des proc√©dures stock√©es, des triggers, vues... \r\n- L4G : Developper2000 et/ou Delphi et/ou 4D et/ou VB et/ou PB \r\n\r\nPar ailleurs, il est vrai que nous attachons une certaine importance √† la connaissance d\u2019UML et des Design Patterns. \r\n\r\nNous travaillons √©galement en administration syst√®me notamment sous : \r\n- Unix (Solaris, AIX, HP-UX\u2026), ma√Ætrise des scripts shell\u2026 \r\n\r\nNous sommes √©galement sollicit√©s sur de la MOA : \r\n- Expression des besoins \r\n- R√©daction du cahier des charges \r\n- R√©daction des sp√©cifications fonctionnelles \r\n- Mise en ≈ìuvre de la recette, homologation, testing \r\n- Param√©trage et/ou extension de progiciel financier (Summit, Infinity, Diagram, Reuters, Kondor+, Sophis, Panorama\u2026)",
       "emailDomains": {
         "_total": 1,
         "values": ["bk-consulting.com"]
@@ -360,7 +360,7 @@
         "_total": 1,
         "values": [{
           "address": {
-            "city": "Paris La Défense",
+            "city": "Paris La D√©fense",
             "postalCode": "92979",
             "street1": "22, place des Vosges"
           },
@@ -375,7 +375,7 @@
       "numFollowers": 64,
       "specialties": {
         "_total": 1,
-        "values": ["Cabinet de conseil spécialisé en finance de marché."]
+        "values": ["Cabinet de conseil sp√©cialis√© en finance de march√©."]
       },
       "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/10b/357/088ecb0.png",
       "status": {
