@@ -28,7 +28,7 @@ public class LinkedInNamespaceHandler extends AbstractProviderConfigNamespaceHan
 
 	@Override
 	protected AbstractProviderConfigBeanDefinitionParser getProviderConfigBeanDefinitionParser() {
-		return new LinkedInConnectionFactoryBeanDefinitionParser();
+		return new LinkedInConfigBeanDefinitionParser();
 	}
 
 }
