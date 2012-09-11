@@ -29,9 +29,9 @@ import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
  * Implementation of {@link AbstractConnectionFactoryBeanDefinitionParser} that creates a {@link FacebookConnectionFactory}.
  * @author Craig Walls
  */
-class LinkedInConnectionFactoryBeanDefinitionParser extends AbstractProviderConfigBeanDefinitionParser {
+class LinkedInConfigBeanDefinitionParser extends AbstractProviderConfigBeanDefinitionParser {
 
-	public LinkedInConnectionFactoryBeanDefinitionParser() {
+	public LinkedInConfigBeanDefinitionParser() {
 		super(LinkedInConnectionFactory.class, LinkedInApiHelper.class);
 	}
 
