@@ -1,0 +1,2 @@
+http\://www.springframework.org/schema/social/spring-social-linkedin.xsd=org/springframework/social/linkedin/config/xml/spring-social-linkedin-1.0.xsd
+http\://www.springframework.org/schema/social/spring-social-linkedin-1.0.xsd=org/springframework/social/linkedin/config/xml/spring-social-linkedin-1.0.xsd

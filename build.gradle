@@ -95,10 +95,12 @@ configure(subprojects) { subproject ->
 project('spring-social-linkedin') {
     description = 'LinkedIn API'
     dependencies {
-	   compile "org.springframework.social:spring-social-core:$springSocialVersion"
-       compile "org.codehaus.jackson:jackson-mapper-asl:$jacksonVersion"
-       testCompile "org.springframework:spring-test-mvc:$springTestMvcVersion"
-       testCompile "org.springframework.security:spring-security-crypto:$springSecurityVersion"
+      compile "org.springframework.social:spring-social-core:$springSocialVersion"
+      compile "org.springframework.social:spring-social-config:$springSocialVersion"
+      compile "org.codehaus.jackson:jackson-mapper-asl:$jacksonVersion"
+      testCompile "org.springframework:spring-test-mvc:$springTestMvcVersion"
+      testCompile "org.springframework.security:spring-security-crypto:$springSecurityVersion"
+      testCompile ("org.apache.httpcomponents:httpclient:4.2.1", optional)
     }
 }
 
@@ -223,7 +225,7 @@ configure(rootProject) {
 
     artifacts {
         archives docsZip
-//        archives schemaZip
+        archives schemaZip
         archives distZip
     }
 

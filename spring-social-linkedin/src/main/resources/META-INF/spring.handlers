@@ -1,0 +1,1 @@
+http\://www.springframework.org/schema/social/linkedin=org.springframework.social.linkedin.config.xml.LinkedInNamespaceHandler
