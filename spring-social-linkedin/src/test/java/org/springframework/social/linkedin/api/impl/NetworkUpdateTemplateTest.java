@@ -47,7 +47,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	public void postUpdate() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/person-activities"))
 			.andExpect(method(PUT))
-			.andExpect(body("{\"body\":\"Cool beans\",\"contentType\":\"linkedin-html\"}"))
+			.andExpect(content().string("{\"body\":\"Cool beans\",\"contentType\":\"linkedin-html\"}"))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -59,7 +59,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	public void share() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/shares"))
 			.andExpect(method(POST))
-			.andExpect(body("{\"comment\":\"Social Integration Platform coming together nicely ...\",\"visibility\":{\"code\":\"connections-only\"}}"))
+			.andExpect(content().string("{\"comment\":\"Social Integration Platform coming together nicely ...\",\"visibility\":{\"code\":\"connections-only\"}}"))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -72,10 +72,10 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	}
 	
 	@Test
-	public void like() {
+	public void like() {		
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates/key=KEY/is-liked?format=json"))
 			.andExpect(method(PUT))
-			.andExpect(body("true"))
+			.andExpect(content().string("true"))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -88,7 +88,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	public void unlike() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates/key=KEY/is-liked?format=json"))
 			.andExpect(method(PUT))
-			.andExpect(body("false"))
+			.andExpect(content().string("false"))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
