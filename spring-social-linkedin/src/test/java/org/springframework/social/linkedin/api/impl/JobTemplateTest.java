@@ -201,7 +201,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	public void bookmark() {
 		mockServer.expect(requestTo(JobTemplate.BOOKMARK_URL))
 			.andExpect(method(POST))
-			.andExpect(body("{\"job\":{\"id\":123456}}"))
+			.andExpect(content().string("{\"job\":{\"id\":123456}}"))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -214,7 +214,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	public void unbookmark() {
 		mockServer.expect(requestTo(JobTemplate.UNBOOKMARK_URL.replaceFirst("\\{job-id\\}", "123456")))
 			.andExpect(method(DELETE))
-			.andExpect(body(""))
+			.andExpect(content().string(""))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))

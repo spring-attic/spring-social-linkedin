@@ -15,7 +15,9 @@
  */
 package org.springframework.social.linkedin.api.impl;
 
+import static org.hamcrest.core.StringContains.*;
 import static org.junit.Assert.*;
+import static org.springframework.test.web.client.match.RequestMatchers.*;
 
 import java.util.Date;
 
@@ -33,6 +35,7 @@ import org.springframework.social.linkedin.api.Recommendation.RecommendationType
 import org.springframework.social.linkedin.api.UpdateContent;
 import org.springframework.social.linkedin.api.UpdateType;
 import org.springframework.test.web.client.MockRestServiceServer;
+import org.springframework.test.web.client.RequestMatcher;
 
 public class AbstractLinkedInApiTest {
 	protected LinkedInTemplate linkedIn;
@@ -93,6 +96,12 @@ public class AbstractLinkedInApiTest {
 		assertEquals(firstName, connection.getFirstName());
 		assertEquals(lastName, connection.getLastName());
 		assertEquals(industry, connection.getIndustry());
-//		assertEquals(standardUrl, connection.getStandardProfileUrl());
 	}
+	
+
+	@SuppressWarnings("unchecked")
+	protected RequestMatcher headerContains(String name, String substring) {
+		return header(name, containsString(substring));
+	}
+
 }
