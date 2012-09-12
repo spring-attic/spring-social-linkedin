@@ -66,6 +66,6 @@ public class CommunicationTemplateTest extends AbstractLinkedInApiTest {
 		
 		linkedIn.communicationOperations().connectTo("I'd like to add you to my professional network on LinkedIn",
 				"I'd like to add you to my professional network on LinkedIn", "rob@test.com", "Robert", "Smith");
-
 	}
+	
 }
