@@ -216,7 +216,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void createPost() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_CREATE_POST_URL.replaceFirst("\\{group-id\\}", "4253322")))
 			.andExpect(method(POST))
-			.andExpect(body("{\"summary\":\"This is a test\",\"title\":\"Test Post\"}"))
+			.andExpect(content().string("{\"summary\":\"This is a test\",\"title\":\"Test Post\"}"))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -230,7 +230,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void likePost() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_LIKE_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
 			.andExpect(method(PUT))
-			.andExpect(body("true"))
+			.andExpect(content().string("true"))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -243,7 +243,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void unlikePost() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_LIKE_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
 			.andExpect(method(PUT))
-			.andExpect(body("false"))
+			.andExpect(content().string("false"))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -256,7 +256,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void flagPostAsJob() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_FLAG_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
 			.andExpect(method(PUT))
-			.andExpect(body("\"job\""))
+			.andExpect(content().string("\"job\""))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -269,7 +269,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void flagPostAsPromotion() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_FLAG_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
 			.andExpect(method(PUT))
-			.andExpect(body("\"promotion\""))
+			.andExpect(content().string("\"promotion\""))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -282,7 +282,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void followPost() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_FOLLOW_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
 			.andExpect(method(PUT))
-			.andExpect(body("true"))
+			.andExpect(content().string("true"))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -295,7 +295,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void unfollowPost() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_FOLLOW_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
 			.andExpect(method(PUT))
-			.andExpect(body("false"))
+			.andExpect(content().string("false"))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -308,7 +308,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void deletePost() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_DELETE_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
 			.andExpect(method(DELETE))
-			.andExpect(body(""))
+			.andExpect(content().string(""))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -321,7 +321,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void addCommentToPost() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_ADD_COMMENT_URL.replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
 			.andExpect(method(POST))
-			.andExpect(body("{\"text\":\"This is a test comment\"}"))
+			.andExpect(content().string("{\"text\":\"This is a test comment\"}"))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -334,7 +334,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void deleteComment() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_POST_DELETE_COMMENT_URL.replaceFirst("\\{comment-id\\}", "g-4253322-S-89528249")))
 			.andExpect(method(DELETE))
-			.andExpect(body(""))
+			.andExpect(content().string(""))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -347,7 +347,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void deleteGroupSuggestion() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_SUGGESTION_DELETE_URL.replaceFirst("\\{id\\}", "46964")))
 			.andExpect(method(DELETE))
-			.andExpect(body(""))
+			.andExpect(content().string(""))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -360,7 +360,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void joinGroup() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_JOIN_LEAVE_URL.replaceFirst("\\{group-id\\}", "46964")))
 			.andExpect(method(PUT))
-			.andExpect(body("{\"membership-state\":{\"code\":\"member\"}}"))
+			.andExpect(content().string("{\"membership-state\":{\"code\":\"member\"}}"))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
@@ -373,7 +373,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void leaveGroup() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_JOIN_LEAVE_URL.replaceFirst("\\{group-id\\}", "46964")))
 			.andExpect(method(DELETE))
-			.andExpect(body(""))
+			.andExpect(content().string(""))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature=\""))
