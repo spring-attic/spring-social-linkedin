@@ -97,7 +97,7 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 			return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "url=" + URLEncoder.encode(url, "UTF-8") + PROFILE_FIELDS).build(), LinkedInProfile.class);
 		} catch (UnsupportedEncodingException unlikely) {
 			unlikely.printStackTrace();
-			throw new ApiException("Unlikely unsupported encoding error", unlikely);
+			throw new ApiException("linkedin", "Unlikely unsupported encoding error", unlikely);
 		}
 	}
 	
