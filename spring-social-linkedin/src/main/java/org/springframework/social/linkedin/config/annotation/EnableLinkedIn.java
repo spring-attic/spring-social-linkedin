@@ -25,6 +25,7 @@ import java.lang.annotation.Target;
 import org.springframework.context.annotation.Import;
 import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.ConnectionRepository;
+import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
 
 /**
