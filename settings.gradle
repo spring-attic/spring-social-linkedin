@@ -16,5 +16,4 @@
 
 rootProject.name = 'spring-social-linkedin'
 
-include 'docs'
 include 'spring-social-linkedin'
