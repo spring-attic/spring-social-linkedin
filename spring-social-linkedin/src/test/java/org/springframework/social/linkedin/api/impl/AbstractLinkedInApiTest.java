@@ -17,7 +17,7 @@ package org.springframework.social.linkedin.api.impl;
 
 import static org.hamcrest.core.StringContains.*;
 import static org.junit.Assert.*;
-import static org.springframework.test.web.client.match.RequestMatchers.*;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
 
 import java.util.Date;
 
