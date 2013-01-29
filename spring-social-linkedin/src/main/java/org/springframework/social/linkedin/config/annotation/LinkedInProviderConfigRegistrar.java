@@ -25,6 +25,7 @@ import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
+import org.springframework.social.linkedin.security.LinkedInAuthenticationService;
 
 /**
  * {@link ImportBeanDefinitionRegistrar} for configuring a {@link LinkedInConnectionFactory} bean and a request-scoped {@link LinkedIn} bean.
@@ -33,7 +34,7 @@ import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
 public class LinkedInProviderConfigRegistrar extends ProviderConfigRegistrarSupport {
 
 	public LinkedInProviderConfigRegistrar() {
-		super(EnableLinkedIn.class, LinkedInConnectionFactory.class, LinkedInApiHelper.class);
+		super(EnableLinkedIn.class, LinkedInConnectionFactory.class, LinkedInAuthenticationService.class.getName(), LinkedInApiHelper.class);
 	}
 	
 	static class LinkedInApiHelper implements ApiHelper<LinkedIn> {
