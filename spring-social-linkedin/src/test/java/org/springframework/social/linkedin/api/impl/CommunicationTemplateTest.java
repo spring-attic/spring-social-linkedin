@@ -16,8 +16,8 @@
 package org.springframework.social.linkedin.api.impl;
 
 import static org.springframework.http.HttpMethod.*;
-import static org.springframework.test.web.client.match.RequestMatchers.*;
-import static org.springframework.test.web.client.response.ResponseCreators.*;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
+import static org.springframework.test.web.client.response.MockRestResponseCreators.*;
 
 import org.junit.Test;
 import org.springframework.http.MediaType;
