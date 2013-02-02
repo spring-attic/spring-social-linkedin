@@ -17,9 +17,9 @@ package org.springframework.social.linkedin.config.xml;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.social.UserIdSource;
 import org.springframework.social.config.xml.AbstractProviderConfigBeanDefinitionParser;
 import org.springframework.social.config.xml.ApiHelper;
-import org.springframework.social.config.xml.UserIdSource;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.linkedin.api.LinkedIn;
@@ -33,6 +33,11 @@ class LinkedInConfigBeanDefinitionParser extends AbstractProviderConfigBeanDefin
 
 	public LinkedInConfigBeanDefinitionParser() {
 		super(LinkedInConnectionFactory.class, LinkedInApiHelper.class);
+		try {
+			setAuthenticationServiceClass("org.springframework.social.linkedin.security.LinkedInAuthenticationService");
+		} catch (ClassNotFoundException shouldntHappen) {
+			// Shouldn't happen unless the class name or package are refactored.
+		}
 	}
 
 	static class LinkedInApiHelper implements ApiHelper<LinkedIn> {
