@@ -19,7 +19,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.social.UserIdSource;
-import org.springframework.social.config.annotation.ProviderConfigRegistrarSupport;
+import org.springframework.social.config.annotation.AbstractProviderConfigRegistrarSupport;
 import org.springframework.social.config.xml.ApiHelper;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.UsersConnectionRepository;
@@ -30,7 +30,7 @@ import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
  * {@link ImportBeanDefinitionRegistrar} for configuring a {@link LinkedInConnectionFactory} bean and a request-scoped {@link LinkedIn} bean.
  * @author Craig Walls
  */
-public class LinkedInProviderConfigRegistrar extends ProviderConfigRegistrarSupport {
+public class LinkedInProviderConfigRegistrar extends AbstractProviderConfigRegistrarSupport {
 
 	public LinkedInProviderConfigRegistrar() {
 		super(EnableLinkedIn.class, LinkedInConnectionFactory.class, LinkedInApiHelper.class);

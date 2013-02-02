@@ -33,6 +33,11 @@ class LinkedInConfigBeanDefinitionParser extends AbstractProviderConfigBeanDefin
 
 	public LinkedInConfigBeanDefinitionParser() {
 		super(LinkedInConnectionFactory.class, LinkedInApiHelper.class);
+		try {
+			setAuthenticationServiceClass("org.springframework.social.linkedin.security.LinkedInAuthenticationService");
+		} catch (ClassNotFoundException shouldntHappen) {
+			// Shouldn't happen unless the class name or package are refactored.
+		}
 	}
 
 	static class LinkedInApiHelper implements ApiHelper<LinkedIn> {
