@@ -26,6 +26,7 @@ import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
 import org.springframework.social.linkedin.security.LinkedInAuthenticationService;
+import org.springframework.social.security.provider.SocialAuthenticationService;
 
 /**
  * {@link ImportBeanDefinitionRegistrar} for configuring a {@link LinkedInConnectionFactory} bean and a request-scoped {@link LinkedIn} bean.
@@ -38,7 +39,7 @@ public class LinkedInProviderConfigRegistrar extends AbstractProviderConfigRegis
 	}
 
 	@Override
-	protected Class<?> getAuthenticationServiceClass() {
+	protected Class<? extends SocialAuthenticationService<?>> getAuthenticationServiceClass() {
 		return LinkedInAuthenticationService.class;
 	}
 	

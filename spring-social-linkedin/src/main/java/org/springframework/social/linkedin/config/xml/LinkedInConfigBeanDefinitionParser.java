@@ -25,6 +25,7 @@ import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
 import org.springframework.social.linkedin.security.LinkedInAuthenticationService;
+import org.springframework.social.security.provider.SocialAuthenticationService;
 
 /**
  * Implementation of {@link AbstractConnectionFactoryBeanDefinitionParser} that creates a {@link FacebookConnectionFactory}.
@@ -37,7 +38,7 @@ class LinkedInConfigBeanDefinitionParser extends AbstractProviderConfigBeanDefin
 	}
 	
 	@Override
-	protected Class<?> getAuthenticationServiceClass() {
+	protected Class<? extends SocialAuthenticationService<?>> getAuthenticationServiceClass() {
 		return LinkedInAuthenticationService.class;
 	}
 
