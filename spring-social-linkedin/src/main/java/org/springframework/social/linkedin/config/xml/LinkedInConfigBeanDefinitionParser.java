@@ -24,6 +24,8 @@ import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
+import org.springframework.social.linkedin.security.LinkedInAuthenticationService;
+import org.springframework.social.security.provider.SocialAuthenticationService;
 
 /**
  * Implementation of {@link AbstractConnectionFactoryBeanDefinitionParser} that creates a {@link FacebookConnectionFactory}.
@@ -33,11 +35,11 @@ class LinkedInConfigBeanDefinitionParser extends AbstractProviderConfigBeanDefin
 
 	public LinkedInConfigBeanDefinitionParser() {
 		super(LinkedInConnectionFactory.class, LinkedInApiHelper.class);
-		try {
-			setAuthenticationServiceClass("org.springframework.social.linkedin.security.LinkedInAuthenticationService");
-		} catch (ClassNotFoundException shouldntHappen) {
-			// Shouldn't happen unless the class name or package are refactored.
-		}
+	}
+	
+	@Override
+	protected Class<? extends SocialAuthenticationService<?>> getAuthenticationServiceClass() {
+		return LinkedInAuthenticationService.class;
 	}
 
 	static class LinkedInApiHelper implements ApiHelper<LinkedIn> {
