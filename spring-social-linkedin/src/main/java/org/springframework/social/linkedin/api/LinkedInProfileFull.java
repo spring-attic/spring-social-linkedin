@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 the original author or authors.
+ * Copyright 2013 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,8 @@ public class LinkedInProfileFull extends LinkedInProfile {
 	private List<Position> threePastPositions;
 	
 	private List<Recommendation> recommendationsReceived;
+	
+	private String emailAddress;
 	
 	private List<ImAccount> imAccounts;
 	
@@ -98,6 +100,10 @@ public class LinkedInProfileFull extends LinkedInProfile {
 		return recommendationsReceived;
 	}
 
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+	
 	public List<ImAccount> getImAccounts() {
 		return imAccounts;
 	}
