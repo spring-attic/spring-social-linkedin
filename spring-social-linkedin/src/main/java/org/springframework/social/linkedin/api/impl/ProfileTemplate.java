@@ -84,6 +84,10 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 		return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "~" + PROFILE_FIELDS).build(), LinkedInProfile.class);
 	}
 	
+	public LinkedInProfileFull getProfileWithEmailAddress() {		
+		return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "~" + PROFILE_FIELDS_WITH_EMAIL).build(), LinkedInProfileFull.class);
+	}
+	
 	public LinkedInProfileFull getUserProfileFull() {
 		return restOperations.getForObject(PROFILE_URL_FULL, LinkedInProfileFull.class, "~");
 	}
@@ -92,9 +96,22 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 		return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "id=" + id + PROFILE_FIELDS).build(), LinkedInProfile.class);
 	}
 	
+	public LinkedInProfileFull getProfileWithEmailAddressById(String id) {
+		return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "id=" + id + PROFILE_FIELDS_WITH_EMAIL).build(), LinkedInProfileFull.class);
+	}	
+	
 	public LinkedInProfile getProfileByPublicUrl(String url) {
 		try {
 			return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "url=" + URLEncoder.encode(url, "UTF-8") + PROFILE_FIELDS).build(), LinkedInProfile.class);
+		} catch (UnsupportedEncodingException unlikely) {
+			unlikely.printStackTrace();
+			throw new ApiException("linkedin", "Unlikely unsupported encoding error", unlikely);
+		}
+	}
+	
+	public LinkedInProfileFull getProfileWithEmailByPublicUrl(String url) {
+		try {
+			return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "url=" + URLEncoder.encode(url, "UTF-8") + PROFILE_FIELDS_WITH_EMAIL).build(), LinkedInProfileFull.class);
 		} catch (UnsupportedEncodingException unlikely) {
 			unlikely.printStackTrace();
 			throw new ApiException("linkedin", "Unlikely unsupported encoding error", unlikely);
@@ -142,6 +159,8 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 	}
 	
 	static final String PROFILE_FIELDS = ":(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary)?format=json";
+
+	static final String PROFILE_FIELDS_WITH_EMAIL = ":(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,email-address)?format=json";	
 	
 	static final String PROFILE_URL_FULL;
 	
