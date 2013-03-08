@@ -82,7 +82,7 @@ public interface ProfileOperations {
 	/**
 	 * Retrieves the profile - basic fields and the user's primary email address
 	 * 
-	 * @return
+	 * @return the user's profile with basic profile fields and email address
 	 */
 	LinkedInProfileFull getProfileWithEmailAddressById(String id);
 	
