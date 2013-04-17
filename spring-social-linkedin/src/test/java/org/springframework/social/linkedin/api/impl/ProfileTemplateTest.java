@@ -101,6 +101,8 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals(206,profile.getSpecialties().length());
 		assertEquals(462,profile.getSummary().length());
 		assertEquals("robdrysdale",profile.getTwitterAccounts().get(0).getProviderAccountName());
+		assertEquals(2,profile.getLanguages().size());
+		assertEquals("English", profile.getLanguages().get(0));
 	}
 
 	@Test

@@ -85,6 +85,19 @@
   },
   "industry": "Telecommunications",
   "interests": "Kayaking",
+  "languages": {
+    "_total": 2,
+    "values": [
+      {
+        "id": 5,
+        "language": {"name": "English"}
+      },
+      {
+        "id": 6,
+        "language": {"name": "Russian"}
+      }
+    ]
+  },
   "lastName": "Drysdale",
   "location": {
     "country": {"code": "ie"},

@@ -47,6 +47,8 @@ public class LinkedInProfileFull extends LinkedInProfile {
 	
 	private List<String> skills;
 	
+	private List<String> languages;
+	
 	private List<Education> educations;
 	
 	private String proposalComments;
@@ -122,6 +124,10 @@ public class LinkedInProfileFull extends LinkedInProfile {
 
 	public List<String> getSkills() {
 		return skills;
+	}
+
+	public List<String> getLanguages() {
+		return languages;
 	}
 
 	public List<Education> getEducations() {

@@ -87,6 +87,9 @@ abstract class LinkedInProfileFullMixin {
 	@JsonProperty @JsonDeserialize(using=SkillListDeserializer.class)
 	List<String> skills;
 	
+	@JsonProperty @JsonDeserialize(using=LanguageListDeserializer.class)
+	List<String> languages;
+	
 	@JsonProperty @JsonDeserialize(using=EducationListDeserializer.class)
 	List<Education> educations;
 	
@@ -249,6 +252,29 @@ abstract class LinkedInProfileFullMixin {
 			}
 			
 			return skills;
+		}
+	}
+	
+	private static final class LanguageListDeserializer extends JsonDeserializer<List<String>> {
+		@Override
+		public List<String> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.setDeserializationConfig(ctxt.getConfig());
+			jp.setCodec(mapper);
+			List<String> languages = new ArrayList<String>();
+			if(jp.hasCurrentToken()) {
+				JsonNode dataNode = jp.readValueAsTree().get("values");
+				if (dataNode != null) {
+					for (JsonNode d : dataNode) {
+						String s = d.path("language").path("name").getTextValue();
+						if (s != null) {
+							languages.add(s);
+						}
+					}
+				}
+			}
+			
+			return languages;
 		}
 	}
 	
