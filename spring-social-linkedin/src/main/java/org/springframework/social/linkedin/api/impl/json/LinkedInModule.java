@@ -33,6 +33,7 @@ import org.springframework.social.linkedin.api.Group;
 import org.springframework.social.linkedin.api.Group.GroupCount;
 import org.springframework.social.linkedin.api.Group.GroupPosts;
 import org.springframework.social.linkedin.api.Group.GroupRelation;
+import org.springframework.social.linkedin.api.Course;
 import org.springframework.social.linkedin.api.GroupMemberships;
 import org.springframework.social.linkedin.api.GroupSettings;
 import org.springframework.social.linkedin.api.GroupSuggestions;
@@ -53,6 +54,7 @@ import org.springframework.social.linkedin.api.LinkedInProfiles;
 import org.springframework.social.linkedin.api.Location;
 import org.springframework.social.linkedin.api.MemberGroup;
 import org.springframework.social.linkedin.api.NetworkStatistics;
+import org.springframework.social.linkedin.api.Patent;
 import org.springframework.social.linkedin.api.PersonActivity;
 import org.springframework.social.linkedin.api.PhoneNumber;
 import org.springframework.social.linkedin.api.Position;
@@ -64,6 +66,7 @@ import org.springframework.social.linkedin.api.PostComments;
 import org.springframework.social.linkedin.api.Product;
 import org.springframework.social.linkedin.api.Product.ProductRecommendation;
 import org.springframework.social.linkedin.api.Products;
+import org.springframework.social.linkedin.api.Publication;
 import org.springframework.social.linkedin.api.Recommendation;
 import org.springframework.social.linkedin.api.Relation;
 import org.springframework.social.linkedin.api.Share;
@@ -80,6 +83,7 @@ import org.springframework.social.linkedin.api.UpdateContentShare;
 import org.springframework.social.linkedin.api.UpdateContentStatus;
 import org.springframework.social.linkedin.api.UpdateContentViral;
 import org.springframework.social.linkedin.api.UrlResource;
+import org.springframework.social.linkedin.api.Volunteer;
 
 /**
  * Jackson module for registering mixin annotations against LinkedIn model classes.
@@ -157,6 +161,10 @@ public class LinkedInModule extends SimpleModule {
 		context.setMixInAnnotations(GroupSuggestions.class, GroupSuggestionsMixin.class);
 		context.setMixInAnnotations(GroupMemberships.class, GroupMembershipsMixin.class);
 		context.setMixInAnnotations(GroupSettings.class, GroupSettingsMixin.class);
+		context.setMixInAnnotations(Course.class, CourseMixin.class);
+		context.setMixInAnnotations(Patent.class, PatentMixin.class);
+		context.setMixInAnnotations(Publication.class, PublicationMixin.class);
+		context.setMixInAnnotations(Volunteer.class, VolunteerMixin.class);
 	}
 
 }

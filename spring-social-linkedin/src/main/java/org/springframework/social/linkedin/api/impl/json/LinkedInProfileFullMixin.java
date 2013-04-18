@@ -31,17 +31,21 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.ConnectionAuthorization;
+import org.springframework.social.linkedin.api.Course;
 import org.springframework.social.linkedin.api.CurrentShare;
 import org.springframework.social.linkedin.api.Education;
 import org.springframework.social.linkedin.api.ImAccount;
 import org.springframework.social.linkedin.api.LinkedInDate;
 import org.springframework.social.linkedin.api.Location;
+import org.springframework.social.linkedin.api.Patent;
 import org.springframework.social.linkedin.api.PhoneNumber;
 import org.springframework.social.linkedin.api.Position;
+import org.springframework.social.linkedin.api.Publication;
 import org.springframework.social.linkedin.api.Recommendation;
 import org.springframework.social.linkedin.api.Relation;
 import org.springframework.social.linkedin.api.TwitterAccount;
 import org.springframework.social.linkedin.api.UrlResource;
+import org.springframework.social.linkedin.api.Volunteer;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 abstract class LinkedInProfileFullMixin {
@@ -93,6 +97,21 @@ abstract class LinkedInProfileFullMixin {
 	@JsonProperty @JsonDeserialize(using=EducationListDeserializer.class)
 	List<Education> educations;
 	
+	@JsonProperty @JsonDeserialize(using=CertificationListDeserializer.class)
+	List<String> certifications;
+	
+	@JsonProperty @JsonDeserialize(using=CourseListDeserializer.class)
+	List<Course> courses;
+	
+	@JsonProperty @JsonDeserialize(using=PatentListDeserializer.class)
+	List<Patent> patents;
+	
+	@JsonProperty @JsonDeserialize(using=PublicationListDeserializer.class)
+	List<Publication> publications;
+	
+	@JsonProperty @JsonDeserialize(using=VolunteerListDeserializer.class)
+	List<Volunteer> volunteer;
+	
 	@JsonProperty("summary")
 	String summary;
 	
@@ -141,20 +160,32 @@ abstract class LinkedInProfileFullMixin {
 	@JsonProperty("apiStandardProfileRequest")
 	@JsonDeserialize(using=ConnectionAuthorizationDeserializer.class) 
 	ConnectionAuthorization connectionAuthorization;
-	
+
 	private static class GenericLinkedInListDeserializer<T> extends JsonDeserializer<List<T>>  {
-		private final TypeReference<List<T>> typeReference;
+		protected final TypeReference<List<T>> typeReference;
+		protected final String listPath;
 		
-		public GenericLinkedInListDeserializer(TypeReference<List<T>> typeReference) {
+		public GenericLinkedInListDeserializer(TypeReference<List<T>> typeReference, String listPath) {
 			this.typeReference = typeReference;
+			this.listPath = listPath;
 		}
 
+		protected JsonNode getJsonNode(JsonNode node, String path) {
+			if(path != null && path.length() > 0) {
+				for(String pathElem : listPath.split("\\.")) {
+					node = node.path(pathElem);
+				}
+			}
+			return node;
+		}
+
+		@Override
 		public List<T> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
 			jp.setCodec(mapper);
 			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
+				JsonNode dataNode = getJsonNode(jp.readValueAsTree(), listPath);
 				if (dataNode != null) {
 					return mapper.readValue(dataNode, typeReference);
 				}
@@ -165,54 +196,80 @@ abstract class LinkedInProfileFullMixin {
 	
 	private static final class PositionListDeserializer extends GenericLinkedInListDeserializer<Position>  {
 		public PositionListDeserializer() {
-			super(new TypeReference<List<Position>>() {});
+			super(new TypeReference<List<Position>>() {}, "values");
 		}
 	}
 	
 	private static final class ImAccountListDeserializer extends GenericLinkedInListDeserializer<ImAccount>  {
 		public ImAccountListDeserializer() {
-			super(new TypeReference<List<ImAccount>>() {});
+			super(new TypeReference<List<ImAccount>>() {}, "values");
 		}
 	}
 	
 	private static final class TwitterAccountListDeserializer extends GenericLinkedInListDeserializer<TwitterAccount>  {
 		public TwitterAccountListDeserializer() {
-			super(new TypeReference<List<TwitterAccount>>() {});
+			super(new TypeReference<List<TwitterAccount>>() {}, "values");
 		}
 	}
 	
 	private static final class UrlResourceListDeserializer extends GenericLinkedInListDeserializer<UrlResource>  {
 		public UrlResourceListDeserializer() {
-			super(new TypeReference<List<UrlResource>>() {});
+			super(new TypeReference<List<UrlResource>>() {}, "values");
 		}
 	}
 	
 	private static final class PhoneNumberListDeserializer extends GenericLinkedInListDeserializer<PhoneNumber>  {
 		public PhoneNumberListDeserializer() {
-			super(new TypeReference<List<PhoneNumber>>() {});
+			super(new TypeReference<List<PhoneNumber>>() {}, "values");
 		}
 	}
 	
 	private static final class EducationListDeserializer extends GenericLinkedInListDeserializer<Education>  {
 		public EducationListDeserializer() {
-			super(new TypeReference<List<Education>>() {});
+			super(new TypeReference<List<Education>>() {}, "values");
+		}
+	}
+	
+	private static final class CourseListDeserializer extends GenericLinkedInListDeserializer<Course>  {
+		public CourseListDeserializer() {
+			super(new TypeReference<List<Course>>() {}, "values");
+		}
+	}
+	
+	private static final class PatentListDeserializer extends GenericLinkedInListDeserializer<Patent>  {
+		public PatentListDeserializer() {
+			super(new TypeReference<List<Patent>>() {}, "values");
+		}
+	}
+	
+	private static final class PublicationListDeserializer extends GenericLinkedInListDeserializer<Publication>  {
+		public PublicationListDeserializer() {
+			super(new TypeReference<List<Publication>>() {}, "values");
+		}
+	}
+	
+	private static final class VolunteerListDeserializer extends GenericLinkedInListDeserializer<Volunteer>  {
+		public VolunteerListDeserializer() {
+			super(new TypeReference<List<Volunteer>>() {}, "volunteerExperiences.values");
 		}
 	}
 	
 	private static class StringListDeserializer extends JsonDeserializer<List<String>> {
-		private final String listElementPath;
-		
-		public StringListDeserializer(String listElementPath) {
+		protected final String listPath;
+		protected final String listElementPath;
+
+		public StringListDeserializer(String listPath, String listElementPath) {
+			this.listPath = listPath;
 			this.listElementPath = listElementPath;
 		}
 
-		private JsonNode getJsonPath(JsonNode d, String path) {
+		protected JsonNode getJsonNode(JsonNode node, String path) {
 			if(path != null && path.length() > 0) {
 				for(String pathElem : path.split("\\.")) {
-					d = d.path(pathElem);
+					node = node.path(pathElem);
 				}
 			}
-			return d;
+			return node;
 		}
 
 		@Override
@@ -222,10 +279,10 @@ abstract class LinkedInProfileFullMixin {
 			jp.setCodec(mapper);
 			List<String> strings = new ArrayList<String>();
 			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
+				JsonNode dataNode = getJsonNode(jp.readValueAsTree(), listPath);
 				if (dataNode != null) {
 					for (JsonNode d : dataNode) {
-						String s = getJsonPath(d, listElementPath).getTextValue();
+						String s = getJsonNode(d, listElementPath).getTextValue();
 						if (s != null) {
 							strings.add(s);
 						}
@@ -238,11 +295,16 @@ abstract class LinkedInProfileFullMixin {
 	}
 
 	private static final class SkillListDeserializer extends StringListDeserializer {
-		public SkillListDeserializer() { super("skill.name"); }
+		public SkillListDeserializer() { super("values", "skill.name"); }
 	}
 	
 	private static final class LanguageListDeserializer extends StringListDeserializer {
-		public LanguageListDeserializer() { super("language.name"); }
+		public LanguageListDeserializer() { super("values", "language.name"); }
 	}
+	
+	private static final class CertificationListDeserializer extends StringListDeserializer {
+		public CertificationListDeserializer() { super("values", "name"); }
+	}
+	
 	
 }

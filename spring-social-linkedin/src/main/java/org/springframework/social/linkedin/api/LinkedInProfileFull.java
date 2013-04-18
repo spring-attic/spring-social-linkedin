@@ -50,6 +50,16 @@ public class LinkedInProfileFull extends LinkedInProfile {
 	private List<String> languages;
 	
 	private List<Education> educations;
+
+	private List<String> certifications;
+	
+	private List<Course> courses;
+	
+	private List<Patent> patents;
+	
+	private List<Publication> publications;
+	
+	private List<Volunteer> volunteer;
 	
 	private String proposalComments;
 	
@@ -134,6 +144,26 @@ public class LinkedInProfileFull extends LinkedInProfile {
 		return educations;
 	}
 
+	public List<String> getCertifications() {
+		return certifications;
+	}
+
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public List<Patent> getPatents() {
+		return patents;
+	}
+
+	public List<Publication> getPublications() {
+		return publications;
+	}
+
+	public List<Volunteer> getVolunteer() {
+		return volunteer;
+	}
+	
 	public String getProposalComments() {
 		return proposalComments;
 	}

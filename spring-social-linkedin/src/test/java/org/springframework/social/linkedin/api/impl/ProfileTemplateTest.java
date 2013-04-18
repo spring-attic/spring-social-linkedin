@@ -101,8 +101,42 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals(206,profile.getSpecialties().length());
 		assertEquals(462,profile.getSummary().length());
 		assertEquals("robdrysdale",profile.getTwitterAccounts().get(0).getProviderAccountName());
+
 		assertEquals(2,profile.getLanguages().size());
 		assertEquals("English", profile.getLanguages().get(0));
+		assertEquals("Russian", profile.getLanguages().get(1));
+
+		assertEquals(2,profile.getCertifications().size());
+		assertEquals("MCP", profile.getCertifications().get(0));
+		assertEquals("RHEL", profile.getCertifications().get(1));
+	
+		assertEquals(2,profile.getCourses().size());
+		assertEquals("Social development", profile.getCourses().get(0).getName());
+		assertEquals("513-315", profile.getCourses().get(0).getNumber());
+		assertEquals("Java development", profile.getCourses().get(1).getName());
+
+		assertEquals(2,profile.getPatents().size());
+		assertEquals("The wheel", profile.getPatents().get(0).getTitle());
+		assertEquals(1913, profile.getPatents().get(0).getDate().getYear());
+		assertEquals(1, profile.getPatents().get(0).getDate().getMonth());
+		assertEquals(1, profile.getPatents().get(0).getDate().getDay());
+		assertEquals("DFC", profile.getPatents().get(1).getTitle());
+		assertEquals(2006, profile.getPatents().get(1).getDate().getYear());
+		
+		assertEquals(2,profile.getPublications().size());
+		assertEquals("Hobbit", profile.getPublications().get(0).getTitle());
+		assertEquals(2004, profile.getPublications().get(0).getDate().getYear());
+		assertEquals(4, profile.getPublications().get(0).getDate().getMonth());
+		assertEquals("The elephant", profile.getPublications().get(1).getTitle());
+		assertEquals(2009, profile.getPublications().get(1).getDate().getYear());
+
+		assertEquals(3,profile.getVolunteer().size());
+		assertEquals("Greenpeace Antarctica", profile.getVolunteer().get(0).getOrganization());
+		assertEquals("linux feeder", profile.getVolunteer().get(0).getRole());
+		assertEquals("Procter & Gamble", profile.getVolunteer().get(1).getOrganization());
+		assertEquals("model oiler", profile.getVolunteer().get(1).getRole());
+		assertEquals("Matrix", profile.getVolunteer().get(2).getOrganization());
+		assertEquals("cat observer", profile.getVolunteer().get(2).getRole());
 	}
 
 	@Test
