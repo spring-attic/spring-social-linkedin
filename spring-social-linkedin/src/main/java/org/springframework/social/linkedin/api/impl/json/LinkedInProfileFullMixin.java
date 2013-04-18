@@ -162,12 +162,12 @@ abstract class LinkedInProfileFullMixin {
 	ConnectionAuthorization connectionAuthorization;
 
 	private static class GenericLinkedInListDeserializer<T> extends JsonDeserializer<List<T>>  {
-		protected final TypeReference<List<T>> typeReference;
 		protected final String listPath;
+		protected final TypeReference<List<T>> typeReference;
 		
-		public GenericLinkedInListDeserializer(TypeReference<List<T>> typeReference, String listPath) {
-			this.typeReference = typeReference;
+		public GenericLinkedInListDeserializer(String listPath, TypeReference<List<T>> typeReference) {
 			this.listPath = listPath;
+			this.typeReference = typeReference;
 		}
 
 		protected JsonNode getJsonNode(JsonNode node, String path) {
@@ -196,61 +196,61 @@ abstract class LinkedInProfileFullMixin {
 	
 	private static final class PositionListDeserializer extends GenericLinkedInListDeserializer<Position>  {
 		public PositionListDeserializer() {
-			super(new TypeReference<List<Position>>() {}, "values");
+			super("values", new TypeReference<List<Position>>() {});
 		}
 	}
 	
 	private static final class ImAccountListDeserializer extends GenericLinkedInListDeserializer<ImAccount>  {
 		public ImAccountListDeserializer() {
-			super(new TypeReference<List<ImAccount>>() {}, "values");
+			super("values", new TypeReference<List<ImAccount>>() {});
 		}
 	}
 	
 	private static final class TwitterAccountListDeserializer extends GenericLinkedInListDeserializer<TwitterAccount>  {
 		public TwitterAccountListDeserializer() {
-			super(new TypeReference<List<TwitterAccount>>() {}, "values");
+			super("values", new TypeReference<List<TwitterAccount>>() {});
 		}
 	}
 	
 	private static final class UrlResourceListDeserializer extends GenericLinkedInListDeserializer<UrlResource>  {
 		public UrlResourceListDeserializer() {
-			super(new TypeReference<List<UrlResource>>() {}, "values");
+			super("values", new TypeReference<List<UrlResource>>() {});
 		}
 	}
 	
 	private static final class PhoneNumberListDeserializer extends GenericLinkedInListDeserializer<PhoneNumber>  {
 		public PhoneNumberListDeserializer() {
-			super(new TypeReference<List<PhoneNumber>>() {}, "values");
+			super("values", new TypeReference<List<PhoneNumber>>() {});
 		}
 	}
 	
 	private static final class EducationListDeserializer extends GenericLinkedInListDeserializer<Education>  {
 		public EducationListDeserializer() {
-			super(new TypeReference<List<Education>>() {}, "values");
+			super("values", new TypeReference<List<Education>>() {});
 		}
 	}
 	
 	private static final class CourseListDeserializer extends GenericLinkedInListDeserializer<Course>  {
 		public CourseListDeserializer() {
-			super(new TypeReference<List<Course>>() {}, "values");
+			super("values", new TypeReference<List<Course>>() {});
 		}
 	}
 	
 	private static final class PatentListDeserializer extends GenericLinkedInListDeserializer<Patent>  {
 		public PatentListDeserializer() {
-			super(new TypeReference<List<Patent>>() {}, "values");
+			super("values", new TypeReference<List<Patent>>() {});
 		}
 	}
 	
 	private static final class PublicationListDeserializer extends GenericLinkedInListDeserializer<Publication>  {
 		public PublicationListDeserializer() {
-			super(new TypeReference<List<Publication>>() {}, "values");
+			super("values", new TypeReference<List<Publication>>() {});
 		}
 	}
 	
 	private static final class VolunteerListDeserializer extends GenericLinkedInListDeserializer<Volunteer>  {
 		public VolunteerListDeserializer() {
-			super(new TypeReference<List<Volunteer>>() {}, "volunteerExperiences.values");
+			super("volunteerExperiences.values", new TypeReference<List<Volunteer>>() {});
 		}
 	}
 	
@@ -305,6 +305,5 @@ abstract class LinkedInProfileFullMixin {
 	private static final class CertificationListDeserializer extends StringListDeserializer {
 		public CertificationListDeserializer() { super("values", "name"); }
 	}
-	
 	
 }
