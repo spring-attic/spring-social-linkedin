@@ -161,6 +161,15 @@ abstract class LinkedInProfileFullMixin {
 	@JsonDeserialize(using=ConnectionAuthorizationDeserializer.class) 
 	ConnectionAuthorization connectionAuthorization;
 
+	private static JsonNode getJsonNode(JsonNode node, String path) {
+		if(path != null && path.length() > 0) {
+			for(String pathElem : path.split("\\.")) {
+				node = node.path(pathElem);
+			}
+		}
+		return node;
+	}
+
 	private static class GenericLinkedInListDeserializer<T> extends JsonDeserializer<List<T>>  {
 		protected final String listPath;
 		protected final TypeReference<List<T>> typeReference;
@@ -170,15 +179,6 @@ abstract class LinkedInProfileFullMixin {
 			this.typeReference = typeReference;
 		}
 
-		protected JsonNode getJsonNode(JsonNode node, String path) {
-			if(path != null && path.length() > 0) {
-				for(String pathElem : listPath.split("\\.")) {
-					node = node.path(pathElem);
-				}
-			}
-			return node;
-		}
-
 		@Override
 		public List<T> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
@@ -186,7 +186,7 @@ abstract class LinkedInProfileFullMixin {
 			jp.setCodec(mapper);
 			if(jp.hasCurrentToken()) {
 				JsonNode dataNode = getJsonNode(jp.readValueAsTree(), listPath);
-				if (dataNode != null) {
+				if (dataNode != null && !dataNode.isMissingNode()) {
 					return mapper.readValue(dataNode, typeReference);
 				}
 			}
@@ -263,15 +263,6 @@ abstract class LinkedInProfileFullMixin {
 			this.listElementPath = listElementPath;
 		}
 
-		protected JsonNode getJsonNode(JsonNode node, String path) {
-			if(path != null && path.length() > 0) {
-				for(String pathElem : path.split("\\.")) {
-					node = node.path(pathElem);
-				}
-			}
-			return node;
-		}
-
 		@Override
 		public List<String> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
@@ -280,7 +271,7 @@ abstract class LinkedInProfileFullMixin {
 			List<String> strings = new ArrayList<String>();
 			if(jp.hasCurrentToken()) {
 				JsonNode dataNode = getJsonNode(jp.readValueAsTree(), listPath);
-				if (dataNode != null) {
+				if (dataNode != null && !dataNode.isMissingNode()) {
 					for (JsonNode d : dataNode) {
 						String s = getJsonNode(d, listElementPath).getTextValue();
 						if (s != null) {
