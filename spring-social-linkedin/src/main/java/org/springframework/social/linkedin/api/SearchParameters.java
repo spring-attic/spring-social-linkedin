@@ -15,6 +15,9 @@
  */
 package org.springframework.social.linkedin.api;
 
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+
 /**
  * Profile search parameters
  * 
@@ -51,6 +54,8 @@ public class SearchParameters {
 	private int count = 10;
 	
 	private Sort sort;
+
+    private MultiValueMap<FacetType, String> facets = new LinkedMultiValueMap<FacetType, String>();
 	
 	public SearchParameters() {}
 	
@@ -193,7 +198,15 @@ public class SearchParameters {
 	public void setSort(Sort sort) {
 		this.sort = sort;
 	}
-	
+
+    public void addFacet(FacetType facetType, String facetValue) {
+        this.facets.add(facetType, facetValue);
+    }
+
+    public MultiValueMap<FacetType, String> getFacets() {
+        return this.facets;
+    }
+
 	public static enum Sort {
 		CONNECTIONS,
 		RECOMMENDERS,
@@ -204,5 +217,39 @@ public class SearchParameters {
 			return this.name().toLowerCase();
 		}
 	}
+
+    public static enum FacetType {
+        LOCATION("location"),
+        INDUSTRY("industry"),
+        NETWORK("network"),
+        LANGUAGE("language"),
+        CURRENT_COMPANY("current-company"),
+        PAST_COMPANY("past-company"),
+        SCHOOL("school");
+
+        private String facetType;
+
+        private FacetType(String facetType) {
+            this.facetType = facetType;
+        }
+
+        @Override
+        public String toString() {
+            return this.facetType;
+        }
+    }
+
+    public static final String NETWORK_FIRST_DEGREE = "F";
+    public static final String NETWORK_SECOND_DEGREE = "S";
+    public static final String NETWORK_INSIDE_GROUPS = "A";
+    public static final String NETWORK_OUT_OF_NETWORK = "O";
+
+    public static final String LANGUAGE_ENGLISH = "en";
+    public static final String LANGUAGE_SPANISH = "es";
+    public static final String LANGUAGE_FRENCH = "fr";
+    public static final String LANGUAGE_GERMAN = "de";
+    public static final String LANGUAGE_ITALIAN = "it";
+    public static final String LANGUAGE_PORTUGUESE = "pt";
+    public static final String LANGUAGE_OTHERS = "_o";
 
 }
