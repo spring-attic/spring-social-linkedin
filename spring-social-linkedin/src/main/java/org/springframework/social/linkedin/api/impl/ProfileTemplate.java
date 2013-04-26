@@ -123,86 +123,86 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 	}
 
 	private URI expand(String url, SearchParameters parameters) {
-        URIBuilder uriBuilder =URIBuilder.fromUri(url);
+		URIBuilder uriBuilder =URIBuilder.fromUri(url);
 
-        if (parameters.getKeywords() != null) {
-            uriBuilder.queryParam("keywords", parameters.getKeywords());
-        }
-
-        if (parameters.getFirstName() != null) {
-            uriBuilder.queryParam("first-name", parameters.getFirstName());
-        }
-
-        if (parameters.getLastName() != null) {
-            uriBuilder.queryParam("last-name", parameters.getLastName());
-        }
-
-        if (parameters.getCompanyName() != null) {
-            uriBuilder.queryParam("company-name", parameters.getCompanyName());
-        }
-
-        if (parameters.getCurrentCompany() != null) {
-            uriBuilder.queryParam("current-company", parameters.getCurrentCompany().toString());
-        }
-
-        if (parameters.getTitle() != null) {
-            uriBuilder.queryParam("title", parameters.getTitle());
-        }
-
-        if (parameters.getCurrentTitle() != null) {
-            uriBuilder.queryParam("current-title", parameters.getCurrentTitle().toString());
-        }
-
-        if (parameters.getSchoolName() != null) {
-            uriBuilder.queryParam("school-name", parameters.getSchoolName());
-        }
-
-        if (parameters.getCurrentSchool() != null) {
-            uriBuilder.queryParam("current-school", parameters.getCurrentSchool().toString());
-        }
-
-        if (parameters.getCountryCode() != null) {
-            uriBuilder.queryParam("country-code", parameters.getCountryCode());
-        }
-
-        if (parameters.getPostalCode() != null) {
-            uriBuilder.queryParam("postal-code", parameters.getPostalCode());
-        }
-
-        if (parameters.getDistance() != null) {
-            uriBuilder.queryParam("distance", parameters.getDistance().toString());
-        }
-
-        uriBuilder.queryParam("start", String.valueOf(parameters.getStart()));
-
-        uriBuilder.queryParam("count", String.valueOf(parameters.getCount()));
-
-        if (parameters.getSort() != null) {
-            uriBuilder.queryParam("sort", parameters.getSort().toString());
-        }
-
-        // Processing facets
-
-        MultiValueMap<SearchParameters.FacetType, String> facets = parameters.getFacets();
-
-        for (SearchParameters.FacetType ft : facets.keySet()) {
-            StringBuilder facetString = new StringBuilder(ft.toString());
-
-            for (String value : facets.get(ft)) {
-                facetString.append(",");
-                facetString.append(value);
-            }
-
-            uriBuilder.queryParam("facet", facetString.toString());
-        }
-
-        return uriBuilder.build();
+		if (parameters.getKeywords() != null) {
+			uriBuilder.queryParam("keywords", parameters.getKeywords());
+		}
+		
+		if (parameters.getFirstName() != null) {
+			uriBuilder.queryParam("first-name", parameters.getFirstName());
+		}
+		
+		if (parameters.getLastName() != null) {
+			uriBuilder.queryParam("last-name", parameters.getLastName());
+		}
+		
+		if (parameters.getCompanyName() != null) {
+			uriBuilder.queryParam("company-name", parameters.getCompanyName());
+		}
+		
+		if (parameters.getCurrentCompany() != null) {
+			uriBuilder.queryParam("current-company", parameters.getCurrentCompany().toString());
+		}
+		
+		if (parameters.getTitle() != null) {
+			uriBuilder.queryParam("title", parameters.getTitle());
+		}
+		
+		if (parameters.getCurrentTitle() != null) {
+			uriBuilder.queryParam("current-title", parameters.getCurrentTitle().toString());
+		}
+		
+		if (parameters.getSchoolName() != null) {
+			uriBuilder.queryParam("school-name", parameters.getSchoolName());
+		}
+		
+		if (parameters.getCurrentSchool() != null) {
+			uriBuilder.queryParam("current-school", parameters.getCurrentSchool().toString());
+		}
+		
+		if (parameters.getCountryCode() != null) {
+			uriBuilder.queryParam("country-code", parameters.getCountryCode());
+		}
+		
+		if (parameters.getPostalCode() != null) {
+			uriBuilder.queryParam("postal-code", parameters.getPostalCode());
+		}
+		
+		if (parameters.getDistance() != null) {
+			uriBuilder.queryParam("distance", parameters.getDistance().toString());
+		}
+		
+		uriBuilder.queryParam("start", String.valueOf(parameters.getStart()));
+		
+		uriBuilder.queryParam("count", String.valueOf(parameters.getCount()));
+		
+		if (parameters.getSort() != null) {
+			uriBuilder.queryParam("sort", parameters.getSort().toString());
+		}
+		
+		// Processing facets
+		
+		MultiValueMap<SearchParameters.FacetType, String> facets = parameters.getFacets();
+		
+		for (SearchParameters.FacetType ft : facets.keySet()) {
+			StringBuilder facetString = new StringBuilder(ft.toString());
+		
+			for (String value : facets.get(ft)) {
+				facetString.append(",");
+				facetString.append(value);
+			}
+		
+			uriBuilder.queryParam("facet", facetString.toString());
+		}
+		
+		return uriBuilder.build();
 	}
 	
 	static final String PROFILE_FIELDS = ":(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary)?format=json";
 	
 	static final String PROFILE_URL_FULL;
 	
-    static final String PEOPLE_SEARCH_URL = "https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,api-standard-profile-request))";
+	static final String PEOPLE_SEARCH_URL = "https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,api-standard-profile-request))";
 
 }
