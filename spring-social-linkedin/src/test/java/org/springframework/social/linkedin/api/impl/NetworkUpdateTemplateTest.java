@@ -46,7 +46,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	@Test 
 	public void postUpdate() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/person-activities"))
-			.andExpect(method(PUT))
+			.andExpect(method(POST))
 			.andExpect(content().string("{\"body\":\"Cool beans\",\"contentType\":\"linkedin-html\"}"))
 			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
 			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
