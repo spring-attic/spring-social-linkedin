@@ -53,7 +53,7 @@ public class LinkedInAdapter implements ApiAdapter<LinkedIn> {
 	}
 	
 	public void updateStatus(LinkedIn linkedin, String message) {
-		// not supported yet
+		linkedin.networkUpdateOperations().createNetworkUpdate(message);
 	}
 	
 }

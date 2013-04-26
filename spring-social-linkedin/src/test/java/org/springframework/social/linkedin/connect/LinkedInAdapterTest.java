@@ -22,6 +22,7 @@ import org.mockito.Mockito;
 import org.springframework.social.connect.UserProfile;
 import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.social.linkedin.api.LinkedInProfile;
+import org.springframework.social.linkedin.api.NetworkUpdateOperations;
 import org.springframework.social.linkedin.api.ProfileOperations;
 import org.springframework.social.linkedin.api.UrlResource;
 
@@ -43,6 +44,14 @@ public class LinkedInAdapterTest {
 		assertEquals("Walls", profile.getLastName());
 		assertNull(profile.getEmail());
 		assertNull(profile.getUsername());
+	}
+	
+	@Test
+	public void updateStatus() {
+		NetworkUpdateOperations networkOperations = Mockito.mock(NetworkUpdateOperations.class);
+		Mockito.when(linkedin.networkUpdateOperations()).thenReturn(networkOperations);
+		apiAdapter.updateStatus(linkedin, "Hello world!");
+		Mockito.verify(networkOperations).createNetworkUpdate("Hello world!");
 	}
 
 }
