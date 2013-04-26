@@ -138,29 +138,29 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		
 	}
 
-    @Test
-    public void searchFacet() {
-        mockServer.expect(requestTo(
-                "https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,api-standard-profile-request))?keywords=Java+J2EE&country-code=nl&start=0&count=10&facet=language%2Cen%2Cde&facet=network%2CF"
-        )).andExpect(method(GET))
-                .andRespond(withSuccess(new ClassPathResource("testdata/search.json", getClass()), MediaType.APPLICATION_JSON));
+	@Test
+	public void searchFacet() {
+		mockServer.expect(requestTo(
+				"https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,api-standard-profile-request))?keywords=Java+J2EE&country-code=nl&start=0&count=10&facet=language%2Cen%2Cde&facet=network%2CF"
+		)).andExpect(method(GET))
+		.andRespond(withSuccess(new ClassPathResource("testdata/search.json", getClass()), MediaType.APPLICATION_JSON));
 
-        SearchParameters parameters = new SearchParameters();
-        parameters.setCountryCode("nl");
-        parameters.setKeywords("Java J2EE");
-
-        parameters.addFacet(SearchParameters.FacetType.LANGUAGE, SearchParameters.LANGUAGE_ENGLISH);
-        parameters.addFacet(SearchParameters.FacetType.LANGUAGE, SearchParameters.LANGUAGE_GERMAN);
-
-        parameters.addFacet(SearchParameters.FacetType.NETWORK, SearchParameters.NETWORK_FIRST_DEGREE);
-
-        LinkedInProfiles result = linkedIn.profileOperations().search(parameters);
-        assertEquals(0, result.getStart());
-        assertEquals(10, result.getCount());
-        assertEquals(110, result.getTotal());
-        assertEquals(10, result.getPeople().size());
-
-        assertProfile(result.getPeople().get(0),
-                "YeagNX-lsX", "IT Consultant at Harvey Nash PLC", "Michelle", "Daly", "Staffing and Recruiting", null);
+		SearchParameters parameters = new SearchParameters();
+		parameters.setCountryCode("nl");
+		parameters.setKeywords("Java J2EE");
+		
+		parameters.addFacet(SearchParameters.FacetType.LANGUAGE, SearchParameters.LANGUAGE_ENGLISH);
+		parameters.addFacet(SearchParameters.FacetType.LANGUAGE, SearchParameters.LANGUAGE_GERMAN);
+		
+		parameters.addFacet(SearchParameters.FacetType.NETWORK, SearchParameters.NETWORK_FIRST_DEGREE);
+		
+		LinkedInProfiles result = linkedIn.profileOperations().search(parameters);
+		assertEquals(0, result.getStart());
+		assertEquals(10, result.getCount());
+		assertEquals(110, result.getTotal());
+		assertEquals(10, result.getPeople().size());
+		
+		assertProfile(result.getPeople().get(0),
+				"YeagNX-lsX", "IT Consultant at Harvey Nash PLC", "Michelle", "Daly", "Staffing and Recruiting", null);
     }
 }

@@ -218,38 +218,38 @@ public class SearchParameters {
 		}
 	}
 
-    public static enum FacetType {
-        LOCATION("location"),
-        INDUSTRY("industry"),
-        NETWORK("network"),
-        LANGUAGE("language"),
-        CURRENT_COMPANY("current-company"),
-        PAST_COMPANY("past-company"),
-        SCHOOL("school");
+	public static enum FacetType {
+		LOCATION("location"),
+		INDUSTRY("industry"),
+		NETWORK("network"),
+		LANGUAGE("language"),
+		CURRENT_COMPANY("current-company"),
+		PAST_COMPANY("past-company"),
+		SCHOOL("school");
 
-        private String facetType;
+		private String facetType;
 
-        private FacetType(String facetType) {
-            this.facetType = facetType;
-        }
+		private FacetType(String facetType) {
+			this.facetType = facetType;
+		}
 
-        @Override
-        public String toString() {
-            return this.facetType;
-        }
-    }
+		@Override
+		public String toString() {
+			return this.facetType;
+		}
+	}
 
-    public static final String NETWORK_FIRST_DEGREE = "F";
-    public static final String NETWORK_SECOND_DEGREE = "S";
-    public static final String NETWORK_INSIDE_GROUPS = "A";
-    public static final String NETWORK_OUT_OF_NETWORK = "O";
-
-    public static final String LANGUAGE_ENGLISH = "en";
-    public static final String LANGUAGE_SPANISH = "es";
-    public static final String LANGUAGE_FRENCH = "fr";
-    public static final String LANGUAGE_GERMAN = "de";
-    public static final String LANGUAGE_ITALIAN = "it";
-    public static final String LANGUAGE_PORTUGUESE = "pt";
-    public static final String LANGUAGE_OTHERS = "_o";
+	public static final String NETWORK_FIRST_DEGREE = "F";
+	public static final String NETWORK_SECOND_DEGREE = "S";
+	public static final String NETWORK_INSIDE_GROUPS = "A";
+	public static final String NETWORK_OUT_OF_NETWORK = "O";
+	
+	public static final String LANGUAGE_ENGLISH = "en";
+	public static final String LANGUAGE_SPANISH = "es";
+	public static final String LANGUAGE_FRENCH = "fr";
+	public static final String LANGUAGE_GERMAN = "de";
+	public static final String LANGUAGE_ITALIAN = "it";
+	public static final String LANGUAGE_PORTUGUESE = "pt";
+	public static final String LANGUAGE_OTHERS = "_o";
 
 }
