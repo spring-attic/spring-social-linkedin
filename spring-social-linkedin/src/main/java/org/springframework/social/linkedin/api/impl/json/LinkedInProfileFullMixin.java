@@ -31,17 +31,21 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.ConnectionAuthorization;
+import org.springframework.social.linkedin.api.Course;
 import org.springframework.social.linkedin.api.CurrentShare;
 import org.springframework.social.linkedin.api.Education;
 import org.springframework.social.linkedin.api.ImAccount;
 import org.springframework.social.linkedin.api.LinkedInDate;
 import org.springframework.social.linkedin.api.Location;
+import org.springframework.social.linkedin.api.Patent;
 import org.springframework.social.linkedin.api.PhoneNumber;
 import org.springframework.social.linkedin.api.Position;
+import org.springframework.social.linkedin.api.Publication;
 import org.springframework.social.linkedin.api.Recommendation;
 import org.springframework.social.linkedin.api.Relation;
 import org.springframework.social.linkedin.api.TwitterAccount;
 import org.springframework.social.linkedin.api.UrlResource;
+import org.springframework.social.linkedin.api.Volunteer;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 abstract class LinkedInProfileFullMixin {
@@ -87,8 +91,26 @@ abstract class LinkedInProfileFullMixin {
 	@JsonProperty @JsonDeserialize(using=SkillListDeserializer.class)
 	List<String> skills;
 	
+	@JsonProperty @JsonDeserialize(using=LanguageListDeserializer.class)
+	List<String> languages;
+	
 	@JsonProperty @JsonDeserialize(using=EducationListDeserializer.class)
 	List<Education> educations;
+	
+	@JsonProperty @JsonDeserialize(using=CertificationListDeserializer.class)
+	List<String> certifications;
+	
+	@JsonProperty @JsonDeserialize(using=CourseListDeserializer.class)
+	List<Course> courses;
+	
+	@JsonProperty @JsonDeserialize(using=PatentListDeserializer.class)
+	List<Patent> patents;
+	
+	@JsonProperty @JsonDeserialize(using=PublicationListDeserializer.class)
+	List<Publication> publications;
+	
+	@JsonProperty @JsonDeserialize(using=VolunteerListDeserializer.class)
+	List<Volunteer> volunteer;
 	
 	@JsonProperty("summary")
 	String summary;
@@ -138,118 +160,141 @@ abstract class LinkedInProfileFullMixin {
 	@JsonProperty("apiStandardProfileRequest")
 	@JsonDeserialize(using=ConnectionAuthorizationDeserializer.class) 
 	ConnectionAuthorization connectionAuthorization;
-	
-	private static final class PositionListDeserializer extends JsonDeserializer<List<Position>>  {
-		public List<Position> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+
+	private static JsonNode getJsonNode(JsonNode node, String path) {
+		if(path != null && path.length() > 0) {
+			for(String pathElem : path.split("\\.")) {
+				node = node.path(pathElem);
+			}
+		}
+		return node;
+	}
+
+	private static class GenericLinkedInListDeserializer<T> extends JsonDeserializer<List<T>>  {
+		protected final String listPath;
+		protected final TypeReference<List<T>> typeReference;
+		
+		public GenericLinkedInListDeserializer(String listPath, TypeReference<List<T>> typeReference) {
+			this.listPath = listPath;
+			this.typeReference = typeReference;
+		}
+
+		@Override
+		public List<T> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
 			jp.setCodec(mapper);
 			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<Position>>() {} );
+				JsonNode dataNode = getJsonNode(jp.readValueAsTree(), listPath);
+				if (dataNode != null && !dataNode.isMissingNode()) {
+					return mapper.readValue(dataNode, typeReference);
 				}
 			}
 			return null;
 		}
 	}
 	
-	private static final class ImAccountListDeserializer extends JsonDeserializer<List<ImAccount>>  {
-		public List<ImAccount> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<ImAccount>>() {} );
-				}
-			}
-			return null;
+	private static final class PositionListDeserializer extends GenericLinkedInListDeserializer<Position>  {
+		public PositionListDeserializer() {
+			super("values", new TypeReference<List<Position>>() {});
 		}
 	}
 	
-	private static final class TwitterAccountListDeserializer extends JsonDeserializer<List<TwitterAccount>>  {
-		public List<TwitterAccount> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<TwitterAccount>>() {} );
-				}
-			}
-			return null;
+	private static final class ImAccountListDeserializer extends GenericLinkedInListDeserializer<ImAccount>  {
+		public ImAccountListDeserializer() {
+			super("values", new TypeReference<List<ImAccount>>() {});
 		}
 	}
 	
-	private static final class UrlResourceListDeserializer extends JsonDeserializer<List<UrlResource>>  {
-		public List<UrlResource> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<UrlResource>>() {} );
-				}
-			}
-			return null;
+	private static final class TwitterAccountListDeserializer extends GenericLinkedInListDeserializer<TwitterAccount>  {
+		public TwitterAccountListDeserializer() {
+			super("values", new TypeReference<List<TwitterAccount>>() {});
 		}
 	}
 	
-	private static final class PhoneNumberListDeserializer extends JsonDeserializer<List<PhoneNumber>>  {
-		public List<PhoneNumber> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<PhoneNumber>>() {} );
-				}
-			}
-			return null;
+	private static final class UrlResourceListDeserializer extends GenericLinkedInListDeserializer<UrlResource>  {
+		public UrlResourceListDeserializer() {
+			super("values", new TypeReference<List<UrlResource>>() {});
 		}
 	}
 	
-	private static final class EducationListDeserializer extends JsonDeserializer<List<Education>>  {
-		public List<Education> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<Education>>() {} );
-				}
-			}
-			return null;
+	private static final class PhoneNumberListDeserializer extends GenericLinkedInListDeserializer<PhoneNumber>  {
+		public PhoneNumberListDeserializer() {
+			super("values", new TypeReference<List<PhoneNumber>>() {});
 		}
 	}
 	
-	private static final class SkillListDeserializer extends JsonDeserializer<List<String>> {
+	private static final class EducationListDeserializer extends GenericLinkedInListDeserializer<Education>  {
+		public EducationListDeserializer() {
+			super("values", new TypeReference<List<Education>>() {});
+		}
+	}
+	
+	private static final class CourseListDeserializer extends GenericLinkedInListDeserializer<Course>  {
+		public CourseListDeserializer() {
+			super("values", new TypeReference<List<Course>>() {});
+		}
+	}
+	
+	private static final class PatentListDeserializer extends GenericLinkedInListDeserializer<Patent>  {
+		public PatentListDeserializer() {
+			super("values", new TypeReference<List<Patent>>() {});
+		}
+	}
+	
+	private static final class PublicationListDeserializer extends GenericLinkedInListDeserializer<Publication>  {
+		public PublicationListDeserializer() {
+			super("values", new TypeReference<List<Publication>>() {});
+		}
+	}
+	
+	private static final class VolunteerListDeserializer extends GenericLinkedInListDeserializer<Volunteer>  {
+		public VolunteerListDeserializer() {
+			super("volunteerExperiences.values", new TypeReference<List<Volunteer>>() {});
+		}
+	}
+	
+	private static class StringListDeserializer extends JsonDeserializer<List<String>> {
+		protected final String listPath;
+		protected final String listElementPath;
+
+		public StringListDeserializer(String listPath, String listElementPath) {
+			this.listPath = listPath;
+			this.listElementPath = listElementPath;
+		}
+
 		@Override
 		public List<String> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.setDeserializationConfig(ctxt.getConfig());
 			jp.setCodec(mapper);
-			List<String> skills = new ArrayList<String>();
+			List<String> strings = new ArrayList<String>();
 			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
+				JsonNode dataNode = getJsonNode(jp.readValueAsTree(), listPath);
+				if (dataNode != null && !dataNode.isMissingNode()) {
 					for (JsonNode d : dataNode) {
-						String s = d.path("skill").path("name").getTextValue();
+						String s = getJsonNode(d, listElementPath).getTextValue();
 						if (s != null) {
-							skills.add(s);
+							strings.add(s);
 						}
 					}
 				}
 			}
 			
-			return skills;
+			return strings;
 		}
+	}
+
+	private static final class SkillListDeserializer extends StringListDeserializer {
+		public SkillListDeserializer() { super("values", "skill.name"); }
+	}
+	
+	private static final class LanguageListDeserializer extends StringListDeserializer {
+		public LanguageListDeserializer() { super("values", "language.name"); }
+	}
+	
+	private static final class CertificationListDeserializer extends StringListDeserializer {
+		public CertificationListDeserializer() { super("values", "name"); }
 	}
 	
 }

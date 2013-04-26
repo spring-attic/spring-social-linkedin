@@ -10,6 +10,33 @@
     "url": "http://api.linkedin.com/v1/people/UB2kruYmAL"
   },
   "associations": "Canoeing Ireland",
+  "certifications": {
+    "_total": 2,
+    "values": [
+      {
+        "id": 18,
+        "name": "MCP"
+      },
+      {
+        "id": 19,
+        "name": "RHEL"
+      }
+    ]
+  },
+  "courses": {
+    "_total": 2,
+    "values": [
+      {
+        "id": 20,
+        "name": "Social development",
+        "number": "513-315"
+      },
+      {
+        "id": 21,
+        "name": "Java development"
+      }
+    ]
+  },
   "currentShare": {
     "author": {
       "firstName": "Robert",
@@ -85,6 +112,19 @@
   },
   "industry": "Telecommunications",
   "interests": "Kayaking",
+  "languages": {
+    "_total": 2,
+    "values": [
+      {
+        "id": 5,
+        "language": {"name": "English"}
+      },
+      {
+        "id": 6,
+        "language": {"name": "Russian"}
+      }
+    ]
+  },
   "lastName": "Drysdale",
   "location": {
     "country": {"code": "ie"},
@@ -107,6 +147,25 @@
       "phoneNumber": "+353 87 9580000",
       "phoneType": "mobile"
     }]
+  },
+  "patents": {
+    "_total": 2,
+    "values": [
+      {
+        "date": {
+          "day": 1,
+          "month": 1,
+          "year": 1913
+        },
+        "id": 13,
+        "title": "The wheel"
+      },
+      {
+        "date": {"year": 2006},
+        "id": 16,
+        "title": "DFC"
+      }
+    ]
   },
   "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_ZSvRnXWWa3I_WgIYVmQHnQZEuTD7WORYVETknbWvPkJxns2Oqw5c4FjUCfSKoJVtMmBLMhUX6kUM",
   "positions": {
@@ -266,6 +325,24 @@
     ]
   },
   "proposalComments": "",
+  "publications": {
+    "_total": 2,
+    "values": [
+      {
+        "date": {
+          "month": 4,
+          "year": 2004
+        },
+        "id": 8,
+        "title": "Hobbit"
+      },
+      {
+        "date": {"year": 2009},
+        "id": 11,
+        "title": "The elephant"
+      }
+    ]
+  },
   "publicProfileUrl": "http://www.linkedin.com/in/robdrysdale",
   "recommendationsReceived": {
     "_total": 2,
@@ -399,5 +476,34 @@
       "providerAccountId": "23438000",
       "providerAccountName": "robdrysdale"
     }]
-  }
+  },
+  "volunteer": {"volunteerExperiences": {
+    "_total": 3,
+    "values": [
+      {
+        "id": 22,
+        "organization": {
+          "id": 2469839,
+          "name": "Greenpeace Antarctica"
+        },
+        "role": "linux feeder"
+      },
+      {
+        "id": 23,
+        "organization": {
+          "id": 1116,
+          "name": "Procter & Gamble"
+        },
+        "role": "model oiler"
+      },
+      {
+        "id": 24,
+        "organization": {
+          "id": 2876,
+          "name": "Matrix"
+        },
+        "role": "cat observer"
+      }
+    ]
+  }}
 }
