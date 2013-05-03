@@ -38,7 +38,7 @@ import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.social.linkedin.api.NetworkUpdateOperations;
 import org.springframework.social.linkedin.api.ProfileOperations;
 import org.springframework.social.linkedin.api.impl.json.LinkedInModule;
-import org.springframework.social.oauth1.AbstractOAuth1ApiBinding;
+import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 import org.springframework.social.support.HttpRequestDecorator;
 import org.springframework.util.ClassUtils;
 import org.springframework.web.client.RestOperations;
@@ -53,7 +53,7 @@ import org.springframework.web.client.RestTemplate;
  * </p>
  * @author Craig Walls
  */
-public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements LinkedIn {
+public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements LinkedIn {
 	
 	/**
 	 * Creates a new LinkedInTemplate given the minimal amount of information needed to sign requests with OAuth 1 credentials.
@@ -62,8 +62,8 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 	 * @param accessToken an access token acquired through OAuth authentication with LinkedIn
 	 * @param accessTokenSecret an access token secret acquired through OAuth authentication with LinkedIn
 	 */
-	public LinkedInTemplate(String consumerKey, String consumerSecret, String accessToken, String accessTokenSecret) {
-		super(consumerKey, consumerSecret, accessToken, accessTokenSecret);
+	public LinkedInTemplate(String accessToken) {
+		super(accessToken);
 		registerLinkedInJsonModule();
 		registerJsonFormatInterceptor();
 		initSubApis();
@@ -99,6 +99,11 @@ public class LinkedInTemplate extends AbstractOAuth1ApiBinding implements Linked
 	
 	public RestOperations restOperations() {
 		return getRestTemplate();
+	}
+	
+	@Override
+	protected void configureRestTemplate(RestTemplate restTemplate) {
+		restTemplate.setErrorHandler(new LinkedInErrorHandler());
 	}
 	
 	// private helpers
