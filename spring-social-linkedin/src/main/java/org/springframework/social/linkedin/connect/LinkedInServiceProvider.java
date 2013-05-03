@@ -27,9 +27,15 @@ import org.springframework.social.oauth2.OAuth2Template;
 public class LinkedInServiceProvider extends AbstractOAuth2ServiceProvider<LinkedIn> {
 
 	public LinkedInServiceProvider(String clientId, String clientSecret) {
-		super(new OAuth2Template(clientId, clientSecret,
+		super(getOAuth2Template(clientId, clientSecret));
+	}
+
+	private static OAuth2Template getOAuth2Template(String clientId, String clientSecret) {
+		OAuth2Template oAuth2Template = new OAuth2Template(clientId, clientSecret,
 			"https://www.linkedin.com/uas/oauth2/authorization",
-			"https://www.linkedin.com/uas/oauth2/accessToken"));
+			"https://www.linkedin.com/uas/oauth2/accessToken");
+		oAuth2Template.setUseParametersForClientAuthentication(true);
+		return oAuth2Template;
 	}
 
 	public LinkedIn getApi(String accessToken) {

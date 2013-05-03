@@ -36,7 +36,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 
 	@Test
 	public void getUserProfile() {
-		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.PROFILE_FIELDS)).andExpect(method(GET))
+		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.PROFILE_FIELDS + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/profile.json", getClass()), MediaType.APPLICATION_JSON));
 		LinkedInProfile profile = linkedIn.profileOperations().getUserProfile();
 		assertEquals("z37f0n3A05", profile.getId());
@@ -51,7 +51,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test 
 	public void getUserProfileFull() {
-		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL_FULL.replaceFirst("\\{id\\}", "~"))).andExpect(method(GET))
+		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL_FULL.replaceFirst("\\{id\\}", "~") + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/profile_full.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		LinkedInProfileFull profile = linkedIn.profileOperations().getUserProfileFull();
@@ -105,14 +105,14 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 
 	@Test
 	public void getProfileId() {
-		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.PROFILE_FIELDS)).andExpect(method(GET))
+		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.PROFILE_FIELDS + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/profile.json", getClass()), MediaType.APPLICATION_JSON));
 		assertEquals("z37f0n3A05", linkedIn.profileOperations().getProfileId());
 	}
 
 	@Test
 	public void getProfileUrl() {
-		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.PROFILE_FIELDS)).andExpect(method(GET))
+		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.PROFILE_FIELDS + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/profile.json", getClass()), MediaType.APPLICATION_JSON));
 		assertEquals("http://www.linkedin.com/in/habuma", linkedIn.profileOperations().getProfileUrl());
 	}
@@ -121,6 +121,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 	public void search() {
 		mockServer.expect(requestTo(
 				"https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,api-standard-profile-request))?keywords=Java+J2EE&country-code=ie&start=0&count=10"
+						 + "&oauth2_access_token=ACCESS_TOKEN"
 				)).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/search.json", getClass()), MediaType.APPLICATION_JSON));
 		
@@ -141,7 +142,8 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void searchFacet() {
 		mockServer.expect(requestTo(
-				"https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,api-standard-profile-request))?keywords=Java+J2EE&country-code=nl&start=0&count=10&facet=language%2Cen%2Cde&facet=network%2CF"
+				"https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,api-standard-profile-request))?keywords=Java+J2EE&country-code=nl&start=0&count=10&facet=language,en,de&facet=network,F"
+						 + "&oauth2_access_token=ACCESS_TOKEN"
 		)).andExpect(method(GET))
 		.andRespond(withSuccess(new ClassPathResource("testdata/search.json", getClass()), MediaType.APPLICATION_JSON));
 

@@ -16,6 +16,9 @@
 package org.springframework.social.linkedin.api.impl;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.codehaus.jackson.JsonParser.Feature;
@@ -67,7 +70,11 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 		registerLinkedInJsonModule();
 		registerJsonFormatInterceptor();
 		initSubApis();
-	}
+
+		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();
+		interceptors.add(new OAuth2TokenParameterRequestInterceptor(accessToken));
+		getRestTemplate().setInterceptors(interceptors);
+}
 	
 	public ConnectionOperations connectionOperations() {
 		return connectionOperations;
@@ -99,11 +106,6 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 	
 	public RestOperations restOperations() {
 		return getRestTemplate();
-	}
-	
-	@Override
-	protected void configureRestTemplate(RestTemplate restTemplate) {
-		restTemplate.setErrorHandler(new LinkedInErrorHandler());
 	}
 	
 	// private helpers
@@ -181,6 +183,36 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 			return execution.execute(contentTypeResourceRequest, body);
 		}
 		
+	}
+	
+	private static final class OAuth2TokenParameterRequestInterceptor implements ClientHttpRequestInterceptor {
+		private final String accessToken;
+		
+		public OAuth2TokenParameterRequestInterceptor(String accessToken) {
+			this.accessToken = accessToken;
+		}
+		
+		public ClientHttpResponse intercept(final HttpRequest request, final byte[] body, ClientHttpRequestExecution execution) throws IOException {
+			HttpRequest protectedResourceRequest = new HttpRequestDecorator(request) {
+				@Override
+				public URI getURI() {
+					URI uri = super.getURI();
+					String query = uri.getQuery();
+					if (query == null) {
+						query = "oauth2_access_token=" + accessToken;
+					} else {
+						query += "&oauth2_access_token=" + accessToken;
+					}
+					try {
+						return new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), uri.getPort(), uri.getPath(), query, uri.getFragment());
+					} catch (URISyntaxException e) {
+						return uri;
+					}
+				}
+			};
+			return execution.execute(protectedResourceRequest, body);
+		}
+
 	}
 
 }

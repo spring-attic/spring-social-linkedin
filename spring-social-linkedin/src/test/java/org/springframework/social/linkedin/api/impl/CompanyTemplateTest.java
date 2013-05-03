@@ -34,7 +34,7 @@ import org.springframework.social.linkedin.api.Products;
 public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getCompany() {
-		mockServer.expect(requestTo(CompanyTemplate.COMPANY_URL.replaceFirst("\\{id\\}", "/1337").replaceFirst("\\{filter\\}", ""))).andExpect(method(GET))
+		mockServer.expect(requestTo(CompanyTemplate.COMPANY_URL.replaceFirst("\\{id\\}", "/1337").replaceFirst("\\{filter\\}", "") + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/company.json", getClass()), MediaType.APPLICATION_JSON));
 		Company company = linkedIn.companyOperations().getCompany(1337);
 		
@@ -72,7 +72,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test
 	public void search() {
-		mockServer.expect(requestTo(CompanyTemplate.COMPANY_SEARCH_URL.replaceFirst("\\{keywords\\}", "spring%20j2ee"))).andExpect(method(GET))
+		mockServer.expect(requestTo(CompanyTemplate.COMPANY_SEARCH_URL.replaceFirst("\\{keywords\\}", "spring%20j2ee") + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/company_search.json", getClass()), MediaType.APPLICATION_JSON));
 		Companies result = linkedIn.companyOperations().search("spring j2ee");
 		
@@ -109,7 +109,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test
 	public void getFollowing() {
-		mockServer.expect(requestTo(CompanyTemplate.COMPANY_FOLLOW_URL)).andExpect(method(GET))
+		mockServer.expect(requestTo(CompanyTemplate.COMPANY_FOLLOW_URL + "?oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/following.json", getClass()), MediaType.APPLICATION_JSON));
 		List<Company> companies = linkedIn.companyOperations().getFollowing();
 		
@@ -119,7 +119,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test
 	public void getSuggestionsToFollow() {
-		mockServer.expect(requestTo(CompanyTemplate.COMPANY_SUGGESTIONS_TO_FOLLOW)).andExpect(method(GET))
+		mockServer.expect(requestTo(CompanyTemplate.COMPANY_SUGGESTIONS_TO_FOLLOW + "?oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/suggestions_to_follow.json", getClass()), MediaType.APPLICATION_JSON));
 		List<Company> companies = linkedIn.companyOperations().getSuggestionsToFollow();
 		
@@ -129,7 +129,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test
 	public void getProducts() {
-		mockServer.expect(requestTo(CompanyTemplate.PRODUCTS_URL
+		mockServer.expect(requestTo((CompanyTemplate.PRODUCTS_URL + "&oauth2_access_token=ACCESS_TOKEN")
 			.replaceFirst("\\{id\\}", "1337")
 			.replaceFirst("\\{start\\}", "0")
 			.replaceFirst("\\{count\\}", "5"))).andExpect(method(GET))
