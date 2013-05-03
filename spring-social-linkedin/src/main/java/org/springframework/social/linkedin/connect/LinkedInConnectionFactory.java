@@ -15,14 +15,14 @@
  */
 package org.springframework.social.linkedin.connect;
 
-import org.springframework.social.connect.support.OAuth1ConnectionFactory;
+import org.springframework.social.connect.support.OAuth2ConnectionFactory;
 import org.springframework.social.linkedin.api.LinkedIn;
 
 /**
  * LinkedIn ConnectionFactory implementation.
  * @author Keith Donald
  */
-public class LinkedInConnectionFactory extends OAuth1ConnectionFactory<LinkedIn>{
+public class LinkedInConnectionFactory extends OAuth2ConnectionFactory<LinkedIn>{
 
 	public LinkedInConnectionFactory(String consumerKey, String consumerSecret) {
 		super("linkedin", new LinkedInServiceProvider(consumerKey, consumerSecret), new LinkedInAdapter());

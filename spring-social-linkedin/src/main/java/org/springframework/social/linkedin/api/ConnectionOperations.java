@@ -39,8 +39,9 @@ public interface ConnectionOperations {
 	List<LinkedInProfile> getConnections(int start, int count);
 	
 	/**
-	 * Retrieve Network Statistics for User
-	 * Contains Count of First Degree and Second Degree Connections
+	 * Retrieve Network Statistics for User.
+	 * Contains Count of First Degree and Second Degree Connections.
+	 * Requires "rw_nus" permission.
 	 * @return Network Statistics
 	 */
 	NetworkStatistics getNetworkStatistics();

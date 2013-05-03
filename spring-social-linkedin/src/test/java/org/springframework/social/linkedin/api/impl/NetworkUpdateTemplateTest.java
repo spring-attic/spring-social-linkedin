@@ -45,24 +45,18 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 
 	@Test 
 	public void postUpdate() {
-		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/person-activities"))
+		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/person-activities?oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(POST))
 			.andExpect(content().string("{\"body\":\"Cool beans\",\"contentType\":\"linkedin-html\"}"))
-			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-			.andExpect(headerContains("Authorization", "oauth_signature=\""))
 			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 		linkedIn.networkUpdateOperations().createNetworkUpdate("Cool beans");
 	}
 	
 	@Test
 	public void share() {
-		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/shares"))
+		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/shares?oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(POST))
 			.andExpect(content().string("{\"comment\":\"Social Integration Platform coming together nicely ...\",\"visibility\":{\"code\":\"connections-only\"}}"))
-			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-			.andExpect(headerContains("Authorization", "oauth_signature=\""))
 			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 		NewShare share = new NewShare();
 		share.setComment("Social Integration Platform coming together nicely ...");
@@ -73,12 +67,9 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test
 	public void like() {		
-		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates/key=KEY/is-liked?format=json"))
+		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates/key=KEY/is-liked?format=json&oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(PUT))
 			.andExpect(content().string("true"))
-			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-			.andExpect(headerContains("Authorization", "oauth_signature=\""))
 			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 		
 		linkedIn.networkUpdateOperations().likeNetworkUpdate("KEY");
@@ -86,12 +77,9 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test
 	public void unlike() {
-		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates/key=KEY/is-liked?format=json"))
+		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates/key=KEY/is-liked?format=json&oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(PUT))
 			.andExpect(content().string("false"))
-			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-			.andExpect(headerContains("Authorization", "oauth_signature=\""))
 			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 		
 		linkedIn.networkUpdateOperations().unlikeNetworkUpdate("KEY");
@@ -99,7 +87,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test
 	public void getCurrentShare() {
-		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~:(current-share)"))
+		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~:(current-share)?oauth2_access_token=ACCESS_TOKEN"))
 			.andRespond(withSuccess(new ClassPathResource("testdata/current.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		CurrentShare share = linkedIn.networkUpdateOperations().getCurrentShare();
@@ -109,7 +97,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test 
 	public void getUpdates() {
-		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates?count=10&start=0&type=ANSW&type=APPS&type=CMPY&type=CONN&type=JOBS&type=JGRP&type=PICT&type=PRFX&type=RECU&type=PRFU&type=QSTN&type=SHAR&type=VIRL&format=json"))
+		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates?count=10&start=0&type=ANSW&type=APPS&type=CMPY&type=CONN&type=JOBS&type=JGRP&type=PICT&type=PRFX&type=RECU&type=PRFU&type=QSTN&type=SHAR&type=VIRL&format=json&oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/updates.json", getClass()), MediaType.APPLICATION_JSON));
 		List<LinkedInNetworkUpdate> updates = linkedIn.networkUpdateOperations().getNetworkUpdates();
@@ -118,7 +106,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test 
 	public void getUpdates_withStartAndCount() {
-		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates?count=30&start=10&type=ANSW&type=APPS&type=CMPY&type=CONN&type=JOBS&type=JGRP&type=PICT&type=PRFX&type=RECU&type=PRFU&type=QSTN&type=SHAR&type=VIRL&format=json"))
+		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates?count=30&start=10&type=ANSW&type=APPS&type=CMPY&type=CONN&type=JOBS&type=JGRP&type=PICT&type=PRFX&type=RECU&type=PRFU&type=QSTN&type=SHAR&type=VIRL&format=json&oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/updates.json", getClass()), MediaType.APPLICATION_JSON));
 		List<LinkedInNetworkUpdate> updates = linkedIn.networkUpdateOperations().getNetworkUpdates(10, 30);
