@@ -46,7 +46,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 				.replaceFirst("\\{\\&distance\\}", "")
 				.replaceFirst("\\{\\&start\\}", "&start=0")
 				.replaceFirst("\\{\\&count\\}", "&count=10")
-				.replaceFirst("\\{\\&sort\\}", ""))).andExpect(method(GET))
+				.replaceFirst("\\{\\&sort\\}", "") + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/job_search.json", getClass()), MediaType.APPLICATION_JSON));
 		JobSearchParameters parameters = new JobSearchParameters();
 		parameters.setCountryCode("ie");
@@ -90,7 +90,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	public void getSuggestions() {
 		mockServer.expect(requestTo(JobTemplate.SUGGESTED_URL
 				.replaceFirst("\\{\\&start\\}", "start=0")
-				.replaceFirst("\\{\\&count\\}", "&count=10"))).andExpect(method(GET))
+				.replaceFirst("\\{\\&count\\}", "&count=10") + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/job_suggestions.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		List<Job> jobs = linkedIn.jobOperations().getSuggestions(0, 10).getJobs();
@@ -131,7 +131,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getJob() {
 		mockServer.expect(requestTo(JobTemplate.JOB_URL
-				.replaceFirst("\\{id\\}", "2160963"))).andExpect(method(GET))
+				.replaceFirst("\\{id\\}", "2160963") + "?oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/job.json", getClass()), MediaType.APPLICATION_JSON));
 		JobSearchParameters parameters = new JobSearchParameters();
 		parameters.setCountryCode("ie");
@@ -174,7 +174,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	public void getBookmarks() {
 		mockServer.expect(requestTo(JobTemplate.BOOKMARKS_URL
 				.replaceFirst("\\{\\&start\\}", "start=0")
-				.replaceFirst("\\{\\&count\\}", "&count=10"))).andExpect(method(GET))
+				.replaceFirst("\\{\\&count\\}", "&count=10") + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/job_bookmarks.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		JobBookmarks r = linkedIn.jobOperations().getBookmarks(0, 10);
@@ -199,12 +199,9 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test
 	public void bookmark() {
-		mockServer.expect(requestTo(JobTemplate.BOOKMARK_URL))
+		mockServer.expect(requestTo(JobTemplate.BOOKMARK_URL + "?oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(POST))
 			.andExpect(content().string("{\"job\":{\"id\":123456}}"))
-			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-			.andExpect(headerContains("Authorization", "oauth_signature=\""))
 			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 		
 		linkedIn.jobOperations().bookmarkJob(123456);
@@ -212,12 +209,9 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test
 	public void unbookmark() {
-		mockServer.expect(requestTo(JobTemplate.UNBOOKMARK_URL.replaceFirst("\\{job-id\\}", "123456")))
+		mockServer.expect(requestTo(JobTemplate.UNBOOKMARK_URL.replaceFirst("\\{job-id\\}", "123456") + "?oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(DELETE))
 			.andExpect(content().string(""))
-			.andExpect(headerContains("Authorization", "OAuth oauth_version=\"1.0\", oauth_nonce=\""))
-			.andExpect(headerContains("Authorization", "oauth_signature_method=\"HMAC-SHA1\", oauth_consumer_key=\"API_KEY\", oauth_token=\"ACCESS_TOKEN\", oauth_timestamp=\""))
-			.andExpect(headerContains("Authorization", "oauth_signature=\""))
 			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 		
 		linkedIn.jobOperations().unbookmarkJob(123456);

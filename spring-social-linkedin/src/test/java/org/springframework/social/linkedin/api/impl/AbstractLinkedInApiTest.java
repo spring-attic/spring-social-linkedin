@@ -44,7 +44,7 @@ public class AbstractLinkedInApiTest {
 	
 	@Before
 	public void setup() {
-		linkedIn = new LinkedInTemplate("API_KEY", "API_SECRET", "ACCESS_TOKEN", "ACCESS_TOKEN_SECRET");
+		linkedIn = new LinkedInTemplate("ACCESS_TOKEN");
 		mockServer = MockRestServiceServer.createServer(linkedIn.getRestTemplate());
 		responseHeaders = new HttpHeaders();
 		responseHeaders.setContentType(MediaType.APPLICATION_JSON);
