@@ -212,6 +212,9 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 					}
 				}
 			};
+
+			// LinkedIn doesn't accept the OAuth2 Bearer token authorization header.
+			protectedResourceRequest.getHeaders().remove("Authorization"); 
 			return execution.execute(protectedResourceRequest, body);
 		}
 
