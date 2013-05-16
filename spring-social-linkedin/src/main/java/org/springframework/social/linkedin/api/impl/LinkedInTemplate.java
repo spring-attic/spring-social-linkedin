@@ -18,7 +18,6 @@ package org.springframework.social.linkedin.api.impl;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.codehaus.jackson.JsonParser.Feature;
@@ -67,14 +66,17 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 	 */
 	public LinkedInTemplate(String accessToken) {
 		super(accessToken);
+		registerOAuth2Interceptor(accessToken);
 		registerLinkedInJsonModule();
 		registerJsonFormatInterceptor();
 		initSubApis();
+	}
 
-		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();
+	private void registerOAuth2Interceptor(String accessToken) {
+		List<ClientHttpRequestInterceptor> interceptors = getRestTemplate().getInterceptors();
 		interceptors.add(new OAuth2TokenParameterRequestInterceptor(accessToken));
 		getRestTemplate().setInterceptors(interceptors);
-}
+	}
 	
 	public ConnectionOperations connectionOperations() {
 		return connectionOperations;
