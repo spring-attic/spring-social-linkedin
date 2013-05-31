@@ -17,11 +17,13 @@ package org.springframework.social.linkedin.api.impl.json;
 
 import java.io.IOException;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.map.DeserializationContext;
-import org.codehaus.jackson.map.JsonDeserializer;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 class CodeDeserializer extends JsonDeserializer<String> {
 	
@@ -29,8 +31,13 @@ class CodeDeserializer extends JsonDeserializer<String> {
 	
 	@Override
 	public String deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-		JsonNode node = jp.readValueAsTree();
-		return node.get(VALUE).getTextValue();
+		if (jp.hasCurrentToken() && jp.getCurrentToken().equals(JsonToken.START_OBJECT)) {
+			ObjectMapper mapper = new ObjectMapper();
+			JsonNode node = mapper.reader(JsonNode.class).readValue(jp);
+			return node.has(VALUE) ? node.get(VALUE).textValue() : null;
+		}
+		
+		throw ctxt.mappingException("Expected JSON object");
 	}
 	
 }

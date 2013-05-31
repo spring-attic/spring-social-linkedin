@@ -19,23 +19,24 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.annotate.JsonCreator;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.DeserializationContext;
-import org.codehaus.jackson.map.JsonDeserializer;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.annotate.JsonDeserialize;
-import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.Comment;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.UpdateContent;
 import org.springframework.social.linkedin.api.UpdateContentCompany;
 import org.springframework.social.linkedin.api.UpdateContentShare;
 import org.springframework.social.linkedin.api.UpdateType;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 abstract class UpdateActionMixin {
@@ -73,12 +74,12 @@ abstract class UpdateActionMixin {
 	private static class CommentsListDeserializer extends JsonDeserializer<List<Comment>>  {
 		public List<Comment> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
+			mapper.registerModule(new LinkedInModule());
 			jp.setCodec(mapper);
 			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
+				JsonNode dataNode = jp.readValueAs(JsonNode.class).get("values");
 				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<Comment>>() {} );
+					return mapper.reader(new TypeReference<List<Comment>>() {}).readValue(dataNode);
 				}
 			}
 			return null;
@@ -89,19 +90,19 @@ abstract class UpdateActionMixin {
 		@Override
 		public UpdateContent deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
+			mapper.registerModule(new LinkedInModule());
 			jp.setCodec(mapper);
 			
-			JsonNode content = jp.readValueAsTree();
+			JsonNode content = jp.readValueAs(JsonNode.class);
 			JsonNode person = content.get("person");
 			JsonNode company = content.get("company");
 			// person for a SHAR update
 			if (person != null) {
-				return mapper.readValue(person, new TypeReference<UpdateContentShare>() {});
+				return mapper.reader(new TypeReference<UpdateContentShare>() {}).readValue(person);
 			}
 			// company and companyStatusUpdate for CMPY update
 			else if (company != null) {
-				return mapper.readValue(content, new TypeReference<UpdateContentCompany>() {});
+				return mapper.reader(new TypeReference<UpdateContentCompany>() {}).readValue(content);
 			}
 			return null;
 		}

@@ -1,3 +1,11 @@
+Spring Social LinkedIn 1.0.0 Release Candidate 2 (? ?, 2013)
+====================================================================
+Miscellaneous
+  - Upgraded to Jackson 2
+
+Improvements:
+  - Authorization now based on OAuth 2 instead of OAuth 1.0a
+
 Spring Social LinkedIn 1.0.0 Release Candidate 1 (February 21, 2012)
 ====================================================================
 Improvements:

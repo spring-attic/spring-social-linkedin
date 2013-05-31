@@ -17,28 +17,29 @@ package org.springframework.social.linkedin.api.impl.json;
 
 import java.io.IOException;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.map.DeserializationContext;
-import org.codehaus.jackson.map.JsonDeserializer;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.ConnectionAuthorization;
+
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 final class ConnectionAuthorizationDeserializer extends JsonDeserializer<ConnectionAuthorization>  {
 
 	public ConnectionAuthorization deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 		ObjectMapper mapper = new ObjectMapper();
-		mapper.setDeserializationConfig(ctxt.getConfig());
-		jp.setCodec(mapper);
-		if(jp.hasCurrentToken()) {
-			JsonNode dataNode = jp.readValueAsTree().path("headers").path("values").get(0);
+		mapper.registerModule(new LinkedInModule());
+		if(jp.hasCurrentToken() && jp.getCurrentToken().equals(JsonToken.START_OBJECT)) {
+			JsonNode dataNode = jp.readValueAs(JsonNode.class).get("headers").get("values").get(0);
 			if (dataNode != null) {
-				return mapper.readValue(dataNode, new TypeReference<ConnectionAuthorization>() {} );
+				return mapper.reader(new TypeReference<ConnectionAuthorization>() {}).readValue(dataNode);
 			}
 		}
-		return null;
+		throw ctxt.mappingException("Expected JSON object");
 	}
 
 }
