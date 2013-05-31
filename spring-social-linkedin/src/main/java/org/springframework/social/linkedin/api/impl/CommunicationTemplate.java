@@ -24,10 +24,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.CommunicationOperations;
 import org.springframework.social.linkedin.api.ConnectionAuthorization;
 import org.springframework.web.client.RestOperations;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Class that implements communication API for sending messages and invitations

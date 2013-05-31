@@ -18,14 +18,15 @@ package org.springframework.social.linkedin.api.impl;
 import java.util.Collections;
 import java.util.List;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.Companies;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.CompanyOperations;
 import org.springframework.social.linkedin.api.Products;
 import org.springframework.web.client.RestOperations;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Class that implements Company API for searching for and getting Companies
@@ -56,7 +57,7 @@ class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
 		JsonNode node = restOperations.getForObject(expand(COMPANY_URL, params, false), JsonNode.class);
 		
 		try {
-			return objectMapper.readValue(node.path("values"), new TypeReference<List<Company>>(){});
+			return objectMapper.reader(new TypeReference<List<Company>>(){}).readValue(node.path("values"));
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
@@ -66,7 +67,7 @@ class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
 	public Companies search(String keywords) {
 		JsonNode node = restOperations.getForObject(COMPANY_SEARCH_URL, JsonNode.class, keywords);
 		try {
-			return objectMapper.readValue(node.path("companies"), new TypeReference<Companies>(){});
+			return objectMapper.reader(new TypeReference<Companies>(){}).readValue(node.path("companies"));
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
@@ -76,7 +77,7 @@ class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
 	public List<Company> getFollowing() {
 		JsonNode node = restOperations.getForObject(COMPANY_FOLLOW_URL, JsonNode.class);
 		try {
-			return objectMapper.readValue(node.path("values"), new TypeReference<List<Company>>(){});
+			return objectMapper.reader(new TypeReference<List<Company>>(){}).readValue(node.path("values"));
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
@@ -86,7 +87,7 @@ class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
 	public List<Company> getSuggestionsToFollow() {
 		JsonNode node = restOperations.getForObject(COMPANY_SUGGESTIONS_TO_FOLLOW, JsonNode.class);
 		try {
-			return objectMapper.readValue(node.path("values"), new TypeReference<List<Company>>(){});
+			return objectMapper.reader(new TypeReference<List<Company>>(){}).readValue(node.path("values"));
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);

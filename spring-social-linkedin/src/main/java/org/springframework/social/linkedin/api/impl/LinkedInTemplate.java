@@ -20,17 +20,13 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-import org.codehaus.jackson.JsonParser.Feature;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.SerializationConfig;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.social.linkedin.api.CommunicationOperations;
 import org.springframework.social.linkedin.api.CompanyOperations;
 import org.springframework.social.linkedin.api.ConnectionOperations;
@@ -45,6 +41,11 @@ import org.springframework.social.support.HttpRequestDecorator;
 import org.springframework.util.ClassUtils;
 import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonParser.Feature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 /**
  * This is the central class for interacting with LinkedIn.
@@ -115,13 +116,13 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 	private void registerLinkedInJsonModule() {
 		List<HttpMessageConverter<?>> converters = getRestTemplate().getMessageConverters();
 		for (HttpMessageConverter<?> converter : converters) {
-			if(converter instanceof MappingJacksonHttpMessageConverter) {
-				MappingJacksonHttpMessageConverter jsonConverter = (MappingJacksonHttpMessageConverter) converter;
+			if(converter instanceof MappingJackson2HttpMessageConverter) {
+				MappingJackson2HttpMessageConverter jsonConverter = (MappingJackson2HttpMessageConverter) converter;
 				objectMapper = new ObjectMapper();				
 				objectMapper.registerModule(new LinkedInModule());
-				objectMapper.configure(SerializationConfig.Feature.WRITE_ENUMS_USING_TO_STRING, true);
+				objectMapper.configure(SerializationFeature.WRITE_ENUMS_USING_TO_STRING, true);
 				objectMapper.configure(Feature.ALLOW_NUMERIC_LEADING_ZEROS, true);
-				objectMapper.setSerializationConfig(objectMapper.getSerializationConfig().withSerializationInclusion(JsonSerialize.Inclusion.NON_NULL));
+				objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 				jsonConverter.setObjectMapper(objectMapper);
 			}
 		}

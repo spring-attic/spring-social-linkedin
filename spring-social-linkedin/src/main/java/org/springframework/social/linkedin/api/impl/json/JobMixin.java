@@ -17,14 +17,15 @@ package org.springframework.social.linkedin.api.impl.json;
 
 import java.util.Date;
 
-import org.codehaus.jackson.annotate.JsonCreator;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.JobPosition;
 import org.springframework.social.linkedin.api.LinkedInDate;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.UrlResource;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 abstract class JobMixin {

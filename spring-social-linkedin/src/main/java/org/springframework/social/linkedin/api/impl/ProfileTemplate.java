@@ -21,8 +21,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLEncoder;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.social.ApiException;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
@@ -33,6 +31,9 @@ import org.springframework.social.linkedin.api.SearchParameters;
 import org.springframework.social.support.URIBuilder;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestOperations;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Class that implements operations for Profile API
@@ -114,7 +115,7 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 	public LinkedInProfiles search(SearchParameters parameters) {
 		JsonNode node =  restOperations.getForObject(expand(PEOPLE_SEARCH_URL, parameters), JsonNode.class);
 		try {
-			return objectMapper.readValue(node.path("people"), LinkedInProfiles.class);
+			return objectMapper.reader(LinkedInProfiles.class).readValue(node.path("people"));
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);

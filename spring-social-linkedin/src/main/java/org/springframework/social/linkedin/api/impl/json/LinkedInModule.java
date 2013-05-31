@@ -15,9 +15,6 @@
  */
 package org.springframework.social.linkedin.api.impl.json;
 
-import org.codehaus.jackson.Version;
-import org.codehaus.jackson.map.module.SimpleModule;
-import org.springframework.social.linkedin.api.ConnectionAuthorization;
 import org.springframework.social.linkedin.api.CodeAndName;
 import org.springframework.social.linkedin.api.Comment;
 import org.springframework.social.linkedin.api.Comments;
@@ -27,6 +24,7 @@ import org.springframework.social.linkedin.api.Company.CompanyAddress;
 import org.springframework.social.linkedin.api.Company.CompanyContactInfo;
 import org.springframework.social.linkedin.api.Company.CompanyLocation;
 import org.springframework.social.linkedin.api.CompanyJobUpdate;
+import org.springframework.social.linkedin.api.ConnectionAuthorization;
 import org.springframework.social.linkedin.api.CurrentShare;
 import org.springframework.social.linkedin.api.Education;
 import org.springframework.social.linkedin.api.Group;
@@ -81,13 +79,17 @@ import org.springframework.social.linkedin.api.UpdateContentStatus;
 import org.springframework.social.linkedin.api.UpdateContentViral;
 import org.springframework.social.linkedin.api.UrlResource;
 
+import com.fasterxml.jackson.databind.module.SimpleModule;
+
 /**
  * Jackson module for registering mixin annotations against LinkedIn model classes.
  */
 public class LinkedInModule extends SimpleModule {
 
+	private static final long serialVersionUID = 1L;
+
 	public LinkedInModule() {
-		super("LinkedInModule", new Version(1, 0, 0, null));
+		super("LinkedInModule");
 	}
 	
 	@Override
