@@ -15,7 +15,7 @@
  */
 package org.springframework.social.linkedin.api.impl.json;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 abstract class ConnectionAuthorizationMixin{
 	

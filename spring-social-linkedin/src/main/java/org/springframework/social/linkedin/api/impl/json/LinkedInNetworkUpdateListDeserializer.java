@@ -18,13 +18,6 @@ package org.springframework.social.linkedin.api.impl.json;
 import java.io.IOException;
 import java.lang.reflect.Field;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.map.DeserializationContext;
-import org.codehaus.jackson.map.JsonDeserializer;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.LinkedInNetworkUpdate;
 import org.springframework.social.linkedin.api.UpdateAction;
@@ -40,17 +33,25 @@ import org.springframework.social.linkedin.api.UpdateContentStatus;
 import org.springframework.social.linkedin.api.UpdateContentViral;
 import org.springframework.social.linkedin.api.UpdateType;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 class LinkedInNetworkUpdateListDeserializer extends JsonDeserializer<LinkedInNetworkUpdate> {
 
 	@Override
 	public LinkedInNetworkUpdate deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 		ObjectMapper mapper = new ObjectMapper();
-		mapper.setDeserializationConfig(ctxt.getConfig());
+		mapper.registerModule(new LinkedInModule());
 		jp.setCodec(mapper);
 		
-		JsonNode dataNode = jp.readValueAsTree();
+		JsonNode dataNode = jp.readValueAs(JsonNode.class);
 		if(dataNode != null) {
-			LinkedInNetworkUpdate linkedInNetworkUpdate = (LinkedInNetworkUpdate) mapper.readValue(dataNode, new TypeReference<LinkedInNetworkUpdate>() {});
+			LinkedInNetworkUpdate linkedInNetworkUpdate = (LinkedInNetworkUpdate) mapper.reader(new TypeReference<LinkedInNetworkUpdate>() {}).readValue(dataNode);
 			
 			UpdateContent updatedContent = null;
 			UpdateType type = linkedInNetworkUpdate.getUpdateType();
@@ -63,36 +64,36 @@ class LinkedInNetworkUpdateListDeserializer extends JsonDeserializer<LinkedInNet
 			
 			switch (type) {
 				case CONN:
-					updatedContent = mapper.readValue(person, new TypeReference<UpdateContentConnection>() {});
+					updatedContent = mapper.reader(new TypeReference<UpdateContentConnection>() {}).readValue(person);
 					break;
 				case STAT:
-					updatedContent = mapper.readValue(person, new TypeReference<UpdateContentStatus>() {});
+					updatedContent = mapper.reader(new TypeReference<UpdateContentStatus>() {}).readValue(person);
 					break;
 				case JGRP:
-					updatedContent = mapper.readValue(person, new TypeReference<UpdateContentGroup>() {});
+					updatedContent = mapper.reader(new TypeReference<UpdateContentGroup>() {}).readValue(person);
 					break;
 				case PREC:
 				case SVPR:
-					updatedContent = mapper.readValue(person, new TypeReference<UpdateContentRecommendation>() {});
+					updatedContent = mapper.reader(new TypeReference<UpdateContentRecommendation>() {}).readValue(person);
 					break;
 				case APPM:
-					updatedContent = mapper.readValue(person, new TypeReference<UpdateContentPersonActivity>() {});
+					updatedContent = mapper.reader(new TypeReference<UpdateContentPersonActivity>() {}).readValue(person);
 					break;
 				case MSFC:
-					updatedContent = mapper.readValue(person, new TypeReference<UpdateContentFollow>() {});
+					updatedContent = mapper.reader(new TypeReference<UpdateContentFollow>() {}).readValue(person);
 					break;
 				case VIRL:
-					updatedContent = mapper.readValue(person, new TypeReference<UpdateContentViral>() {});
+					updatedContent = mapper.reader(new TypeReference<UpdateContentViral>() {}).readValue(person);
 					break;
 				case SHAR:
-					updatedContent = mapper.readValue(person, new TypeReference<UpdateContentShare>() {});
+					updatedContent = mapper.reader(new TypeReference<UpdateContentShare>() {}).readValue(person);
 					break;
 				case CMPY:
-					updatedContent = mapper.readValue(updatedNode, new TypeReference<UpdateContentCompany>() {});
+					updatedContent = mapper.reader(new TypeReference<UpdateContentCompany>() {}).readValue(updatedNode);
 					break;
 				default:
 					try {
-						updatedContent = mapper.readValue(person, new TypeReference<UpdateContent>() {});
+						updatedContent = mapper.reader(new TypeReference<UpdateContent>() {}).readValue(person);
 					}
 					catch (Exception e) {
 						throw new RuntimeException(e);
@@ -122,7 +123,7 @@ class LinkedInNetworkUpdateListDeserializer extends JsonDeserializer<LinkedInNet
 				}
 				
 				// Set following via reflection as it's private
-				Company company = mapper.readValue(updatedNode.get("company"), new TypeReference<Company>() {});
+				Company company = mapper.reader(new TypeReference<Company>() {}).readValue(updatedNode.get("company"));
 				try {
 					Field f = UpdateContentFollow.class.getDeclaredField("following");
 					f.setAccessible(true);
@@ -134,8 +135,8 @@ class LinkedInNetworkUpdateListDeserializer extends JsonDeserializer<LinkedInNet
 			}
 			else if (type == UpdateType.VIRL) {
 				JsonNode originalUpdate =  updatedNode.path("updateAction").path("originalUpdate");
-				UpdateAction updateAction = mapper.readValue(originalUpdate, new TypeReference<UpdateAction>() {});
-				String code = updatedNode.path("updateAction").path("action").path("code").getTextValue();
+				UpdateAction updateAction = mapper.reader(new TypeReference<UpdateAction>() {}).readValue(originalUpdate);
+				String code = updatedNode.path("updateAction").path("action").path("code").textValue();
 				
 				// Set private immutable field action on updateAction
 				try {

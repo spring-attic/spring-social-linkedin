@@ -17,20 +17,22 @@ package org.springframework.social.linkedin.api.impl.json;
 
 import java.io.IOException;
 
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.annotate.JsonCreator;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.DeserializationContext;
-import org.codehaus.jackson.map.JsonDeserializer;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.annotate.JsonDeserialize;
-import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.CompanyJobUpdate;
 import org.springframework.social.linkedin.api.Share;
 import org.springframework.social.linkedin.api.UrlResource;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 abstract class UpdateContentCompanyMixin {
@@ -60,10 +62,11 @@ abstract class UpdateContentCompanyMixin {
 		@Override
 		public Share deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
+			mapper.registerModule(new LinkedInModule());
 			jp.setCodec(mapper);
 			
-			return mapper.readValue(jp.readValueAsTree().get("share"), new TypeReference<Share>() {});
+			JsonNode node = (JsonNode) jp.readValueAs(JsonNode.class);
+			return mapper.reader(new TypeReference<Share>() {}).readValue(node.get("share"));
 		}
 		
 	}

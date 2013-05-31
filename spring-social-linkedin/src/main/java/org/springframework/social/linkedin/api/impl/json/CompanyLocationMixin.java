@@ -15,10 +15,11 @@
  */
 package org.springframework.social.linkedin.api.impl.json;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.social.linkedin.api.Company.CompanyAddress;
 import org.springframework.social.linkedin.api.Company.CompanyContactInfo;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 abstract class CompanyLocationMixin {

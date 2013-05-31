@@ -19,17 +19,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.annotate.JsonCreator;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.DeserializationContext;
-import org.codehaus.jackson.map.JsonDeserializer;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.annotate.JsonDeserialize;
-import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.ConnectionAuthorization;
 import org.springframework.social.linkedin.api.CurrentShare;
 import org.springframework.social.linkedin.api.Education;
@@ -42,6 +31,18 @@ import org.springframework.social.linkedin.api.Recommendation;
 import org.springframework.social.linkedin.api.Relation;
 import org.springframework.social.linkedin.api.TwitterAccount;
 import org.springframework.social.linkedin.api.UrlResource;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 abstract class LinkedInProfileFullMixin {
@@ -141,114 +142,57 @@ abstract class LinkedInProfileFullMixin {
 	
 	private static final class PositionListDeserializer extends JsonDeserializer<List<Position>>  {
 		public List<Position> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<Position>>() {} );
-				}
-			}
-			return null;
+			return DeserializationUtils.deserializeFromDataNode(jp, ctxt, "values", new TypeReference<List<Position>>() {});
 		}
 	}
 	
 	private static final class ImAccountListDeserializer extends JsonDeserializer<List<ImAccount>>  {
 		public List<ImAccount> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<ImAccount>>() {} );
-				}
-			}
-			return null;
+			return DeserializationUtils.deserializeFromDataNode(jp, ctxt, "values", new TypeReference<List<ImAccount>>() {});
 		}
 	}
 	
 	private static final class TwitterAccountListDeserializer extends JsonDeserializer<List<TwitterAccount>>  {
 		public List<TwitterAccount> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<TwitterAccount>>() {} );
-				}
-			}
-			return null;
+			return DeserializationUtils.deserializeFromDataNode(jp, ctxt, "values", new TypeReference<List<TwitterAccount>>() {});
 		}
 	}
 	
 	private static final class UrlResourceListDeserializer extends JsonDeserializer<List<UrlResource>>  {
 		public List<UrlResource> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<UrlResource>>() {} );
-				}
-			}
-			return null;
+			return DeserializationUtils.deserializeFromDataNode(jp, ctxt, "values", new TypeReference<List<UrlResource>>() {});
 		}
 	}
 	
 	private static final class PhoneNumberListDeserializer extends JsonDeserializer<List<PhoneNumber>>  {
 		public List<PhoneNumber> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<PhoneNumber>>() {} );
-				}
-			}
-			return null;
+			return DeserializationUtils.deserializeFromDataNode(jp, ctxt, "values", new TypeReference<List<PhoneNumber>>() {});
 		}
 	}
 	
 	private static final class EducationListDeserializer extends JsonDeserializer<List<Education>>  {
 		public List<Education> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
-				if (dataNode != null) {
-					return mapper.readValue(dataNode, new TypeReference<List<Education>>() {} );
-				}
-			}
-			return null;
+			return DeserializationUtils.deserializeFromDataNode(jp, ctxt, "values", new TypeReference<List<Education>>() {});
 		}
 	}
 	
 	private static final class SkillListDeserializer extends JsonDeserializer<List<String>> {
 		@Override
 		public List<String> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.setDeserializationConfig(ctxt.getConfig());
-			jp.setCodec(mapper);
-			List<String> skills = new ArrayList<String>();
-			if(jp.hasCurrentToken()) {
-				JsonNode dataNode = jp.readValueAsTree().get("values");
+			if (jp.hasCurrentToken() && jp.getCurrentToken().equals(JsonToken.START_OBJECT)) {
+				JsonNode dataNode = jp.readValueAs(JsonNode.class).get("values");
+				List<String> skills = new ArrayList<String>();
 				if (dataNode != null) {
 					for (JsonNode d : dataNode) {
-						String s = d.path("skill").path("name").getTextValue();
+						String s = d.path("skill").path("name").textValue();
 						if (s != null) {
 							skills.add(s);
 						}
 					}
 				}
+				return skills;
 			}
-			
-			return skills;
+			throw ctxt.mappingException("Expected JSON object");
 		}
 	}
 	

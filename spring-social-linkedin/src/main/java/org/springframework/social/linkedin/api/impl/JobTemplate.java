@@ -18,15 +18,16 @@ package org.springframework.social.linkedin.api.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
 import org.springframework.social.linkedin.api.Job;
 import org.springframework.social.linkedin.api.JobBookmarks;
 import org.springframework.social.linkedin.api.JobOperations;
 import org.springframework.social.linkedin.api.JobSearchParameters;
 import org.springframework.social.linkedin.api.Jobs;
 import org.springframework.web.client.RestOperations;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Class that implements Job API
@@ -60,7 +61,7 @@ class JobTemplate extends AbstractTemplate implements JobOperations {
 		JsonNode node = restOperations.getForObject(expand(SEARCH_URL, params, true), JsonNode.class);
 		
 		try {
-			return objectMapper.readValue(node.path("jobs"), new TypeReference<Jobs>() {});
+			return objectMapper.reader(new TypeReference<Jobs>(){}).readValue(node.path("jobs"));
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
@@ -87,7 +88,7 @@ class JobTemplate extends AbstractTemplate implements JobOperations {
 		JsonNode node =  restOperations.getForObject(expand(SUGGESTED_URL, new Object[] {start,count}, false), JsonNode.class);
 		
 		try {
-			return objectMapper.readValue(node.path("jobs"), new TypeReference<Jobs>() {});
+			return objectMapper.reader(new TypeReference<Jobs>(){}).readValue(node.path("jobs"));
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);

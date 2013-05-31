@@ -17,16 +17,18 @@ package org.springframework.social.linkedin.api.impl.json;
 
 import java.io.IOException;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.annotate.JsonCreator;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.DeserializationContext;
-import org.codehaus.jackson.map.JsonDeserializer;
-import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.springframework.social.linkedin.api.Post.PostCategory;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 abstract class GroupCountMixin {
@@ -38,8 +40,13 @@ abstract class GroupCountMixin {
 	
 	private static final class PostCategoryDeserializer extends JsonDeserializer<PostCategory>  {
 		public PostCategory deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			JsonNode node = jp.readValueAsTree();
-			return PostCategory.valueOf(node.get("code").getTextValue().replace('-', '_').toUpperCase());
+			if(jp.hasCurrentToken() && jp.getCurrentToken().equals(JsonToken.START_OBJECT)) {
+				JsonNode node = jp.readValueAs(JsonNode.class);
+				if (node.has("code")) {
+					return PostCategory.valueOf(node.get("code").textValue().replace('-', '_').toUpperCase());
+				}
+			}
+			throw ctxt.mappingException("Expected JSON object");
 		}
 	}
 

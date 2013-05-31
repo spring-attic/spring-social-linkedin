@@ -16,19 +16,31 @@
 package org.springframework.social.linkedin.api.impl.json;
 
 import java.io.IOException;
-import java.util.List;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-final class StringListDeserializer extends JsonDeserializer<List<String>>  {
+class DeserializationUtils {
+	
+	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+	static {
+		OBJECT_MAPPER.registerModule(new LinkedInModule());
+	}
 
-	public List<String> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-		return DeserializationUtils.deserializeFromDataNode(jp, ctxt, "values", new TypeReference<List<String>>() {});
+	public static <T> T deserializeFromDataNode(JsonParser jp, DeserializationContext ctxt, String propertyName, TypeReference<T> typeReference) throws IOException, JsonProcessingException {
+		if (jp.hasCurrentToken() && jp.getCurrentToken().equals(JsonToken.START_OBJECT)) {
+			JsonNode dataNode = jp.readValueAs(JsonNode.class);
+			if (dataNode.has(propertyName)) {
+				return OBJECT_MAPPER.reader(typeReference).<T>readValue(dataNode.get(propertyName));
+			}
+			return null;
+		}
+		throw ctxt.mappingException("Expected JSON object");
 	}
 
 }
-
