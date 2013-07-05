@@ -60,10 +60,7 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 	
 	/**
 	 * Creates a new LinkedInTemplate given the minimal amount of information needed to sign requests with OAuth 1 credentials.
-	 * @param consumerKey the application's API key
-	 * @param consumerSecret the application's API secret
 	 * @param accessToken an access token acquired through OAuth authentication with LinkedIn
-	 * @param accessTokenSecret an access token secret acquired through OAuth authentication with LinkedIn
 	 */
 	public LinkedInTemplate(String accessToken) {
 		super(accessToken);
