@@ -1,10 +1,20 @@
-Spring Social LinkedIn 1.0.0 Release Candidate 2 (? ?, 2013)
-====================================================================
+Spring Social LinkedIn 1.0.0 Release Candidate 2 (July 8, 2013)
+===============================================================
 Miscellaneous
   - Upgraded to Jackson 2
+  - Depends on Spring Social 1.1.0.M3 now. Spring Social LinkedIn 1.0.0 will
+    be based on Spring Social 1.1.0.
 
 Improvements:
   - Authorization now based on OAuth 2 instead of OAuth 1.0a
+  - Support for facet searching of people. (SOCIALLI-23)
+  - Email address included in full profile. (SOCIALLI-25)
+
+Bug Fixes:
+  - Don't clear headers when sending request to avoid clearing the
+    'x-li-format' parameter. (SOCIALLI-28)
+  - Use POST instead of PUT for createNetworkUpdate(). (SOCIALLI-21)
+
 
 Spring Social LinkedIn 1.0.0 Release Candidate 1 (February 21, 2012)
 ====================================================================
