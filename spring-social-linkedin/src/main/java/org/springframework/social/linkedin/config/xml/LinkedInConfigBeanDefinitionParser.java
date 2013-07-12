@@ -15,14 +15,8 @@
  */
 package org.springframework.social.linkedin.config.xml;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.social.UserIdSource;
 import org.springframework.social.config.xml.AbstractProviderConfigBeanDefinitionParser;
-import org.springframework.social.config.xml.ApiHelper;
-import org.springframework.social.connect.Connection;
-import org.springframework.social.connect.UsersConnectionRepository;
-import org.springframework.social.linkedin.api.LinkedIn;
+import org.springframework.social.linkedin.config.support.LinkedInApiHelper;
 import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
 import org.springframework.social.linkedin.security.LinkedInAuthenticationService;
 import org.springframework.social.security.provider.SocialAuthenticationService;
@@ -42,31 +36,4 @@ class LinkedInConfigBeanDefinitionParser extends AbstractProviderConfigBeanDefin
 		return LinkedInAuthenticationService.class;
 	}
 
-	static class LinkedInApiHelper implements ApiHelper<LinkedIn> {
-
-		private final UsersConnectionRepository usersConnectionRepository;
-
-		private final UserIdSource userIdSource;
-
-		private LinkedInApiHelper(UsersConnectionRepository usersConnectionRepository, UserIdSource userIdSource) {
-			this.usersConnectionRepository = usersConnectionRepository;
-			this.userIdSource = userIdSource;		
-		}
-
-		public LinkedIn getApi() {
-			if (logger.isDebugEnabled()) {
-				logger.debug("Getting API binding instance for Facebook");
-			}
-			
-			Connection<LinkedIn> connection = usersConnectionRepository.createConnectionRepository(userIdSource.getUserId()).findPrimaryConnection(LinkedIn.class);
-			if (logger.isDebugEnabled() && connection == null) {
-				logger.debug("No current connection; Returning default FacebookTemplate instance.");
-			}
-			return connection != null ? connection.getApi() : null;
-		}
-
-		private final static Log logger = LogFactory.getLog(LinkedInApiHelper.class);
-
-	}
-	
 }
