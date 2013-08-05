@@ -38,6 +38,7 @@ import org.springframework.social.linkedin.api.ProfileOperations;
 import org.springframework.social.linkedin.api.impl.json.LinkedInModule;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 import org.springframework.social.support.HttpRequestDecorator;
+import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
@@ -64,6 +65,7 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 	 */
 	public LinkedInTemplate(String accessToken) {
 		super(accessToken);
+		Assert.hasLength(accessToken, "Access token cannot be null or empty.");
 		registerOAuth2Interceptor(accessToken);
 		registerLinkedInJsonModule();
 		registerJsonFormatInterceptor();
@@ -106,6 +108,11 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 	
 	public RestOperations restOperations() {
 		return getRestTemplate();
+	}
+	
+	@Override
+	protected void configureRestTemplate(RestTemplate restTemplate) {
+		restTemplate.setErrorHandler(new LinkedInErrorHandler());
 	}
 	
 	// private helpers

@@ -22,6 +22,8 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import java.util.Date;
 
 import org.junit.Before;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.social.linkedin.api.CurrentShare;
@@ -102,6 +104,10 @@ public class AbstractLinkedInApiTest {
 	@SuppressWarnings("unchecked")
 	protected RequestMatcher headerContains(String name, String substring) {
 		return header(name, containsString(substring));
+	}
+	
+	protected Resource jsonResource(String filename) {
+		return new ClassPathResource(filename + ".json", getClass());
 	}
 
 }

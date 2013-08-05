@@ -1,0 +1,7 @@
+{
+  "errorCode": 0,
+  "message": "Throttle limit for calls to this resource is reached.",
+  "requestId": "IC4IG64OXE",
+  "status": 403,
+  "timestamp": 1375715512125
+}
