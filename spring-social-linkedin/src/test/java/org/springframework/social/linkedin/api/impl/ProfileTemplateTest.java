@@ -49,6 +49,38 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("http://media.linkedin.com/pictureUrl", profile.getProfilePictureUrl());
 	}
 	
+	@Test
+	public void getProfileWithEmailAddress() {
+		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.PROFILE_FIELDS_WITH_EMAIL)).andExpect(method(GET))
+			.andRespond(withSuccess(new ClassPathResource("testdata/profile_with_email.json", getClass()), MediaType.APPLICATION_JSON));
+		LinkedInProfileFull profile = linkedIn.profileOperations().getProfileWithEmailAddress();
+		assertEquals("z37f0n3A05", profile.getId());
+		assertEquals("Just a guy", profile.getHeadline());
+		assertEquals("Craig", profile.getFirstName());
+		assertEquals("Walls", profile.getLastName());
+		assertEquals("Computer Software", profile.getIndustry());
+		assertEquals("http://www.linkedin.com/in/habuma", profile.getPublicProfileUrl());
+		assertEquals("http://www.linkedin.com/standardProfileUrl", profile.getSiteStandardProfileRequest().getUrl());
+		assertEquals("http://media.linkedin.com/pictureUrl", profile.getProfilePictureUrl());
+		assertEquals("craig@walls.com", profile.getEmailAddress());
+	}
+	
+	@Test
+	public void getProfileWithEmailAddressById() {
+		mockServer.expect(requestTo((LinkedInTemplate.BASE_URL + "id={id}" + ProfileTemplate.PROFILE_FIELDS_WITH_EMAIL).replaceFirst("\\{id\\}", "z37f0n3A05"))).andExpect(method(GET))
+			.andRespond(withSuccess(new ClassPathResource("testdata/profile_with_email.json", getClass()), MediaType.APPLICATION_JSON));
+		LinkedInProfileFull profile = linkedIn.profileOperations().getProfileWithEmailAddressById("z37f0n3A05");
+		assertEquals("z37f0n3A05", profile.getId());
+		assertEquals("Just a guy", profile.getHeadline());
+		assertEquals("Craig", profile.getFirstName());
+		assertEquals("Walls", profile.getLastName());
+		assertEquals("Computer Software", profile.getIndustry());
+		assertEquals("http://www.linkedin.com/in/habuma", profile.getPublicProfileUrl());
+		assertEquals("http://www.linkedin.com/standardProfileUrl", profile.getSiteStandardProfileRequest().getUrl());
+		assertEquals("http://media.linkedin.com/pictureUrl", profile.getProfilePictureUrl());
+		assertEquals("craig@walls.com", profile.getEmailAddress());
+	}	
+	
 	@Test 
 	public void getUserProfileFull() {
 		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.FULL_PROFILE_FIELDS + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))

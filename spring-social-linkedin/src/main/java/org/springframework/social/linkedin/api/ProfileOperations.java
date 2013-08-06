@@ -66,12 +66,32 @@ public interface ProfileOperations {
 	LinkedInProfileFull getUserProfileFull();
 	
 	/**
+	 * Retrieves  the current users basic profile and primary email address
+	 * 
+	 * @return the uesr's profile with basic profile fields and email address
+	 */
+	LinkedInProfileFull getProfileWithEmailAddress();
+	
+	/**
 	 * Retrieves a full profile by id.
 	 * 
 	 * @return the user's profile data.
 	 */
 	LinkedInProfileFull getProfileFullById(String id);
 	
+	/**
+	 * Retrieves the profile - basic fields and the user's primary email address
+	 * 
+	 * @return the user's profile with basic profile fields and email address
+	 */
+	LinkedInProfileFull getProfileWithEmailAddressById(String id);
+	
+	/**
+	 * Retrieves the profile - basic fields and the user's primary email address by public url
+	 * 
+	 * @return the user's profile data with the basic fields and email address
+	 */
+	LinkedInProfileFull getProfileWithEmailByPublicUrl(String url);	
 	
 	/**
 	 * Retrieves a full profile by public url.
