@@ -2,6 +2,8 @@ Spring Social LinkedIn 1.0.0 Release Candidate 3 (August 12, 2013)
 ==================================================================
 Improvements:
   - Added proper error handling for LinkedIn API errors. (SOCIALLI-27)
+  - Expose email address as a property on LinkedInProfile and populate
+    connection-time UserProfile's email address accordingly. (SOCIALLI-24)
 
 Bug Fixes:
   - Throw NotAuthorizedException for HTTP 401 responses instead of
