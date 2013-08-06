@@ -142,7 +142,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void searchFacet() {
 		mockServer.expect(requestTo(
-				"https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,api-standard-profile-request))?keywords=Java+J2EE&country-code=nl&start=0&count=10&facet=language,en,de&facet=network,F"
+				"https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,api-standard-profile-request))?keywords=Java+J2EE&country-code=nl&start=0&count=10&facet=language%2Cen%2Cde&facet=network%2CF"
 						 + "&oauth2_access_token=ACCESS_TOKEN"
 		)).andExpect(method(GET))
 		.andRespond(withSuccess(new ClassPathResource("testdata/search.json", getClass()), MediaType.APPLICATION_JSON));
@@ -164,5 +164,23 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		
 		assertProfile(result.getPeople().get(0),
 				"YeagNX-lsX", "IT Consultant at Harvey Nash PLC", "Michelle", "Daly", "Staffing and Recruiting", null);
-    }
+	}
+	
+	@Test
+	public void getProfileByPublicUrl() {
+		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "url=http%3A%2F%2Fwww.linkedin.com%2Fin%2Fhabuma" + ProfileTemplate.PROFILE_FIELDS + "&oauth2_access_token=ACCESS_TOKEN"))
+			.andExpect(method(GET))
+			.andRespond(withSuccess(new ClassPathResource("testdata/profile.json", getClass()), MediaType.APPLICATION_JSON));
+		
+		LinkedInProfile profile = linkedIn.profileOperations().getProfileByPublicUrl("http://www.linkedin.com/in/habuma");
+		assertEquals("z37f0n3A05", profile.getId());
+		assertEquals("Just a guy", profile.getHeadline());
+		assertEquals("Craig", profile.getFirstName());
+		assertEquals("Walls", profile.getLastName());
+		assertEquals("Computer Software", profile.getIndustry());
+		assertEquals("http://www.linkedin.com/in/habuma", profile.getPublicProfileUrl());
+		assertEquals("http://www.linkedin.com/standardProfileUrl", profile.getSiteStandardProfileRequest().getUrl());
+		assertEquals("http://media.linkedin.com/pictureUrl", profile.getProfilePictureUrl());
+	}
+
 }

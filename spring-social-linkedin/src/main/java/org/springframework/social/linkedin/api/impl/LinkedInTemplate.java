@@ -17,7 +17,6 @@ package org.springframework.social.linkedin.api.impl;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 
 import org.springframework.http.HttpRequest;
@@ -203,18 +202,7 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 			HttpRequest protectedResourceRequest = new HttpRequestDecorator(request) {
 				@Override
 				public URI getURI() {
-					URI uri = super.getURI();
-					String query = uri.getQuery();
-					if (query == null) {
-						query = "oauth2_access_token=" + accessToken;
-					} else {
-						query += "&oauth2_access_token=" + accessToken;
-					}
-					try {
-						return new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), uri.getPort(), uri.getPath(), query, uri.getFragment());
-					} catch (URISyntaxException e) {
-						return uri;
-					}
+					return URI.create(super.getURI().toString() + (((super.getURI().getQuery() == null) ? "?" : "&") + "oauth2_access_token=" + accessToken));
 				}
 			};
 

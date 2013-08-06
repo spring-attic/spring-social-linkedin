@@ -21,6 +21,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLEncoder;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.social.ApiException;
 import org.springframework.social.linkedin.api.LinkedInProfile;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
@@ -97,7 +99,8 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 	
 	public LinkedInProfile getProfileByPublicUrl(String url) {
 		try {
-			return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "url=" + URLEncoder.encode(url, "UTF-8") + PROFILE_FIELDS).build(), LinkedInProfile.class);
+			URI uri = URIBuilder.fromUri(BASE_URL + "url=" + URLEncoder.encode(url, "UTF-8") + PROFILE_FIELDS).build();
+			return restOperations.exchange(uri, HttpMethod.GET, new HttpEntity<String>(""), LinkedInProfile.class).getBody();
 		} catch (UnsupportedEncodingException unlikely) {
 			unlikely.printStackTrace();
 			throw new ApiException("linkedin", "Unlikely unsupported encoding error", unlikely);
