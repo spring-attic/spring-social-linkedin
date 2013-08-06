@@ -48,7 +48,7 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 
 	static {
 		StringBuffer b = new StringBuffer();
-		b.append(BASE_URL).append("{id}:(");
+		b.append(":(");
 		boolean first = true;
 		for (ProfileField f : ProfileField.values()) {
 			switch (f) {
@@ -65,8 +65,7 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 			}
 		}
 		b.append(")?format=json");
-		
-		PROFILE_URL_FULL = b.toString();
+		FULL_PROFILE_FIELDS = b.toString();
 	}
 	
 	private RestOperations restOperations;
@@ -85,34 +84,28 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 		return getUserProfile().getPublicProfileUrl();
 	}
 
-	public LinkedInProfile getUserProfile() {		
-		return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "~" + PROFILE_FIELDS).build(), LinkedInProfile.class);
+	public LinkedInProfile getUserProfile() {
+		return getUserProfile(PROFILE_FIELDS, LinkedInProfile.class);
 	}
 	
 	public LinkedInProfileFull getUserProfileFull() {
-		return restOperations.getForObject(PROFILE_URL_FULL, LinkedInProfileFull.class, "~");
+		return getUserProfile(FULL_PROFILE_FIELDS, LinkedInProfileFull.class);
 	}
 	
 	public LinkedInProfile getProfileById(String id) {
-		return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "id=" + id + PROFILE_FIELDS).build(), LinkedInProfile.class);
+		return getProfileFullById(id, PROFILE_FIELDS, LinkedInProfile.class);
 	}
 	
 	public LinkedInProfile getProfileByPublicUrl(String url) {
-		try {
-			URI uri = URIBuilder.fromUri(BASE_URL + "url=" + URLEncoder.encode(url, "UTF-8") + PROFILE_FIELDS).build();
-			return restOperations.exchange(uri, HttpMethod.GET, new HttpEntity<String>(""), LinkedInProfile.class).getBody();
-		} catch (UnsupportedEncodingException unlikely) {
-			unlikely.printStackTrace();
-			throw new ApiException("linkedin", "Unlikely unsupported encoding error", unlikely);
-		}
+		return getProfileByPublicUrl(url, PROFILE_FIELDS, LinkedInProfile.class);
 	}
 	
 	public LinkedInProfileFull getProfileFullById(String id) {
-		return restOperations.getForObject(PROFILE_URL_FULL, LinkedInProfileFull.class, "id=" + id);
+		return getProfileFullById(id, FULL_PROFILE_FIELDS, LinkedInProfileFull.class);
 	}
 	
 	public LinkedInProfileFull getProfileFullByPublicUrl(String url) {
-		return restOperations.getForObject(PROFILE_URL_FULL, LinkedInProfileFull.class, "url=" + url);
+		return getProfileByPublicUrl(url, FULL_PROFILE_FIELDS, LinkedInProfileFull.class);
 	}
 	
 	public LinkedInProfiles search(SearchParameters parameters) {
@@ -125,6 +118,25 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 		}
 		
 	}
+
+	private <T> T getUserProfile(String fields, Class<T> type) {
+		return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "~" + fields).build(), type);
+	}
+	
+	private <T> T getProfileFullById(String id, String fields, Class<T> type) {
+		return restOperations.getForObject(URIBuilder.fromUri(BASE_URL + "id=" + id + fields).build(), type);
+	}
+	
+	private <T> T getProfileByPublicUrl(String url, String fields, Class<T> type) {
+		try {
+			URI uri = URIBuilder.fromUri(BASE_URL + "url=" + URLEncoder.encode(url, "UTF-8") + fields).build();
+			return restOperations.exchange(uri, HttpMethod.GET, new HttpEntity<String>(""), type).getBody();
+		} catch (UnsupportedEncodingException unlikely) {
+			unlikely.printStackTrace();
+			throw new ApiException("linkedin", "Unlikely unsupported encoding error", unlikely);
+		}		
+	}
+	
 
 	private URI expand(String url, SearchParameters parameters) {
 		URIBuilder uriBuilder =URIBuilder.fromUri(url);
@@ -205,8 +217,8 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 	
 	static final String PROFILE_FIELDS = ":(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary)?format=json";
 	
-	static final String PROFILE_URL_FULL;
-	
+	static final String FULL_PROFILE_FIELDS;
+
 	static final String PEOPLE_SEARCH_URL = "https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,api-standard-profile-request))";
 
 }

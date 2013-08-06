@@ -51,7 +51,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 	
 	@Test 
 	public void getUserProfileFull() {
-		mockServer.expect(requestTo(ProfileTemplate.PROFILE_URL_FULL.replaceFirst("\\{id\\}", "~") + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
+		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.FULL_PROFILE_FIELDS + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("testdata/profile_full.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		LinkedInProfileFull profile = linkedIn.profileOperations().getUserProfileFull();
