@@ -35,8 +35,6 @@ public class LinkedInProfileFull extends LinkedInProfile {
 	
 	private List<Recommendation> recommendationsReceived;
 	
-	private String emailAddress;
-	
 	private List<ImAccount> imAccounts;
 	
 	private List<TwitterAccount> twitterAccounts;
@@ -100,10 +98,6 @@ public class LinkedInProfileFull extends LinkedInProfile {
 		return recommendationsReceived;
 	}
 
-	public String getEmailAddress() {
-		return emailAddress;
-	}
-	
 	public List<ImAccount> getImAccounts() {
 		return imAccounts;
 	}

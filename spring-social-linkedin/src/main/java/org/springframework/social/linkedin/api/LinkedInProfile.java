@@ -35,6 +35,8 @@ public class LinkedInProfile implements Serializable {
 	private final String headline;
 	
 	private final String industry;
+
+	private String emailAddress;
 	
 	private final UrlResource siteStandardProfileRequest;
 	
@@ -78,6 +80,14 @@ public class LinkedInProfile implements Serializable {
 		return lastName;
 	}
 
+	/**
+	 * The user's email address (if available).
+	 * Requires "r_emailaddress" scope; will be null if "r_emailaddress" scope is not authorized on the connection.
+	 */
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+	
 	/**
 	 * The user's headline
 	 */

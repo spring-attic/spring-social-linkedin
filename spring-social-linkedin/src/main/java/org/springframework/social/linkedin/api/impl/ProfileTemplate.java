@@ -215,7 +215,7 @@ class ProfileTemplate extends AbstractTemplate implements ProfileOperations {
 		return uriBuilder.build();
 	}
 	
-	static final String PROFILE_FIELDS = ":(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary)?format=json";
+	static final String PROFILE_FIELDS = ":(id,first-name,last-name,emailAddress,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary)?format=json";
 	
 	static final String FULL_PROFILE_FIELDS;
 

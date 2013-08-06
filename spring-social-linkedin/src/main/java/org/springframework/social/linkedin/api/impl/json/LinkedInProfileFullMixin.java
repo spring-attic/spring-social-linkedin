@@ -70,9 +70,6 @@ abstract class LinkedInProfileFullMixin {
 	@JsonProperty @JsonDeserialize(using=RecommendationsListDeserializer.class)
 	List<Recommendation> recommendationsReceived;
 	
-	@JsonProperty("emailAddress")
-	String emailAddress;
-	
 	@JsonProperty @JsonDeserialize(using=ImAccountListDeserializer.class)
 	List<ImAccount> imAccounts;
 	

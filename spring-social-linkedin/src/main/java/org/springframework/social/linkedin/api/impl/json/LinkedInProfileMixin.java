@@ -39,7 +39,10 @@ abstract class LinkedInProfileMixin {
 	
 	@JsonProperty("summary")
 	String summary;
-	
+
+	@JsonProperty("emailAddress")
+	String emailAddress;
+
 	@JsonProperty("apiStandardProfileRequest")
 	@JsonDeserialize(using=ConnectionAuthorizationDeserializer.class) 
 	ConnectionAuthorization connectionAuthorization;

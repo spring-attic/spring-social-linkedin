@@ -49,7 +49,10 @@ public class LinkedInAdapter implements ApiAdapter<LinkedIn> {
 
 	public UserProfile fetchUserProfile(LinkedIn linkedin) {
 		LinkedInProfile profile = linkedin.profileOperations().getUserProfile();
-		return new UserProfileBuilder().setName(profile.getFirstName() + " " + profile.getLastName()).build();
+		return new UserProfileBuilder()
+				.setName(profile.getFirstName() + " " + profile.getLastName())
+				.setEmail(profile.getEmailAddress())
+				.build();
 	}
 	
 	public void updateStatus(LinkedIn linkedin, String message) {
