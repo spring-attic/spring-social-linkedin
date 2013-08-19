@@ -1,4 +1,4 @@
-Spring Social LinkedIn 1.0.0 Release Candidate 3 (August 12, 2013)
+Spring Social LinkedIn 1.0.0 Release Candidate 3 (August 19, 2013)
 ==================================================================
 Improvements:
   - Added proper error handling for LinkedIn API errors. (SOCIALLI-27)
