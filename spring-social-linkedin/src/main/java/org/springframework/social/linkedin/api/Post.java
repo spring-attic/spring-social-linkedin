@@ -24,7 +24,7 @@ import java.util.List;
  * 
  * @author Robert Drysdale
  */
-public class Post implements Serializable {
+public class Post extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;	
 
@@ -89,7 +89,7 @@ public class Post implements Serializable {
 		return attachment;
 	}
 	
-	public static class PostRelation implements Serializable {
+	public static class PostRelation extends LinkedInObject implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final Boolean isFollowing;
@@ -117,7 +117,7 @@ public class Post implements Serializable {
 		}
 	}
 	
-	public static class Attachment implements Serializable {
+	public static class Attachment extends LinkedInObject implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final String contentDomain;

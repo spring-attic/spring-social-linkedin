@@ -23,7 +23,7 @@ import java.util.List;
  * 
  * @author Robert Drysdale
  */
-public class Company implements Serializable {
+public class Company extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -163,7 +163,7 @@ public class Company implements Serializable {
 		return websiteUrl;
 	}
 	
-	public static final class CompanyLocation implements Serializable {
+	public static final class CompanyLocation extends LinkedInObject implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final CompanyAddress address;
@@ -183,7 +183,7 @@ public class Company implements Serializable {
 		}
 	}
 	
-	public static final class CompanyAddress implements Serializable {
+	public static final class CompanyAddress extends LinkedInObject implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final String city;
@@ -209,7 +209,7 @@ public class Company implements Serializable {
 		}
 	}
 	
-	public static final class CompanyContactInfo implements Serializable {
+	public static final class CompanyContactInfo extends LinkedInObject implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final String fax;

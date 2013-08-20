@@ -23,7 +23,7 @@ import java.util.Date;
  * 
  * @author Robert Drysdale
  */
-public class Share implements Serializable {
+public class Share extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -72,7 +72,7 @@ public class Share implements Serializable {
 		return visibility;
 	}
 	
-	public static class ShareContent implements Serializable {
+	public static class ShareContent extends LinkedInObject implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final String description;
@@ -128,7 +128,7 @@ public class Share implements Serializable {
 		}
 	}
 	
-	public static class ShareSource implements Serializable {
+	public static class ShareSource extends LinkedInObject implements Serializable {
 
 		private static final long serialVersionUID = 1L;
 		

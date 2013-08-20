@@ -24,7 +24,7 @@ import java.util.List;
  * 
  * @author Robert Drysdale
  */
-public class Product implements Serializable {
+public class Product extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -109,7 +109,7 @@ public class Product implements Serializable {
 		return websiteUrl;
 	}
 	
-	public static final class ProductRecommendation implements Serializable {
+	public static final class ProductRecommendation extends LinkedInObject implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final int id;

@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-abstract class CompanyAddressMixin {
+abstract class CompanyAddressMixin extends LinkedInObjectMixin {
 
 	CompanyAddressMixin(
 		@JsonProperty(value="city") String city, 

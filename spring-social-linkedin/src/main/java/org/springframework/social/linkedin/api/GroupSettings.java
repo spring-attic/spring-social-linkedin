@@ -24,7 +24,7 @@ import org.springframework.social.linkedin.api.Group.MembershipState;
  * 
  * @author Robert Drysdale
  */
-public class GroupSettings implements Serializable {
+public class GroupSettings extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	

@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-abstract class PhoneNumberMixin {
+abstract class PhoneNumberMixin extends LinkedInObjectMixin {
 
 	@JsonCreator
 	PhoneNumberMixin(

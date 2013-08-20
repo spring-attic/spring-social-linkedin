@@ -22,7 +22,7 @@ import java.io.Serializable;
  * 
  * @author Robert Drysdale
  */
-public class TwitterAccount implements Serializable {
+public class TwitterAccount extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	

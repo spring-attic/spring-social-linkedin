@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-abstract class LinkedInNetworkUpdatesMixin {
+abstract class LinkedInNetworkUpdatesMixin extends LinkedInObjectMixin {
 
 	LinkedInNetworkUpdatesMixin(
 		@JsonProperty("values") @JsonDeserialize(contentUsing = LinkedInNetworkUpdateListDeserializer.class) List<LinkedInNetworkUpdate> updates) {}

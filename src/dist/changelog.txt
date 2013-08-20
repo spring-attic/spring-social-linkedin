@@ -1,3 +1,10 @@
+Spring Social LinkedIn 1.1.0.RELEASE (September 9, 2013)
+========================================================
+Improvments
+  * Added a catch-all getExtraData() method to all LinkedIn model
+    types to capture any data returned from LinkedIn that is otherwise
+    unmapped to known properties. (SOCIALLI-30)
+
 Spring Social LinkedIn 1.0.0 Release Candidate 3 (August 19, 2013)
 ==================================================================
 Improvements:

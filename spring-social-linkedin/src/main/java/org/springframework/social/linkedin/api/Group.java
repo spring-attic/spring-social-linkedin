@@ -25,7 +25,7 @@ import org.springframework.social.linkedin.api.Post.PostCategory;
  * 
  * @author Robert Drysdale
  */
-public class Group implements Serializable {
+public class Group extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -110,7 +110,7 @@ public class Group implements Serializable {
 		return websiteUrl;
 	}
 	
-	public static class GroupCount implements Serializable {
+	public static class GroupCount extends LinkedInObject implements Serializable {
 
 		private static final long serialVersionUID = 1L;
 		
@@ -146,7 +146,7 @@ public class Group implements Serializable {
 		
 	}
 	
-	public static class GroupRelation implements Serializable {
+	public static class GroupRelation extends LinkedInObject implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
 		private final List<GroupAvailableAction> availableActions;

@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-abstract class UpdateContentShareMixin {
+abstract class UpdateContentShareMixin extends LinkedInObjectMixin {
 
 	@JsonCreator
 	UpdateContentShareMixin (

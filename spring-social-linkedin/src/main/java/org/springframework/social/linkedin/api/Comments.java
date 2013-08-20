@@ -23,7 +23,7 @@ import java.util.List;
  * 
  * @author Robert Drysdale
  */
-public class Comments implements Serializable {
+public class Comments extends LinkedInObject implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	

@@ -31,7 +31,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-abstract class GroupCountMixin {
+abstract class GroupCountMixin extends LinkedInObjectMixin {
 	
 	@JsonCreator
 	GroupCountMixin(

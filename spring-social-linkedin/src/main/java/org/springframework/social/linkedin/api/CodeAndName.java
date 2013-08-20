@@ -23,7 +23,7 @@ import java.io.Serializable;
  * This class generically captures the code/name pair for a field.
  * @author Robert Drysdale
  */
-public class CodeAndName implements Serializable {
+public class CodeAndName extends LinkedInObject implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	

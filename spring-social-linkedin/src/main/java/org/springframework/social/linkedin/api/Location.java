@@ -22,7 +22,7 @@ import java.io.Serializable;
  * 
  * @author Robert Drysdale
  */
-public class Location implements Serializable {
+public class Location extends LinkedInObject implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	

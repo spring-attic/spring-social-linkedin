@@ -31,7 +31,7 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-abstract class RecommendationMixin {
+abstract class RecommendationMixin extends LinkedInObjectMixin {
 
 	@JsonCreator
 	RecommendationMixin(

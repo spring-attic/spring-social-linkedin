@@ -17,7 +17,7 @@ package org.springframework.social.linkedin.api.impl.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-abstract class ConnectionAuthorizationMixin{
+abstract class ConnectionAuthorizationMixin extends LinkedInObjectMixin {
 	
 	ConnectionAuthorizationMixin(
 		@JsonProperty("name") String name, 

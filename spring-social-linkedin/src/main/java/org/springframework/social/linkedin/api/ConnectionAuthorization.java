@@ -24,7 +24,7 @@ import java.io.Serializable;
  * @author Robert Drysdale
  * @author habuma
  */
-public class ConnectionAuthorization implements Serializable {
+public class ConnectionAuthorization extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

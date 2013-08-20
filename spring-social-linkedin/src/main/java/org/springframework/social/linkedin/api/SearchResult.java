@@ -22,7 +22,7 @@ import java.io.Serializable;
  * 
  * @author Robert Drysdale
  */
-public abstract class SearchResult implements Serializable {
+public abstract class SearchResult extends LinkedInObject implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	

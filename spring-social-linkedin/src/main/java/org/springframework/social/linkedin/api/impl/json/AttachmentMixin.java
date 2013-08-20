@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-abstract class AttachmentMixin {
+abstract class AttachmentMixin extends LinkedInObjectMixin {
 	
 	@JsonCreator
 	AttachmentMixin(

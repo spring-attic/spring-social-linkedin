@@ -26,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-abstract class ShareMixin {
+abstract class ShareMixin extends LinkedInObjectMixin {
 	
 	@JsonCreator
 	ShareMixin(

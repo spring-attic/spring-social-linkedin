@@ -23,7 +23,7 @@ import java.util.List;
  * 
  * @author Craig Walls
  */
-public class LinkedInConnections implements Serializable {
+public class LinkedInConnections extends LinkedInObject implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	

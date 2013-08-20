@@ -23,7 +23,7 @@ import java.util.Date;
  * 
  * @author Robert Drysdale
  */
-public class Job implements Serializable{
+public class Job extends LinkedInObject implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	

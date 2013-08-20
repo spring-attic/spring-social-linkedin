@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-abstract class ShareContentMixin {
+abstract class ShareContentMixin extends LinkedInObjectMixin {
 	
 	@JsonCreator
 	ShareContentMixin(@JsonProperty("author") String description, 

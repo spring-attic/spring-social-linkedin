@@ -35,7 +35,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-abstract class GroupRelationMixin {
+abstract class GroupRelationMixin extends LinkedInObjectMixin {
 	
 	@JsonCreator
 	GroupRelationMixin(

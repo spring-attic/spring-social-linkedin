@@ -15,18 +15,17 @@
  */
 package org.springframework.social.linkedin.api.impl.json;
 
-import org.springframework.social.linkedin.api.UrlResource;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Annotated mixin to add Jackson annotations to LinkedInObject. 
+ * @author Craig Walls
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
-abstract class MemberGroupMixin extends LinkedInObjectMixin {
+abstract class LinkedInObjectMixin {
 
-	@JsonCreator
-	MemberGroupMixin(
-		@JsonProperty("id") String id, 
-		@JsonProperty("name") String name, 
-		@JsonProperty("siteGroupRequest") UrlResource siteGroupRequest) {}
+	@JsonAnySetter
+	abstract void add(String key, Object value);
+
 }

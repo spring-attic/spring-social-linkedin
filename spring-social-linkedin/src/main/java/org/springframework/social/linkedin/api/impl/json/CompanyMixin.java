@@ -32,7 +32,7 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-abstract class CompanyMixin {
+abstract class CompanyMixin extends LinkedInObjectMixin {
 
 	@JsonCreator
 	CompanyMixin(
