@@ -202,7 +202,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("g-4253322-S-89528249-64901084", c.getId());
 		assertEquals(new Date(1325749391000l), c.getCreationTimestamp());
 		assertProfile(c.getCreator(), null, null, "Piotr", "H.", null, null);
-		assertEquals("http://static.springsource.org/spring/docs/3.1.x/spring-framework-reference/html/overview.html#overview-dependency-injection", c.getText());
+		assertEquals("http://docs.spring.io/spring/docs/3.1.x/spring-framework-reference/html/overview.html#overview-dependency-injection", c.getText());
 		
 		c = comments.getComments().get(1);
 		assertEquals("g-4253322-S-89528249-64901084", c.getId());
