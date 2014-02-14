@@ -37,10 +37,8 @@ configure(allprojects) {
     test.systemProperty("java.awt.headless", "true")
 
     repositories {
-        maven { url "http://repo.spring.io/libs-release" }
-        maven { url "http://repo.spring.io/libs-milestone" }
         maven { url "http://repo.spring.io/libs-snapshot" }
-        maven { url "http://repo.spring.io/ebr-maven-external" }
+        mavenLocal()
     }
 
     dependencies {
@@ -108,7 +106,7 @@ project('spring-social-linkedin') {
       compile ("javax.servlet:javax.servlet-api:$servletApiVersion", provided)
       testCompile ("org.springframework:spring-test:$springVersion")
       testCompile ("org.springframework.security:spring-security-crypto:$springSecurityVersion")
-      testCompile ("org.apache.httpcomponents:httpclient:4.2.1", optional)
+      testCompile ("org.apache.httpcomponents:httpclient:4.3.1", optional)
     }
 }
 
