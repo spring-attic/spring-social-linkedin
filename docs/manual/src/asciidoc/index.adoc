@@ -1,0 +1,175 @@
+= Spring Social LinkedIn Reference
+Craig Walls; Keith Donald; Roy Clarkson
+
+The Spring Social LinkedIn project is an extension to
+http://www.springframework.org/spring-social[Spring Social] that enables
+integration with LinkedIn.
+
+== Introduction
+http://www.linkedin.com[LinkedIn] is a social networking site geared toward professionals. 
+It enables its users to maintain and correspond with a network of contacts they have are professionally linked to.
+
+Spring Social LinkedIn enables integration with LinkedIn with
+`LinkedInConnectionFactory`, a connection factory that can be plugged into
+Spring Social's service provider connection framework, and with an API
+binding to LinkedIn's REST API.
+
+[[]]
+=== How to get
+
+The following Gradle dependency will add Spring Social LinkedIn to your
+project:
+
+.build.gradle
+[source,groovy,subs="attributes,verbatim"]
+----
+compile "org.springframework.social:spring-social-linkedin:{spring-social-linkedin-version}"
+----
+
+Or in Maven:
+
+.pom.xml
+[source,xml,subs="attributes,verbatim"]
+----
+<dependency>
+  <groupId>org.springframework.social</groupId>
+  <artifactId>spring-social-linkedin</artifactId>
+  <version>{spring-social-linkedin-version}</version>
+</dependency>
+----
+
+As an extension to Spring Social, Spring Social LinkedIn depends on
+Spring Social. Spring Social's core module will be transitively resolved
+from the Spring Social LinkedIn dependency. If you'll be using Spring
+Social's web module, you'll need to add that dependency yourself.
+In Gradle:
+
+.build.gradle
+[source,groovy,subs="attributes,verbatim"]
+----
+compile "org.springframework.social:spring-social-web:{spring-social-version}"
+----
+
+Or in Maven:
+
+.pom.xml
+[source,xml,subs="attributes,verbatim"]
+----
+<dependency>
+  <groupId>org.springframework.social</groupId>
+  <artifactId>spring-social-web</artifactId>
+  <version>{spring-social-version}</version>
+</dependency>
+----
+
+Note that Spring Social LinkedIn may release on a different schedule
+than Spring Social. Consequently, Spring Social's version may differ
+from that of Spring Social LinkedIn.
+
+Consult
+http://docs.spring.io/spring-social/docs/1.0.x/reference/html/overview.html#overview-howtoget[Spring
+Social's reference documentation] for more information on Spring Social
+dependencies.
+
+
+[[]]
+== Configuring LinkedIn Connectivity
+Spring Social's `ConnectController` works with one or more provider-specific `ConnectionFactory` instances to exchange authorization details with the provider and to create connections. 
+Spring Social LinkedIn provides `LinkedInConnectionFactory`, a `ConnectionFactory` for creating connections with LinkedIn.
+
+So that `ConnectController` can find `LinkedInConnectionFactory`, it must be registered with a `ConnectionFactoryRegistry`. 
+The following configuration class uses Spring Social's Java configuration support to register a `ConnectionFactory` for LinkedIn:
+
+```java
+@Configuration
+public class SocialConfig implements SocialConfigurer {
+
+    @Override
+    public void addConnectionFactories(ConnectionFactoryConfigurer cfConfig, Environment env) {
+        cfConfig.addConnectionFactory(new LinkedInConnectionFactory(
+            env.getProperty("linkedin.clientId"), 
+            env.getProperty("linkedin.clientSecret")));
+    }
+
+    ...
+}
+```
+
+If we wanted to add support for connecting to other providers, we would simply register their connection factories here in the same way as `LinkedInConnectionFactory`.
+
+Because client IDs and secrets may be different across environments (e.g., test, production, etc) it is recommended that these values be externalized. As shown here, Spring's `Environment` abstraction is provided as a parameter to `addConnectionFactories()` so that it can look up the application's client ID and secret.
+
+Optionally, you may also configure `LinkedInConnectionFactory` in XML.
+Using Spring Social LinkedIn's XML configuration namespace:
+
+```xml
+<linkedin:config app-id="${linkedin.clientId}" 
+                 app-secret="${linkedin.clientSecret}" 
+                 app-namespace="socialshowcase" />
+```
+
+This is roughly equivalent to the Java-based configuration of `ConnectionFactoryRegistry` shown before. 
+As in the Java-based configuration, the application's client ID and secret are externalized (shown here as property placeholders).
+
+Refer to
+http://docs.spring.io/spring-social/site/docs/1.1.0.RC1/reference/htmlsingle/index.html#connecting[Spring Social's reference documentation] for complete details on configuring `ConnectController` and its dependencies.
+
+== LinkedIn API Binding
+Spring Social LinkedIn offers integration with LinkedIn's REST API with the `LinkedIn` interface and its implementation, `LinkedInTemplate`.
+
+To create an instance of `LinkedInTemplate`, you may pass in your application's OAuth 2 access token to the constructor:
+
+```java
+String accessToken = "..."; // The access token granted after OAuth authorization
+LinkedIn linkedin = new LinkedInTemplate(accessToken);
+```
+
+If you are using Spring Social's
+http://docs.spring.io/spring-social/site/docs/1.1.0.RC1/reference/htmlsingle/index.html#connectFramework[service provider framework], you can get an instance of `LinkedIn` from a `Connection`. For example, the following snippet calls `getApi()` on a connection to retrieve a `LinkedIn`:
+
+```java
+Connection<LinkedIn> connection = connectionRepository.findPrimaryConnection(LinkedIn.class);
+if (connection != null) {
+    LinkedIn linkedin = connection.getApi();
+
+    // ... use LinkedIn API binding
+}
+```
+
+Here, `ConnectionRepository` is being asked for the primary connection that the current user has with LinkedIn. 
+If a connection to LinkedIn is found, it retrieves a `LinkedIn` instance that is configured with the connection details received when the connection was first established.
+
+Once you have a `LinkedIn` you can use it to interact with LinkedIn's API on behalf of the user who the access token was granted for.
+
+[[]]
+=== Retrieving a user's LinkedIn profile data
+To retrieve the authenticated user's profile data, call the `getUserProfile()` method:
+
+```java
+LinkedInProfile profile = linkedin.getUserProfile();
+```
+
+The data returned in the `LinkedInProfile` includes the user's LinkedIn ID, first and last names, their "headline", the industry they're in, and URLs for the public and standard profile pages.
+
+If it's only the user's LinkedIn ID you need, then you can get that by calling the `getProfileId()` method:
+
+```java
+String profileId = linkedin.getProfileId();
+```
+
+Or if you only need a URL for the user's public profile page, call `getProfileUrl()`:
+
+```java
+String profileUrl = linkedin.getProfileUrl();
+```
+
+[[]]
+=== Getting a user's LinkedIn connections
+To retrieve a list of LinkedIn users to whom the user is connected, call the `getConnections()` method:
+
+```java
+List<LinkedInProfile> connections = linkedin.getConnections();
+```
+
+This will return a list of `LinkedInProfile` objects for the user's 1st-degree network (those LinkedIn users to whom the user is directly linked--not their extended network).
+
