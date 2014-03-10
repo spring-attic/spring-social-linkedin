@@ -139,14 +139,60 @@ if (connection != null) {
 Here, `ConnectionRepository` is being asked for the primary connection that the current user has with LinkedIn. 
 If a connection to LinkedIn is found, it retrieves a `LinkedIn` instance that is configured with the connection details received when the connection was first established.
 
-Once you have a `LinkedIn` you can use it to interact with LinkedIn's API on behalf of the user who the access token was granted for.
+Once you have a `LinkedIn` instance, you can perform a several operations against LinkedIn's API. 
+The `LinkedIn` interface is defined as follows:
+
+```java
+public interface LinkedIn extends ApiBinding {
+
+  ConnectionOperations connectionOperations();
+  
+  NetworkUpdateOperations networkUpdateOperations();
+  
+  ProfileOperations profileOperations();
+  
+  CompanyOperations companyOperations();
+  
+  CommunicationOperations communicationOperations();
+  
+  JobOperations jobOperations();
+  
+  GroupOperations groupOperations();
+  
+  RestOperations restOperations();
+  
+}
+```
+
+Each method returns sub-APIs, partitioning the LinkedIn service API into divisions targeting specific facets of LinkedIn functionality. 
+These sub-APIs are defined by interfaces described in <<table_subApis>>.
+
+[[table_subApis]]
+.LinkedIn's Sub-APIs
+[options="header",]
+|=======================================================================
+|Sub-API Interface       |Description
+|ConnectionOperations    |Send and receive connection requests with other LinkedIn users.
+|NetworkUpdateOperations |Retrieve and perform network updates (status updates).
+|ProfileOperations       |Retrieve and update user profiles.
+|CompanyOperations       |Retrieve and update company profiles.
+|CommunicationOperations |Send messages.
+|JobOperations           |Search, retrieve and bookmark job opportunities.
+|GroupOperations         |Work with LinkedIn groups.
+|=======================================================================
+
+In addition to the LinkedIn-specific sub-APIs described in table <<table_subApis>>, `LinkedIn` also has a `restOperations()` method that returns a `RestOperations` (e.g., `RestTemplate`).
+The `RestOperations` returned is instrumented to add an OAuth `Authorization` header for all requests it sends to LinkedIn.
+
+What follows is a brief survey of common tasks you may perform with LinkedIn and its sub-APIs. 
+For complete details on the Spring Social's entire LinkedIn API binding, refer to the JavaDoc.
 
 [[]]
 === Retrieving a user's LinkedIn profile data
-To retrieve the authenticated user's profile data, call the `getUserProfile()` method:
+To retrieve the authenticated user's profile data, call the `getUserProfile()` method from the `ProfileOperations` interface:
 
 ```java
-LinkedInProfile profile = linkedin.getUserProfile();
+LinkedInProfile profile = linkedin.profileOperations().getUserProfile();
 ```
 
 The data returned in the `LinkedInProfile` includes the user's LinkedIn ID, first and last names, their "headline", the industry they're in, and URLs for the public and standard profile pages.
@@ -154,21 +200,21 @@ The data returned in the `LinkedInProfile` includes the user's LinkedIn ID, firs
 If it's only the user's LinkedIn ID you need, then you can get that by calling the `getProfileId()` method:
 
 ```java
-String profileId = linkedin.getProfileId();
+String profileId = linkedin.profileOperations().getProfileId();
 ```
 
 Or if you only need a URL for the user's public profile page, call `getProfileUrl()`:
 
 ```java
-String profileUrl = linkedin.getProfileUrl();
+String profileUrl = linkedin.profileOperations().getProfileUrl();
 ```
 
 [[]]
 === Getting a user's LinkedIn connections
-To retrieve a list of LinkedIn users to whom the user is connected, call the `getConnections()` method:
+To retrieve a list of LinkedIn users to whom the user is connected, call the `ConnectionOperations#getConnections()` method:
 
 ```java
-List<LinkedInProfile> connections = linkedin.getConnections();
+List<LinkedInProfile> connections = linkedin.connectionOperations().getConnections();
 ```
 
 This will return a list of `LinkedInProfile` objects for the user's 1st-degree network (those LinkedIn users to whom the user is directly linked--not their extended network).
