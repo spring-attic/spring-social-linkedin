@@ -42,15 +42,13 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 	
 	private String publicProfileUrl;
 	
-	private String profilePictureUrl;
+	private String pictureUrl;
 	
 	private String summary;
 	
-	private String pictureUrl;
-	
 	private ConnectionAuthorization connectionAuthorization;
 	
-	public LinkedInProfile(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, UrlResource siteStandardProfileRequest, String profilePictureUrl) {
+	public LinkedInProfile(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, UrlResource siteStandardProfileRequest, String pictureUrl) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -58,7 +56,7 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 		this.industry = industry;
 		this.publicProfileUrl = publicProfileUrl;
 		this.siteStandardProfileRequest = siteStandardProfileRequest;
-		this.profilePictureUrl = profilePictureUrl;
+		this.pictureUrl = pictureUrl;
 	}
 
 	
@@ -128,8 +126,8 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 	/**
 	 * A URL to the user's profile picture.
 	 */
-	public String getProfilePictureUrl() {
-		return profilePictureUrl;
+	public String getPictureUrl() {
+		return pictureUrl;
 	}
 	
 	/**
@@ -187,11 +185,6 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 	}
 
 
-	public void setProfilePictureUrl(String profilePictureUrl) {
-		this.profilePictureUrl = profilePictureUrl;
-	}
-
-
 	public void setSummary(String summary) {
 		this.summary = summary;
 	}
@@ -203,14 +196,9 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 	}
 
 
-	public String getPictureUrl() {
-		return pictureUrl;
-	}
-
-
 	public void setPictureUrl(String pictureUrl) {
 		this.pictureUrl = pictureUrl;
 	}
 	
-
+	
 }

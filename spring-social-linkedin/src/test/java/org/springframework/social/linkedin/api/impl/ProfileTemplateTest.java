@@ -46,7 +46,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("Computer Software", profile.getIndustry());
 		assertEquals("http://www.linkedin.com/in/habuma", profile.getPublicProfileUrl());
 		assertEquals("http://www.linkedin.com/standardProfileUrl", profile.getSiteStandardProfileRequest().getUrl());
-		assertEquals("http://media.linkedin.com/pictureUrl", profile.getProfilePictureUrl());
+		assertEquals("http://media.linkedin.com/pictureUrl", profile.getPictureUrl());
 	}
 	
 	@Test 
@@ -180,7 +180,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("Computer Software", profile.getIndustry());
 		assertEquals("http://www.linkedin.com/in/habuma", profile.getPublicProfileUrl());
 		assertEquals("http://www.linkedin.com/standardProfileUrl", profile.getSiteStandardProfileRequest().getUrl());
-		assertEquals("http://media.linkedin.com/pictureUrl", profile.getProfilePictureUrl());
+		assertEquals("http://media.linkedin.com/pictureUrl", profile.getPictureUrl());
 	}
 
 }

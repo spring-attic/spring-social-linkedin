@@ -33,9 +33,9 @@ abstract class LinkedInProfileMixin extends LinkedInObjectMixin {
 		@JsonProperty("lastName") String lastName, 
 		@JsonProperty("headline") String headline, 
 		@JsonProperty("industry") String industry, 
-		@JsonProperty("pictureUrl") String publicProfileUrl, 
+		@JsonProperty("publicProfileUrl") String publicProfileUrl, 
 		@JsonProperty("siteStandardProfileRequest") UrlResource siteStandardProfileRequest, 
-		@JsonProperty("pictureUrl") String profilePictureUrl) {}
+		@JsonProperty("pictureUrl") String pictureUrl) {}
 	
 	@JsonProperty("summary")
 	String summary;
@@ -46,5 +46,5 @@ abstract class LinkedInProfileMixin extends LinkedInObjectMixin {
 	@JsonProperty("apiStandardProfileRequest")
 	@JsonDeserialize(using=ConnectionAuthorizationDeserializer.class) 
 	ConnectionAuthorization connectionAuthorization;
-
+	
 }
