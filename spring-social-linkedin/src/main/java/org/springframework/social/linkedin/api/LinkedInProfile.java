@@ -26,29 +26,29 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private final String id;
+	private String id;
 	
-	private final String firstName;
+	private String firstName;
 	
-	private final String lastName;
+	private String lastName;
 	
-	private final String headline;
+	private String headline;
 	
-	private final String industry;
+	private String industry;
 
 	private String emailAddress;
 	
-	private final UrlResource siteStandardProfileRequest;
+	private UrlResource siteStandardProfileRequest;
 	
-	private final String publicProfileUrl;
+	private String publicProfileUrl;
 	
-	private final String profilePictureUrl;
+	private String pictureUrl;
 	
 	private String summary;
 	
 	private ConnectionAuthorization connectionAuthorization;
 	
-	public LinkedInProfile(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, UrlResource siteStandardProfileRequest, String profilePictureUrl) {
+	public LinkedInProfile(String id, String firstName, String lastName, String headline, String industry, String publicProfileUrl, UrlResource siteStandardProfileRequest, String pictureUrl) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -56,8 +56,14 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 		this.industry = industry;
 		this.publicProfileUrl = publicProfileUrl;
 		this.siteStandardProfileRequest = siteStandardProfileRequest;
-		this.profilePictureUrl = profilePictureUrl;
+		this.pictureUrl = pictureUrl;
 	}
+
+	
+	public LinkedInProfile() {
+		super();
+	}
+
 
 	/**
 	 * The user's LinkedIn profile ID
@@ -120,8 +126,8 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 	/**
 	 * A URL to the user's profile picture.
 	 */
-	public String getProfilePictureUrl() {
-		return profilePictureUrl;
+	public String getPictureUrl() {
+		return pictureUrl;
 	}
 	
 	/**
@@ -138,4 +144,61 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 		return connectionAuthorization;
 	}
 
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+	public void setHeadline(String headline) {
+		this.headline = headline;
+	}
+
+
+	public void setIndustry(String industry) {
+		this.industry = industry;
+	}
+
+
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+
+
+	public void setSiteStandardProfileRequest(UrlResource siteStandardProfileRequest) {
+		this.siteStandardProfileRequest = siteStandardProfileRequest;
+	}
+
+
+	public void setPublicProfileUrl(String publicProfileUrl) {
+		this.publicProfileUrl = publicProfileUrl;
+	}
+
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+
+	public void setConnectionAuthorization(
+			ConnectionAuthorization connectionAuthorization) {
+		this.connectionAuthorization = connectionAuthorization;
+	}
+
+
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
+	}
+	
+	
 }

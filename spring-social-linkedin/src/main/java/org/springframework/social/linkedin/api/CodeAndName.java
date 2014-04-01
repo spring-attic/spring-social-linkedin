@@ -25,11 +25,15 @@ import java.io.Serializable;
  */
 public class CodeAndName extends LinkedInObject implements Serializable {
 	
+	public CodeAndName() {
+		super();
+	}
+
 	private static final long serialVersionUID = 1L;
 	
-	private final String code;
+	private String code;
 	
-	private final String name;
+	private String name;
 	
 	public CodeAndName(String code, String name) {
 		this.code = code;
@@ -42,6 +46,14 @@ public class CodeAndName extends LinkedInObject implements Serializable {
 	
 	public String getName() {
 		return name;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }

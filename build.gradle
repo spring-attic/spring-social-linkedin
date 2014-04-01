@@ -86,6 +86,7 @@ configure(subprojects) { subproject ->
         options.author = true
         options.header = project.name
         //options.overview = "${projectDir}/src/main/java/overview.html"
+	failOnError = false
     }
 
     task sourcesJar(type: Jar, dependsOn:classes) {

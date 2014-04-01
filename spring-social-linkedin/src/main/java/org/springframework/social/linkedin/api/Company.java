@@ -27,9 +27,9 @@ public class Company extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private final int id;
+	private int id;
 	
-	private final String name;
+	private String name;
 	
 	private String industry;
 	
@@ -71,6 +71,10 @@ public class Company extends LinkedInObject implements Serializable {
 	
 	private String websiteUrl;
 	
+	public Company() {
+		super();
+	}
+
 	public Company(int id, String name) {
 		this.id = id;
 		this.name = name;
@@ -228,4 +232,93 @@ public class Company extends LinkedInObject implements Serializable {
 			return phone1;
 		}
 	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setIndustry(String industry) {
+		this.industry = industry;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void setBlogRssUrl(String blogRssUrl) {
+		this.blogRssUrl = blogRssUrl;
+	}
+
+	public void setCompanyType(CodeAndName companyType) {
+		this.companyType = companyType;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setEmailDomains(List<String> emailDomains) {
+		this.emailDomains = emailDomains;
+	}
+
+	public void setEmployeeCountRange(CodeAndName employeeCountRange) {
+		this.employeeCountRange = employeeCountRange;
+	}
+
+	public void setFoundedYear(int foundedYear) {
+		this.foundedYear = foundedYear;
+	}
+
+	public void setLocations(List<CompanyLocation> locations) {
+		this.locations = locations;
+	}
+
+	public void setLogoUrl(String logoUrl) {
+		this.logoUrl = logoUrl;
+	}
+
+	public void setNumFollowers(int numFollowers) {
+		this.numFollowers = numFollowers;
+	}
+
+	public void setSpecialties(List<String> specialties) {
+		this.specialties = specialties;
+	}
+
+	public void setSquareLogoUrl(String squareLogoUrl) {
+		this.squareLogoUrl = squareLogoUrl;
+	}
+
+	public void setStatus(CodeAndName status) {
+		this.status = status;
+	}
+
+	public void setStockExchange(CodeAndName stockExchange) {
+		this.stockExchange = stockExchange;
+	}
+
+	public void setTicker(String ticker) {
+		this.ticker = ticker;
+	}
+
+	public void setTwitterId(String twitterId) {
+		this.twitterId = twitterId;
+	}
+
+	public void setUniversalName(String universalName) {
+		this.universalName = universalName;
+	}
+
+	public void setWebsiteUrl(String websiteUrl) {
+		this.websiteUrl = websiteUrl;
+	}
+	
 }

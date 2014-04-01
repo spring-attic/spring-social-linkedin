@@ -34,8 +34,20 @@ public class CurrentShare extends Share {
 		super(comment, content, id, source, timestamp, visibility);
 	}
 	
+	
+	public CurrentShare() {
+		super();
+	}
+
+
 	public LinkedInProfile getAuthor() {
 		return author;
 	}
+
+
+	public void setAuthor(LinkedInProfile author) {
+		this.author = author;
+	}
+	
 
 }

@@ -24,8 +24,12 @@ import org.springframework.social.linkedin.api.LinkedIn;
  */
 public class LinkedInConnectionFactory extends OAuth2ConnectionFactory<LinkedIn>{
 
-	public LinkedInConnectionFactory(String consumerKey, String consumerSecret) {
-		super("linkedin", new LinkedInServiceProvider(consumerKey, consumerSecret), new LinkedInAdapter());
+	public LinkedInConnectionFactory(String consumerKey, String consumerSecret, String state) {
+		this(consumerKey, consumerSecret, state,LinkedInServiceProvider.DEFAULT_SCOPE);
+	}
+	
+	public LinkedInConnectionFactory(String consumerKey, String consumerSecret,String state, String scope) {
+		super("linkedin", new LinkedInServiceProvider(consumerKey, consumerSecret,state,scope), new LinkedInAdapter());
 	}
 
 }

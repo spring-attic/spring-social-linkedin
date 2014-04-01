@@ -192,5 +192,6 @@ abstract class LinkedInProfileFullMixin extends LinkedInObjectMixin {
 			throw ctxt.mappingException("Expected JSON object");
 		}
 	}
-	
+	@JsonProperty("pictureUrl") 
+	String profilePictureUrl;
 }

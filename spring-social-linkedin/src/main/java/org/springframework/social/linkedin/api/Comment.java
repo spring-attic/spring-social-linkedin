@@ -27,15 +27,15 @@ public class Comment extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private final String comment;
+	private String comment;
 	
-	private final String id;
+	private String id;
 	
-	private final LinkedInProfile person;
+	private LinkedInProfile person;
 	
-	private final int sequenceNumber;
+	private int sequenceNumber;
 	
-	private final Date timestamp;
+	private Date timestamp;
 	
 	public Comment(String comment, String id, LinkedInProfile person, int sequenceNumber, Date timestamp) {
 		this.comment = comment;
@@ -43,6 +43,10 @@ public class Comment extends LinkedInObject implements Serializable {
 		this.person = person;
 		this.sequenceNumber = sequenceNumber;
 		this.timestamp = timestamp;
+	}
+
+	public Comment() {
+		super();
 	}
 
 	public String getComment() {
@@ -63,6 +67,26 @@ public class Comment extends LinkedInObject implements Serializable {
 
 	public Date getTimestamp() {
 		return timestamp;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setPerson(LinkedInProfile person) {
+		this.person = person;
+	}
+
+	public void setSequenceNumber(int sequenceNumber) {
+		this.sequenceNumber = sequenceNumber;
+	}
+
+	public void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
 	}
 	
 }
