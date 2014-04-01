@@ -26,25 +26,27 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private final String id;
+	private String id;
 	
-	private final String firstName;
+	private String firstName;
 	
-	private final String lastName;
+	private String lastName;
 	
-	private final String headline;
+	private String headline;
 	
-	private final String industry;
+	private String industry;
 
 	private String emailAddress;
 	
-	private final UrlResource siteStandardProfileRequest;
+	private UrlResource siteStandardProfileRequest;
 	
-	private final String publicProfileUrl;
+	private String publicProfileUrl;
 	
-	private final String profilePictureUrl;
+	private String profilePictureUrl;
 	
 	private String summary;
+	
+	private String pictureUrl;
 	
 	private ConnectionAuthorization connectionAuthorization;
 	
@@ -58,6 +60,12 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 		this.siteStandardProfileRequest = siteStandardProfileRequest;
 		this.profilePictureUrl = profilePictureUrl;
 	}
+
+	
+	public LinkedInProfile() {
+		super();
+	}
+
 
 	/**
 	 * The user's LinkedIn profile ID
@@ -137,5 +145,72 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 	public ConnectionAuthorization getConnectionAuthorization() {
 		return connectionAuthorization;
 	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+	public void setHeadline(String headline) {
+		this.headline = headline;
+	}
+
+
+	public void setIndustry(String industry) {
+		this.industry = industry;
+	}
+
+
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+
+
+	public void setSiteStandardProfileRequest(UrlResource siteStandardProfileRequest) {
+		this.siteStandardProfileRequest = siteStandardProfileRequest;
+	}
+
+
+	public void setPublicProfileUrl(String publicProfileUrl) {
+		this.publicProfileUrl = publicProfileUrl;
+	}
+
+
+	public void setProfilePictureUrl(String profilePictureUrl) {
+		this.profilePictureUrl = profilePictureUrl;
+	}
+
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+
+	public void setConnectionAuthorization(
+			ConnectionAuthorization connectionAuthorization) {
+		this.connectionAuthorization = connectionAuthorization;
+	}
+
+
+	public String getPictureUrl() {
+		return pictureUrl;
+	}
+
+
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
+	}
+	
 
 }

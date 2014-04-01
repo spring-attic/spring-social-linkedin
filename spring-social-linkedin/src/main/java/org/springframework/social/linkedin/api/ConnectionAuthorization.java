@@ -28,21 +28,33 @@ public class ConnectionAuthorization extends LinkedInObject implements Serializa
 
 	private static final long serialVersionUID = 1L;
 
-	private final String name;
+	private String name;
 
-	private final String value;
+	private String value;
 	
 	public ConnectionAuthorization(String name, String value) {
 		this.name = name;
 		this.value = value;
 	}
 	
+	public ConnectionAuthorization() {
+		super();
+	}
+
 	public String getName() {
 		return name;
 	}
 	
 	public String getValue() {
 		return value;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 }

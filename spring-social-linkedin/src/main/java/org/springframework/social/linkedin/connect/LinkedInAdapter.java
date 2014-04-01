@@ -43,7 +43,7 @@ public class LinkedInAdapter implements ApiAdapter<LinkedIn> {
 		LinkedInProfile profile = linkedin.profileOperations().getUserProfile();
 		values.setProviderUserId(profile.getId());
 		values.setDisplayName(profile.getFirstName() + " " + profile.getLastName());
-		values.setProfileUrl(profile.getPublicProfileUrl());
+		values.setProfileUrl(profile.getPublicProfileUrl() == null ? profile.getSiteStandardProfileRequest().getUrl() : profile.getPublicProfileUrl());
 		values.setImageUrl(profile.getProfilePictureUrl());
 	}
 

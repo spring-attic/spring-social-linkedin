@@ -34,6 +34,12 @@ public class CompanyJobUpdate extends LinkedInObject implements Serializable {
 		this.action = action;
 		this.job = job;
 	}
+	
+
+	public CompanyJobUpdate() {
+		super();
+	}
+
 
 	public String getAction() {
 		return action;

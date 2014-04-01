@@ -27,17 +27,17 @@ public class Share extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private final String comment;
+	private String comment;
 
-	private final ShareContent content;
+	private ShareContent content;
 	
-	private final String id;
+	private String id;
 	
-	private final ShareSource source;
+	private ShareSource source;
 	
-	private final Date timestamp;
+	private Date timestamp;
 	
-	private final String visibility;
+	private String visibility;
 	
 	public Share(String comment, ShareContent content, String id, ShareSource source, Date timestamp, String visibility) {
 		this.comment = comment;
@@ -48,6 +48,10 @@ public class Share extends LinkedInObject implements Serializable {
 		this.visibility = visibility;
 	}
 	
+	public Share() {
+		super();
+	}
+
 	public String getComment() {
 		return comment;
 	}
@@ -75,19 +79,19 @@ public class Share extends LinkedInObject implements Serializable {
 	public static class ShareContent extends LinkedInObject implements Serializable {
 		private static final long serialVersionUID = 1L;
 		
-		private final String description;
+		private String description;
 		
-		private final String eyebrowUrl;
+		private String eyebrowUrl;
 		
-		private final String shortenedUrl;
+		private String shortenedUrl;
 		
-		private final String submittedImageUrl;
+		private String submittedImageUrl;
 		
-		private final String submittedUrl;
+		private String submittedUrl;
 		
-		private final String thumbnailUrl;
+		private String thumbnailUrl;
 		
-		private final String title;
+		private String title;
 		
 		public ShareContent(String description, String eyebrowUrl, String shortenedUrl, String submittedImageUrl, String submittedUrl, String thumbnailUrl, String title) {
 			this.description = description;
@@ -126,21 +130,51 @@ public class Share extends LinkedInObject implements Serializable {
 		public String getTitle() {
 			return title;
 		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public void setEyebrowUrl(String eyebrowUrl) {
+			this.eyebrowUrl = eyebrowUrl;
+		}
+
+		public void setShortenedUrl(String shortenedUrl) {
+			this.shortenedUrl = shortenedUrl;
+		}
+
+		public void setSubmittedImageUrl(String submittedImageUrl) {
+			this.submittedImageUrl = submittedImageUrl;
+		}
+
+		public void setSubmittedUrl(String submittedUrl) {
+			this.submittedUrl = submittedUrl;
+		}
+
+		public void setThumbnailUrl(String thumbnailUrl) {
+			this.thumbnailUrl = thumbnailUrl;
+		}
+
+		public void setTitle(String title) {
+			this.title = title;
+		}
+		
 	}
+	
 	
 	public static class ShareSource extends LinkedInObject implements Serializable {
 
 		private static final long serialVersionUID = 1L;
 		
-		private final String application;
+		private String application;
 		
-		private final String serviceProvider;
+		private String serviceProvider;
 		
-		private final String serviceProviderAccountHandle;
+		private String serviceProviderAccountHandle;
 		
-		private final String serviceProviderAccountId;
+		private String serviceProviderAccountId;
 		
-		private final String serviceProviderShareId;
+		private String serviceProviderShareId;
 		
 		public ShareSource(String application, String serviceProvider, String serviceProviderAccountHandle, String serviceProviderAccountId, String serviceProviderShareId) {
 			this.application = application;
@@ -150,6 +184,10 @@ public class Share extends LinkedInObject implements Serializable {
 			this.serviceProviderShareId = serviceProviderShareId;
 		}
 		
+		public ShareSource() {
+			super();
+		}
+
 		public String getApplication() {
 			return application;
 		}
@@ -170,6 +208,27 @@ public class Share extends LinkedInObject implements Serializable {
 			return serviceProviderShareId;
 		}
 
+		public void setApplication(String application) {
+			this.application = application;
+		}
+
+		public void setServiceProvider(String serviceProvider) {
+			this.serviceProvider = serviceProvider;
+		}
+
+		public void setServiceProviderAccountHandle(String serviceProviderAccountHandle) {
+			this.serviceProviderAccountHandle = serviceProviderAccountHandle;
+		}
+
+		public void setServiceProviderAccountId(String serviceProviderAccountId) {
+			this.serviceProviderAccountId = serviceProviderAccountId;
+		}
+
+		public void setServiceProviderShareId(String serviceProviderShareId) {
+			this.serviceProviderShareId = serviceProviderShareId;
+		}
+
+		
 	}
 
 }

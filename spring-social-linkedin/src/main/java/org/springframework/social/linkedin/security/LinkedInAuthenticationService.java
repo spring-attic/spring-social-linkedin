@@ -6,8 +6,12 @@ import org.springframework.social.security.provider.OAuth2AuthenticationService;
 
 public class LinkedInAuthenticationService extends OAuth2AuthenticationService<LinkedIn> {
 
-	public LinkedInAuthenticationService(String apiKey, String appSecret) {
-		super(new LinkedInConnectionFactory(apiKey, appSecret));
+	public LinkedInAuthenticationService(String apiKey, String appSecret,String state) {
+		super(new LinkedInConnectionFactory(apiKey, appSecret,state));
+	}
+	
+	public LinkedInAuthenticationService(String apiKey, String appSecret,String state,String scope) {
+		super(new LinkedInConnectionFactory(apiKey, appSecret,state,scope));
 	}
 
 }

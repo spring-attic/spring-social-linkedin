@@ -26,20 +26,37 @@ public class UrlResource extends LinkedInObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private final String name;
+	private String name;
 	
-	private final String url;
+	private String url;
 	
 	public UrlResource(String name, String url) {
 		this.name = name;
 		this.url = url;
 	}
 	
+	
+	public UrlResource() {
+		super();
+	}
+
+
 	public String getName() {
 		return name;
 	}
 	public String getUrl() {
 		return url;
 	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
 
 }
