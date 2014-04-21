@@ -88,7 +88,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getCurrentShare() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~:(current-share)?oauth2_access_token=ACCESS_TOKEN"))
-			.andRespond(withSuccess(new ClassPathResource("testdata/current.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("current.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		CurrentShare share = linkedIn.networkUpdateOperations().getCurrentShare();
 		assertShare(share, "s702970589", "connections-only", "LINKEDIN", null, null, null, "It's not sexy but ...");
@@ -99,7 +99,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	public void getUpdates() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates?count=10&start=0&type=ANSW&type=APPS&type=CMPY&type=CONN&type=JOBS&type=JGRP&type=PICT&type=PRFX&type=RECU&type=PRFU&type=QSTN&type=SHAR&type=VIRL&format=json&oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/updates.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("updates.json", getClass()), MediaType.APPLICATION_JSON));
 		List<LinkedInNetworkUpdate> updates = linkedIn.networkUpdateOperations().getNetworkUpdates();
 		assertUpdates(updates);
 	}
@@ -108,7 +108,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 	public void getUpdates_withStartAndCount() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/updates?count=30&start=10&type=ANSW&type=APPS&type=CMPY&type=CONN&type=JOBS&type=JGRP&type=PICT&type=PRFX&type=RECU&type=PRFU&type=QSTN&type=SHAR&type=VIRL&format=json&oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/updates.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("updates.json", getClass()), MediaType.APPLICATION_JSON));
 		List<LinkedInNetworkUpdate> updates = linkedIn.networkUpdateOperations().getNetworkUpdates(10, 30);
 		assertUpdates(updates);
 	}

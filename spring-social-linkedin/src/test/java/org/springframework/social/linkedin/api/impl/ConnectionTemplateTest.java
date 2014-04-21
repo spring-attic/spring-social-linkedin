@@ -33,7 +33,7 @@ public class ConnectionTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getConnections() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/connections?format=json&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/connections.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("connections.json", getClass()), MediaType.APPLICATION_JSON));
 		List<LinkedInProfile> connections = linkedIn.connectionOperations().getConnections();
 		assertConnections(connections);
 	}
@@ -41,7 +41,7 @@ public class ConnectionTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getConnections_withStartAndCount() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/connections?format=json&start=10&count=20&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/connections.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("connections.json", getClass()), MediaType.APPLICATION_JSON));
 		List<LinkedInProfile> connections = linkedIn.connectionOperations().getConnections(10, 20);
 		assertConnections(connections);
 	}
@@ -49,7 +49,7 @@ public class ConnectionTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getStatistics() {
 		mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~/network/network-stats?format=json&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/statistics.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("statistics.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		NetworkStatistics stats = linkedIn.connectionOperations().getNetworkStatistics();
 		

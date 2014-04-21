@@ -45,7 +45,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getGroupMemberships() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_MEMBERSHIPS_URL + "?oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/group_memberships.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("group_memberships.json", getClass()), MediaType.APPLICATION_JSON));
 		GroupMemberships memberships = linkedIn.groupOperations().getGroupMemberships();
 		
 		assertEquals(10, memberships.getCount());
@@ -66,7 +66,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getGroupSuggestions() {
 		mockServer.expect(requestTo(GroupTemplate.GROUP_SUGGESTIONS_URL + "?oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/group_suggestions.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("group_suggestions.json", getClass()), MediaType.APPLICATION_JSON));
 		GroupSuggestions suggestions = linkedIn.groupOperations().getGroupSuggestions();
 		
 		assertEquals(10, suggestions.getCount());
@@ -83,7 +83,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getGroupDetails() {
 		mockServer.expect(requestTo((GroupTemplate.GROUP_DETAILS_URL + "?oauth2_access_token=ACCESS_TOKEN").replaceFirst("\\{group-id\\}", "46964"))).andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/group.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("group.json", getClass()), MediaType.APPLICATION_JSON));
 		Group group = linkedIn.groupOperations().getGroupDetails(46964);
 
 		assertEquals(true, group.getAllowMemberInvites());
@@ -133,7 +133,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getPosts() {
 		mockServer.expect(requestTo((GroupTemplate.GROUP_POSTS_URL + "&oauth2_access_token=ACCESS_TOKEN").replaceFirst("\\{group-id\\}", "46964"))).andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/group_posts.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("group_posts.json", getClass()), MediaType.APPLICATION_JSON));
 		GroupPosts posts = linkedIn.groupOperations().getPosts(46964);
 		
 		assertEquals(10, posts.getCount());
@@ -189,7 +189,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	@Test
 	public void getPostComments() {
 		mockServer.expect(requestTo((GroupTemplate.GROUP_POST_COMMENTS_URL + "?oauth2_access_token=ACCESS_TOKEN").replaceFirst("\\{post-id\\}", "g-46964-S-87679641"))).andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/group_post_comments.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("group_post_comments.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		PostComments comments = linkedIn.groupOperations().getPostComments("g-46964-S-87679641");
 		

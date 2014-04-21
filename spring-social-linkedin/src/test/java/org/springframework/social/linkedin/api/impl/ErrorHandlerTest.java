@@ -45,7 +45,7 @@ public class ErrorHandlerTest extends AbstractLinkedInApiTest {
 		try {
 			mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~:(id,first-name,last-name,emailAddress,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary)?format=json&oauth2_access_token=ACCESS_TOKEN"))
 				.andExpect(method(GET))
-				.andRespond(withStatus(HttpStatus.UNAUTHORIZED).body(jsonResource("testdata/error_invalid_token")).contentType(MediaType.APPLICATION_JSON));
+				.andRespond(withStatus(HttpStatus.UNAUTHORIZED).body(jsonResource("error_invalid_token")).contentType(MediaType.APPLICATION_JSON));
 			linkedIn.profileOperations().getUserProfile();
 			fail();
 		} catch (NotAuthorizedException e) {
@@ -58,7 +58,7 @@ public class ErrorHandlerTest extends AbstractLinkedInApiTest {
 		try {
 			mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~:(id,first-name,last-name,emailAddress,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary)?format=json&oauth2_access_token=ACCESS_TOKEN"))
 				.andExpect(method(GET))
-				.andRespond(withStatus(HttpStatus.FORBIDDEN).body(jsonResource("testdata/error_throttle")).contentType(MediaType.APPLICATION_JSON));
+				.andRespond(withStatus(HttpStatus.FORBIDDEN).body(jsonResource("error_throttle")).contentType(MediaType.APPLICATION_JSON));
 			linkedIn.profileOperations().getUserProfile();
 			fail();
 		} catch (RateLimitExceededException e) {
@@ -71,7 +71,7 @@ public class ErrorHandlerTest extends AbstractLinkedInApiTest {
 		try {
 			mockServer.expect(requestTo("https://api.linkedin.com/v1/people/~:(id,first-name,last-name,emailAddress,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary)?format=json&oauth2_access_token=ACCESS_TOKEN"))
 				.andExpect(method(GET))
-				.andRespond(withStatus(HttpStatus.FORBIDDEN).body(jsonResource("testdata/error_insufficient_permission")).contentType(MediaType.APPLICATION_JSON));
+				.andRespond(withStatus(HttpStatus.FORBIDDEN).body(jsonResource("error_insufficient_permission")).contentType(MediaType.APPLICATION_JSON));
 			linkedIn.profileOperations().getUserProfile();
 			fail();
 		} catch (InsufficientPermissionException e) {
@@ -84,7 +84,7 @@ public class ErrorHandlerTest extends AbstractLinkedInApiTest {
 		try {
 			mockServer.expect(requestTo("https://api.linkedin.com/v1/people/id=1234:(id,first-name,last-name,emailAddress,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary)?format=json&oauth2_access_token=ACCESS_TOKEN"))
 				.andExpect(method(GET))
-				.andRespond(withStatus(HttpStatus.NOT_FOUND).body(jsonResource("testdata/error_not_found")).contentType(MediaType.APPLICATION_JSON));
+				.andRespond(withStatus(HttpStatus.NOT_FOUND).body(jsonResource("error_not_found")).contentType(MediaType.APPLICATION_JSON));
 			linkedIn.profileOperations().getProfileById("1234");
 			fail();
 		} catch (ResourceNotFoundException e) {

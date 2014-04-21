@@ -47,7 +47,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 				.replaceFirst("\\{\\&start\\}", "&start=0")
 				.replaceFirst("\\{\\&count\\}", "&count=10")
 				.replaceFirst("\\{\\&sort\\}", "") + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/job_search.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("job_search.json", getClass()), MediaType.APPLICATION_JSON));
 		JobSearchParameters parameters = new JobSearchParameters();
 		parameters.setCountryCode("ie");
 		parameters.setKeywords("j2ee");
@@ -91,7 +91,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 		mockServer.expect(requestTo(JobTemplate.SUGGESTED_URL
 				.replaceFirst("\\{\\&start\\}", "start=0")
 				.replaceFirst("\\{\\&count\\}", "&count=10") + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/job_suggestions.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("job_suggestions.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		List<Job> jobs = linkedIn.jobOperations().getSuggestions(0, 10).getJobs();
 		
@@ -132,7 +132,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 	public void getJob() {
 		mockServer.expect(requestTo(JobTemplate.JOB_URL
 				.replaceFirst("\\{id\\}", "2160963") + "?oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/job.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("job.json", getClass()), MediaType.APPLICATION_JSON));
 		JobSearchParameters parameters = new JobSearchParameters();
 		parameters.setCountryCode("ie");
 		parameters.setKeywords("j2ee");
@@ -175,7 +175,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 		mockServer.expect(requestTo(JobTemplate.BOOKMARKS_URL
 				.replaceFirst("\\{\\&start\\}", "start=0")
 				.replaceFirst("\\{\\&count\\}", "&count=10") + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
-			.andRespond(withSuccess(new ClassPathResource("testdata/job_bookmarks.json", getClass()), MediaType.APPLICATION_JSON));
+			.andRespond(withSuccess(new ClassPathResource("job_bookmarks.json", getClass()), MediaType.APPLICATION_JSON));
 		
 		JobBookmarks r = linkedIn.jobOperations().getBookmarks(0, 10);
 		assertEquals(0,r.getCount());
