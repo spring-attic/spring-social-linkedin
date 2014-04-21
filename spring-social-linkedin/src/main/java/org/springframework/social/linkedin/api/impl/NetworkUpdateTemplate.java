@@ -126,7 +126,7 @@ class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUpdateOpe
 	}
 
 	public void commentOnNetworkUpdate(String updateKey, String comment) {
-		restOperations.put(UPDATE_COMMENTS_URL, singletonMap("comment", comment), updateKey);
+		restOperations.postForLocation(UPDATE_COMMENTS_URL, singletonMap("comment", comment), updateKey);
 	}
 
 	public List<LinkedInProfile> getNetworkUpdateLikes(String updateKey) {
