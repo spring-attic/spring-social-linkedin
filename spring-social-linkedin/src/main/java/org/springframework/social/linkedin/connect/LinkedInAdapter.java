@@ -50,6 +50,7 @@ public class LinkedInAdapter implements ApiAdapter<LinkedIn> {
 	public UserProfile fetchUserProfile(LinkedIn linkedin) {
 		LinkedInProfile profile = linkedin.profileOperations().getUserProfile();
 		return new UserProfileBuilder()
+				.setUsername(profile.getId())
 				.setName(profile.getFirstName() + " " + profile.getLastName())
 				.setEmail(profile.getEmailAddress())
 				.build();
