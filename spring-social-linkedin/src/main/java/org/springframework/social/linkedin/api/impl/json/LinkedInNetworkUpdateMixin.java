@@ -47,7 +47,7 @@ abstract class LinkedInNetworkUpdateMixin extends LinkedInObjectMixin {
 	boolean commentable;
 	
 	@JsonProperty("isLikable") 
-	boolean likeable;
+	boolean likable;
 	
 	@JsonProperty("isLiked") 
 	boolean liked;

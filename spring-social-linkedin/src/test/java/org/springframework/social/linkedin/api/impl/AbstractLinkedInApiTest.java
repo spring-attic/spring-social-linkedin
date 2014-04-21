@@ -78,11 +78,12 @@ public class AbstractLinkedInApiTest {
 		assertEquals(visibility, share.getVisibility());
 	}
 	
-	protected void assertUpdate(LinkedInNetworkUpdate update, UpdateType type, Class<? extends UpdateContent> updateClass, Date date, String updateKey) {
+	protected void assertUpdate(LinkedInNetworkUpdate update, UpdateType type, Class<? extends UpdateContent> updateClass, Date date, String updateKey, boolean likable) {
 		assertEquals(type, update.getUpdateType()) ;
 		assertEquals(updateClass, update.getUpdateContent().getClass());
 		assertEquals(date, update.getTimestamp());
 		assertEquals(updateKey, update.getUpdateKey());
+		assertEquals(likable, update.isLikable());
 	}
 	
 	protected void assertLinkedInDate(LinkedInDate date, int year, int month, int day) {
