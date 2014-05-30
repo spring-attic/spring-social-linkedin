@@ -4,6 +4,7 @@ buildscript {
     }
     dependencies {
         classpath 'org.springframework.build.gradle:docbook-reference-plugin:0.2.8'
+        classpath 'org.springframework.build.gradle:spring-io-plugin:0.0.3.RELEASE'
         classpath 'me.champeau.gradle:gradle-javadoc-hotfix-plugin:0.1'
         classpath('org.asciidoctor:asciidoctor-gradle-plugin:0.7.0')
         classpath('org.asciidoctor:asciidoctor-java-integration:0.1.4.preview.1')
@@ -42,6 +43,7 @@ configure(allprojects - docProjects) {
         testCompile ("junit:junit-dep:$junitVersion")
         testCompile ("org.mockito:mockito-core:$mockitoVersion")
         testCompile ("org.springframework:spring-test:$springVersion")
+        testRuntime ("com.jayway.jsonpath:json-path:$jsonPathVersion")
     }
 
     // servlet-api (2.5) and tomcat-servlet-api (3.0) classpath entries should not be
@@ -58,6 +60,18 @@ ext.javadocLinks = [
 
 configure(subprojects - docProjects) { subproject ->
     apply from: "${rootProject.projectDir}/publish-maven.gradle"
+
+    if (project.hasProperty('platformVersion')) {
+        apply plugin: 'spring-io'
+
+        repositories {
+            maven { url "https://repo.spring.io/libs-snapshot" }
+        }
+
+        dependencies {
+            springIoVersions "io.spring.platform:platform-versions:${platformVersion}@properties"
+        }
+    }
 
     jar {
         manifest.attributes['Implementation-Title'] = subproject.name
