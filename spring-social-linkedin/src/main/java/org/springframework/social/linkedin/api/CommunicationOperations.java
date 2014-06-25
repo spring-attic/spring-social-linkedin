@@ -67,5 +67,11 @@ public interface CommunicationOperations {
 	 * @param lastName Last Name of recipient
 	 */
 	void connectTo(String subject, String body, String email, String firstName, String lastName);
+	
+	/**
+         * get a list of company pages the user is an admin on
+         * @return companies (and show case pages) the user is an admin on.
+         */
+        List<Company> getPagesAdministrated();
 
 }
