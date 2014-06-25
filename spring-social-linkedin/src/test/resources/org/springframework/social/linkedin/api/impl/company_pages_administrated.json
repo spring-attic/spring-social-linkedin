@@ -1,0 +1,47 @@
+{
+  "_total": 2,
+  "values": [
+    {
+      "companyType": {
+        "code": "C",
+        "name": "Public Company"
+      },
+      "description": "Cats on the town is a website showing cats on the town having a good time and exploring the city. \r\n\r\nThe domestic cat[1][2] (Felis catus[2] or Felis silvestris catus[4]) is a small, usually furry, domesticated, and carnivorous mammal. It is often called the housecat when kept as an indoor pet,[6] or simply the cat when there is no need to distinguish it from other felids and felines. Cats are often valued by humans for companionship and their ability to hunt vermin and household pests.\r\n\r\nCats are similar in anatomy to the other felids, with strong, flexible bodies, quick reflexes, sharp retractable claws, and teeth adapted to killing small prey. Cat senses fit a crepuscular and predatory ecological niche. Cats can hear sounds too faint or too high in frequency for human ears, such as those made by mice and other small animals. They can see in near darkness. Like most other mammals, cats have poorer color vision and a better sense of smell than humans.\r\n\r\nDespite being solitary hunters, cats are a social species, and cat communication includes the use of a variety of vocalizations (mewing, purring, trilling, hissing, growling and grunting) as well as cat pheromones, and types of cat-specific body language.[7]\r\n\r\nCats have a rapid breeding rate. Under controlled breeding, they can be bred and shown as registered pedigree pets, a hobby known as cat fancy. Failure to control the breeding of pet cats by neutering, and the abandonment of former household pets, has resulted in large numbers of feral cats worldwide, requiring population control.[8]\r\n\r\nSince cats were cult animals in ancient Egypt, they were commonly believed to have been domesticated there,[9] but there may have been instances of domestication as early as the Neolithic from around 9500 years ago (7500 BC).[10]",
+      "emailDomains": {
+        "_total": 1,
+        "values": ["catsonthetown.com"]
+      },
+      "employeeCountRange": {
+        "code": "A",
+        "name": "myself only"
+      },
+      "id": 5188460,
+      "industry": "Accounting",
+      "name": "Cats on the Town",
+      "numFollowers": 3,
+      "status": {
+        "code": "OPR",
+        "name": "Operating"
+      },
+      "twitterId": "",
+      "universalName": "cats-on-the-town",
+      "websiteUrl": "catsonthetown.com"
+    },
+    {
+      "companyType": {
+        "code": "C",
+        "name": "Public Company"
+      },
+      "description": "Focusing on cats on the town in Brooklyn New York. \r\nBrooklyn has many exciting venues for meetups!",
+      "emailDomains": {"_total": 0},
+      "id": 5250183,
+      "industry": "Accounting",
+      "logoUrl": "http://m.c.lnkd.licdn.com/mpr/mpr/p/3/005/06c/285/05031b9.png",
+      "name": "Cats in Brooklyn",
+      "numFollowers": 1,
+      "twitterId": "",
+      "universalName": "cats-in-brooklyn",
+      "websiteUrl": ""
+    }
+  ]
+}
