@@ -17,13 +17,12 @@ package org.springframework.social.linkedin.api.impl;
 
 import java.net.URI;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.springframework.social.linkedin.api.Group;
 import org.springframework.social.linkedin.api.Group.GroupPosts;
 import org.springframework.social.linkedin.api.GroupMemberships;
 import org.springframework.social.linkedin.api.GroupOperations;
+import org.springframework.social.linkedin.api.GroupPost;
 import org.springframework.social.linkedin.api.GroupSuggestions;
 import org.springframework.social.linkedin.api.PostComments;
 import org.springframework.web.client.RestOperations;
@@ -87,11 +86,19 @@ class GroupTemplate extends AbstractTemplate implements GroupOperations {
 		restOperations.delete(GROUP_JOIN_LEAVE_URL, groupId);
 	}
 	
-	public URI createPost(Integer groupId, String title, String summary) {
-		Map<String, String> post = new HashMap<String,String>();
-		post.put("title", title);
-		post.put("summary", summary);
-		return restOperations.postForLocation(GROUP_CREATE_POST_URL, post, groupId);
+	public URI createPost(Integer groupId, String postTitle, String postSummary) {
+		GroupPost groupPost = new GroupPost(postTitle, postSummary);
+		return restOperations.postForLocation(GROUP_CREATE_POST_URL,groupPost,
+						groupId);
+	}
+
+	public URI createPost(Integer groupId, String postTitle, String postSummary, String contentTitle,
+						  String contentSubmittedUrl, String contentSubmittedImageUrl, String contentDescription) {
+		GroupPost.Content content =
+				new GroupPost.Content(contentTitle, contentSubmittedUrl, contentSubmittedImageUrl, contentDescription);
+		GroupPost groupPost = new GroupPost(postTitle, postSummary, content);
+		return restOperations.postForLocation(GROUP_CREATE_POST_URL, groupPost,
+						groupId);
 	}
 	
 	public void likePost(String postId) {
