@@ -20,6 +20,7 @@ import static org.springframework.http.HttpMethod.*;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +29,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.MediaType;
 import org.springframework.social.linkedin.api.Companies;
 import org.springframework.social.linkedin.api.Company;
+import org.springframework.social.linkedin.api.CompanyShare;
 import org.springframework.social.linkedin.api.Product;
 import org.springframework.social.linkedin.api.Products;
 
@@ -160,6 +162,198 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("C.", p.getRecommendations().get(0).getRecommender().getLastName());
 		assertEquals("Please \"like\" our College Facebook ( http://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( http://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( http://twitter.com/cobaecsun ).", p.getRecommendations().get(0).getText());
 		assertEquals(new Date(1319639274411l), p.getRecommendations().get(0).getTimestamp());
+	}
+
+	@Test
+	public void createShareSimple() {
+		mockServer.expect(requestTo((CompanyTemplate.COMPANY_SHARES_URL + "?oauth2_access_token=ACCESS_TOKEN").replaceFirst("\\{id\\}", "1337")))
+				.andExpect(method(POST))
+				.andExpect(content().string(
+						// formatted for readability
+						"<share>" +
+							"<visibility>" +
+								"<code>anyone</code>" +
+							"</visibility>" +
+							"<comment>a comment</comment>" +
+						"</share>")
+				)
+				.andRespond(withSuccess("", MediaType.APPLICATION_XML));
+
+		CompanyShare share = new CompanyShare(CompanyShare.Visibility.anyone(), "a comment");
+
+		linkedIn.companyOperations().createShare(1337, share);
+	}
+
+	@Test
+	public void createShareWithContent() {
+		mockServer.expect(requestTo((CompanyTemplate.COMPANY_SHARES_URL + "?oauth2_access_token=ACCESS_TOKEN").replaceFirst("\\{id\\}", "1337")))
+				.andExpect(method(POST))
+				.andExpect(content().string(
+						// formatted for readability
+						"<share>" +
+							"<visibility>" +
+								"<code>anyone</code>" +
+							"</visibility>" +
+							"<comment>a comment</comment>" +
+							"<content>" +
+								"<title>my title</title>" +
+								"<submitted-url>my submitted url</submitted-url>" +
+								"<submitted-image-url>my submitted image url</submitted-image-url>" +
+								"<description>my description</description>" +
+							"</content>" +
+						"</share>"
+						)
+				)
+				.andRespond(withSuccess("", MediaType.APPLICATION_XML));
+
+		CompanyShare.Content content =
+				new CompanyShare.Content("my title", "my submitted url", "my submitted image url", "my description");
+
+		CompanyShare share = new CompanyShare(CompanyShare.Visibility.anyone(), "a comment", content);
+
+		linkedIn.companyOperations().createShare(1337, share);
+	}
+
+	@Test
+	public void createShareWithSingleShareTargetReach() {
+		mockServer.expect(requestTo((CompanyTemplate.COMPANY_SHARES_URL + "?oauth2_access_token=ACCESS_TOKEN").replaceFirst("\\{id\\}", "1337")))
+				.andExpect(method(POST))
+				.andExpect(content().string(
+						// formatted for readability
+						"<share>" +
+							"<visibility>" +
+								"<code>anyone</code>" +
+							"</visibility>" +
+							"<comment>a comment</comment>" +
+							"<share-target-reach>" +
+								"<share-targets>" +
+									"<share-target>" +
+										"<code>geos</code>" +
+										"<tvalues>" +
+											"<tvalue>as</tvalue>" +
+										"</tvalues>" +
+									"</share-target>" +
+								"</share-targets>" +
+							"</share-target-reach>" +
+						"</share>"
+						)
+				)
+				.andRespond(withSuccess("", MediaType.APPLICATION_XML));
+
+		List<String> tValuesAsStrings = new ArrayList<String>();
+		tValuesAsStrings.add("as");
+		CompanyShare.TValues tValues = new CompanyShare.TValues(tValuesAsStrings);
+		CompanyShare.ShareTarget shareTarget = new CompanyShare.ShareTarget("geos", tValues);
+		List<CompanyShare.ShareTarget> shareTargets = new ArrayList<CompanyShare.ShareTarget>();
+		shareTargets.add(shareTarget);
+		CompanyShare.ShareTargetReach shareTargetReach = new CompanyShare.ShareTargetReach(shareTargets);
+
+		CompanyShare share = new CompanyShare(CompanyShare.Visibility.anyone(), "a comment", shareTargetReach);
+
+		linkedIn.companyOperations().createShare(1337, share);
+	}
+
+	@Test
+	public void createShareWithMultipleShareTargetReach() {
+		mockServer.expect(requestTo((CompanyTemplate.COMPANY_SHARES_URL + "?oauth2_access_token=ACCESS_TOKEN").replaceFirst("\\{id\\}", "1337")))
+				.andExpect(method(POST))
+				.andExpect(content().string(
+						// formatted for readability
+						"<share>" +
+							"<visibility>" +
+								"<code>anyone</code>" +
+							"</visibility>" +
+							"<comment>a comment</comment>" +
+							"<share-target-reach>" +
+								"<share-targets>" +
+									"<share-target>" +
+										"<code>geos</code>" +
+										"<tvalues>" +
+											"<tvalue>as</tvalue>" +
+										"</tvalues>" +
+									"</share-target>" +
+									"<share-target>" +
+										"<code>industries</code>" +
+										"<tvalues>" +
+											"<tvalue>4</tvalue>" +
+										"</tvalues>" +
+									"</share-target>" +
+								"</share-targets>" +
+							"</share-target-reach>" +
+						"</share>"
+						)
+				)
+				.andRespond(withSuccess("", MediaType.APPLICATION_XML));
+
+		// -- share target by geography for North America
+		List<String> tValuesAsStringsGeo = new ArrayList<String>();
+		tValuesAsStringsGeo.add("as");
+		CompanyShare.TValues tValuesGeo = new CompanyShare.TValues(tValuesAsStringsGeo);
+		CompanyShare.ShareTarget shareTargetGeo = new CompanyShare.ShareTarget("geos", tValuesGeo);
+
+		// -- share target by industry
+		List<String> tValuesAsStrings = new ArrayList<String>();
+		tValuesAsStrings.add("4");
+		CompanyShare.TValues tValues = new CompanyShare.TValues(tValuesAsStrings);
+		CompanyShare.ShareTarget shareTargetIndustry = new CompanyShare.ShareTarget("industries", tValues);
+
+		// create share targets with multiple targets (by geography and industry)
+		List<CompanyShare.ShareTarget> shareTargets = new ArrayList<CompanyShare.ShareTarget>();
+		shareTargets.add(shareTargetGeo);
+		shareTargets.add(shareTargetIndustry);
+		CompanyShare.ShareTargetReach shareTargetReach = new CompanyShare.ShareTargetReach(shareTargets);
+
+		CompanyShare share = new CompanyShare(CompanyShare.Visibility.anyone(), "a comment", shareTargetReach);
+
+		linkedIn.companyOperations().createShare(1337, share);
+	}
+
+	@Test
+	public void createShareWithContentAndShareTargetReach() {
+		mockServer.expect(requestTo((CompanyTemplate.COMPANY_SHARES_URL + "?oauth2_access_token=ACCESS_TOKEN").replaceFirst("\\{id\\}", "1337")))
+				.andExpect(method(POST))
+				.andExpect(content().string(
+							// formatted for readability
+							"<share>" +
+								"<visibility>" +
+									"<code>anyone</code>" +
+								"</visibility>" +
+								"<comment>a comment</comment>" +
+								"<content>" +
+									"<title>my title</title>" +
+									"<submitted-url>my submitted url</submitted-url>" +
+									"<submitted-image-url>my submitted image url</submitted-image-url>" +
+									"<description>my description</description>" +
+								"</content>" +
+								"<share-target-reach>" +
+									"<share-targets>" +
+										"<share-target>" +
+											"<code>geos</code>" +
+											"<tvalues>" +
+												"<tvalue>as</tvalue>" +
+											"</tvalues>" +
+										"</share-target>" +
+									"</share-targets>" +
+								"</share-target-reach>" +
+							"</share>"
+						)
+				)
+				.andRespond(withSuccess("", MediaType.APPLICATION_XML));
+
+		CompanyShare.Content content =
+				new CompanyShare.Content("my title", "my submitted url", "my submitted image url", "my description");
+
+		List<String> tValuesAsStrings = new ArrayList<String>();
+		tValuesAsStrings.add("as");
+		CompanyShare.TValues tValues = new CompanyShare.TValues(tValuesAsStrings);
+		CompanyShare.ShareTarget shareTarget = new CompanyShare.ShareTarget("geos", tValues);
+		List<CompanyShare.ShareTarget> shareTargets = new ArrayList<CompanyShare.ShareTarget>();
+		shareTargets.add(shareTarget);
+		CompanyShare.ShareTargetReach shareTargetReach = new CompanyShare.ShareTargetReach(shareTargets);
+
+		CompanyShare share = new CompanyShare(CompanyShare.Visibility.anyone(), "a comment", content, shareTargetReach);
+
+		linkedIn.companyOperations().createShare(1337, share);
 	}
 
 }
