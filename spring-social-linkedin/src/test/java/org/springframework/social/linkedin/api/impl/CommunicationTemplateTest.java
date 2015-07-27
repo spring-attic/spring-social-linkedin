@@ -15,6 +15,8 @@
  */
 package org.springframework.social.linkedin.api.impl;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.collection.IsCollectionWithSize.*;
 import static org.springframework.http.HttpMethod.*;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.*;
@@ -28,9 +30,12 @@ public class CommunicationTemplateTest extends AbstractLinkedInApiTest {
 	public void sendMessage() {
 		mockServer.expect(requestTo(CommunicationTemplate.MESSAGING_URL+"?oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(POST))
-			.andExpect(content().string("{\"body\":\"This is a test\",\"recipients\":{\"values\":[{\"person\":{\"_path\":\"/people/~\"}}]},\"subject\":\"Test message\"}"))
+			.andExpect(jsonPath("body", is("This is a test")))
+			.andExpect(jsonPath("subject", is("Test message")))
+			.andExpect(jsonPath("recipients.values", hasSize(1)))
+			.andExpect(jsonPath("recipients.values[0].person._path", is("/people/~")))
 			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
-		
+
 		linkedIn.communicationOperations().sendMessage("Test message", "This is a test", "~");
 	}
 	
@@ -38,23 +43,32 @@ public class CommunicationTemplateTest extends AbstractLinkedInApiTest {
 	public void sendInvitation() {
 		mockServer.expect(requestTo(CommunicationTemplate.MESSAGING_URL+"?oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(POST))
-			.andExpect(content().string("{\"body\":\"I'd like to add you to my professional network on LinkedIn\",\"recipients\":{\"values\":[{\"person\":{\"_path\":\"/people/UB2kruYvvv\"}}]},\"subject\":\"I'd like to add you to my professional network on LinkedIn\",\"item-content\":{\"invitation-request\":{\"authorization\":{\"name\":\"NAME_SEARCH\",\"value\":\"aaaa\"},\"connect-type\":\"friend\"}}}"))
+			.andExpect(jsonPath("body", is("I'd like to add you to my professional network on LinkedIn")))
+			.andExpect(jsonPath("subject", is("I'd like to add you to my professional network on LinkedIn")))
+			.andExpect(jsonPath("recipients.values", hasSize(1)))
+			.andExpect(jsonPath("recipients.values[0].person._path", is("/people/UB2kruYvvv")))
+			.andExpect(jsonPath("item-content.invitation-request.authorization.name", is("NAME_SEARCH")))
+			.andExpect(jsonPath("item-content.invitation-request.authorization.value", is("aaaa")))
+			.andExpect(jsonPath("item-content.invitation-request.connect-type", is("friend")))
 			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
-		
-		
+
 		linkedIn.communicationOperations().connectTo("I'd like to add you to my professional network on LinkedIn",
 				"I'd like to add you to my professional network on LinkedIn", "UB2kruYvvv", new ConnectionAuthorization("blah", "NAME_SEARCH:aaaa"));
-
 	}
 	
 	@Test
 	public void sendEmailInvitation() {
 		mockServer.expect(requestTo(CommunicationTemplate.MESSAGING_URL+"?oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(POST))
-			.andExpect(content().string("{\"body\":\"I'd like to add you to my professional network on LinkedIn\",\"recipients\":{\"values\":[{\"person\":{\"_path\":\"/people/email=rob@test.com\",\"first-name\":\"Robert\",\"last-name\":\"Smith\"}}]},\"subject\":\"I'd like to add you to my professional network on LinkedIn\",\"item-content\":{\"invitation-request\":{\"connect-type\":\"friend\"}}}"))
+			.andExpect(jsonPath("body", is("I'd like to add you to my professional network on LinkedIn")))
+			.andExpect(jsonPath("subject", is("I'd like to add you to my professional network on LinkedIn")))
+			.andExpect(jsonPath("recipients.values", hasSize(1)))
+			.andExpect(jsonPath("recipients.values[0].person._path", is("/people/email=rob@test.com")))
+			.andExpect(jsonPath("recipients.values[0].person.first-name", is("Robert")))
+			.andExpect(jsonPath("recipients.values[0].person.last-name", is("Smith")))
+			.andExpect(jsonPath("item-content.invitation-request.connect-type", is("friend")))
 			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
-		
-		
+
 		linkedIn.communicationOperations().connectTo("I'd like to add you to my professional network on LinkedIn",
 				"I'd like to add you to my professional network on LinkedIn", "rob@test.com", "Robert", "Smith");
 	}
