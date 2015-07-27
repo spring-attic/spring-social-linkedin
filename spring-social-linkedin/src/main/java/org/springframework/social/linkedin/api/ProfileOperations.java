@@ -46,6 +46,7 @@ public interface ProfileOperations {
 	/**
 	 * Retrieves a profile by id.
 	 * 
+	 * @param id the profile ID
 	 * @return the user's profile data.
 	 */
 	LinkedInProfile getProfileById(String id);
@@ -53,6 +54,7 @@ public interface ProfileOperations {
 	/**
 	 * Retrieves a profile by public url.
 	 * 
+	 * @param url the profile's public URL
 	 * @return the user's profile data.
 	 */
 	LinkedInProfile getProfileByPublicUrl(String url);
@@ -67,7 +69,7 @@ public interface ProfileOperations {
 	
 	/**
 	 * Retrieves a full profile by id.
-	 * 
+	 * @param id the profile ID
 	 * @return the user's profile data.
 	 */
 	LinkedInProfileFull getProfileFullById(String id);
@@ -76,6 +78,7 @@ public interface ProfileOperations {
 	/**
 	 * Retrieves a full profile by public url.
 	 * 
+	 * @param url the profile's public URL
 	 * @return the user's profile data.
 	 */
 	LinkedInProfileFull getProfileFullByPublicUrl(String url);
@@ -83,6 +86,7 @@ public interface ProfileOperations {
 	/**
 	 * Searches for Profiles based on provided parameters
 	 * 
+	 * @param parameters the search parameters
 	 * @return search result.
 	 */
 	LinkedInProfiles search(SearchParameters parameters);

@@ -31,42 +31,50 @@ public interface LinkedIn extends ApiBinding {
 
 	/**
 	 * API for retrieving connections
+	 * @return a {@link ConnectionOperations} for working with connections
 	 */
 	ConnectionOperations connectionOperations();
 	
 	/**
 	 * API for retrieving and performing operations on network updates
+	 * @return a {@link NetworkUpdateOperations} for working with network updates
 	 */
 	NetworkUpdateOperations networkUpdateOperations();
 	
 	/**
 	 * API for retrieving and performing operations on profiles
+	 * @return a {@link ProfileOperations} for working with profiles
 	 */
 	ProfileOperations profileOperations();
 	
 	/**
 	 * API for retrieving and performing operations on companies
+	 * @return a {@link CompanyOperations} for working with companies
 	 */
 	CompanyOperations companyOperations();
 	
 	/**
 	 * API for sending messages and connection requests
+	 * @return a {@link CommunicationOperations} for working with communication info
 	 */
 	CommunicationOperations communicationOperations();
 	
 	/**
 	 * API for searching, retrieving and bookmarking jobs
+	 * @return a {@link JobOperations} for working with jobs
 	 */
 	JobOperations jobOperations();
 	
 	/**
 	 * API for retrieving details of groups
+	 * @return a {@link GroupOperations} for working with groups
 	 */
 	GroupOperations groupOperations();
 	
 	/**
 	 * Returns the underlying {@link RestOperations} object allowing for consumption of LinkedIn endpoints that may not be otherwise covered by the API binding.
 	 * The RestOperations object returned is configured to include an OAuth "Authorization" header on all requests.
+	 * @return a {@link RestOperations} for work against the LinkedIn API at a low-level.
 	 */
 	RestOperations restOperations();
 	

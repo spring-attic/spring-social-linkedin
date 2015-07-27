@@ -41,14 +41,14 @@ public interface JobOperations {
 	/**
 	 * Bookmark Job
 	 * 
-	 * @param id
+	 * @param id the job ID
 	 */
 	void bookmarkJob(int id);
 	
 	/**
 	 * Unbookmark Job
 	 * 
-	 * @param id
+	 * @param id the job ID
 	 */
 	void unbookmarkJob(int id);
 	

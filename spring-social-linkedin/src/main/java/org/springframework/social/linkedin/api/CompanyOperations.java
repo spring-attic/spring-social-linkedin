@@ -26,14 +26,14 @@ public interface CompanyOperations {
 
 	/**
 	 * Retrieve Company Details based on unique integer id
-	 * @param id
+	 * @param id the company ID
 	 * @return company
 	 */
 	Company getCompany(int id);
 	
 	/**
 	 * Retrieve Company Details based on unique name id
-	 * @param name
+	 * @param name the company name
 	 * @return company
 	 */
 	Company getCompanyByUniversalName(String name);
@@ -49,7 +49,7 @@ public interface CompanyOperations {
 	/**
 	 * Search of Companies based on space separated list of keywords
 	 * 
-	 * @param keywords
+	 * @param keywords keywords to search with
 	 * @return Search Result with count, start, total and list of companies
 	 */
 	Companies search(String keywords);
@@ -68,13 +68,13 @@ public interface CompanyOperations {
 	
 	/**
 	 * Start following company
-	 * @param id
+	 * @param id the company ID
 	 */
 	void startFollowingCompany(int id);
 	
 	/**
 	 * Stop following company
-	 * @param id
+	 * @param id the company ID
 	 */
 	void stopFollowingCompany(int id);
 	

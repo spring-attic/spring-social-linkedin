@@ -61,6 +61,7 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 
 	/**
 	 * The user's LinkedIn profile ID
+	 * @return the user's LinkedIn profile ID
 	 */
 	public String getId() {
 		return id;
@@ -68,6 +69,7 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 
 	/**
 	 * The user's first name
+	 * @return the user's first name
 	 */
 	public String getFirstName() {
 		return firstName;
@@ -75,6 +77,7 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 
 	/**
 	 * The user's last name
+	 * @return the user's last name
 	 */
 	public String getLastName() {
 		return lastName;
@@ -83,6 +86,7 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 	/**
 	 * The user's email address (if available).
 	 * Requires "r_emailaddress" scope; will be null if "r_emailaddress" scope is not authorized on the connection.
+	 * @return the user's email address
 	 */
 	public String getEmailAddress() {
 		return emailAddress;
@@ -90,6 +94,7 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 	
 	/**
 	 * The user's headline
+	 * @return the user's headline
 	 */
 	public String getHeadline() {
 		return headline;
@@ -97,6 +102,7 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 
 	/**
 	 * The user's industry
+	 * @return the user's industry
 	 */
 	public String getIndustry() {
 		return industry;
@@ -104,6 +110,7 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 
 	/**
 	 * A URL to the user's standard profile. The content shown at this profile will depend upon what the requesting user is allowed to see.
+	 * @return a {@link UrlResource} referencing the user's standard profile page.
 	 */
 	public UrlResource getSiteStandardProfileRequest() {
 		return siteStandardProfileRequest;
@@ -112,6 +119,7 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 	/**
 	 * A URL to the user's public profile. The content shown at this profile is intended for public display and is determined by the user's privacy settings.
 	 * May be null if the user's profile isn't public.
+	 * @return a String containing the URL to the user's public profile page.
 	 */
 	public String getPublicProfileUrl() {
 		return publicProfileUrl;
@@ -119,6 +127,7 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 	
 	/**
 	 * A URL to the user's profile picture.
+	 * @return a String containing the URL to the user's profile picture.
 	 */
 	public String getProfilePictureUrl() {
 		return profilePictureUrl;
@@ -126,6 +135,7 @@ public class LinkedInProfile extends LinkedInObject implements Serializable {
 	
 	/**
 	 * The user's summary.
+	 * @return the user's summary
 	 */
 	public String getSummary() {
 		return summary;

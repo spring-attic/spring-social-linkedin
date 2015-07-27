@@ -60,8 +60,8 @@ public interface NetworkUpdateOperations {
 	 * 		null,
 	 * 		false,
 	 * 		false,
-	 * 		Collections.<UpdateTypeInput>singletonList(UpdateTypeInput.SHAR));
-	 * 	List<LinkedInNetworkUpdate> updates = linkedIn.getNetworkUpdates(parameters);
+	 * 		Collections.&lt;UpdateTypeInput&gt;singletonList(UpdateTypeInput.SHAR));
+	 * 	List&lt;LinkedInNetworkUpdate&gt; updates = linkedIn.getNetworkUpdates(parameters);
 	 * 
 	 * @param parameters LinkedInParameters
 	 * @return network updates
@@ -85,7 +85,7 @@ public interface NetworkUpdateOperations {
 	 * updateKey must be a valid key from linkedIn.
 	 * e.g UNIU-2481200-5541820536390100000-SHARE
 	 * 
-	 * @param updateKey
+	 * @param updateKey the update key
 	 * @return List of Comments
 	 */
 	List<Comment> getNetworkUpdateComments(String updateKey);
@@ -95,7 +95,7 @@ public interface NetworkUpdateOperations {
 	 * updateKey must be a valid key from linkedIn.
 	 * e.g UNIU-2481200-5541820536390100000-SHARE
 	 * 
-	 * @param updateKey
+	 * @param updateKey the update key
 	 * @return List of Linked In Profiles
 	 */
 	List<LinkedInProfile> getNetworkUpdateLikes(String updateKey);
@@ -112,7 +112,7 @@ public interface NetworkUpdateOperations {
 	 * updateKey must be a valid key from linkedIn.
 	 * e.g UNIU-2481200-5541820536390100000-SHARE
 	 * 
-	 * @param updateKey
+	 * @param updateKey the update key
 	 */
 	void likeNetworkUpdate(String updateKey);
 	
@@ -121,7 +121,7 @@ public interface NetworkUpdateOperations {
 	 * updateKey must be a valid key from linkedIn.
 	 * e.g UNIU-2481200-5541820536390100000-SHARE
 	 * 
-	 * @param updateKey
+	 * @param updateKey the update key
 	 */
 	void unlikeNetworkUpdate(String updateKey);
 	
@@ -130,22 +130,22 @@ public interface NetworkUpdateOperations {
 	 * updateKey must be a valid key from linkedIn.
 	 * e.g UNIU-2481200-5541820536390100000-SHARE
 	 * 
-	 * @param updateKey
-	 * @param comment
+	 * @param updateKey the update key
+	 * @param comment a comment
 	 */
 	void commentOnNetworkUpdate(String updateKey, String comment);
 	
 	/**
 	 * Get the last share for the current user
 	 * 
-	 * @return CurrentShare
+	 * @return CurrentShare 
 	 */
 	CurrentShare getCurrentShare();
 	
 	/**
 	 * Share something to network
 	 * 
-	 * @param share
+	 * @param share a {@link NewShare} to share to the network
 	 * @return URI to share location
 	 */
 	URI share(NewShare share);
