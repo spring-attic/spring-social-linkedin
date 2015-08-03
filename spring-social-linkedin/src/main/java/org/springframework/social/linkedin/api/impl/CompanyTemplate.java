@@ -15,12 +15,17 @@
  */
 package org.springframework.social.linkedin.api.impl;
 
+import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.social.linkedin.api.Companies;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.CompanyOperations;
+import org.springframework.social.linkedin.api.CompanyShare;
 import org.springframework.social.linkedin.api.Products;
 import org.springframework.web.client.RestOperations;
 
@@ -36,7 +41,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
 
 	private final RestOperations restOperations;
-	
+
 	private final ObjectMapper objectMapper;
 	
 	public CompanyTemplate(RestOperations RestOperations, ObjectMapper objectMapper) {
@@ -105,6 +110,16 @@ class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
 	public Products getProducts(int companyId, int start, int count) {
 		return restOperations.getForObject(PRODUCTS_URL, Products.class, companyId, start, count);
 	}
+
+	public URI createShare(int companyId, CompanyShare companyShare) {
+		// signals to underlying infrastructure we're exchanging XML contents with LI's API
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_XML);
+		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_XML));
+
+		HttpEntity<CompanyShare> httpEntity = new HttpEntity<CompanyShare>(companyShare, headers);
+		return restOperations.postForLocation(COMPANY_SHARES_URL, httpEntity, companyId);
+	}
 	
 	public static final String BASE_URL = "https://api.linkedin.com/v1/";
 	public static final String COMPANY_FIELDS = "(id,name,universal-name,email-domains,company-type,ticker,website-url,industry,status,logo-url,square-logo-url,blog-rss-url,twitter-id,employee-count-range,specialties,locations,description,stock-exchange,founded-year,end-year,num-followers)";
@@ -113,6 +128,7 @@ class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
 	public static final String COMPANY_FOLLOW_URL = BASE_URL + "people/~/following/companies:" + COMPANY_FIELDS;
 	public static final String COMPANY_FOLLOW_START_STOP_URL = BASE_URL + "people/~/following/companies/id={id}";
 	public static final String COMPANY_SUGGESTIONS_TO_FOLLOW = BASE_URL + "people/~/suggestions/to-follow/companies:" + COMPANY_FIELDS;
+	public static final String COMPANY_SHARES_URL = BASE_URL + "companies/{id}/shares";
 	
 	public static final String PRODUCT_FIELDS="(id,name,type,creation-timestamp,logo-url,description,features,video:(title,url),product-deal:(title,url,text),sales-persons,num-recommendations,recommendations:(recommender,id,product-id,text,reply,timestamp,likes:(timestamp,person)),product-category,website-url,disclaimer)";
 	public static final String PRODUCTS_URL = BASE_URL + "companies/{id}/products:" + PRODUCT_FIELDS +"?start={start}&count={count}";

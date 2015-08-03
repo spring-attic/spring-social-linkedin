@@ -20,14 +20,18 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.http.HttpRequest;
+import org.springframework.http.MediaType;
 import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.http.converter.xml.MarshallingHttpMessageConverter;
+import org.springframework.oxm.xstream.XStreamMarshaller;
 import org.springframework.social.linkedin.api.CommunicationOperations;
 import org.springframework.social.linkedin.api.CompanyOperations;
+import org.springframework.social.linkedin.api.CompanyShare;
 import org.springframework.social.linkedin.api.ConnectionOperations;
 import org.springframework.social.linkedin.api.GroupOperations;
 import org.springframework.social.linkedin.api.JobOperations;
@@ -67,6 +71,7 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 		Assert.hasLength(accessToken, "Access token cannot be null or empty.");
 		registerOAuth2Interceptor(accessToken);
 		registerLinkedInJsonModule();
+		registerLinkedInXmlModule();
 		registerJsonFormatInterceptor();
 		initSubApis();
 	}
@@ -118,6 +123,7 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 	
 	private void registerLinkedInJsonModule() {
 		List<HttpMessageConverter<?>> converters = getRestTemplate().getMessageConverters();
+
 		for (HttpMessageConverter<?> converter : converters) {
 			if(converter instanceof MappingJackson2HttpMessageConverter) {
 				MappingJackson2HttpMessageConverter jsonConverter = (MappingJackson2HttpMessageConverter) converter;
@@ -129,6 +135,12 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 				jsonConverter.setObjectMapper(objectMapper);
 			}
 		}
+	}
+
+	private void registerLinkedInXmlModule() {
+		LinkedInXStreamModule linkedInXStreamModule = new LinkedInXStreamModule();
+		List<HttpMessageConverter<?>> converters = getRestTemplate().getMessageConverters();
+		converters.add(linkedInXStreamModule.getHttpMessageConverter());
 	}
 	
 	/*
@@ -143,9 +155,11 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 		if (interceptorsSupported) {
 			List<ClientHttpRequestInterceptor> interceptors = restTemplate.getInterceptors();
 			interceptors.add(new JsonFormatInterceptor());
+			interceptors.add(new XmlFormatInterceptor());
 		} else {
 			// for Spring 3.0.x where interceptors aren't supported
 			ClientHttpRequestFactory originalRequestFactory = restTemplate.getRequestFactory();
+			//TODO: modify request factory to handle XML as well as JSON
 			JsonFormatHeaderRequestFactory newRequestFactory = new JsonFormatHeaderRequestFactory(originalRequestFactory);
 			restTemplate.setRequestFactory(newRequestFactory);
 		}
@@ -184,11 +198,35 @@ public class LinkedInTemplate extends AbstractOAuth2ApiBinding implements Linked
 	private static final class JsonFormatInterceptor implements ClientHttpRequestInterceptor {
 		public ClientHttpResponse intercept(HttpRequest request, byte[] body,
 				ClientHttpRequestExecution execution) throws IOException {
+
 			HttpRequest contentTypeResourceRequest = new HttpRequestDecorator(request);
-			contentTypeResourceRequest.getHeaders().add("x-li-format", "json");
+			MediaType mediaType = contentTypeResourceRequest.getHeaders().getContentType();
+
+			// by default, use JSON
+			if(mediaType == null || (mediaType != null && mediaType.compareTo(MediaType.APPLICATION_XML) != 0)) {
+				contentTypeResourceRequest.getHeaders().add("x-li-format", "json");
+			}
+
 			return execution.execute(contentTypeResourceRequest, body);
 		}
-		
+
+	}
+
+	private static final class XmlFormatInterceptor implements ClientHttpRequestInterceptor {
+		public ClientHttpResponse intercept(HttpRequest request, byte[] body,
+											ClientHttpRequestExecution execution) throws IOException {
+
+			HttpRequest contentTypeResourceRequest = new HttpRequestDecorator(request);
+			MediaType mediaType = contentTypeResourceRequest.getHeaders().getContentType();
+
+			// only use if media type is explicitly set to application/xml
+			if(mediaType != null && mediaType.compareTo(MediaType.APPLICATION_XML) == 0) {
+				contentTypeResourceRequest.getHeaders().add("x-li-format", "xml");
+			}
+
+			return execution.execute(contentTypeResourceRequest, body);
+		}
+
 	}
 	
 	private static final class OAuth2TokenParameterRequestInterceptor implements ClientHttpRequestInterceptor {
