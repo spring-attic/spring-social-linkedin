@@ -105,7 +105,7 @@ public class NewShare implements Serializable {
 			this.submittedUrl = submittedUrl;
 		}
 		
-		public String getSubmittedImageUrl(String submittedImageUrl) {
+		public String getSubmittedImageUrl() {
 			return this.submittedImageUrl;
 		}
 		
