@@ -1,6 +1,11 @@
-Spring Social LinkedIn 1.1.0.RELEASE (September 9, 2013)
+Spring Social LinkedIn 1.0.2.RELEASE (August 20, 2015)
+======================================================
+Miscellaneous:
+  * Updated Spring IO Platform plugin
+
+Spring Social LinkedIn 1.0.1.RELEASE (September 9, 2013)
 ========================================================
-Improvments
+Improvements
   * Added a catch-all getExtraData() method to all LinkedIn model
     types to capture any data returned from LinkedIn that is otherwise
     unmapped to known properties. (SOCIALLI-30)
