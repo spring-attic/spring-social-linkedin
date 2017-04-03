@@ -93,4 +93,18 @@ public interface CompanyOperations {
 	 */
 	Companies getCompanies();
 
+	/**
+	 * Post a share to organizational account
+	 * @param share The Share to post
+	 * @param companyId The organizational account for the company to post under
+	 * @return The shared post
+	 */
+	Share postShareForCompany(NewShare share, String companyId);
+
+	/**
+	 * Get the base url with api version that the API uses
+	 * @return base url string
+	 */
+	String getBaseUrl();
+
 }
