@@ -87,4 +87,10 @@ public interface CompanyOperations {
 	 */
 	Products getProducts(int companyId, int start, int count);
 
+	/**
+	 * Get a list of all organizational accounts
+	 * @return company list
+	 */
+	Companies getCompanies();
+
 }
