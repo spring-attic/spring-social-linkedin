@@ -24,8 +24,14 @@ configure(allprojects - docProjects) {
 
     group = 'org.springframework.social'
 
-    sourceCompatibility=1.5
-    targetCompatibility=1.5
+    compileJava {
+        sourceCompatibility=1.7
+        targetCompatibility=1.7
+    }
+    compileTestJava {
+        sourceCompatibility=1.7
+        targetCompatibility=1.7
+    }
 
     [compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:none']
 
@@ -124,7 +130,7 @@ project('spring-social-linkedin') {
       compile ("javax.servlet:javax.servlet-api:$servletApiVersion", provided)
       testCompile ("org.springframework:spring-test:$springVersion")
       testCompile ("org.springframework.security:spring-security-crypto:$springSecurityVersion")
-      testCompile ("org.apache.httpcomponents:httpclient:4.3.1", optional)
+      testCompile ("org.apache.httpcomponents:httpclient:4.5.3", optional)
     }
 }
 
