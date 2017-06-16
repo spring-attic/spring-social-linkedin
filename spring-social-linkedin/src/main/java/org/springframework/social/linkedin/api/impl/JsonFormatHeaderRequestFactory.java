@@ -30,7 +30,7 @@ import org.springframework.http.client.ClientHttpResponse;
  * @author Craig Walls
  */
 class JsonFormatHeaderRequestFactory implements ClientHttpRequestFactory {
-	
+
 	private final ClientHttpRequestFactory delegate;
 
 	public JsonFormatHeaderRequestFactory(ClientHttpRequestFactory delegate) {
@@ -39,14 +39,14 @@ class JsonFormatHeaderRequestFactory implements ClientHttpRequestFactory {
 
 	public ClientHttpRequest createRequest(URI uri, HttpMethod httpMethod) throws IOException {
 		return new JsonFormatWrappedRequest(delegate.createRequest(uri, httpMethod));
-	}	
+	}
 
 	private static class JsonFormatWrappedRequest implements ClientHttpRequest {
-		
+
 		private final ClientHttpRequest delegate;
-		
+
 		private ByteArrayOutputStream bodyOutputStream;
-				
+
 		public JsonFormatWrappedRequest(ClientHttpRequest delegate) {
 			this.delegate = delegate;
 			this.bodyOutputStream = new ByteArrayOutputStream();
@@ -74,7 +74,12 @@ class JsonFormatHeaderRequestFactory implements ClientHttpRequestFactory {
 		public OutputStream getBody() throws IOException {
 			return bodyOutputStream;
 		}
-		
+
+		@Override
+		public String getMethodValue() {
+			return delegate.getMethodValue();
+		}
+
 	}
 
 }
