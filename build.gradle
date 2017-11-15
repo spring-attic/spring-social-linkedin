@@ -134,6 +134,15 @@ project('spring-social-linkedin') {
     }
 }
 
+project("spring-social-linkedin-autoconfigure") {
+    description = "Spring Social LinkedIn Auto-Configuration"
+    dependencies {
+      compile project(":spring-social-linkedin")
+      compile("org.springframework.social:spring-social-autoconfigure:$springSocialVersion")
+      compile("org.springframework.boot:spring-boot-autoconfigure:$springBootVersion")
+    }
+}
+
 configure(rootProject) {
     description = 'Spring Social LinkedIn'
 
