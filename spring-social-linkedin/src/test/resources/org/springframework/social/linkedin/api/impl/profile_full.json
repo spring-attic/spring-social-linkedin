@@ -7,7 +7,7 @@
         "value": "name:O91G"
       }]
     },
-    "url": "http://api.linkedin.com/v1/people/UB2kruYmAL"
+    "url": "https://api.linkedin.com/v1/people/UB2kruYmAL"
   },
   "associations": "Canoeing Ireland",
   "currentShare": {
@@ -19,10 +19,10 @@
     "comment": "It's not sexy but ...",
     "content": {
       "description": " ",
-      "eyebrowUrl": "http://www.linkedin.com/share?viewLink=&sid=s703802238&url=http%3A%2F%2Flnkd%2Ein%2F9TDwJN&urlhash=3uAS",
-      "resolvedUrl": "http://www.bbc.co.uk/news/technology-15728306",
-      "shortenedUrl": "http://lnkd.in/9TDwJN",
-      "submittedUrl": "http://www.bbc.co.uk/news/technology-15728306",
+      "eyebrowUrl": "https://www.linkedin.com/share?viewLink=&sid=s703802238&url=http%3A%2F%2Flnkd%2Ein%2F9TDwJN&urlhash=3uAS",
+      "resolvedUrl": "https://www.bbc.co.uk/news/technology-15728306",
+      "shortenedUrl": "https://lnkd.in/9TDwJN",
+      "submittedUrl": "https://www.bbc.co.uk/news/technology-15728306",
       "title": "Warren Buffett buys IBM stake with $10.7bn investment"
     },
     "id": "s703802238",
@@ -95,7 +95,7 @@
     "_total": 1,
     "values": [{
       "name": "Company Website",
-      "url": "http://www.robatron.com"
+      "url": "https://www.robatron.com"
     }]
   },
   "numConnections": 189,
@@ -108,7 +108,7 @@
       "phoneType": "mobile"
     }]
   },
-  "pictureUrl": "http://media.linkedin.com/mpr/mprx/0_ZSvRnXWWa3I_WgIYVmQHnQZEuTD7WORYVETknbWvPkJxns2Oqw5c4FjUCfSKoJVtMmBLMhUX6kUM",
+  "pictureUrl": "https://media.linkedin.com/mpr/mprx/0_ZSvRnXWWa3I_WgIYVmQHnQZEuTD7WORYVETknbWvPkJxns2Oqw5c4FjUCfSKoJVtMmBLMhUX6kUM",
   "positions": {
     "_total": 8,
     "values": [
@@ -266,7 +266,7 @@
     ]
   },
   "proposalComments": "",
-  "publicProfileUrl": "http://www.linkedin.com/in/robdrysdale",
+  "publicProfileUrl": "https://www.linkedin.com/in/robdrysdale",
   "recommendationsReceived": {
     "_total": 2,
     "values": [
@@ -293,7 +293,7 @@
     ]
   },
   "relationToViewer": {"distance": 0},
-  "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile?viewProfile=&key=15567709&authToken=O91G&authType=name&trk=api*a151944*s160233*"},
+  "siteStandardProfileRequest": {"url": "https://www.linkedin.com/profile?viewProfile=&key=15567709&authToken=O91G&authType=name&trk=api*a151944*s160233*"},
   "skills": {
     "_total": 3,
     "values": [
