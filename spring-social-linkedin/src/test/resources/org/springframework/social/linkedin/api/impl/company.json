@@ -1,5 +1,5 @@
 {
-  "blogRssUrl": "http://feeds.feedburner.com/LinkedInBlog",
+  "blogRssUrl": "https://feeds.feedburner.com/LinkedInBlog",
   "companyType": {
     "code": "C",
     "name": "Public Company"
@@ -76,7 +76,7 @@
       }
     ]
   },
-  "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/0c2/1d7/1894403.png",
+  "logoUrl": "https://media.linkedin.com/mpr/mpr/p/3/000/0c2/1d7/1894403.png",
   "name": "LinkedIn",
   "numFollowers": 90110,
   "specialties": {
@@ -92,7 +92,7 @@
       "Group Collaboration"
     ]
   },
-  "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/0fe/1b9/26acf51.png",
+  "squareLogoUrl": "https://media.linkedin.com/mpr/mpr/p/2/000/0fe/1b9/26acf51.png",
   "status": {
     "code": "OPR",
     "name": "Operating"
@@ -104,5 +104,5 @@
   "ticker": "LNKD",
   "twitterId": "linkedin",
   "universalName": "linkedin",
-  "websiteUrl": "http://www.linkedin.com"
+  "websiteUrl": "https://www.linkedin.com"
 }
