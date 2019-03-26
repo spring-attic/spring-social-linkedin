@@ -17,15 +17,15 @@
   <educations total="0" />
   <member-url-resources total="0" />
   <api-public-profile-request>
-    <url>http://api.linkedin.com/v1/people/url=http%3A%2F%2Fwww%2Elinkedin%2Ecom%2Fin%2Fhabuma:public</url>
+    <url>https://api.linkedin.com/v1/people/url=http%3A%2F%2Fwww%2Elinkedin%2Ecom%2Fin%2Fhabuma:public</url>
   </api-public-profile-request>
   <site-public-profile-request>
-    <url>http://www.linkedin.com/in/habuma</url>
+    <url>https://www.linkedin.com/in/habuma</url>
   </site-public-profile-request>
   <site-standard-profile-request>
-    <url>http://www.linkedin.com/standardProfileUrl</url>
+    <url>https://www.linkedin.com/standardProfileUrl</url>
   </site-standard-profile-request>
-  <public-profile-url>http://www.linkedin.com/in/habuma</public-profile-url>
-  <picture-url>http://media.linkedin.com/pictureUrl</picture-url>
+  <public-profile-url>https://www.linkedin.com/in/habuma</public-profile-url>
+  <picture-url>https://media.linkedin.com/pictureUrl</picture-url>
 </person>
 
