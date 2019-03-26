@@ -16,7 +16,7 @@
         ]
       },
       "id": 1353,
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/1/000/07b/03f/2165a65.jpg",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/1/000/07b/03f/2165a65.jpg",
       "name": "LinkedIn Content Ads",
       "numRecommendations": 3,
       "productCategory": {
@@ -35,7 +35,7 @@
               "id": "4vmInU1H4C",
               "lastName": "C."
             },
-            "text": "Please \"like\" our College Facebook ( http://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( http://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( http://twitter.com/cobaecsun ).",
+            "text": "Please \"like\" our College Facebook ( https://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( https://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( https://twitter.com/cobaecsun ).",
             "timestamp": 1319639274411
           },
           {
@@ -64,7 +64,7 @@
         "code": "P",
         "name": "PRODUCT"
       },
-      "websiteUrl": "http://marketing.linkedinlabs.com/solutions/"
+      "websiteUrl": "https://marketing.linkedinlabs.com/solutions/"
     },
     {
       "creationTimestamp": 1288189388838,
@@ -80,7 +80,7 @@
         ]
       },
       "id": 1355,
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/07b/03f/2850067.jpg",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/3/000/07b/03f/2850067.jpg",
       "name": "LinkedIn Polls Sponsorship",
       "numRecommendations": 3,
       "productCategory": {
@@ -99,7 +99,7 @@
               "id": "4vmInU1H4C",
               "lastName": "C."
             },
-            "text": "Please \"like\" our College Facebook ( http://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( http://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( http://twitter.com/cobaecsun ).",
+            "text": "Please \"like\" our College Facebook ( https://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( https://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( https://twitter.com/cobaecsun ).",
             "timestamp": 1319639305544
           },
           {
@@ -130,7 +130,7 @@
         "code": "P",
         "name": "PRODUCT"
       },
-      "websiteUrl": "http://www.linkedin.com/opensocialInstallation/preview?_ch_panel_id=1&_applicationId=1900"
+      "websiteUrl": "https://www.linkedin.com/opensocialInstallation/preview?_ch_panel_id=1&_applicationId=1900"
     },
     {
       "creationTimestamp": 1288189671698,
@@ -144,7 +144,7 @@
         ]
       },
       "id": 1358,
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/07b/03f/2ce0c6a.jpg",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/2/000/07b/03f/2ce0c6a.jpg",
       "name": "LinkedIn Events Sponsorship",
       "numRecommendations": 2,
       "productCategory": {
@@ -163,7 +163,7 @@
               "id": "4vmInU1H4C",
               "lastName": "C."
             },
-            "text": "Please \"like\" our College Facebook ( http://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( http://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( http://twitter.com/cobaecsun ).",
+            "text": "Please \"like\" our College Facebook ( https://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( https://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( https://twitter.com/cobaecsun ).",
             "timestamp": 1319639194355
           },
           {
@@ -183,7 +183,7 @@
         "code": "P",
         "name": "PRODUCT"
       },
-      "websiteUrl": "http://marketing.linkedin.com/events/"
+      "websiteUrl": "https://marketing.linkedin.com/events/"
     },
     {
       "creationTimestamp": 1288276842801,
@@ -199,7 +199,7 @@
         ]
       },
       "id": 1436,
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/1/000/07b/031/0c57ed4.jpg",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/1/000/07b/031/0c57ed4.jpg",
       "name": "LinkedIn",
       "numRecommendations": 61,
       "productCategory": {
@@ -239,7 +239,7 @@
               "id": "4vmInU1H4C",
               "lastName": "C."
             },
-            "text": "Please \"like\" our College Facebook ( http://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( http://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( http://twitter.com/cobaecsun ).",
+            "text": "Please \"like\" our College Facebook ( https://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( https://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( https://twitter.com/cobaecsun ).",
             "timestamp": 1320014793248
           }
         ]
@@ -250,9 +250,9 @@
       },
       "video": {
         "title": "What is LinkedIn?",
-        "url": "http://www.youtube.com/v/IzT3JVUGUzM"
+        "url": "https://www.youtube.com/v/IzT3JVUGUzM"
       },
-      "websiteUrl": "http://www.linkedin.com"
+      "websiteUrl": "https://www.linkedin.com"
     },
     {
       "creationTimestamp": 1288276963673,
@@ -268,7 +268,7 @@
         ]
       },
       "id": 1437,
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/07b/030/3c07d83.jpg",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/3/000/07b/030/3c07d83.jpg",
       "name": "LinkedIn Mobile",
       "numRecommendations": 24,
       "productCategory": {
@@ -307,7 +307,7 @@
               "id": "4vmInU1H4C",
               "lastName": "C."
             },
-            "text": "Please \"like\" our College Facebook ( http://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( http://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( http://twitter.com/cobaecsun ).",
+            "text": "Please \"like\" our College Facebook ( https://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( https://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( https://twitter.com/cobaecsun ).",
             "timestamp": 1320014738046
           }
         ]
@@ -324,7 +324,7 @@
         "code": "P",
         "name": "PRODUCT"
       },
-      "websiteUrl": "http://www.linkedin.com/static?key=mobile"
+      "websiteUrl": "https://www.linkedin.com/static?key=mobile"
     }
   ]
 }

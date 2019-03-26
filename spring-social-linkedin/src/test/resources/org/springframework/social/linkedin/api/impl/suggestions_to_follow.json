@@ -3,7 +3,7 @@
   "_start": 0,
   "values": [
     {
-      "blogRssUrl": "http://blog-rd.ideotechnologies.com/?feed=rss2",
+      "blogRssUrl": "https://blog-rd.ideotechnologies.com/?feed=rss2",
       "companyType": {
         "code": "P",
         "name": "Privately Held"
@@ -34,7 +34,7 @@
           }
         }]
       },
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/1/000/0d3/130/1bb2cff.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/1/000/0d3/130/1bb2cff.png",
       "name": "Ideo Technologies",
       "numFollowers": 161,
       "specialties": {
@@ -52,7 +52,7 @@
           "devtools"
         ]
       },
-      "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/0d3/130/225b304.png",
+      "squareLogoUrl": "https://media.linkedin.com/mpr/mpr/p/2/000/0d3/130/225b304.png",
       "status": {
         "code": "OPR",
         "name": "Operating"
@@ -62,7 +62,7 @@
       "websiteUrl": "www.ideotechnologies.com"
     },
     {
-      "blogRssUrl": "http://www.linkedin.com/groups?about=&gid=4074413",
+      "blogRssUrl": "https://www.linkedin.com/groups?about=&gid=4074413",
       "companyType": {
         "code": "P",
         "name": "Privately Held"
@@ -128,7 +128,7 @@
           }
         ]
       },
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/1/000/016/258/182e246.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/1/000/016/258/182e246.png",
       "name": "OpenJaw Technologies",
       "numFollowers": 319,
       "specialties": {
@@ -152,10 +152,10 @@
       },
       "twitterId": "",
       "universalName": "openjaw-technologies",
-      "websiteUrl": "http://www.openjawtech.com"
+      "websiteUrl": "https://www.openjawtech.com"
     },
     {
-      "blogRssUrl": "http://semanticmind.eu/feed/",
+      "blogRssUrl": "https://semanticmind.eu/feed/",
       "companyType": {
         "code": "P",
         "name": "Privately Held"
@@ -202,7 +202,7 @@
           }
         ]
       },
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/07c/02f/3c18ddc.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/2/000/07c/02f/3c18ddc.png",
       "name": "Software Mind",
       "numFollowers": 250,
       "specialties": {
@@ -221,7 +221,7 @@
       },
       "twitterId": "SoftwareMind",
       "universalName": "software-mind",
-      "websiteUrl": "http://www.softwaremind.com"
+      "websiteUrl": "https://www.softwaremind.com"
     },
     {
       "blogRssUrl": "",
@@ -242,7 +242,7 @@
       "id": 1761399,
       "industry": "Information Technology and Services",
       "locations": {"_total": 0},
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/0c1/06c/069474e.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/2/000/0c1/06c/069474e.png",
       "name": "InterWorks",
       "numFollowers": 68,
       "specialties": {
@@ -253,14 +253,14 @@
           "IBM platforms, .NET, CMS"
         ]
       },
-      "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/0c1/06b/2099a7e.png",
+      "squareLogoUrl": "https://media.linkedin.com/mpr/mpr/p/3/000/0c1/06b/2099a7e.png",
       "status": {
         "code": "OPR",
         "name": "Operating"
       },
       "twitterId": "",
       "universalName": "interworks",
-      "websiteUrl": "http://interworks.com.mk"
+      "websiteUrl": "https://interworks.com.mk"
     },
     {
       "companyType": {
@@ -310,7 +310,7 @@
           }
         ]
       },
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/01a/0e4/0835ac0.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/3/000/01a/0e4/0835ac0.png",
       "name": "eConsulting",
       "numFollowers": 106,
       "specialties": {
@@ -329,7 +329,7 @@
         "name": "Operating"
       },
       "universalName": "econsulting",
-      "websiteUrl": "http://www.econsulting.pl"
+      "websiteUrl": "https://www.econsulting.pl"
     },
     {
       "blogRssUrl": "",
@@ -360,7 +360,7 @@
           "contactInfo": {}
         }]
       },
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/046/24d/00055d9.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/3/000/046/24d/00055d9.png",
       "name": "Tricon Infotech Pvt. Ltd",
       "numFollowers": 559,
       "specialties": {
@@ -398,11 +398,11 @@
           "contactInfo": {}
         }]
       },
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/057/016/16eb9bd.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/3/000/057/016/16eb9bd.png",
       "name": "Java Jobs",
       "numFollowers": 302,
       "universalName": "java-jobs",
-      "websiteUrl": "http://javajobs.net/"
+      "websiteUrl": "https://javajobs.net/"
     },
     {
       "blogRssUrl": "",
@@ -436,7 +436,7 @@
           }
         }]
       },
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/1/000/0fd/0cc/1db9c69.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/1/000/0fd/0cc/1db9c69.png",
       "name": "OBSS",
       "numFollowers": 151,
       "specialties": {
@@ -457,7 +457,7 @@
       "websiteUrl": "www.obss.com.tr"
     },
     {
-      "blogRssUrl": "http://fusesource.com/blogs/",
+      "blogRssUrl": "https://www.jboss.org/",
       "companyType": {
         "code": "C",
         "name": "Public Company"
@@ -488,7 +488,7 @@
           }
         }]
       },
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/079/269/278ad94.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/2/000/079/269/278ad94.png",
       "name": "FuseSource",
       "numFollowers": 174,
       "specialties": {
@@ -515,7 +515,7 @@
         "code": "P",
         "name": "Privately Held"
       },
-      "description": "A different approach to technology \r\nGenitech is an international organization including Genigraph, Optech Software, and Genitech Tunisie, with 140 employees worldwide. \r\n\r\nSince 1992 our business has been dedicated to developing complex software applications combining distributed architecture, interactive graphics, optimization, and business rules. \r\n\r\nWe are a consulting company providing expertise and solutions for object oriented technology. Our engineers are experts in UML, BPMN, Java, J2EE, C++, Design Patterns, C# and .NET. \r\n\r\nWe provide solutions to all levels of the software life cycle including requirements engineering, design, implementation, test, deployment and maintenance. Genitech\u2019s 17+ years of experience in object-oriented technology makes us experts in integrated software packages in several domains: finances, banking, industry, e-services, insurance, and telecom. Ongoing training and certification of our engineers allows our customers to stay up-to-date with fast changing technology.\r\nProduct porfolio includes e-Citiz (http://www.e-citiz.com) and AGIR (http://www.genigraph.fr/index.php?page=rubrique&id_rubrique=30).",
+      "description": "A different approach to technology \r\nGenitech is an international organization including Genigraph, Optech Software, and Genitech Tunisie, with 140 employees worldwide. \r\n\r\nSince 1992 our business has been dedicated to developing complex software applications combining distributed architecture, interactive graphics, optimization, and business rules. \r\n\r\nWe are a consulting company providing expertise and solutions for object oriented technology. Our engineers are experts in UML, BPMN, Java, J2EE, C++, Design Patterns, C# and .NET. \r\n\r\nWe provide solutions to all levels of the software life cycle including requirements engineering, design, implementation, test, deployment and maintenance. Genitech\u2019s 17+ years of experience in object-oriented technology makes us experts in integrated software packages in several domains: finances, banking, industry, e-services, insurance, and telecom. Ongoing training and certification of our engineers allows our customers to stay up-to-date with fast changing technology.\r\nProduct porfolio includes e-Citiz (https://www.e-citiz.com) and AGIR (https://www.softeam.fr/index.php?page=rubrique&id_rubrique=30).",
       "emailDomains": {
         "_total": 2,
         "values": [
@@ -568,7 +568,7 @@
           }
         ]
       },
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/01f/2bf/0a62328.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/3/000/01f/2bf/0a62328.png",
       "name": "Genigraph",
       "numFollowers": 160,
       "specialties": {
@@ -582,7 +582,7 @@
           "JEE (JBoss, Webshere)"
         ]
       },
-      "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/1/000/097/23b/0500591.png",
+      "squareLogoUrl": "https://media.linkedin.com/mpr/mpr/p/1/000/097/23b/0500591.png",
       "status": {
         "code": "OPR",
         "name": "Operating"

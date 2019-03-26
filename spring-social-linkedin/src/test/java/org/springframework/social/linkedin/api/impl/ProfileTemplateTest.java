@@ -44,9 +44,9 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("Craig", profile.getFirstName());
 		assertEquals("Walls", profile.getLastName());
 		assertEquals("Computer Software", profile.getIndustry());
-		assertEquals("http://www.linkedin.com/in/habuma", profile.getPublicProfileUrl());
-		assertEquals("http://www.linkedin.com/standardProfileUrl", profile.getSiteStandardProfileRequest().getUrl());
-		assertEquals("http://media.linkedin.com/pictureUrl", profile.getProfilePictureUrl());
+		assertEquals("https://www.linkedin.com/in/habuma", profile.getPublicProfileUrl());
+		assertEquals("https://www.linkedin.com/standardProfileUrl", profile.getSiteStandardProfileRequest().getUrl());
+		assertEquals("https://media.linkedin.com/pictureUrl", profile.getProfilePictureUrl());
 	}
 	
 	@Test 
@@ -78,7 +78,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("Dublin, Ireland", profile.getMainAddress());
 		assertEquals(1, profile.getMemberUrlResources().size());
 		assertEquals("Company Website", profile.getMemberUrlResources().get(0).getName());
-		assertEquals("http://www.robatron.com", profile.getMemberUrlResources().get(0).getUrl());
+		assertEquals("https://www.robatron.com", profile.getMemberUrlResources().get(0).getUrl());
 		assertEquals(2, profile.getNumRecommenders());
 		assertEquals("+353 87 9580000", profile.getPhoneNumbers().get(0).getPhoneNumber());
 		assertEquals("mobile", profile.getPhoneNumbers().get(0).getPhoneType());
@@ -114,7 +114,7 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 	public void getProfileUrl() {
 		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.PROFILE_FIELDS + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("profile.json", getClass()), MediaType.APPLICATION_JSON));
-		assertEquals("http://www.linkedin.com/in/habuma", linkedIn.profileOperations().getProfileUrl());
+		assertEquals("https://www.linkedin.com/in/habuma", linkedIn.profileOperations().getProfileUrl());
 	}
 	
 	@Test 
@@ -172,15 +172,15 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 			.andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("profile.json", getClass()), MediaType.APPLICATION_JSON));
 		
-		LinkedInProfile profile = linkedIn.profileOperations().getProfileByPublicUrl("http://www.linkedin.com/in/habuma");
+		LinkedInProfile profile = linkedIn.profileOperations().getProfileByPublicUrl("https://www.linkedin.com/in/habuma");
 		assertEquals("z37f0n3A05", profile.getId());
 		assertEquals("Just a guy", profile.getHeadline());
 		assertEquals("Craig", profile.getFirstName());
 		assertEquals("Walls", profile.getLastName());
 		assertEquals("Computer Software", profile.getIndustry());
-		assertEquals("http://www.linkedin.com/in/habuma", profile.getPublicProfileUrl());
-		assertEquals("http://www.linkedin.com/standardProfileUrl", profile.getSiteStandardProfileRequest().getUrl());
-		assertEquals("http://media.linkedin.com/pictureUrl", profile.getProfilePictureUrl());
+		assertEquals("https://www.linkedin.com/in/habuma", profile.getPublicProfileUrl());
+		assertEquals("https://www.linkedin.com/standardProfileUrl", profile.getSiteStandardProfileRequest().getUrl());
+		assertEquals("https://media.linkedin.com/pictureUrl", profile.getProfilePictureUrl());
 	}
 
 }
