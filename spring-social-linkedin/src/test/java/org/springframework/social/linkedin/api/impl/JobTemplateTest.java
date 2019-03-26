@@ -69,7 +69,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 		assertLinkedInDate(j.getPostingDate(), 2011, 11, 8);
 		assertEquals(new Date(1320773338000l), j.getPostingTimestamp());
 		assertEquals("60 - 70K or 350-400/day (EURO)", j.getSalary());
-		assertEquals("http://www.linkedin.com/jobs?viewJob=&jobId=2160963&trk=api*a151944*s160233*", j.getSiteJobUrl());
+		assertEquals("https://www.linkedin.com/jobs?viewJob=&jobId=2160963&trk=api*a151944*s160233*", j.getSiteJobUrl());
 		assertEquals(494, j.getSkillsAndExperience().length());
 		
 		JobPosition p = j.getPosition();
@@ -111,7 +111,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 		assertLinkedInDate(j.getPostingDate(), 2011, 11, 8);
 		assertEquals(new Date(1320773338000l), j.getPostingTimestamp());
 		assertEquals("60 - 70K or 350-400/day (EURO)", j.getSalary());
-		assertEquals("http://www.linkedin.com/jobs?viewJob=&jobId=2160963&trk=api*a151944*s160233*", j.getSiteJobUrl());
+		assertEquals("https://www.linkedin.com/jobs?viewJob=&jobId=2160963&trk=api*a151944*s160233*", j.getSiteJobUrl());
 		assertEquals(494, j.getSkillsAndExperience().length());
 		
 		JobPosition p = j.getPosition();
@@ -153,7 +153,7 @@ public class JobTemplateTest extends AbstractLinkedInApiTest {
 		assertLinkedInDate(j.getPostingDate(), 2011, 11, 8);
 		assertEquals(new Date(1320773338000l), j.getPostingTimestamp());
 		assertEquals("60 - 70K or 350-400/day (EURO)", j.getSalary());
-		assertEquals("http://www.linkedin.com/jobs?viewJob=&jobId=2160963&trk=api*a151944*s160233*", j.getSiteJobUrl());
+		assertEquals("https://www.linkedin.com/jobs?viewJob=&jobId=2160963&trk=api*a151944*s160233*", j.getSiteJobUrl());
 		assertEquals(494, j.getSkillsAndExperience().length());
 		
 		JobPosition p = j.getPosition();
