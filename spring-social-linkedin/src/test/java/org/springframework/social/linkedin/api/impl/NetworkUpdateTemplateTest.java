@@ -129,7 +129,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 		assertProfile(updates.get(1).getUpdateContent(), "r90Z7yavvv", "VP Sales & Operations at Smith", "Niall", "Smith", null, "");
 		assertShare(((UpdateContentShare)updates.get(1).getUpdateContent()).getCurrentShare(), 
 				"s699246000", "anyone", "TWITTER", "niall_smith", "8427000", "136088316402614000",
-				"Take a photo tour of what the new Kindle Fire has to offer. http://t.co/cEXESrIv via @CNET #li");
+				"Take a photo tour of what the new Kindle Fire has to offer. https://t.co/cEXESrIv via @CNET #li");
 		assertProfile(((UpdateContentShare)updates.get(1).getUpdateContent()).getCurrentShare().getAuthor(), "r90Z7yavvv", "VP Sales & Operations at Smith", "Niall", "Smith", null, "");
 		
 		// Profile Update
@@ -140,7 +140,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 		// Group Update
 		assertUpdate(updates.get(3), UpdateType.JGRP, UpdateContentGroup.class,
 				new Date(1321271102476l), "JGRP-2481200-5541812670493100000-*1", true);
-		assertGroup(((UpdateContentGroup)updates.get(3).getUpdateContent()).getMemberGroups().get(0), "130889", "Irish Executives", "http://www.linkedin.com/groups?gid=130889");
+		assertGroup(((UpdateContentGroup)updates.get(3).getUpdateContent()).getMemberGroups().get(0), "130889", "Irish Executives", "https://www.linkedin.com/groups?gid=130889");
 		
 		// Viral Update (Contains Share Update embedded)
 		assertUpdate(updates.get(4), UpdateType.VIRL, UpdateContentViral.class,
@@ -174,7 +174,7 @@ public class NetworkUpdateTemplateTest extends AbstractLinkedInApiTest {
 		assertUpdate(updates.get(8), UpdateType.APPM, UpdateContentPersonActivity.class,
 				new Date(1321285689160l), "APPM-7024701-554187385169820000-1700", true);
 		assertPersonActivity(((UpdateContentPersonActivity)updates.get(8).getUpdateContent()).getPersonActivities().get(0),
-				1700, "<a href=\"http://www.linkedin.com//profile?viewProfile=&key=7024000\">Paul O&#39;Smith</a> recommends <a href=\"http://www.linkedin.com//redirect?url=http%3A%2F%2Fwww%2Elinkedin%2Ecom%2Fosview%2Fcanvas%3F_ch_page_id%3D1%26_ch_panel_id%3D3%26_ch_app_id%3D20%26_applicationId%3D1700%26_ownerId%3D7024701%26osUrlHash%3DepGa%26appParams%3D%257B%2522view%2522%253A%2522book%2522%252C%2522asin%2522%253A%25220446563048%2522%252C%2522offset%2522%253A%25220%2522%257D&urlhash=aA19\">Delivering Happiness: A Path to Profits, Passion, and Purpose</a>");
+				1700, "<a href=\"https://www.linkedin.com//profile?viewProfile=&key=7024000\">Paul O&#39;Smith</a> recommends <a href=\"https://www.linkedin.com//redirect?url=http%3A%2F%2Fwww%2Elinkedin%2Ecom%2Fosview%2Fcanvas%3F_ch_page_id%3D1%26_ch_panel_id%3D3%26_ch_app_id%3D20%26_applicationId%3D1700%26_ownerId%3D7024701%26osUrlHash%3DepGa%26appParams%3D%257B%2522view%2522%253A%2522book%2522%252C%2522asin%2522%253A%25220446563048%2522%252C%2522offset%2522%253A%25220%2522%257D&urlhash=aA19\">Delivering Happiness: A Path to Profits, Passion, and Purpose</a>");
 	}
 	
 }

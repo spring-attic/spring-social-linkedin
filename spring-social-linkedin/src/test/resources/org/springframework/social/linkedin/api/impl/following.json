@@ -29,7 +29,7 @@
           "contactInfo": {}
         }]
       },
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/035/2ed/115d064.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/3/000/035/2ed/115d064.png",
       "name": "amworks",
       "numFollowers": 20,
       "specialties": {
@@ -44,7 +44,7 @@
         "name": "Operating"
       },
       "universalName": "amworks",
-      "websiteUrl": "http://www.amworks.ie"
+      "websiteUrl": "https://www.amworks.ie"
     },
     {
       "blogRssUrl": "",
@@ -150,7 +150,7 @@
           }
         ]
       },
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/01b/170/3d3e8eb.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/2/000/01b/170/3d3e8eb.png",
       "name": "Norkom Technologies",
       "numFollowers": 476,
       "specialties": {
@@ -179,7 +179,7 @@
       "ticker": "NORK.L",
       "twitterId": "",
       "universalName": "norkom-technologies",
-      "websiteUrl": "http://www.norkom.com"
+      "websiteUrl": "https://www.norkom.com"
     },
     {
       "blogRssUrl": "http://blogs.ts.fujitsu.com/uk-ie/index.php/feed/",
@@ -200,7 +200,7 @@
       "id": 2042836,
       "industry": "Information Technology and Services",
       "locations": {"_total": 0},
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/0d3/052/39a7fbe.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/3/000/0d3/052/39a7fbe.png",
       "name": "Fujitsu UK and Ireland",
       "numFollowers": 467,
       "specialties": {
@@ -212,14 +212,14 @@
           "Networks"
         ]
       },
-      "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/0d3/052/2ab022e.png",
+      "squareLogoUrl": "https://media.linkedin.com/mpr/mpr/p/2/000/0d3/052/2ab022e.png",
       "status": {
         "code": "OPR",
         "name": "Operating"
       },
       "twitterId": "fujitsu_uk",
       "universalName": "fujitsu-uk-and-ireland",
-      "websiteUrl": "http://uk.fujitsu.com"
+      "websiteUrl": "https://uk.fujitsu.com"
     },
     {
       "companyType": {
@@ -252,7 +252,7 @@
           }
         }]
       },
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/01c/190/0541b1d.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/3/000/01c/190/0541b1d.png",
       "name": "Arantech",
       "numFollowers": 288,
       "specialties": {
@@ -264,7 +264,7 @@
         "name": "Operating"
       },
       "universalName": "arantech",
-      "websiteUrl": "http://www.arantech.com"
+      "websiteUrl": "https://arantech.com"
     },
     {
       "companyType": {
@@ -294,7 +294,7 @@
       "name": "CAPE Technologies",
       "numFollowers": 39,
       "universalName": "cape-technologies",
-      "websiteUrl": "http://www.capetechnologies.com"
+      "websiteUrl": "https://www.capetechnologies.com"
     },
     {
       "blogRssUrl": "",
@@ -377,7 +377,7 @@
           }
         ]
       },
-      "logoUrl": "http://media.linkedin.com/mpr/mpr/p/2/000/097/091/0efc300.png",
+      "logoUrl": "https://media.linkedin.com/mpr/mpr/p/2/000/097/091/0efc300.png",
       "name": "Jinny Software",
       "numFollowers": 454,
       "specialties": {
@@ -389,7 +389,7 @@
           "Call Completion"
         ]
       },
-      "squareLogoUrl": "http://media.linkedin.com/mpr/mpr/p/3/000/097/097/25eb164.png",
+      "squareLogoUrl": "https://media.linkedin.com/mpr/mpr/p/3/000/097/097/25eb164.png",
       "status": {
         "code": "OPR",
         "name": "Operating"

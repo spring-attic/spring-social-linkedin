@@ -39,7 +39,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 		Company company = linkedIn.companyOperations().getCompany(1337);
 		
 		assertEquals(1337, company.getId());
-		assertEquals("http://feeds.feedburner.com/LinkedInBlog", company.getBlogRssUrl());
+		assertEquals("https://feeds.feedburner.com/LinkedInBlog", company.getBlogRssUrl());
 		assertEquals("C", company.getCompanyType().getCode());
 		assertEquals("Public Company", company.getCompanyType().getName());
 		assertEquals("LinkedIn takes your professional network online, giving you access to people, jobs and opportunities like never before. Built upon trusted connections and relationships, LinkedIn has established the world\u2019s largest and most powerful professional network. Currently, more than 135 million professionals are on LinkedIn, including executives from all five hundred of the Fortune 500 companies, as well as a wide range of household names in technology, financial services, media, consumer packaged goods, entertainment, and numerous other industries. The company is publicly held and has a diversified business model with revenues coming from user subscriptions, advertising sales and hiring solutions.", company.getDescription());
@@ -54,12 +54,12 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("94043", company.getLocations().get(0).getAddress().getPostalCode());
 		assertEquals("2029 Stierlin Court", company.getLocations().get(0).getAddress().getStreet1());
 		assertEquals("(402) 452-2320", company.getLocations().get(1).getContactInfo().getPhone1());
-		assertEquals("http://media.linkedin.com/mpr/mpr/p/3/000/0c2/1d7/1894403.png", company.getLogoUrl());
+		assertEquals("https://media.linkedin.com/mpr/mpr/p/3/000/0c2/1d7/1894403.png", company.getLogoUrl());
 		assertEquals("LinkedIn", company.getName());
 		assertEquals(90110, company.getNumFollowers());
 		assertEquals(8, company.getSpecialties().size());
 		assertEquals("Online Professional Network", company.getSpecialties().get(0));
-		assertEquals("http://media.linkedin.com/mpr/mpr/p/2/000/0fe/1b9/26acf51.png", company.getSquareLogoUrl());
+		assertEquals("https://media.linkedin.com/mpr/mpr/p/2/000/0fe/1b9/26acf51.png", company.getSquareLogoUrl());
 		assertEquals("OPR", company.getStatus().getCode());
 		assertEquals("Operating", company.getStatus().getName());
 		assertEquals("NYS", company.getStockExchange().getCode());
@@ -67,7 +67,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("LNKD", company.getTicker());
 		assertEquals("linkedin", company.getTwitterId());
 		assertEquals("linkedin", company.getUniversalName());
-		assertEquals("http://www.linkedin.com", company.getWebsiteUrl());
+		assertEquals("https://www.linkedin.com", company.getWebsiteUrl());
 	}
 	
 	@Test
@@ -147,7 +147,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals(4, p.getFeatures().size());
 		assertEquals("Engaging user experience", p.getFeatures().get(0));
 		assertEquals(1353, p.getId());
-		assertEquals("http://media.linkedin.com/mpr/mpr/p/1/000/07b/03f/2165a65.jpg", p.getLogoUrl());
+		assertEquals("https://media.linkedin.com/mpr/mpr/p/1/000/07b/03f/2165a65.jpg", p.getLogoUrl());
 		assertEquals("LinkedIn Content Ads", p.getName());
 		assertEquals(3, p.getNumRecommendations());
 		assertEquals("INT", p.getProductCategory().getCode());
@@ -158,7 +158,7 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("CSUN", p.getRecommendations().get(0).getRecommender().getFirstName());
 		assertEquals("4vmInU1H4C", p.getRecommendations().get(0).getRecommender().getId());
 		assertEquals("C.", p.getRecommendations().get(0).getRecommender().getLastName());
-		assertEquals("Please \"like\" our College Facebook ( http://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( http://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( http://twitter.com/cobaecsun ).", p.getRecommendations().get(0).getText());
+		assertEquals("Please \"like\" our College Facebook ( https://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( https://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( https://twitter.com/cobaecsun ).", p.getRecommendations().get(0).getText());
 		assertEquals(new Date(1319639274411l), p.getRecommendations().get(0).getTimestamp());
 	}
 

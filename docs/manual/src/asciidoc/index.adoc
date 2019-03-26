@@ -2,11 +2,11 @@
 Craig Walls; Keith Donald; Roy Clarkson
 
 The Spring Social LinkedIn project is an extension to
-http://www.springframework.org/spring-social[Spring Social] that enables
+https://www.springframework.org/spring-social[Spring Social] that enables
 integration with LinkedIn.
 
 == Introduction
-http://www.linkedin.com[LinkedIn] is a social networking site geared toward professionals. 
+https://www.linkedin.com[LinkedIn] is a social networking site geared toward professionals. 
 It enables its users to maintain and correspond with a network of contacts they have are professionally linked to.
 
 Spring Social LinkedIn enables integration with LinkedIn with
@@ -67,7 +67,7 @@ than Spring Social. Consequently, Spring Social's version may differ
 from that of Spring Social LinkedIn.
 
 Consult
-http://docs.spring.io/spring-social/docs/1.0.x/reference/html/overview.html#overview-howtoget[Spring
+https://docs.spring.io/spring-social/docs/1.0.x/reference/html/overview.html#overview-howtoget[Spring
 Social's reference documentation] for more information on Spring Social
 dependencies.
 
@@ -112,7 +112,7 @@ This is roughly equivalent to the Java-based configuration of `ConnectionFactory
 As in the Java-based configuration, the application's client ID and secret are externalized (shown here as property placeholders).
 
 Refer to
-http://docs.spring.io/spring-social/site/docs/1.1.0.RC1/reference/htmlsingle/index.html#connecting[Spring Social's reference documentation] for complete details on configuring `ConnectController` and its dependencies.
+https://docs.spring.io/spring-social/site/docs/1.1.0.RC1/reference/htmlsingle/index.html#connecting[Spring Social's reference documentation] for complete details on configuring `ConnectController` and its dependencies.
 
 == LinkedIn API Binding
 Spring Social LinkedIn offers integration with LinkedIn's REST API with the `LinkedIn` interface and its implementation, `LinkedInTemplate`.
@@ -125,7 +125,7 @@ LinkedIn linkedin = new LinkedInTemplate(accessToken);
 ```
 
 If you are using Spring Social's
-http://docs.spring.io/spring-social/site/docs/1.1.0.RC1/reference/htmlsingle/index.html#connectFramework[service provider framework], you can get an instance of `LinkedIn` from a `Connection`. For example, the following snippet calls `getApi()` on a connection to retrieve a `LinkedIn`:
+https://docs.spring.io/spring-social/site/docs/1.1.0.RC1/reference/htmlsingle/index.html#connectFramework[service provider framework], you can get an instance of `LinkedIn` from a `Connection`. For example, the following snippet calls `getApi()` on a connection to retrieve a `LinkedIn`:
 
 ```java
 Connection<LinkedIn> connection = connectionRepository.findPrimaryConnection(LinkedIn.class);

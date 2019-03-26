@@ -143,7 +143,7 @@ class NetworkUpdateTemplate extends AbstractTemplate implements NetworkUpdateOpe
 
 	/*
 	 * Added this as UriTemplate does not fully support uri templates
-	 * as per spec @ http://tools.ietf.org/html/draft-gregorio-uritemplate-07
+	 * as per spec @ https://tools.ietf.org/html/draft-gregorio-uritemplate-07
 	 *
 	 * Specifically {&start} should expand to start=VALUE or blank if not present but it seems
 	 * to just expand to VALUE as if it was {start}.  & is ignored
