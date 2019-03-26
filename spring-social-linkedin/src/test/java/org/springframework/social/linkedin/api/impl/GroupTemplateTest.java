@@ -98,7 +98,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("This is a group for users of the Spring Framework and related projects (Roo, Batch, Integration, BlazeDS, Security, Web Flow etc) to meet and discuss things of common interest.", group.getDescription());
 		assertEquals(new Integer(46964), group.getId());
 		assertEquals(true, group.isOpenToNonMembers());
-		assertEquals("http://media.linkedin.com/mpr/mpr/p/3/000/05d/2b8/0c75024.png", group.getLargeLogoUrl());
+		assertEquals("https://media.linkedin.com/mpr/mpr/p/3/000/05d/2b8/0c75024.png", group.getLargeLogoUrl());
 		assertEquals("en_US", group.getLocale());
 		assertEquals("Spring Users", group.getName());
 		assertEquals(10, group.getPosts().getPosts().size());
@@ -125,9 +125,9 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals(MembershipState.MEMBER, group.getRelationToViewer().getMembershipState());
 		
 		assertEquals("This is a group that welcomes all users of the Spring platform, including Spring Framework, Roo, Batch, Integration, BlazeDS, Security, Web Flow etc.", group.getShortDescription());
-		assertEquals("http://www.linkedin.com/groups?gid=46964&trk=api*a151944*s160233*", group.getSiteGroupUrl());
-		assertEquals("http://media.linkedin.com/mpr/mpr/p/2/000/05d/2b8/0cc68d3.png", group.getSmallLogoUrl());
-		assertEquals("http://www.springsource.org", group.getWebsiteUrl());
+		assertEquals("https://www.linkedin.com/groups?gid=46964&trk=api*a151944*s160233*", group.getSiteGroupUrl());
+		assertEquals("https://media.linkedin.com/mpr/mpr/p/2/000/05d/2b8/0cc68d3.png", group.getSmallLogoUrl());
+		assertEquals("https://www.springsource.org", group.getWebsiteUrl());
 	}
 	
 	@Test
@@ -175,13 +175,13 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals(PostAvailableAction.ADD_COMMENT, p.getRelationToViewer().getAvailableActions().get(0));
 		assertEquals(PostAvailableAction.CATEGORIZE_AS_JOB, p.getRelationToViewer().getAvailableActions().get(1));
 		
-		assertEquals("We keep doing it the same way. Looking for jobs where everyone else is looking . How stupid can I be. Thanks Peggy. Join our Insider updates: http://ow.ly/6Z4gy", p.getSummary());
+		assertEquals("We keep doing it the same way. Looking for jobs where everyone else is looking . How stupid can I be. Thanks Peggy. Join our Insider updates: https://brt89802.infusionsoft.com/app/form/newsletter", p.getSummary());
 		assertEquals("\"How To Find Jobs in ANY Economy\"  For Older Skilled Workers.", p.getTitle());
 		
 		assertEquals("internsover40beta.blogspot.com", p.getAttachment().getContentDomain());
-		assertEquals("http://internsover40beta.blogspot.com/2011/11/find-those-hidden-jobs-webinar.html#", p.getAttachment().getContentUrl());
-		assertEquals("http://2.bp.blogspot.com/-rqUKPf90Tv8/TsboRglXxJI/AAAAAAAADe0/EafW1pC6sns/s72-c/c419333_m.jpg", p.getAttachment().getImageUrl());
-		assertEquals("We keep doing it the same way. Looking for jobs where everyone else is looking . How stupid can I be. Thanks Peggy. Join our Insider updates: http://ow.ly/6Z4gy", p.getAttachment().getSummary());
+		assertEquals("https://internsover40beta.blogspot.com/2011/11/find-those-hidden-jobs-webinar.html#", p.getAttachment().getContentUrl());
+		assertEquals("https://2.bp.blogspot.com/-rqUKPf90Tv8/TsboRglXxJI/AAAAAAAADe0/EafW1pC6sns/s72-c/c419333_m.jpg", p.getAttachment().getImageUrl());
+		assertEquals("We keep doing it the same way. Looking for jobs where everyone else is looking . How stupid can I be. Thanks Peggy. Join our Insider updates: https://brt89802.infusionsoft.com/app/form/newsletter", p.getAttachment().getSummary());
 		assertEquals("\"How To Find Jobs in ANY Economy\"  For Older Skilled Workers.", p.getAttachment().getTitle());
 	
 	}
@@ -202,7 +202,7 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("g-4253322-S-89528249-64901084", c.getId());
 		assertEquals(new Date(1325749391000l), c.getCreationTimestamp());
 		assertProfile(c.getCreator(), null, null, "Piotr", "H.", null, null);
-		assertEquals("http://docs.spring.io/spring/docs/3.1.x/spring-framework-reference/html/overview.html#overview-dependency-injection", c.getText());
+		assertEquals("https://docs.spring.io/spring/docs/3.1.x/spring-framework-reference/html/overview.html#overview-dependency-injection", c.getText());
 		
 		c = comments.getComments().get(1);
 		assertEquals("g-4253322-S-89528249-64901084", c.getId());
