@@ -13,7 +13,7 @@
   "publicProfileUrl": "https://www.linkedin.com/in/habuma",
   "positions": {"_total": 0},
   "pictureUrl": "https://media.linkedin.com/pictureUrl",
-  "apiPublicProfileRequest": {"url": "https://api.linkedin.com/v1/people/url=http%3A%2F%2Fwww%2Elinkedin%2Ecom%2Fin%2Fhabuma:public"},
+  "apiPublicProfileRequest": {"url": "https://api.linkedin.com/v1/people/url=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Fin%2Fhabuma:public"},
   "apiStandardProfileRequest": {
     "headers": {
       "values": [{

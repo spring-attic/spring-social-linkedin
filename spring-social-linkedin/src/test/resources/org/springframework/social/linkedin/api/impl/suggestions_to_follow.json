@@ -510,7 +510,7 @@
       "websiteUrl": "fusesource.com"
     },
     {
-      "blogRssUrl": "http://blog.genigraph.fr/feed",
+      "blogRssUrl": "https://blog.genigraph.fr/feed",
       "companyType": {
         "code": "P",
         "name": "Privately Held"

@@ -48,16 +48,16 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("https://www.linkedin.com/standardProfileUrl", profile.getSiteStandardProfileRequest().getUrl());
 		assertEquals("https://media.linkedin.com/pictureUrl", profile.getProfilePictureUrl());
 	}
-	
-	@Test 
+
+	@Test
 	public void getUserProfileFull() {
 		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "~" + ProfileTemplate.FULL_PROFILE_FIELDS + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("profile_full.json", getClass()), MediaType.APPLICATION_JSON));
-		
+
 		LinkedInProfileFull profile = linkedIn.profileOperations().getUserProfileFull();
-		
+
 		assertProfile(profile, "UB2kruYmAL", "Software Architect", "Robert", "Drysdale", "Telecommunications", null);
-		
+
 		assertEquals("Canoeing Ireland", profile.getAssociations());
 		assertEquals(1900, profile.getDateOfBirth().getYear());
 		assertEquals(1, profile.getDateOfBirth().getMonth());
@@ -116,15 +116,15 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 			.andRespond(withSuccess(new ClassPathResource("profile.json", getClass()), MediaType.APPLICATION_JSON));
 		assertEquals("https://www.linkedin.com/in/habuma", linkedIn.profileOperations().getProfileUrl());
 	}
-	
-	@Test 
+
+	@Test
 	public void search() {
 		mockServer.expect(requestTo(
 				"https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,industry,site-standard-profile-request,public-profile-url,picture-url,summary,api-standard-profile-request))?keywords=Java+J2EE&country-code=ie&start=0&count=10"
 						 + "&oauth2_access_token=ACCESS_TOKEN"
 				)).andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("search.json", getClass()), MediaType.APPLICATION_JSON));
-		
+
 		SearchParameters parameters = new SearchParameters();
 		parameters.setCountryCode("ie");
 		parameters.setKeywords("Java J2EE");
@@ -133,10 +133,10 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals(10, result.getCount());
 		assertEquals(110, result.getTotal());
 		assertEquals(10, result.getPeople().size());
-		
-		assertProfile(result.getPeople().get(0), 
+
+		assertProfile(result.getPeople().get(0),
 				"YeagNX-lsX", "IT Consultant at Harvey Nash PLC", "Michelle", "Daly", "Staffing and Recruiting", null);
-		
+
 	}
 
 	@Test
@@ -150,28 +150,28 @@ public class ProfileTemplateTest extends AbstractLinkedInApiTest {
 		SearchParameters parameters = new SearchParameters();
 		parameters.setCountryCode("nl");
 		parameters.setKeywords("Java J2EE");
-		
+
 		parameters.addFacet(SearchParameters.FacetType.LANGUAGE, SearchParameters.LANGUAGE_ENGLISH);
 		parameters.addFacet(SearchParameters.FacetType.LANGUAGE, SearchParameters.LANGUAGE_GERMAN);
-		
+
 		parameters.addFacet(SearchParameters.FacetType.NETWORK, SearchParameters.NETWORK_FIRST_DEGREE);
-		
+
 		LinkedInProfiles result = linkedIn.profileOperations().search(parameters);
 		assertEquals(0, result.getStart());
 		assertEquals(10, result.getCount());
 		assertEquals(110, result.getTotal());
 		assertEquals(10, result.getPeople().size());
-		
+
 		assertProfile(result.getPeople().get(0),
 				"YeagNX-lsX", "IT Consultant at Harvey Nash PLC", "Michelle", "Daly", "Staffing and Recruiting", null);
 	}
-	
+
 	@Test
 	public void getProfileByPublicUrl() {
-		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "url=http%3A%2F%2Fwww.linkedin.com%2Fin%2Fhabuma" + ProfileTemplate.PROFILE_FIELDS + "&oauth2_access_token=ACCESS_TOKEN"))
+		mockServer.expect(requestTo(LinkedInTemplate.BASE_URL + "url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fhabuma" + ProfileTemplate.PROFILE_FIELDS + "&oauth2_access_token=ACCESS_TOKEN"))
 			.andExpect(method(GET))
 			.andRespond(withSuccess(new ClassPathResource("profile.json", getClass()), MediaType.APPLICATION_JSON));
-		
+
 		LinkedInProfile profile = linkedIn.profileOperations().getProfileByPublicUrl("https://www.linkedin.com/in/habuma");
 		assertEquals("z37f0n3A05", profile.getId());
 		assertEquals("Just a guy", profile.getHeadline());

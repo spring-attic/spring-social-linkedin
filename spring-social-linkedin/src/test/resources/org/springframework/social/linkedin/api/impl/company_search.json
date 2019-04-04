@@ -246,7 +246,7 @@
       },
       "twitterId": "",
       "universalName": "h3-technologies-llc",
-      "websiteUrl": "http://www.h3-technologies.com"
+      "websiteUrl": "https://www.h3-technologies.com"
     },
     {
       "blogRssUrl": "",
@@ -384,14 +384,14 @@
       },
       "twitterId": "",
       "universalName": "bk-consulting",
-      "websiteUrl": "http://bk-consulting.com/"
+      "websiteUrl": "https://bk-consulting.com/"
     },
     {
       "companyType": {
         "code": "S",
         "name": "Partnership"
       },
-      "description": "IZTIM Software provides custom software engineering and website development services. We can help you with your data processing and process automation needs. \r\n\r\nIZTIM is a young, dynamic Software Engineering organisation focusing on Object Oriented technologies, specialising in the provision of the highest quality Java, J2EE and ASP.Net development services. \r\n\r\nIZTIM Software got its start in 2005. In 2005, he incorporated and started doing projects for the companies in textile and automotive sector. Since then, the company has also partnered with other companies on projects and has developed close relationships with companies that have a high-level of expertise in other technologies, which allows us to conquer just about anything we are asked to do by our customers\r\n\r\nTechnologies:\r\nMicrosoft.NET Windows Forms, ASP.NET, MVC Framework\r\nJ2EE - EJB, Struts, Spring, Hibernate\r\nLAMP - Linux, Apache, MySQL, PHP\r\nWEB - HTML, XHTML, XML, XSLT, CSS, JavaScript, Flash (Actionscript), Ajax\r\n\r\nOur Products\r\n- Textile Applications\r\nInventory Management \u2013 Order Management System \u2013 Planning \u2013 Production \u2013 Reporting Tools\r\n\r\n- Community Server Solutions\r\nUtilizing the software development kit (SDK) of Community Server with CS 2008.5 allowed for a lot of flexibility to code and sufficient customization for designing. \r\n\r\nhttp://telligent.com/customers/lifestyle/cyclingtr/\r\n\r\n- Logistics Solutions\r\nSupply Chain Management System - Inventory Management\r\n\r\n-  Personnel / Time Attendance Systems\r\nA modern software for evaluating records of worker activities which have been stored by polimek card reader devices for reporting who, how many days and how many hours worked, without neither mistake nor forget. \r\n\r\n-  Web Reports\r\n\r\n- SEO\r\n\r\n- Flash Games\r\n\r\n-  Web Pages & Portals:\r\nwww.cyclingtr.com, \r\nwww.basimdunyamiz.com,\r\nwww.klogisticts.com.tr,  \r\nwww.artdtm.com",
+      "description": "IZTIM Software provides custom software engineering and website development services. We can help you with your data processing and process automation needs. \r\n\r\nIZTIM is a young, dynamic Software Engineering organisation focusing on Object Oriented technologies, specialising in the provision of the highest quality Java, J2EE and ASP.Net development services. \r\n\r\nIZTIM Software got its start in 2005. In 2005, he incorporated and started doing projects for the companies in textile and automotive sector. Since then, the company has also partnered with other companies on projects and has developed close relationships with companies that have a high-level of expertise in other technologies, which allows us to conquer just about anything we are asked to do by our customers\r\n\r\nTechnologies:\r\nMicrosoft.NET Windows Forms, ASP.NET, MVC Framework\r\nJ2EE - EJB, Struts, Spring, Hibernate\r\nLAMP - Linux, Apache, MySQL, PHP\r\nWEB - HTML, XHTML, XML, XSLT, CSS, JavaScript, Flash (Actionscript), Ajax\r\n\r\nOur Products\r\n- Textile Applications\r\nInventory Management \u2013 Order Management System \u2013 Planning \u2013 Production \u2013 Reporting Tools\r\n\r\n- Community Server Solutions\r\nUtilizing the software development kit (SDK) of Community Server with CS 2008.5 allowed for a lot of flexibility to code and sufficient customization for designing. \r\n\r\nhttps://telligent.com/customers/lifestyle/cyclingtr/\r\n\r\n- Logistics Solutions\r\nSupply Chain Management System - Inventory Management\r\n\r\n-  Personnel / Time Attendance Systems\r\nA modern software for evaluating records of worker activities which have been stored by polimek card reader devices for reporting who, how many days and how many hours worked, without neither mistake nor forget. \r\n\r\n-  Web Reports\r\n\r\n- SEO\r\n\r\n- Flash Games\r\n\r\n-  Web Pages & Portals:\r\nwww.cyclingtr.com, \r\nwww.basimdunyamiz.com,\r\nwww.klogisticts.com.tr,  \r\nwww.artdtm.com",
       "emailDomains": {
         "_total": 1,
         "values": ["iztim.com"]
@@ -468,7 +468,7 @@
         "name": "Operating"
       },
       "universalName": "goldstein-technologies-llc",
-      "websiteUrl": "http://www.goldsteintech.com"
+      "websiteUrl": "https://www.goldsteintech.com"
     }
   ]
 }}
