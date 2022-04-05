@@ -122,6 +122,21 @@ public interface GroupOperations {
 	 * @return the URI of the newly created Post
 	 */
 	URI createPost(Integer groupId, String title, String summary);
+
+	/**
+	 * Create a Post with Content
+	 *
+	 * @param groupId Group to Create Post on
+	 * @param postTitle Title of Post
+	 * @param postSummary Summary of Post
+	 * @param contentTitle Content title for Post
+	 * @param contentSubmittedUrl Content submitted URL for Post
+	 * @param contentSubmittedImageUrl Content submitted image URL for Post
+	 * @param contentDescription Content description
+	 * @return the URI of the newly created Post
+	 */
+	URI createPost(Integer groupId, String postTitle, String postSummary, String contentTitle,
+				   String contentSubmittedUrl, String contentSubmittedImageUrl, String contentDescription);
 	
 	/**
 	 * Like a Post

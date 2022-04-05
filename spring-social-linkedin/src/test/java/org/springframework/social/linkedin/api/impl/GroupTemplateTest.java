@@ -216,13 +216,64 @@ public class GroupTemplateTest extends AbstractLinkedInApiTest {
 	public void createPost() {
 		mockServer.expect(requestTo((GroupTemplate.GROUP_CREATE_POST_URL + "?oauth2_access_token=ACCESS_TOKEN").replaceFirst("\\{group-id\\}", "4253322")))
 			.andExpect(method(POST))
-			.andExpect(content().string("{\"summary\":\"This is a test\",\"title\":\"Test Post\"}"))
+			.andExpect(content().string("{\"title\":\"Test Post\",\"summary\":\"This is a test\"}"))
 			.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
 		
 		linkedIn.groupOperations().createPost(4253322, "Test Post", "This is a test");
-		
 	}
-	
+
+	@Test(expected = IllegalArgumentException.class)
+	public void createPostWithNullTitle() {
+		linkedIn.groupOperations().createPost(4253322, null, "This is a test");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void createPostWithEmptyTitle() {
+		linkedIn.groupOperations().createPost(4253322, "", "This is a test");
+	}
+
+	@Test
+	public void createPostWithNullSummary() {
+		mockServer.expect(requestTo((GroupTemplate.GROUP_CREATE_POST_URL + "?oauth2_access_token=ACCESS_TOKEN").replaceFirst("\\{group-id\\}", "4253322")))
+				.andExpect(method(POST))
+				.andExpect(content().string("{\"title\":\"Test Post\",\"summary\":\"\"}"))
+				.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
+
+		linkedIn.groupOperations().createPost(4253322, "Test Post", null);
+	}
+
+	@Test
+	public void createPostWithContent() {
+		String jsonPayload = "{\"title\":\"Test Post\",\"summary\":\"This is a test\",\"content\":{\"title\":\"Content title\"," +
+				"\"submittedUrl\":\"Submitted URL\",\"submittedImageUrl\":\"SubmittedImageUrl\",\"description\":\"Description\"}}";
+		mockServer.expect(requestTo((GroupTemplate.GROUP_CREATE_POST_URL + "?oauth2_access_token=ACCESS_TOKEN").replaceFirst("\\{group-id\\}", "4253322")))
+				.andExpect(method(POST))
+				.andExpect(content().string(jsonPayload))
+				.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
+		linkedIn.groupOperations().createPost(4253322, "Test Post", "This is a test", "Content title", "Submitted URL", "SubmittedImageUrl", "Description");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void createPostWithContentAndNullSubmittedUrl() {
+		linkedIn.groupOperations().createPost(4253322, "Test Post", "This is a test", "Content title", null, "SubmittedImageUrl", "Description");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void createPostWithContentAndEmptySubmittedUrl() {
+		linkedIn.groupOperations().createPost(4253322, "Test Post", "This is a test", "Content title", "", "SubmittedImageUrl", "Description");
+	}
+
+	@Test
+	public void createPostWithContentAndNullTitle() {
+		String jsonPayload = "{\"title\":\"Test Post\",\"summary\":\"This is a test\",\"content\":{\"title\":\"\"," +
+				"\"submittedUrl\":\"Submitted URL\",\"submittedImageUrl\":\"SubmittedImageUrl\",\"description\":\"Description\"}}";
+		mockServer.expect(requestTo((GroupTemplate.GROUP_CREATE_POST_URL + "?oauth2_access_token=ACCESS_TOKEN").replaceFirst("\\{group-id\\}", "4253322")))
+				.andExpect(method(POST))
+				.andExpect(content().string(jsonPayload))
+				.andRespond(withSuccess("", MediaType.APPLICATION_JSON));
+		linkedIn.groupOperations().createPost(4253322, "Test Post", "This is a test", null, "Submitted URL", "SubmittedImageUrl", "Description");
+	}
+
 	@Test
 	public void likePost() {
 		mockServer.expect(requestTo((GroupTemplate.GROUP_POST_LIKE_URL + "?oauth2_access_token=ACCESS_TOKEN").replaceFirst("\\{post-id\\}", "g-4253322-S-89528249")))
