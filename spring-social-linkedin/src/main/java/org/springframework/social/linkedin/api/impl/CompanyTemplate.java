@@ -16,7 +16,9 @@
 package org.springframework.social.linkedin.api.impl;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.social.linkedin.api.Companies;
 import org.springframework.social.linkedin.api.Company;
@@ -95,11 +97,13 @@ class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
 	}
 	
 	public void startFollowingCompany(int id) {
-		restOperations.postForLocation(COMPANY_FOLLOW_START_STOP_URL, Collections.singletonMap("id", id));
+		Map<String,Integer>idMap = new HashMap<String,Integer>();
+		idMap.put("id", id);
+		restOperations.postForLocation(COMPANY_FOLLOW_START_URL, idMap);
 	}
 	
 	public void stopFollowingCompany(int id) {
-		restOperations.delete(COMPANY_FOLLOW_START_STOP_URL, id);
+		restOperations.delete(COMPANY_FOLLOW_STOP_URL, id);
 	}
 	
 	public Products getProducts(int companyId, int start, int count) {
@@ -111,7 +115,8 @@ class CompanyTemplate extends AbstractTemplate implements CompanyOperations {
 	public static final String COMPANY_URL = BASE_URL + "companies{id}:" + COMPANY_FIELDS + "?{filter}";
 	public static final String COMPANY_SEARCH_URL = BASE_URL + "company-search:(companies:" + COMPANY_FIELDS + ")?keywords={keywords}";
 	public static final String COMPANY_FOLLOW_URL = BASE_URL + "people/~/following/companies:" + COMPANY_FIELDS;
-	public static final String COMPANY_FOLLOW_START_STOP_URL = BASE_URL + "people/~/following/companies/id={id}";
+	public static final String COMPANY_FOLLOW_START_URL = BASE_URL + "people/~/following/companies";
+	public static final String COMPANY_FOLLOW_STOP_URL = COMPANY_FOLLOW_START_URL + "/id={id}";
 	public static final String COMPANY_SUGGESTIONS_TO_FOLLOW = BASE_URL + "people/~/suggestions/to-follow/companies:" + COMPANY_FIELDS;
 	
 	public static final String PRODUCT_FIELDS="(id,name,type,creation-timestamp,logo-url,description,features,video:(title,url),product-deal:(title,url,text),sales-persons,num-recommendations,recommendations:(recommender,id,product-id,text,reply,timestamp,likes:(timestamp,person)),product-category,website-url,disclaimer)";
