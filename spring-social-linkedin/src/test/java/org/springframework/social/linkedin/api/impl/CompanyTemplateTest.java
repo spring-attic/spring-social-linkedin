@@ -163,5 +163,27 @@ public class CompanyTemplateTest extends AbstractLinkedInApiTest {
 		assertEquals("Please \"like\" our College Facebook ( https://www.facebook.com/pages/CSU-Northridge-College-of-Business-and-Economics/178294905565227 ), \"follow\" us on Tumblr ( https://cobaecsun.tumblr.com ), and \"follow\" us on Twitter ( https://twitter.com/cobaecsun ).", p.getRecommendations().get(0).getText());
 		assertEquals(new Date(1319639274411l), p.getRecommendations().get(0).getTimestamp());
 	}
+	
+	@Test
+        public void testGetPagesAdministrated() {
+                mockServer.expect(requestTo(CompanyTemplate.COMPANY_PAGES_ADMINISTRATED + "&oauth2_access_token=ACCESS_TOKEN")).andExpect(method(GET))
+                .andRespond(withSuccess(new ClassPathResource("company_pages_administrated.json", getClass()), MediaType.APPLICATION_JSON));
 
+                List<Company> result = linkedIn.companyOperations().getPagesAdministrated();
+
+                Company company = result.get(0);
+                assertEquals("C", company.getCompanyType().getCode());
+                assertEquals("Public Company", company.getCompanyType().getName());
+                assertEquals("catsonthetown.com", company.getEmailDomains().get(0));
+                assertEquals("A", company.getEmployeeCountRange().getCode());
+                assertEquals("myself only", company.getEmployeeCountRange().getName());
+                assertEquals(5188460, company.getId());
+                assertEquals("Accounting", company.getIndustry());
+                assertEquals("Cats on the Town", company.getName());
+                assertEquals("OPR", company.getStatus().getCode());
+                assertEquals("Operating", company.getStatus().getName());
+                assertEquals("", company.getTwitterId());
+                assertEquals("cats-on-the-town", company.getUniversalName());
+                assertEquals("catsonthetown.com", company.getWebsiteUrl());
+        }
 }
